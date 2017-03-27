@@ -8,18 +8,51 @@
 #ifndef SRC_FORMATION_H_
 #define SRC_FORMATION_H_
 
-#include "Person.h"
+#include "Agent.h"
+#include "IdentifiedObject.h"
+#include "DrawnObject.h"
+#include "AgentContainer.h"
+#include "OSpace.h"
+#include "PSpace.h"
 
-class Formation {
+class Formation: public IdentifiedObject, public DrawnObject, public AgentContainer {
 public:
-	Formation(std::vector<Person*> p);
-	virtual ~Formation();
+	Formation(double ospace_radius, double pspace_radius);
+	Formation(int id, double ospace_radius, double pspace_radius);
+	Formation(double x, double y, double ospace_radius, double pspace_radius);
+	Formation(int id, double x, double y, double ospace_radius, double pspace_radius);
+	Formation(double ospace_radius, double pspace_radius, std::vector<Agent*>& a);
+	Formation(int id, double ospace_radius, double pspace_radius, std::vector<Agent*>& a);
+	Formation(int id, double x, double y, double ospace_radius, double pspace_radius, std::vector<Agent*>& a);
+	Formation(double x, double y, double ospace_radius, double pspace_radius, std::vector<Agent*>& a);
 
-	void push(Person*);
+	~Formation();
 
-private:
-	Ospace ospace;
-	std::vector<Person*> related_persons;
+	void draw(double x, double y);
+
+
+	// Getters & Setters
+	const OSpace* getOspace() const {
+		return ospace;
+	}
+
+	void setOspace(OSpace* ospace) {
+		this->ospace = ospace;
+	}
+
+	const PSpace* getPspace() const {
+		return pspace;
+	}
+
+	void setPspace(PSpace* pspace) {
+		this->pspace = pspace;
+	}
+
+protected:
+	std::vector<Agent*> _agents;
+	OSpace* ospace;
+	PSpace* pspace;
 };
+
 
 #endif /* SRC_FORMATION_H_ */

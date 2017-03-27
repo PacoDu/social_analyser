@@ -2,27 +2,57 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	std::string file = "coffee_break.json";
+	std::string file = "synth.json";
+	std::string file_gt = "synth_gt.json";
 
-	// Parse the JSON
-	bool parsingSuccessful = json.open(file);
+	// Parse the feature JSON
+	bool parsingSuccessful = features.open(file);
 
 	if (parsingSuccessful){
-//		ofLogNotice("ofApp::setup") << json.getRawString();
+		ofLogNotice("ofApp::setup") << "Parsing features for frame #" << frameIndex;
 
-		for (Json::ArrayIndex i = 0; i < json["features"][j].size(); ++i)
+		for (Json::ArrayIndex i = 0; i < features["features"][frameIndex].size(); ++i)
 		{
-			population.push(new Person(
-					json["features"][0][i][0].asDouble(),
-					json["features"][0][i][1].asDouble(),
-					json["features"][0][i][2].asDouble(),
-					json["features"][0][i][3].asDouble()
+			population.pushAgent(new Agent(
+					features["features"][frameIndex][i][0].asInt(),
+					features["features"][frameIndex][i][1].asDouble(),
+					features["features"][frameIndex][i][2].asDouble(),
+					features["features"][frameIndex][i][3].asDouble()
 					));
 		}
 
 	}
 	else{
-		ofLogError("ofApp::setup")  << "Failed to parse JSON" << std::endl;
+		ofLogError("ofApp::setup")  << "Failed to parse features JSON" << std::endl;
+	}
+
+	// Parse the groundtruth JSON
+	parsingSuccessful = groundThruth.open(file_gt);
+
+	if (parsingSuccessful){
+		ofLogNotice("ofApp::setup") << "Parsing ground truth for frame #" << frameIndex;
+
+		for (Json::ArrayIndex i = 0; i < groundThruth["GTgroups"][frameIndex].size(); ++i)
+		{
+			std::vector<Agent*> group;
+			for(Json::ArrayIndex j = 0; j < groundThruth["GTgroups"][frameIndex][i].size(); j++){
+				group.push_back(population.getAgent(groundThruth["GTgroups"][frameIndex][i][j].asInt()));
+			}
+
+			population.pushFormation(
+					new Formation(
+						i,
+						group[group.size()-1]->getX(),
+						group[group.size()-1]->getY(),
+						25.0f,
+						40.0f,
+						group)
+				);
+		}
+
+	}
+	else{
+		ofLogError("ofApp::setup")  << "Failed to parse ground truth JSON" << std::endl;
 	}
 
 
@@ -37,15 +67,15 @@ void ofApp::update(){
 void ofApp::draw(){
 	ofBackground(0xF9F9F9);
 
-	ofVec2f x_bound = population.getBoundX();
-	ofVec2f y_bound = population.getBoundY();
+//	ofVec2f x_bound = population.getBoundX();
+//	ofVec2f y_bound = population.getBoundY();
 
 //	ofLogNotice("Population bounds: x("+ofToString(x_bound.x)+","+ofToString(x_bound.y)+") y("+ofToString(y_bound.x)+","+ofToString(y_bound.y)+")");
 
-	population.draw(-x_bound.x + 100,-y_bound.x + 100);
+	population.draw(100, 100);
 
 	std::stringstream ss;
-	ss << "Frame #" << j;
+	ss << "Frame #" << frameIndex;
 	ofSetHexColor(0x2C291F);
 	ofDrawBitmapString(ss.str(), 800, 14);
 }
@@ -53,21 +83,42 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 	if(key == OF_KEY_LEFT){
-		if(j>0) j--;
+		if(frameIndex>0) frameIndex--;
 	}
 	else if(key == OF_KEY_RIGHT){
-		if(j<json["features"].size()) j++;
+		if(frameIndex<features["features"].size()) frameIndex++;
 	}
 
 	population.clear();
-	for (Json::ArrayIndex i = 0; i < json["features"][j].size(); ++i)
+//	population.clearAgents();
+//	population.clearFormations();
+
+	for (Json::ArrayIndex i = 0; i < features["features"][frameIndex].size(); ++i)
 	{
-		population.push(new Person(
-				json["features"][j][i][0].asDouble(),
-				json["features"][j][i][1].asDouble(),
-				json["features"][j][i][2].asDouble(),
-				json["features"][j][i][3].asDouble()
+		population.pushAgent(new Agent(
+				features["features"][frameIndex][i][0].asDouble(),
+				features["features"][frameIndex][i][1].asDouble(),
+				features["features"][frameIndex][i][2].asDouble(),
+				features["features"][frameIndex][i][3].asDouble()
 				));
+	}
+
+	for (Json::ArrayIndex i = 0; i < groundThruth["GTgroups"][frameIndex].size(); ++i)
+	{
+		std::vector<Agent*> group;
+		for(Json::ArrayIndex j = 0; j < groundThruth["GTgroups"][frameIndex][i].size(); j++){
+			group.push_back(population.getAgent(groundThruth["GTgroups"][frameIndex][i][j].asInt()));
+		}
+
+		population.pushFormation(
+				new Formation(
+					i,
+					group[group.size()-1]->getX(),
+					group[group.size()-1]->getY(),
+					25.0f,
+					40.0f,
+					group)
+			);
 	}
 }
 

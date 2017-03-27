@@ -7,58 +7,37 @@
 
 #include "Population.h"
 
-Population::Population() {
-	// TODO Auto-generated constructor stub
-
-}
-
-Population::~Population() {
-	for(unsigned int i=0; i<_population.size(); i++){
-		delete _population[i];
-	}
-}
-
-void Population::draw(int x, int y) {
-	ofSetHexColor(0x00FF00);
+void Population::draw(double x, double y) {
 	std::stringstream ss;
 
-	for(unsigned int i=0; i<_population.size(); i++){
-		ss << "Person #" << _population[i]->getId()
-				<< ": x = " << _population[i]->getX()
-				<< ", y = " << _population[i]->getY()
-				<< ", Theta = " << _population[i]->getTheta()
-				<< ", Theta (degres) = " << ofRadToDeg(_population[i]->getTheta()) << std::endl;
+	for(unsigned int i=0; i<_formations.size(); i++){
+		ss << "Formation #" << _formations[i]->getId()
+				<< ": x = " << _formations[i]->getX()
+				<< ", y = " << _formations[i]->getY() << std::endl;
 
-		ofPushMatrix();
-			ofSetHexColor(0x6497b1);
-			ofTranslate(x+_population[i]->getX(), y+_population[i]->getY());
-			ofRotateZ(ofRadToDeg(_population[i]->getTheta()));
+		_formations[i]->draw(x,y);
+	}
 
-			ofDrawBitmapString("#"+ofToString(_population[i]->getId()), -10, -20);
-			ofDrawTriangle(0, 10, 25, 0, 0, -10);
+	for(unsigned int i=0; i<this->_agents.size(); i++){
+		ss << "Person #" << this->_agents[i]->getId()
+				<< ": x = " << this->_agents[i]->getX()
+				<< ", y = " << this->_agents[i]->getY()
+				<< ", Theta = " << this->_agents[i]->getTheta()
+				<< ", Theta (degres) = " << ofRadToDeg(this->_agents[i]->getTheta()) << std::endl;
 
-			ofSetHexColor(0x011f4b);
-			ofDrawCircle(0,0,5);
-
-			ofSetHexColor(0xFF0000);
-			ofDrawLine(0,0, 150,0);
-		ofPopMatrix();
+		this->_agents[i]->draw(x,y);
 	}
 
 	ofSetHexColor(0x2C291F);
 	ofDrawBitmapString(ss.str(), 10, 14);
 }
 
-void Population::push(Person* p) {
-	this->_population.push_back(p);
-}
-
 void Population::clear() {
-	for(unsigned int i=0; i<_population.size(); i++){
-		delete _population[i];
+	for(unsigned int i=0; i<this->_agents.size(); i++){
+		delete this->_agents[i];
 	}
 
-	this->_population.clear();
+	this->_agents.clear();
 
 	for(unsigned int i=0; i<_formations.size(); i++){
 		delete _formations[i];
@@ -66,7 +45,7 @@ void Population::clear() {
 
 	this->_formations.clear();
 
-	ofLogNotice("Population cleared");
+	ofLogNotice("Population::clear") << "Population cleared";
 }
 
 ofVec2f Population::getBoundX() {
@@ -74,9 +53,9 @@ ofVec2f Population::getBoundX() {
 	double x_min = INFINITY;
 
 
-	for(unsigned int i=0; i<_population.size(); i++){
-		if(x_max < _population[i]->getX()) x_max = _population[i]->getX();
-		if(x_min > _population[i]->getX()) x_min = _population[i]->getX();
+	for(unsigned int i=0; i<this->_agents.size(); i++){
+		if(x_max < this->_agents[i]->getX()) x_max = this->_agents[i]->getX();
+		if(x_min > this->_agents[i]->getX()) x_min = this->_agents[i]->getX();
 
 	}
 
@@ -87,14 +66,66 @@ ofVec2f Population::getBoundY() {
 	double y_max = -INFINITY;
 	double y_min = INFINITY;
 
-	for(unsigned int i=0; i<_population.size(); i++){
-		if(y_max < _population[i]->getY()) y_max = _population[i]->getY();
-		if(y_min > _population[i]->getY()) y_min = _population[i]->getY();
+	for(unsigned int i=0; i<this->_agents.size(); i++){
+		if(y_max < this->_agents[i]->getY()) y_max = this->_agents[i]->getY();
+		if(y_min > this->_agents[i]->getY()) y_min = this->_agents[i]->getY();
 	}
 
 	return ofVec2f(y_min, y_max);
 }
 
-void Population::addFormation(std::vector<Person*> p) {
-	_formations.push_back(new Formation(p));
+void Population::pushFormation(Formation* f) {
+	_formations.push_back(f);
+}
+
+Population::Population():
+		IdentifiedObject(), DrawnObject(), AgentContainer() {
+}
+
+Population::~Population() {
+	for(unsigned int i=0; i<this->_agents.size(); i++){
+		delete this->_agents[i];
+	}
+}
+
+Population::Population(int id):
+		IdentifiedObject(id), DrawnObject(), AgentContainer() {
+}
+
+Population::Population(double x, double y):
+		IdentifiedObject(), DrawnObject(x,y), AgentContainer(){
+}
+
+Population::Population(int id, double x, double y):
+		IdentifiedObject(id), DrawnObject(x,y), AgentContainer() {
+}
+
+Population::Population(std::vector<Agent*>& a):
+		IdentifiedObject(), DrawnObject(), AgentContainer(a) {
+}
+
+Population::Population(int id, std::vector<Agent*>& a):
+		IdentifiedObject(id), DrawnObject(), AgentContainer(a){
+}
+
+Population::Population(int id, double x, double y, std::vector<Agent*> a):
+		IdentifiedObject(id), DrawnObject(x,y), AgentContainer(a){
+}
+
+Population::Population(double x, double y, std::vector<Agent*>& a):
+		IdentifiedObject(), DrawnObject(x,y), AgentContainer(a){
+}
+
+int Population::removeFormation(unsigned int formationId) {
+	for(unsigned int i=0; i<_formations.size(); i++){
+		if(_formations[i]->getId() == formationId) {
+			_formations.erase(_formations.begin()+i);
+			return 0;
+		}
+	}
+	return -1;
+}
+
+void Population::clearFormations() {
+	_formations.clear();
 }

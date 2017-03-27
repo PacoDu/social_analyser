@@ -4,7 +4,7 @@
 #include "ofxJSON.h"
 #include <vector>
 
-#include "Person.h"
+#include "Agent.h"
 #include "Population.h"
 
 class ofApp : public ofBaseApp{
@@ -26,9 +26,10 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
-		ofxJSONElement json;
+		ofxJSONElement features;
+		ofxJSONElement groundThruth;
 
 		Population population;
-		unsigned int j=0;
+		unsigned int frameIndex=0;
 
 };
