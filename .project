@@ -35,5 +35,10 @@
 			<type>2</type>
 			<locationURI>/home/paco/dev/of_v0.9.8_linux64_release/addons/ofxJSON</locationURI>
 		</link>
+		<link>
+			<name>addons/ofxMatrixEigen</name>
+			<type>2</type>
+			<locationURI>/home/paco/dev/of_v0.9.8_linux64_release/addons/ofxMatrixEigen</locationURI>
+		</link>
 	</linkedResources>
 </projectDescription>

@@ -61,6 +61,45 @@ Formation::Formation(double x, double y, double ospace_radius, double pspace_rad
 }
 
 void Formation::draw(double x, double y) {
-	ospace->draw(x,y);
 	pspace->draw(x,y);
+	ospace->draw(x,y);
+}
+
+void Formation::computeSocialSpace() {
+	// Compute center of O-Space (means between agents)
+	double x = 0;
+	double y = 0;
+	for(unsigned int i=0; i < _agents.size(); i++){
+		x += _agents[i]->getX();
+		y += _agents[i]->getY();
+	}
+
+	x /= _agents.size();
+	y /= _agents.size();
+
+	ofPoint ospace_center = ofPoint(x,y);
+
+	// Compute mean distance from OSpace
+	double mean_dist = 0;
+
+	for(unsigned int i=0; i < _agents.size(); i++){
+		ofPoint agent = ofPoint(_agents[i]->getX(), _agents[i]->getY());
+
+		mean_dist += agent.distance(ospace_center);
+	}
+
+	mean_dist /= _agents.size();
+
+	//Set O-space
+	this->ospace->setX(ospace_center.x);
+	this->ospace->setY(ospace_center.y);
+
+	this->pspace->setX(ospace_center.x);
+	this->pspace->setY(ospace_center.y);
+
+	this->ospace->setRadius(mean_dist-10);
+	this->pspace->setInnerRadius(mean_dist-10);
+	this->pspace->setOuterRadius(mean_dist-10+30);
+
+	ofLogNotice("Formation::computeSocialSpace") << "Social space computed for Formation#" << this->getId() << " O(" << x << "," << y << ").";
 }

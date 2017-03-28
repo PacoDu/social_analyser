@@ -51,10 +51,10 @@ void PSpace::draw(double x, double y) {
 		ofSetHexColor(0xefbbff);
 		ofTranslate(x+this->getX(), y+this->getY());
 
-		ofNoFill();
-		ofSetLineWidth(this->getOuterRadius() - this->getInnerRadius());
-		ofDrawCircle(0, 0, this->getInnerRadius());
-		ofFill();
+//		ofNoFill();
+//		ofSetLineWidth(this->getOuterRadius() - this->getInnerRadius());
+		ofDrawCircle(0, 0, this->getOuterRadius());
+//		ofFill();
 
 //		ofSetHexColor(0x011f4b);
 //		ofDrawCircle(0,0,5);

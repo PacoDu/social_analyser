@@ -29,6 +29,7 @@ public:
 	~Formation();
 
 	void draw(double x, double y);
+	void computeSocialSpace();
 
 
 	// Getters & Setters
@@ -49,7 +50,6 @@ public:
 	}
 
 protected:
-	std::vector<Agent*> _agents;
 	OSpace* ospace;
 	PSpace* pspace;
 };

@@ -83,6 +83,10 @@ Population::Population():
 }
 
 Population::~Population() {
+	for(unsigned int i=0; i<this->_formations.size(); i++){
+		delete this->_formations[i];
+	}
+
 	for(unsigned int i=0; i<this->_agents.size(); i++){
 		delete this->_agents[i];
 	}
