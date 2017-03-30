@@ -24,7 +24,7 @@ public:
 	~Population();
 
 	// --- METHOD
-	void draw(World* world, Point p = Point());
+	void draw(World* world);
 	void clear();
 
 	ofVec2f getBoundX();

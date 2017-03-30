@@ -27,7 +27,7 @@ ofVec2f Agent::getDirection() {
 	return v;
 }
 
-void Agent::draw(World * world, Point p) {
+void Agent::draw(World * world) {
 	Point pView = real_to_pixel(world, this->getPosition());
 	ofPushMatrix();
 		ofSetHexColor(0x6497b1);

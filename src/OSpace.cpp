@@ -21,7 +21,7 @@ OSpace::~OSpace() {
 }
 
 // --- METHOD
-void OSpace::draw(World* world, Point p) {
+void OSpace::draw(World* world) {
 //	ofPushMatrix();
 //		ofSetHexColor(0xd896ff);
 //		ofTranslate(x+this->getX(), y+this->getY());

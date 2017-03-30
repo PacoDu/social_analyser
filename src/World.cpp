@@ -15,7 +15,12 @@ World::~World() {
 	// TODO Auto-generated destructor stub
 }
 
-void World::draw(World* world, Point p) {
+void World::draw(World* world) {
+	// TODO dirty
+	this->draw();
+}
+
+void World::draw(){
 	ofNoFill();
 	ofDrawRectangle(this->getX(), this->getY(), this->widthView, this->heightView);
 	ofFill();

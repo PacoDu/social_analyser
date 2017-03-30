@@ -33,7 +33,7 @@ public:
 	int nextFrame();
 	int previousFrame();
 
-	void draw(World* world, Point p = Point());
+	void draw(World* world);
 
 	// --- Getter & Setter
 	Population* getPopulation() const;

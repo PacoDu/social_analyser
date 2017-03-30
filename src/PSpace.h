@@ -18,7 +18,7 @@ public:
 
 	~PSpace();
 
-	void draw(World* world, Point p = Point());
+	void draw(World* world);
 
 
 	// Getters & Setters

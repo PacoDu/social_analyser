@@ -18,7 +18,7 @@ public:
 	GroupSocialSpace(std::vector<Agent*>& a, Point p = Point(), int id = 0);
 	virtual ~GroupSocialSpace();
 
-	virtual void draw(World* world, Point p = Point()) = 0;
+	virtual void draw(World* world) = 0;
 };
 
 #endif /* GROUPSOCIALSPACE_H_ */

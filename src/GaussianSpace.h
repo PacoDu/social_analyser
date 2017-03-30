@@ -23,7 +23,7 @@ public:
 	// --- METHOD
 	void compute();
 	double phi(double qx, double qy, double px, double py);
-	void draw(World* world, Point p = Point());
+	void draw(World* world);
 
 protected:
 	int width = 300;

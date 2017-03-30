@@ -20,7 +20,7 @@ PSpace::~PSpace() {
 	// TODO Auto-generated destructor stub
 }
 
-void PSpace::draw(World* world, Point p) {
+void PSpace::draw(World* world) {
 //	ofPushMatrix();
 //		ofSetHexColor(0xefbbff);
 //		ofTranslate(x+this->getX(), y+this->getY());

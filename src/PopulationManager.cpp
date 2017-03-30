@@ -123,8 +123,8 @@ int PopulationManager::previousFrame() {
 	return this->loadFrame(frameIndex);
 }
 
-void PopulationManager::draw(World* world, Point p) {
-	this->_population->draw(world, p);
+void PopulationManager::draw(World* world) {
+	this->_population->draw(world);
 }
 
 // --- Getter & Setter

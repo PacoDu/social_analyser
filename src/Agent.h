@@ -24,7 +24,7 @@ public:
 	// --- METHOD
 	ofVec2f getDirection();
 
-	void draw(World* world, Point p = Point());
+	void draw(World* world);
 
 	// --- Getter & Setter
 	PersonnalSocialSpace* getSocialSpace() const;

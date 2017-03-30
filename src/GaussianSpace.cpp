@@ -96,9 +96,10 @@ double GaussianSpace::phi(double qx, double qy, double px, double py){
 	return exp(-0.5*j);
 }
 
-void GaussianSpace::draw(World* world, Point p) {
+void GaussianSpace::draw(World* world) {
+	Point pView = real_to_pixel(world, this->getPosition());
 //	ofPushMatrix();
-//		ofTranslate(this->node->getParent()->getPosition().x + this->getX() - width/2 + x, this->node->getParent()->getPosition().y+this->getY() - height/2 + y);
+//		ofTranslate(this->getPosition().x + this->getX() - width/2 + x, this->node->getParent()->getPosition().y+this->getY() - height/2 + y);
 //		ofSetHexColor(0xFFFFFF);
 //		frame.draw(0,0);
 //	ofPopMatrix();

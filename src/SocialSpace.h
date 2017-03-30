@@ -20,7 +20,7 @@ public:
 	virtual ~SocialSpace();
 
 	// --- METHOD
-	virtual void draw(World* world, Point p = Point()) = 0;
+	virtual void draw(World* world) = 0;
 
 };
 

@@ -24,11 +24,12 @@ Formation::~Formation() {
 }
 
 // --- METHOD
-void Formation::draw(World* world, Point p) {
-	_socialSpace->draw(world,p);
+void Formation::draw(World* world) {
+	_socialSpace->draw(world);
 }
 
 void Formation::computeSocialSpace() {
+	// TODO Addapt to gaussian social space and enable auto compute for each agent
 	// Compute center of O-Space (means between agents)
 	double x = 0;
 	double y = 0;

@@ -26,7 +26,7 @@ public:
 	~Formation();
 
 	// --- METHOD
-	void draw(World* world, Point p = Point());
+	void draw(World* world);
 	void computeSocialSpace();
 
 	// Getters & Setters

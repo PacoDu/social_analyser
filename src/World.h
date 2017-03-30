@@ -16,7 +16,8 @@ public:
 	World(double w, double h, int wv, int hv, Point position = Point(), double theta = 0);
 	virtual ~World();
 
-	void draw(World* world, Point p = Point());
+	void draw(World* world);
+	void draw();
 
 	double width;
 	double height;

@@ -28,7 +28,7 @@ public:
 	void setX(int x){this->position.x = x;}
 	void setY(int y){this->position.y = y;}
 
-	virtual void draw(World* world, Point p = Point()) = 0;
+	virtual void draw(World* world) = 0;
 
 };
 

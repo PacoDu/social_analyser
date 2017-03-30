@@ -18,7 +18,7 @@ public:
 	~OSpace();
 
 	// --- METHOD
-	void draw(World* world, Point p = Point());
+	void draw(World* world);
 
 	// Getter & Setter
 	double getRadius() const;

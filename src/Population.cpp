@@ -27,7 +27,7 @@ Population::~Population() {
 }
 
 // --- METHOD
-void Population::draw(World* world, Point p) {
+void Population::draw(World* world) {
 	std::stringstream ss;
 
 	for(unsigned int i=0; i<_formations.size(); i++){
@@ -35,7 +35,7 @@ void Population::draw(World* world, Point p) {
 				<< ": x = " << _formations[i]->getX()
 				<< ", y = " << _formations[i]->getY() << std::endl;
 
-		_formations[i]->draw(world,p);
+		_formations[i]->draw(world);
 	}
 
 	for(unsigned int i=0; i<this->_agents.size(); i++){
@@ -45,7 +45,7 @@ void Population::draw(World* world, Point p) {
 				<< ", Theta = " << this->_agents[i]->getTheta()
 				<< ", Theta (degres) = " << ofRadToDeg(this->_agents[i]->getTheta()) << std::endl;
 
-		this->_agents[i]->draw(world,p);
+		this->_agents[i]->draw(world);
 	}
 
 	ofSetHexColor(0x2C291F);
