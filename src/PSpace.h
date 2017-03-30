@@ -8,19 +8,12 @@
 #ifndef SRC_PSPACE_H_
 #define SRC_PSPACE_H_
 
-#include "SocialSpace.h"
+#include "GroupSocialSpace.h"
 
-class PSpace: public SocialSpace {
+class PSpace: public GroupSocialSpace {
 public:
-	PSpace(double innerRadius, double outerRadius);
-	PSpace(int id, double innerRadius, double outerRadius);
-	PSpace(double x, double y, double innerRadius, double outerRadius);
-	PSpace(int id, double x, double y, double innerRadius, double outerRadius);
-
-	PSpace(double innerRadius, double outerRadius, std::vector<Agent*>& a);
-	PSpace(int id, double innerRadius, double outerRadius, std::vector<Agent*>& a);
-	PSpace(int id, double x, double y, double innerRadius, double outerRadius, std::vector<Agent*>& a);
-	PSpace(double x, double y, double innerRadius, double outerRadius, std::vector<Agent*>& a);
+	PSpace(double innerRadius, double outerRadius, double x = 0, double y = 0, int id = 0);
+	PSpace(double innerRadius, double outerRadius, std::vector<Agent*>& a, double x = 0, double y = 0, int id = 0);
 
 	~PSpace();
 

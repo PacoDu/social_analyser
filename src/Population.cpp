@@ -7,6 +7,26 @@
 
 #include "Population.h"
 
+// --- CONSTRUCTOR & DESTRUCTOR
+Population::Population(double x, double y, int id):
+		IdentifiedObject(id), DrawnObject(x,y), AgentContainer() {
+}
+
+Population::Population(std::vector<Agent*> a, double x, double y, int id):
+		IdentifiedObject(id), DrawnObject(x,y), AgentContainer(a){
+}
+
+Population::~Population() {
+	for(unsigned int i=0; i<this->_formations.size(); i++){
+		delete this->_formations[i];
+	}
+
+	for(unsigned int i=0; i<this->_agents.size(); i++){
+		delete this->_agents[i];
+	}
+}
+
+// --- METHOD
 void Population::draw(double x, double y) {
 	std::stringstream ss;
 
@@ -78,48 +98,6 @@ void Population::pushFormation(Formation* f) {
 	_formations.push_back(f);
 }
 
-Population::Population():
-		IdentifiedObject(), DrawnObject(), AgentContainer() {
-}
-
-Population::~Population() {
-	for(unsigned int i=0; i<this->_formations.size(); i++){
-		delete this->_formations[i];
-	}
-
-	for(unsigned int i=0; i<this->_agents.size(); i++){
-		delete this->_agents[i];
-	}
-}
-
-Population::Population(int id):
-		IdentifiedObject(id), DrawnObject(), AgentContainer() {
-}
-
-Population::Population(double x, double y):
-		IdentifiedObject(), DrawnObject(x,y), AgentContainer(){
-}
-
-Population::Population(int id, double x, double y):
-		IdentifiedObject(id), DrawnObject(x,y), AgentContainer() {
-}
-
-Population::Population(std::vector<Agent*>& a):
-		IdentifiedObject(), DrawnObject(), AgentContainer(a) {
-}
-
-Population::Population(int id, std::vector<Agent*>& a):
-		IdentifiedObject(id), DrawnObject(), AgentContainer(a){
-}
-
-Population::Population(int id, double x, double y, std::vector<Agent*> a):
-		IdentifiedObject(id), DrawnObject(x,y), AgentContainer(a){
-}
-
-Population::Population(double x, double y, std::vector<Agent*>& a):
-		IdentifiedObject(), DrawnObject(x,y), AgentContainer(a){
-}
-
 int Population::removeFormation(unsigned int formationId) {
 	for(unsigned int i=0; i<_formations.size(); i++){
 		if(_formations[i]->getId() == formationId) {
@@ -132,4 +110,13 @@ int Population::removeFormation(unsigned int formationId) {
 
 void Population::clearFormations() {
 	_formations.clear();
+}
+
+// --- Getter & Setter
+const std::vector<Formation*>& Population::getFormations() const {
+	return _formations;
+}
+
+void Population::setFormations(const std::vector<Formation*>& formations) {
+	_formations = formations;
 }

@@ -12,19 +12,14 @@
 #include "DrawnObject.h"
 #include "AgentContainer.h"
 
-class SocialSpace: public IdentifiedObject, public DrawnObject, public AgentContainer{
+class SocialSpace: public IdentifiedObject, public DrawnObject{
 public:
-	SocialSpace();
-	SocialSpace(int id);
-	SocialSpace(double x, double y);
-	SocialSpace(int id, double x, double y);
-	SocialSpace(std::vector<Agent*>& a);
-	SocialSpace(int id, std::vector<Agent*>& a);
-	SocialSpace(int id, double x, double y, std::vector<Agent*>& a);
-	SocialSpace(double x, double y, std::vector<Agent*>& a);
+	// --- CONSTRUCTOR & DESTRUCTOR
+	SocialSpace(double x = 0, double y = 0, int id = 0);
 	virtual ~SocialSpace();
 
-	virtual void draw(double x, double y) = 0;
+	// --- METHOD
+	virtual void draw(double x = 0, double y = 0) = 0;
 
 };
 

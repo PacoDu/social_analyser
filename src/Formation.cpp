@@ -8,15 +8,14 @@
 // TODO Merge constructor (e.i. lower constructor call the highest with default param)
 #include "Formation.h"
 
-Formation::Formation(double ospace_radius, double pspace_radius) {
-	this->ospace = new OSpace(this->getX(), this->getY(), ospace_radius);
-	this->pspace = new PSpace(this->getX(), this->getY(), ospace_radius, pspace_radius);
+// --- CONSTRUCTOR & DESTRUCTOR
+Formation::Formation(GroupSocialSpace* sp, std::vector<Agent*>& a , double x,
+		double y, double theta, int id):
+		IdentifiedObject(id), DrawnObject(x,y), AgentContainer(a), _socialSpace(sp){
 }
 
-Formation::Formation(double ospace_radius, double pspace_radius, std::vector<Agent*>& a):
-		IdentifiedObject(), DrawnObject(), AgentContainer(a)  {
-	this->ospace = new OSpace(this->getX(), this->getY(), ospace_radius);
-	this->pspace = new PSpace(this->getX(), this->getY(), ospace_radius, pspace_radius);
+Formation::Formation(GroupSocialSpace* sp, double x, double y, double theta, int id):
+		IdentifiedObject(id), DrawnObject(x,y), AgentContainer(), _socialSpace(sp){
 }
 
 Formation::~Formation() {
@@ -24,45 +23,9 @@ Formation::~Formation() {
 
 }
 
-Formation::Formation(int id, double ospace_radius, double pspace_radius):
-		IdentifiedObject(id), DrawnObject(), AgentContainer() {
-	this->ospace = new OSpace(this->getX(), this->getY(), ospace_radius);
-	this->pspace = new PSpace(this->getX(), this->getY(), ospace_radius, pspace_radius);
-}
-
-Formation::Formation(double x, double y, double ospace_radius, double pspace_radius):
-		IdentifiedObject(), DrawnObject(x,y), AgentContainer() {
-	this->ospace = new OSpace(this->getX(), this->getY(), ospace_radius);
-	this->pspace = new PSpace(this->getX(), this->getY(), ospace_radius, pspace_radius);
-}
-
-Formation::Formation(int id, double x, double y, double ospace_radius, double pspace_radius):
-		IdentifiedObject(id), DrawnObject(x,y), AgentContainer() {
-	this->ospace = new OSpace(this->getX(), this->getY(), ospace_radius);
-	this->pspace = new PSpace(this->getX(), this->getY(), ospace_radius, pspace_radius);
-}
-
-Formation::Formation(int id, double ospace_radius, double pspace_radius, std::vector<Agent*>& a):
-		IdentifiedObject(id), DrawnObject(), AgentContainer(a) {
-	this->ospace = new OSpace(this->getX(), this->getY(), ospace_radius);
-	this->pspace = new PSpace(this->getX(), this->getY(), ospace_radius, pspace_radius);
-}
-
-Formation::Formation(int id, double x, double y, double ospace_radius, double pspace_radius, std::vector<Agent*>& a):
-		IdentifiedObject(id), DrawnObject(x,y), AgentContainer(a) {
-	this->ospace = new OSpace(this->getX(), this->getY(), ospace_radius);
-	this->pspace = new PSpace(this->getX(), this->getY(), ospace_radius, pspace_radius);
-}
-
-Formation::Formation(double x, double y, double ospace_radius, double pspace_radius, std::vector<Agent*>& a):
-		IdentifiedObject(), DrawnObject(x,y), AgentContainer(a) {
-	this->ospace = new OSpace(this->getX(), this->getY(), ospace_radius);
-	this->pspace = new PSpace(this->getX(), this->getY(), ospace_radius, pspace_radius);
-}
-
+// --- METHOD
 void Formation::draw(double x, double y) {
-	pspace->draw(x,y);
-	ospace->draw(x,y);
+	_socialSpace->draw();
 }
 
 void Formation::computeSocialSpace() {
@@ -91,15 +54,18 @@ void Formation::computeSocialSpace() {
 	mean_dist /= _agents.size();
 
 	//Set O-space
-	this->ospace->setX(ospace_center.x);
-	this->ospace->setY(ospace_center.y);
-
-	this->pspace->setX(ospace_center.x);
-	this->pspace->setY(ospace_center.y);
-
-	this->ospace->setRadius(mean_dist-10);
-	this->pspace->setInnerRadius(mean_dist-10);
-	this->pspace->setOuterRadius(mean_dist-10+30);
+//	this->ospace->setX(ospace_center.x);
+//	this->ospace->setY(ospace_center.y);
+//
+//	this->pspace->setX(ospace_center.x);
+//	this->pspace->setY(ospace_center.y);
+//
+//	this->ospace->setRadius(mean_dist-10);
+//	this->pspace->setInnerRadius(mean_dist-10);
+//	this->pspace->setOuterRadius(mean_dist-10+30);
 
 	ofLogNotice("Formation::computeSocialSpace") << "Social space computed for Formation#" << this->getId() << " O(" << x << "," << y << ").";
 }
+
+// Getters & Setters
+

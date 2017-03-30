@@ -14,19 +14,16 @@
 #include "DrawnObject.h"
 #include "AgentContainer.h"
 #include "ofMain.h"
+#include "Population.h"
 
 class Population: public IdentifiedObject, public DrawnObject, public AgentContainer {
 public:
-	Population();
-	Population(int id);
-	Population(double x, double y);
-	Population(int id, double x, double y);
-	Population(std::vector<Agent*>& a);
-	Population(int id, std::vector<Agent*>& a);
-	Population(int id, double x, double y, std::vector<Agent*> a);
-	Population(double x, double y, std::vector<Agent*>& a);
+	// --- CONSTRUCTOR & DESTRUCTOR
+	Population(double x = 0, double y = 0, int id = 0);
+	Population(std::vector<Agent*> a, double x = 0, double y = 0, int id = 0);
 	~Population();
 
+	// --- METHOD
 	void draw(double x, double y);
 	void clear();
 
@@ -36,6 +33,10 @@ public:
 	void pushFormation(Formation* f);
 	void clearFormations();
 	int removeFormation(unsigned int formationId);
+
+	// --- Getter & Setter
+	const std::vector<Formation*>& getFormations() const;
+	void setFormations(const std::vector<Formation*>& formations);
 
 private:
 	std::vector<Formation*> _formations;

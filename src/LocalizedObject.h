@@ -10,29 +10,22 @@
 
 class LocalizedObject {
 public:
-	LocalizedObject();
-	LocalizedObject(double x, double y);
+	// --- CONSTRUCTOR & DESTRUCTOR
+	LocalizedObject(double x = 0, double y = 0, double theta = 0);
 	virtual ~LocalizedObject();
 
-	double getX() const {
-		return x;
-	}
-
-	void setX(double x) {
-		this->x = x;
-	}
-
-	double getY() const {
-		return y;
-	}
-
-	void setY(double y) {
-		this->y = y;
-	}
+	// --- Getter & Setter
+	double getX() const;
+	virtual void setX(double x);
+	double getY() const;
+	virtual void setY(double y);
+	double getTheta() const;
+	void setTheta(double theta);
 
 protected:
 	double x;
 	double y;
+	double theta;
 };
 
 #endif /* SRC_LOCALIZEDOBJECT_H_ */

@@ -7,41 +7,35 @@
 
 #include "GaussianSpace.h"
 
-GaussianSpace::GaussianSpace() {
-	// TODO Auto-generated constructor stub
-	frame.allocate(400, 400, OF_IMAGE_COLOR);
-	this->compute();
-}
-
-GaussianSpace::GaussianSpace(double x, double y) {
-	// TODO Auto-generated constructor stub
-	frame.allocate(400, 400, OF_IMAGE_COLOR);
+// --- CONSTRUCTOR & DESTRUCTOR
+GaussianSpace::GaussianSpace(Agent * a, double x, double y, double theta):
+		PersonnalSocialSpace(a,x,y,id){
+	buffer = std::vector<std::vector<double>>(width, std::vector<double>(height));
+	frame.allocate(width, height, OF_IMAGE_COLOR);
 	frame.setColor(ofColor::white);
 	frame.update();
-	this->setX(x);
-	this->setY(y);
 	this->compute();
+	a->setSocialSpace(this);
 }
 
 GaussianSpace::~GaussianSpace() {
 	// TODO Auto-generated destructor stub
 }
 
+// --- METHOD
 void GaussianSpace::compute() {
-	ofLogNotice("DEBUG") << "Value : " << std::endl
-			<< "phi(0,0)=" << phi(0,0) << std::endl
-			<< "phi(0.01,0.01)=" << phi(0.01,0.01) << std::endl
-			<< "phi(0.1,0.1)=" << phi(0.1,0.1) << std::endl
-			<< "phi(1,1)=" << phi(1,1) << std::endl
-			<< "phi(10,10)=" << phi(10,10) << std::endl;
+//	ofLogNotice("DEBUG") << "Value : " << std::endl
+//			<< "phi(0,0)=" << phi(0,0) << std::endl
+//			<< "phi(0.01,0.01)=" << phi(0.01,0.01) << std::endl
+//			<< "phi(0.1,0.1)=" << phi(0.1,0.1) << std::endl
+//			<< "phi(1,1)=" << phi(1,1) << std::endl
+//			<< "phi(10,10)=" << phi(10,10) << std::endl;
 
 	ofLogNotice("DEBUG") << "Computing social gaussian space";
-	for(double i = 0; i < 4; i+=0.01){
-		for(double j = 0; j < 4; j+=0.01){
-			double result = this->phi(i,j);
-			int a = i*100;
-			int b = j*100;
-			buffer[a][b] = result;
+	int a = 0, b = 0;
+	for(double i = this->_agent->getX() - (width/2), a = 0; i < this->_agent->getX() + width/2; i+=0.01, a++){
+		for(double j = this->_agent->getY() - (height/2), b = 0; j < this->_agent->getY() + height/2; j+=1, b++){
+			buffer[a][b] = this->phi(i,j, this->_agent->getX(), this->_agent->getY());
 		}
 	}
 
@@ -50,8 +44,8 @@ void GaussianSpace::compute() {
 	int max = -INFINITY;
 	int min = INFINITY;
 
-	for(unsigned int i=0;i<400;i++){
-		for(unsigned int j=0;j<400;j++){
+	for(unsigned int i=0;i<width;i++){
+		for(unsigned int j=0;j<height;j++){
 			if(max < buffer[i][j]) max = buffer[i][j];
 			if(min > buffer[i][j]) min = buffer[i][j];
 		}
@@ -59,8 +53,8 @@ void GaussianSpace::compute() {
 
 	ofPixels pix = frame.getPixels();
 	int k = 0;
-	for(unsigned int i=0;i<400;i++){
-		for(unsigned int j=0;j<400;j++){
+	for(unsigned int i=0;i<width;i++){
+		for(unsigned int j=0;j<height;j++){
 			buffer[i][j] = buffer[i][j] / max * 255;
 			pix[k] = buffer[i][j];
 			pix[k+1] = buffer[i][j];
@@ -70,10 +64,10 @@ void GaussianSpace::compute() {
 	}
 	frame.setFromPixels(pix);
 	frame.update();
-	ofLogNotice("DEBUG") << "Data normalized k=" << k;
+	ofLogNotice("DEBUG") << "Data normalized";
 }
 
-double GaussianSpace::phi(double x, double y){
+double GaussianSpace::phi(double qx, double qy, double px, double py){
 	using namespace Eigen;
 
 	double sig = 0.45/2;
@@ -88,7 +82,7 @@ double GaussianSpace::phi(double x, double y){
 			sig, 0,
 			0, sig;
 
-	Vector2d q(x,y), p(2,2);
+	Vector2d q(qx,qy), p(px,py);
 	Vector2d v = q-p;
 	Matrix<double, 1, 2> i;
 	if(v[1] > 0){
@@ -104,7 +98,7 @@ double GaussianSpace::phi(double x, double y){
 
 void GaussianSpace::draw(double x, double y) {
 	ofPushMatrix();
-		ofTranslate(this->getX(), this->getY());
+		ofTranslate(this->node->getParent()->getPosition().x + this->getX() - width/2 + x, this->node->getParent()->getPosition().y+this->getY() - height/2 + y);
 		ofSetHexColor(0xFFFFFF);
 		frame.draw(0,0);
 	ofPopMatrix();

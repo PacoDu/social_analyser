@@ -17,12 +17,14 @@
 
 class PopulationManager: public DrawnObject {
 public:
+	// --- CONSTRUCTOR & DESTRUCTOR
 	PopulationManager();
 	PopulationManager(std::string feature_file, double x=0, double y=0);
 	PopulationManager(std::string feature_file, std::string gt_file, double x=0, double y=0);
 
 	~PopulationManager();
 
+	// --- METHOD
 	int loadFrame(unsigned int fIndex);
 	int loadJson();
 	int loadFeatureJson();
@@ -32,38 +34,22 @@ public:
 	int previousFrame();
 
 	void draw(double x, double y);
-
-	const std::string& getFeatureFile() const {
-		return feature_file;
-	}
-
-	void setFeatureFile(const std::string& featureFile) {
-		feature_file = featureFile;
-	}
-
-	unsigned int getFrameIndex() const {
-		return frameIndex;
-	}
-
-	void setFrameIndex(unsigned int frameIndex = 0) {
-		this->frameIndex = frameIndex;
-	}
-
-	const std::string& getGtFile() const {
-		return gt_file;
-	}
-
-	void setGtFile(const std::string& gtFile) {
-		gt_file = gtFile;
-	}
-
-	bool isGtEnabled() const {
-		return gt_enabled;
-	}
-
-	void setGtEnabled(bool gtEnabled = 0) {
-		gt_enabled = gtEnabled;
-	}
+	const Population*& getPopulation() const;
+	void setPopulation(const Population*& population);
+	const std::string& getFeatureFile() const;
+	void setFeatureFile(const std::string& featureFile);
+	const ofxJSONElement& getFeatures() const;
+	void setFeatures(const ofxJSONElement& features);
+	unsigned int getFrameIndex() const;
+	void setFrameIndex(unsigned int frameIndex = 0);
+	const ofxJSONElement& getGroundTruth() const;
+	void setGroundTruth(const ofxJSONElement& groundTruth);
+	bool isGtEnabled() const;
+	void setGtEnabled(bool gtEnabled = 0);
+	const std::string& getGtFile() const;
+	void setGtFile(const std::string& gtFile);
+	bool isLoaded() const;
+	void setLoaded(bool loaded = 0);
 
 protected:
 	Population* _population;

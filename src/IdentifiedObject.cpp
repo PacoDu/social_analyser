@@ -7,12 +7,18 @@
 
 #include "IdentifiedObject.h"
 
+// --- CONSTRUCTOR & DESTRUCTOR
 IdentifiedObject::IdentifiedObject(unsigned int id): id(id) {
 }
 
-IdentifiedObject::IdentifiedObject() {
-	this->id = 0;
+IdentifiedObject::~IdentifiedObject() {
 }
 
-IdentifiedObject::~IdentifiedObject() {
+// --- Getter & Setter
+unsigned int IdentifiedObject::getId() const {
+	return id;
+}
+
+void IdentifiedObject::setId(unsigned int id) {
+	this->id = id;
 }

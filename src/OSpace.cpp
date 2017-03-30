@@ -7,27 +7,20 @@
 
 #include "OSpace.h"
 
+// --- CONSTRUCTOR & DESTRUCTOR
+OSpace::OSpace(double radius, std::vector<Agent*>& a , double x, double y, int id):
+		GroupSocialSpace(a, x, y, id), radius(radius){
+}
+
+OSpace::OSpace(double radius, double x, double y, int id):
+		GroupSocialSpace(x,y,id), radius(radius){
+}
+
 OSpace::~OSpace() {
 	// TODO Auto-generated destructor stub
 }
 
-OSpace::OSpace(double radius, std::vector<Agent*>& a):
-		SocialSpace(a), radius(radius) {
-}
-
-OSpace::OSpace(int id, double radius, std::vector<Agent*>& a):
-		SocialSpace(id, a), radius(radius){
-}
-
-OSpace::OSpace(int id, double x, double y, double radius,
-		std::vector<Agent*>& a):
-		SocialSpace(id, x, y, a), radius(radius){
-}
-
-OSpace::OSpace(double x, double y, double radius, std::vector<Agent*>& a):
-		SocialSpace(x,y,a), radius(radius){
-}
-
+// --- METHOD
 void OSpace::draw(double x, double y) {
 	ofPushMatrix();
 		ofSetHexColor(0xd896ff);
@@ -38,18 +31,11 @@ void OSpace::draw(double x, double y) {
 	ofPopMatrix();
 }
 
-OSpace::OSpace(double radius):
-		SocialSpace(), radius(radius) {
+// Getter & Setter
+double OSpace::getRadius() const {
+	return radius;
 }
 
-OSpace::OSpace(int id, double radius):
-		SocialSpace(id), radius(radius)  {
-}
-
-OSpace::OSpace(double x, double y, double radius):
-		SocialSpace(x,y), radius(radius) {
-}
-
-OSpace::OSpace(int id, double x, double y, double radius):
-		SocialSpace(id, x, y), radius(radius){
+void OSpace::setRadius(double radius) {
+	this->radius = radius;
 }

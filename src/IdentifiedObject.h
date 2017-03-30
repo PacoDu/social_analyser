@@ -10,17 +10,13 @@
 
 class IdentifiedObject {
 public:
-	IdentifiedObject(unsigned int id);
-	IdentifiedObject();
+	// --- CONSTRUCTOR & DESTRUCTOR
+	IdentifiedObject(unsigned int id=0);
 	virtual ~IdentifiedObject();
 
-	unsigned int getId() const {
-		return id;
-	}
-
-	void setId(unsigned int id) {
-		this->id = id;
-	}
+	// --- Getter & Setter
+	unsigned int getId() const;
+	void setId(unsigned int id);
 
 protected:
 	unsigned int id;

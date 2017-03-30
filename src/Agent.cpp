@@ -6,21 +6,24 @@
  */
 
 #include "Agent.h"
+#include "PersonnalSocialSpace.h"
 
-Agent::Agent(int id): IdentifiedObject(id), DrawnObject(0,0) {
-	this->theta = 0;
+// --- CONSTRUCTOR & DESTRUCTOR
+Agent::Agent(): Agent(0,0,0) {
 }
 
-Agent::Agent(int id, double x, double y, double theta):
-		IdentifiedObject(id), DrawnObject(x,y), theta(theta) {
+Agent::Agent(double x, double y, double theta, int id):
+		DrawnObject(x,y,theta), IdentifiedObject(id) {
 }
 
 Agent::~Agent() {
 	// TODO Auto-generated destructor stub
 }
 
-ofVec2f Agent::getPosition() {
-	return ofVec2f(this->x, this->y);
+
+// --- METHOD
+ofPoint Agent::getPosition() {
+	return ofPoint(this->x, this->y);
 }
 
 ofVec2f Agent::getDirection() {
@@ -41,8 +44,21 @@ void Agent::draw(double x, double y) {
 
 		ofSetHexColor(0x011f4b);
 		ofDrawCircle(0,0,5);
-
-//		ofSetHexColor(0xFF0000);
-//		ofDrawLine(0,0, 150,0);
 	ofPopMatrix();
+}
+
+//void Agent::draw(bool drawSocialSpace, double x, double y){
+//	this->draw(x,y);
+//	if(drawSocialSpace){
+//		this->dra
+//	}
+//}
+
+// --- Getter & Setter
+PersonnalSocialSpace* Agent::getSocialSpace() const {
+return pSocialSpace;
+}
+
+void Agent::setSocialSpace(PersonnalSocialSpace* socialSpace) {
+pSocialSpace = socialSpace;
 }

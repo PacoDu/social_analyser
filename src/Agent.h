@@ -11,29 +11,29 @@
 #include "ofMain.h"
 #include "IdentifiedObject.h"
 #include "DrawnObject.h"
+#include "Point.h"
+
+class PersonnalSocialSpace;
 
 class Agent: public IdentifiedObject, public DrawnObject {
 public:
-	Agent(int id);
-	Agent(int id, double x, double y, double theta);
+	// --- CONSTRUCTOR & DESTRUCTOR
+	Agent();
+	Agent(Point p, double theta=0, int id=0);
 	~Agent();
 
-	ofVec2f getPosition();
+	// --- METHOD
+	ofPoint getPosition();
 	ofVec2f getDirection();
 
-	void draw(double x, double y);
+	void draw(double x = 0, double y = 0);
 
-	// Getters & Setters
-	double getTheta() const {
-		return theta;
-	}
-
-	void setTheta(double theta) {
-		this->theta = theta;
-	}
+	// --- Getter & Setter
+	PersonnalSocialSpace* getSocialSpace() const;
+	void setSocialSpace(PersonnalSocialSpace* socialSpace);
 
 protected:
-	double theta;
+	PersonnalSocialSpace* pSocialSpace;
 
 };
 

@@ -7,43 +7,17 @@
 
 #include "PSpace.h"
 
+
+PSpace::PSpace(double innerRadius, double outerRadius, std::vector<Agent*>& a, double x, double y, int id):
+		GroupSocialSpace(a,x,y,id), inner_radius(innerRadius), outer_radius(outerRadius){
+}
+
+PSpace::PSpace(double innerRadius, double outerRadius, double x, double y, int id):
+		GroupSocialSpace(x,y,id), inner_radius(innerRadius), outer_radius(outerRadius){
+}
+
 PSpace::~PSpace() {
 	// TODO Auto-generated destructor stub
-}
-
-PSpace::PSpace(double innerRadius, double outerRadius):
-		SocialSpace(), inner_radius(innerRadius), outer_radius(outerRadius) {
-}
-
-PSpace::PSpace(int id, double innerRadius, double outerRadius):
-		SocialSpace(id), inner_radius(innerRadius), outer_radius(outerRadius) {
-}
-
-PSpace::PSpace(double x, double y, double innerRadius, double outerRadius):
-		SocialSpace(x,y), inner_radius(innerRadius), outer_radius(outerRadius) {
-}
-
-PSpace::PSpace(int id, double x, double y, double innerRadius,
-		double outerRadius): SocialSpace(id, x, y), inner_radius(innerRadius), outer_radius(outerRadius) {
-}
-
-PSpace::PSpace(double innerRadius, double outerRadius, std::vector<Agent*>& a):
-		SocialSpace(a), inner_radius(innerRadius), outer_radius(outerRadius){
-}
-
-PSpace::PSpace(int id, double innerRadius, double outerRadius,
-		std::vector<Agent*>& a):
-		SocialSpace(id, a), inner_radius(innerRadius), outer_radius(outerRadius){
-}
-
-PSpace::PSpace(int id, double x, double y, double innerRadius,
-		double outerRadius, std::vector<Agent*>& a):
-		SocialSpace(id, x, y, a), inner_radius(innerRadius), outer_radius(outerRadius){
-}
-
-PSpace::PSpace(double x, double y, double innerRadius, double outerRadius,
-		std::vector<Agent*>& a):
-		SocialSpace(x,y,a), inner_radius(innerRadius), outer_radius(outerRadius){
 }
 
 void PSpace::draw(double x, double y) {

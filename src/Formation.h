@@ -17,41 +17,21 @@
 
 class Formation: public IdentifiedObject, public DrawnObject, public AgentContainer {
 public:
-	Formation(double ospace_radius, double pspace_radius);
-	Formation(int id, double ospace_radius, double pspace_radius);
-	Formation(double x, double y, double ospace_radius, double pspace_radius);
-	Formation(int id, double x, double y, double ospace_radius, double pspace_radius);
-	Formation(double ospace_radius, double pspace_radius, std::vector<Agent*>& a);
-	Formation(int id, double ospace_radius, double pspace_radius, std::vector<Agent*>& a);
-	Formation(int id, double x, double y, double ospace_radius, double pspace_radius, std::vector<Agent*>& a);
-	Formation(double x, double y, double ospace_radius, double pspace_radius, std::vector<Agent*>& a);
+	// --- CONSTRUCTOR & DESTRUCTOR
+	Formation(GroupSocialSpace * sp, std::vector<Agent*>& a, double x=0, double y=0, double theta = 0, int id=0);
+	Formation(GroupSocialSpace * sp, double x=0, double y=0, double theta = 0, int id=0);
 
 	~Formation();
 
+	// --- METHOD
 	void draw(double x, double y);
 	void computeSocialSpace();
 
-
 	// Getters & Setters
-	const OSpace* getOspace() const {
-		return ospace;
-	}
 
-	void setOspace(OSpace* ospace) {
-		this->ospace = ospace;
-	}
-
-	const PSpace* getPspace() const {
-		return pspace;
-	}
-
-	void setPspace(PSpace* pspace) {
-		this->pspace = pspace;
-	}
 
 protected:
-	OSpace* ospace;
-	PSpace* pspace;
+	GroupSocialSpace* _socialSpace;
 };
 
 

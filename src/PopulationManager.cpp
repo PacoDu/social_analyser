@@ -7,6 +7,7 @@
 
 #include "PopulationManager.h"
 
+// --- CONSTRUCTOR & DESTRUCTOR
 PopulationManager::PopulationManager(): DrawnObject() {
 	this->_population = new Population();
 }
@@ -36,7 +37,7 @@ PopulationManager::~PopulationManager() {
 }
 
 
-
+// --- METHOD
 int PopulationManager::loadFrame(unsigned int fIndex) {
 	int err;
 	if(!this->loaded) err = loadJson();
@@ -49,10 +50,10 @@ int PopulationManager::loadFrame(unsigned int fIndex) {
 	for (Json::ArrayIndex i = 0; i < features["features"][frameIndex].size(); ++i)
 	{
 		this->_population->pushAgent(new Agent(
-				features["features"][frameIndex][i][0].asInt(),
 				features["features"][frameIndex][i][1].asDouble(),
 				features["features"][frameIndex][i][2].asDouble(),
-				features["features"][frameIndex][i][3].asDouble()
+				features["features"][frameIndex][i][3].asDouble(),
+				features["features"][frameIndex][i][0].asInt()
 				));
 	}
 
@@ -67,10 +68,11 @@ int PopulationManager::loadFrame(unsigned int fIndex) {
 				group.push_back(this->_population->getAgent(groundTruth["GTgroups"][frameIndex][i][j].asInt()));
 			}
 
-			Formation* fformation = new Formation(i, 0, 0, group);
-			fformation->computeSocialSpace();
-
-			this->_population->pushFormation(fformation);
+			// TODO
+//			Formation* fformation = new Formation(group, 0, 0, i);
+//			fformation->computeSocialSpace();
+//
+//			this->_population->pushFormation(fformation);
 		}
 	}
 
@@ -120,4 +122,69 @@ int PopulationManager::previousFrame() {
 
 void PopulationManager::draw(double x, double y) {
 	this->_population->draw(x,y);
+}
+
+// --- Getter & Setter
+const Population*& PopulationManager::getPopulation() const {
+	return _population;
+}
+
+void PopulationManager::setPopulation(const Population*& population) {
+	_population = population;
+}
+
+const std::string& PopulationManager::getFeatureFile() const {
+	return feature_file;
+}
+
+void PopulationManager::setFeatureFile(const std::string& featureFile) {
+	feature_file = featureFile;
+}
+
+const ofxJSONElement& PopulationManager::getFeatures() const {
+	return features;
+}
+
+void PopulationManager::setFeatures(const ofxJSONElement& features) {
+	this->features = features;
+}
+
+unsigned int PopulationManager::getFrameIndex() const {
+	return frameIndex;
+}
+
+void PopulationManager::setFrameIndex(unsigned int frameIndex = 0) {
+	this->frameIndex = frameIndex;
+}
+
+const ofxJSONElement& PopulationManager::getGroundTruth() const {
+	return groundTruth;
+}
+
+void PopulationManager::setGroundTruth(const ofxJSONElement& groundTruth) {
+	this->groundTruth = groundTruth;
+}
+
+bool PopulationManager::isGtEnabled() const {
+	return gt_enabled;
+}
+
+void PopulationManager::setGtEnabled(bool gtEnabled = 0) {
+	gt_enabled = gtEnabled;
+}
+
+const std::string& PopulationManager::getGtFile() const {
+	return gt_file;
+}
+
+void PopulationManager::setGtFile(const std::string& gtFile) {
+	gt_file = gtFile;
+}
+
+bool PopulationManager::isLoaded() const {
+	return loaded;
+}
+
+void PopulationManager::setLoaded(bool loaded = 0) {
+	this->loaded = loaded;
 }

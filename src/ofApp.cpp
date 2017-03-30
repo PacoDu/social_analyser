@@ -3,8 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 //	manager = new PopulationManager("coffee_break.json", "coffee_break_gt.json");
-	c = new GaussianSpace(100.0, 100.0);
-	a = new Agent(0, 300, 300, 0.0);
+	a = new Agent(300, 300, 0.0, 1);
+	c = new GaussianSpace(a);
 }
 
 //--------------------------------------------------------------
@@ -15,8 +15,8 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 //	ofBackground(0xF9F9F9);
-	c->draw(0,0);
-	a->draw(0,0);
+	c->draw();
+	a->draw();
 
 //	manager->draw(100, 100);
 //	c.draw(100,100);
@@ -30,9 +30,11 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
 	if(key == OF_KEY_LEFT){
 //		manager->previousFrame();
+		a->setX(a->getX()-1);
 	}
 	else if(key == OF_KEY_RIGHT){
 //		manager->nextFrame();
+		a->setX(a->getX()+1);
 	}
 }
 
