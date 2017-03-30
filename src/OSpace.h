@@ -13,12 +13,12 @@
 class OSpace: public GroupSocialSpace {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	OSpace(double radius, double x = 0, double y = 0, int id = 0);
-	OSpace(double radius, std::vector<Agent*>& a, double x = 0, double y = 0, int id = 0);
+	OSpace(double radius, Point p = Point(), int id = 0);
+	OSpace(double radius, std::vector<Agent*>& a, Point p = Point(), int id = 0);
 	~OSpace();
 
 	// --- METHOD
-	void draw(double x, double y);
+	void draw(World* world, Point p = Point());
 
 	// Getter & Setter
 	double getRadius() const;

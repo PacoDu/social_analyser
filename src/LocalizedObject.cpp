@@ -8,27 +8,19 @@
 #include "LocalizedObject.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-LocalizedObject::LocalizedObject(double x, double y, double theta): x(x), y(y), theta(theta) {
+LocalizedObject::LocalizedObject(Point p, double theta): position(p), theta(theta) {
 }
 
 LocalizedObject::~LocalizedObject() {
 }
 
 // --- Getter & Setter
-double LocalizedObject::getX() const {
-	return x;
+const Point& LocalizedObject::getPosition() const {
+	return position;
 }
 
-void LocalizedObject::setX(double x) {
-	this->x = x;
-}
-
-double LocalizedObject::getY() const {
-	return y;
-}
-
-void LocalizedObject::setY(double y) {
-	this->y = y;
+void LocalizedObject::setPosition(const Point& position) {
+	this->position = position;
 }
 
 double LocalizedObject::getTheta() const {

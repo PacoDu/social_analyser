@@ -8,12 +8,12 @@
 #include "OSpace.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-OSpace::OSpace(double radius, std::vector<Agent*>& a , double x, double y, int id):
-		GroupSocialSpace(a, x, y, id), radius(radius){
+OSpace::OSpace(double radius, std::vector<Agent*>& a , Point p, int id):
+		GroupSocialSpace(a, p, id), radius(radius){
 }
 
-OSpace::OSpace(double radius, double x, double y, int id):
-		GroupSocialSpace(x,y,id), radius(radius){
+OSpace::OSpace(double radius, Point p, int id):
+		GroupSocialSpace(p,id), radius(radius){
 }
 
 OSpace::~OSpace() {
@@ -21,14 +21,14 @@ OSpace::~OSpace() {
 }
 
 // --- METHOD
-void OSpace::draw(double x, double y) {
-	ofPushMatrix();
-		ofSetHexColor(0xd896ff);
-		ofTranslate(x+this->getX(), y+this->getY());
-
-		ofDrawCircle(0, 0, this->getRadius());
-
-	ofPopMatrix();
+void OSpace::draw(World* world, Point p) {
+//	ofPushMatrix();
+//		ofSetHexColor(0xd896ff);
+//		ofTranslate(x+this->getX(), y+this->getY());
+//
+//		ofDrawCircle(0, 0, this->getRadius());
+//
+//	ofPopMatrix();
 }
 
 // Getter & Setter

@@ -8,12 +8,12 @@
 #include "Population.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-Population::Population(double x, double y, int id):
-		IdentifiedObject(id), DrawnObject(x,y), AgentContainer() {
+Population::Population(Point p, int id):
+		IdentifiedObject(id), DrawnObject(p), AgentContainer() {
 }
 
-Population::Population(std::vector<Agent*> a, double x, double y, int id):
-		IdentifiedObject(id), DrawnObject(x,y), AgentContainer(a){
+Population::Population(std::vector<Agent*> a, Point p, int id):
+		IdentifiedObject(id), DrawnObject(p), AgentContainer(a){
 }
 
 Population::~Population() {
@@ -27,7 +27,7 @@ Population::~Population() {
 }
 
 // --- METHOD
-void Population::draw(double x, double y) {
+void Population::draw(World* world, Point p) {
 	std::stringstream ss;
 
 	for(unsigned int i=0; i<_formations.size(); i++){
@@ -35,7 +35,7 @@ void Population::draw(double x, double y) {
 				<< ": x = " << _formations[i]->getX()
 				<< ", y = " << _formations[i]->getY() << std::endl;
 
-		_formations[i]->draw(x,y);
+		_formations[i]->draw(world,p);
 	}
 
 	for(unsigned int i=0; i<this->_agents.size(); i++){
@@ -45,7 +45,7 @@ void Population::draw(double x, double y) {
 				<< ", Theta = " << this->_agents[i]->getTheta()
 				<< ", Theta (degres) = " << ofRadToDeg(this->_agents[i]->getTheta()) << std::endl;
 
-		this->_agents[i]->draw(x,y);
+		this->_agents[i]->draw(world,p);
 	}
 
 	ofSetHexColor(0x2C291F);

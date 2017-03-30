@@ -9,11 +9,9 @@
 #include "PersonnalSocialSpace.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-Agent::Agent(): Agent(0,0,0) {
-}
-
-Agent::Agent(double x, double y, double theta, int id):
-		DrawnObject(x,y,theta), IdentifiedObject(id) {
+Agent::Agent(Point p, double theta, int id):
+		IdentifiedObject(id), DrawnObject(p,theta) {
+	// Warning pSocialSpace is not initialized
 }
 
 Agent::~Agent() {
@@ -22,10 +20,6 @@ Agent::~Agent() {
 
 
 // --- METHOD
-ofPoint Agent::getPosition() {
-	return ofPoint(this->x, this->y);
-}
-
 ofVec2f Agent::getDirection() {
 	ofVec2f v = ofVec2f(1.0f, 0.0f);
 	v.rotate(ofRadToDeg(this->theta));
@@ -33,10 +27,11 @@ ofVec2f Agent::getDirection() {
 	return v;
 }
 
-void Agent::draw(double x, double y) {
+void Agent::draw(World * world, Point p) {
+	Point pView = real_to_pixel(world, this->getPosition());
 	ofPushMatrix();
 		ofSetHexColor(0x6497b1);
-		ofTranslate(x+this->getX(), y+this->getY());
+		ofTranslate(pView.x, pView.y);
 		ofRotateZ(ofRadToDeg(this->getTheta()));
 
 		ofDrawBitmapString("#"+ofToString(this->getId()), -10, -20);

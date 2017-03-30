@@ -9,13 +9,16 @@
 #define GROUPSOCIALSPACE_H_
 
 #include "SocialSpace.h"
+#include "Point.h"
 
 class GroupSocialSpace: public SocialSpace, public AgentContainer {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	GroupSocialSpace(double x = 0, double y = 0, int id = 0);
-	GroupSocialSpace(std::vector<Agent*>& a, double x = 0, double y = 0, int id = 0);
+	GroupSocialSpace(Point p = Point(), int id = 0);
+	GroupSocialSpace(std::vector<Agent*>& a, Point p = Point(), int id = 0);
 	virtual ~GroupSocialSpace();
+
+	virtual void draw(World* world, Point p = Point()) = 0;
 };
 
 #endif /* GROUPSOCIALSPACE_H_ */

@@ -8,8 +8,8 @@
 #include "GaussianSpace.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-GaussianSpace::GaussianSpace(Agent * a, double x, double y, double theta):
-		PersonnalSocialSpace(a,x,y,id){
+GaussianSpace::GaussianSpace(Agent * a, Point p, double theta):
+		PersonnalSocialSpace(a,p,id){
 	buffer = std::vector<std::vector<double>>(width, std::vector<double>(height));
 	frame.allocate(width, height, OF_IMAGE_COLOR);
 	frame.setColor(ofColor::white);
@@ -96,10 +96,10 @@ double GaussianSpace::phi(double qx, double qy, double px, double py){
 	return exp(-0.5*j);
 }
 
-void GaussianSpace::draw(double x, double y) {
-	ofPushMatrix();
-		ofTranslate(this->node->getParent()->getPosition().x + this->getX() - width/2 + x, this->node->getParent()->getPosition().y+this->getY() - height/2 + y);
-		ofSetHexColor(0xFFFFFF);
-		frame.draw(0,0);
-	ofPopMatrix();
+void GaussianSpace::draw(World* world, Point p) {
+//	ofPushMatrix();
+//		ofTranslate(this->node->getParent()->getPosition().x + this->getX() - width/2 + x, this->node->getParent()->getPosition().y+this->getY() - height/2 + y);
+//		ofSetHexColor(0xFFFFFF);
+//		frame.draw(0,0);
+//	ofPopMatrix();
 }

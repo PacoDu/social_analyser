@@ -3,8 +3,9 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 //	manager = new PopulationManager("coffee_break.json", "coffee_break_gt.json");
-	a = new Agent(300, 300, 0.0, 1);
-	c = new GaussianSpace(a);
+	a = new Agent(Point(25, 25), 0.0, 1);
+//	c = new GaussianSpace(a);
+	world = new World(50, 50, 600, 600, Point(20,20), 0);
 }
 
 //--------------------------------------------------------------
@@ -15,8 +16,9 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 //	ofBackground(0xF9F9F9);
-	c->draw();
-	a->draw();
+//	c->draw(world);
+	world->draw(world);
+	a->draw(world);
 
 //	manager->draw(100, 100);
 //	c.draw(100,100);

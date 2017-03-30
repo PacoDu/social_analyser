@@ -9,29 +9,27 @@
 #define SRC_DRAWNOBJECT_H_
 
 #include "LocalizedObject.h"
-#include "World.h"
+#include "Point.h"
+
 #include "ofMain.h"
+class World;
 
 class DrawnObject: public LocalizedObject {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	DrawnObject(double x = 0, double y = 0, double theta = 0);
+	DrawnObject(Point p = Point(), double theta = 0);
 	virtual ~DrawnObject();
 
 	// --- METHOD
-	int real_to_pixel(World* world, double x, double x_min, double x_max);
-	double pixel_to_real(World* world, int x, int x_min, int x_max);
+	Point real_to_pixel(World* world, Point p);
+	Point pixel_to_real(World* world, Point p);
+	double getX(){return this->position.x;}
+	double getY(){return this->position.y;}
+	void setX(int x){this->position.x = x;}
+	void setY(int y){this->position.y = y;}
 
-	virtual void draw(World* world, double x = 0, double y = 0) = 0;
+	virtual void draw(World* world, Point p = Point()) = 0;
 
-	// --- Getter & Setter
-	ofNode* getNode() const;
-	void setNode(ofNode* node);
-	void setX(double x);
-	void setY(double y);
-
-protected:
-	ofNode* node;
 };
 
 #endif /* SRC_DRAWNOBJECT_H_ */

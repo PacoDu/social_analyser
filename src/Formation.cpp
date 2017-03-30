@@ -9,13 +9,13 @@
 #include "Formation.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-Formation::Formation(GroupSocialSpace* sp, std::vector<Agent*>& a , double x,
-		double y, double theta, int id):
-		IdentifiedObject(id), DrawnObject(x,y), AgentContainer(a), _socialSpace(sp){
+Formation::Formation(GroupSocialSpace* sp, std::vector<Agent*>& a , Point p,
+		double theta, int id):
+		IdentifiedObject(id), DrawnObject(p), AgentContainer(a), _socialSpace(sp){
 }
 
-Formation::Formation(GroupSocialSpace* sp, double x, double y, double theta, int id):
-		IdentifiedObject(id), DrawnObject(x,y), AgentContainer(), _socialSpace(sp){
+Formation::Formation(GroupSocialSpace* sp, Point p, double theta, int id):
+		IdentifiedObject(id), DrawnObject(p), AgentContainer(), _socialSpace(sp){
 }
 
 Formation::~Formation() {
@@ -24,8 +24,8 @@ Formation::~Formation() {
 }
 
 // --- METHOD
-void Formation::draw(double x, double y) {
-	_socialSpace->draw();
+void Formation::draw(World* world, Point p) {
+	_socialSpace->draw(world,p);
 }
 
 void Formation::computeSocialSpace() {

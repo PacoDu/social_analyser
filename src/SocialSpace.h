@@ -11,15 +11,16 @@
 #include "IdentifiedObject.h"
 #include "DrawnObject.h"
 #include "AgentContainer.h"
+#include "Point.h"
 
 class SocialSpace: public IdentifiedObject, public DrawnObject{
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	SocialSpace(double x = 0, double y = 0, int id = 0);
+	SocialSpace(Point p = Point(), int id = 0);
 	virtual ~SocialSpace();
 
 	// --- METHOD
-	virtual void draw(double x = 0, double y = 0) = 0;
+	virtual void draw(World* world, Point p = Point()) = 0;
 
 };
 

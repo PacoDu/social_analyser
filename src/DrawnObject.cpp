@@ -6,40 +6,29 @@
  */
 
 #include "DrawnObject.h"
+#include "World.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-DrawnObject::DrawnObject(double x, double y, double theta):
-		LocalizedObject(x,y,theta) {
-	node = new ofNode();
-	node->setPosition(x,y, 0);
+DrawnObject::DrawnObject(Point p, double theta):
+		LocalizedObject(p,theta) {
 }
 
 DrawnObject::~DrawnObject() {
 }
 
 // --- METHOD
-int DrawnObject::real_to_pixel(World* world, double x) {
-	ofMap(x, world->, x_max, 0, world->width)
+Point DrawnObject::real_to_pixel(World* world, Point p) {
+	Point p_pixel = Point();
+	p_pixel.x = ofMap(p.x, 0, world->width, 0, world->widthView) + world->getX();
+	p_pixel.y = ofMap(p.y, 0, world->height, 0, world->heightView) + world->getY();
+
+	return p_pixel;
 }
 
-double DrawnObject::pixel_to_real(World* world, int x, int x_min, int x_max) {
-}
+Point DrawnObject::pixel_to_real(World* world, Point p) {
+	Point p_pixel = Point();
+	p_pixel.x = ofMap(p.x, 0, world->widthView, 0, world->width);
+	p_pixel.y = ofMap(p.y, 0, world->heightView, 0, world->height);
 
-// --- Getter & Setter
-ofNode* DrawnObject::getNode() const {
-	return node;
-}
-
-void DrawnObject::setNode(ofNode* node) {
-	this->node = node;
-}
-
-void DrawnObject::setX(double x){
-	this-> x = x;
-	this->node->setPosition(x,this->node->getPosition().y, this->node->getPosition().z);
-}
-
-void DrawnObject::setY(double y){
-	this-> y = y;
-	this->node->setPosition(this->node->getPosition().x, y, this->node->getPosition().z);
+	return p_pixel;
 }

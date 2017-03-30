@@ -15,7 +15,7 @@ class Agent;
 class PersonnalSocialSpace: public SocialSpace {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	PersonnalSocialSpace(Agent * a, double x = 0, double y = 0, double theta = 0, int id = 0);
+	PersonnalSocialSpace(Agent * a, Point p = Point(), double theta = 0, int id = 0);
 	virtual ~PersonnalSocialSpace();
 
 protected:

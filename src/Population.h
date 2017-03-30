@@ -19,12 +19,12 @@
 class Population: public IdentifiedObject, public DrawnObject, public AgentContainer {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	Population(double x = 0, double y = 0, int id = 0);
-	Population(std::vector<Agent*> a, double x = 0, double y = 0, int id = 0);
+	Population(Point p = Point(), int id = 0);
+	Population(std::vector<Agent*> a, Point p = Point(), int id = 0);
 	~Population();
 
 	// --- METHOD
-	void draw(double x, double y);
+	void draw(World* world, Point p = Point());
 	void clear();
 
 	ofVec2f getBoundX();

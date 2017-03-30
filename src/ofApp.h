@@ -7,6 +7,8 @@
 #include "PopulationManager.h"
 #include "GaussianSpace.h"
 #include "Agent.h"
+#include "Point.h"
+#include "World.h"
 
 class ofApp : public ofBaseApp{
 
@@ -30,4 +32,5 @@ class ofApp : public ofBaseApp{
 		PopulationManager* manager;
 		GaussianSpace* c;
 		Agent* a;
+		World* world;
 };

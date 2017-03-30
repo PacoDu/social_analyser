@@ -17,13 +17,13 @@
 class GaussianSpace: public PersonnalSocialSpace {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	GaussianSpace(Agent * a, double x=0, double y=0, double theta=0);
+	GaussianSpace(Agent * a, Point p = Point(), double theta=0);
 	virtual ~GaussianSpace();
 
 	// --- METHOD
 	void compute();
 	double phi(double qx, double qy, double px, double py);
-	void draw(double x = 0, double y = 0);
+	void draw(World* world, Point p = Point());
 
 protected:
 	int width = 300;

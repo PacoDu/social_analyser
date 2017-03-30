@@ -19,8 +19,8 @@ class PopulationManager: public DrawnObject {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
 	PopulationManager();
-	PopulationManager(std::string feature_file, double x=0, double y=0);
-	PopulationManager(std::string feature_file, std::string gt_file, double x=0, double y=0);
+	PopulationManager(std::string feature_file, Point p = Point());
+	PopulationManager(std::string feature_file, std::string gt_file, Point p = Point());
 
 	~PopulationManager();
 
@@ -33,23 +33,25 @@ public:
 	int nextFrame();
 	int previousFrame();
 
-	void draw(double x, double y);
-	const Population*& getPopulation() const;
-	void setPopulation(const Population*& population);
+	void draw(World* world, Point p = Point());
+
+	// --- Getter & Setter
+	Population* getPopulation() const;
+	void setPopulation(Population* population);
 	const std::string& getFeatureFile() const;
 	void setFeatureFile(const std::string& featureFile);
 	const ofxJSONElement& getFeatures() const;
 	void setFeatures(const ofxJSONElement& features);
 	unsigned int getFrameIndex() const;
-	void setFrameIndex(unsigned int frameIndex = 0);
+	void setFrameIndex(unsigned int frameIndex);
 	const ofxJSONElement& getGroundTruth() const;
 	void setGroundTruth(const ofxJSONElement& groundTruth);
 	bool isGtEnabled() const;
-	void setGtEnabled(bool gtEnabled = 0);
+	void setGtEnabled(bool gtEnabled);
 	const std::string& getGtFile() const;
 	void setGtFile(const std::string& gtFile);
 	bool isLoaded() const;
-	void setLoaded(bool loaded = 0);
+	void setLoaded(bool loaded);
 
 protected:
 	Population* _population;

@@ -12,7 +12,8 @@ PopulationManager::PopulationManager(): DrawnObject() {
 	this->_population = new Population();
 }
 
-PopulationManager::PopulationManager(std::string feature_file, double x, double y): DrawnObject(x,y), feature_file(feature_file) {
+PopulationManager::PopulationManager(std::string feature_file, Point p):
+		DrawnObject(p), feature_file(feature_file) {
 	this->_population = new Population();
 	if(!this->loadFeatureJson()) this->loadFrame(frameIndex);
 
@@ -20,7 +21,7 @@ PopulationManager::PopulationManager(std::string feature_file, double x, double 
 }
 
 PopulationManager::PopulationManager(std::string feature_file,
-		std::string gt_file, double x, double y): DrawnObject(x,y), feature_file(feature_file), gt_file(gt_file) {
+		std::string gt_file, Point p): DrawnObject(p), feature_file(feature_file), gt_file(gt_file) {
 
 	this->_population = new Population();
 	this->setGtEnabled(1);
@@ -50,8 +51,10 @@ int PopulationManager::loadFrame(unsigned int fIndex) {
 	for (Json::ArrayIndex i = 0; i < features["features"][frameIndex].size(); ++i)
 	{
 		this->_population->pushAgent(new Agent(
-				features["features"][frameIndex][i][1].asDouble(),
-				features["features"][frameIndex][i][2].asDouble(),
+				Point(
+						features["features"][frameIndex][i][1].asDouble(),
+						features["features"][frameIndex][i][2].asDouble()
+					),
 				features["features"][frameIndex][i][3].asDouble(),
 				features["features"][frameIndex][i][0].asInt()
 				));
@@ -120,16 +123,16 @@ int PopulationManager::previousFrame() {
 	return this->loadFrame(frameIndex);
 }
 
-void PopulationManager::draw(double x, double y) {
-	this->_population->draw(x,y);
+void PopulationManager::draw(World* world, Point p) {
+	this->_population->draw(world, p);
 }
 
 // --- Getter & Setter
-const Population*& PopulationManager::getPopulation() const {
+Population* PopulationManager::getPopulation() const {
 	return _population;
 }
 
-void PopulationManager::setPopulation(const Population*& population) {
+void PopulationManager::setPopulation(Population* population) {
 	_population = population;
 }
 
@@ -153,7 +156,7 @@ unsigned int PopulationManager::getFrameIndex() const {
 	return frameIndex;
 }
 
-void PopulationManager::setFrameIndex(unsigned int frameIndex = 0) {
+void PopulationManager::setFrameIndex(unsigned int frameIndex) {
 	this->frameIndex = frameIndex;
 }
 
@@ -169,7 +172,7 @@ bool PopulationManager::isGtEnabled() const {
 	return gt_enabled;
 }
 
-void PopulationManager::setGtEnabled(bool gtEnabled = 0) {
+void PopulationManager::setGtEnabled(bool gtEnabled) {
 	gt_enabled = gtEnabled;
 }
 
@@ -185,6 +188,6 @@ bool PopulationManager::isLoaded() const {
 	return loaded;
 }
 
-void PopulationManager::setLoaded(bool loaded = 0) {
+void PopulationManager::setLoaded(bool loaded) {
 	this->loaded = loaded;
 }

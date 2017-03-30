@@ -8,23 +8,22 @@
 #ifndef SRC_LOCALIZEDOBJECT_H_
 #define SRC_LOCALIZEDOBJECT_H_
 
+#include "Point.h"
+
 class LocalizedObject {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	LocalizedObject(double x = 0, double y = 0, double theta = 0);
+	LocalizedObject(Point p = Point(), double theta = 0);
 	virtual ~LocalizedObject();
 
 	// --- Getter & Setter
-	double getX() const;
-	virtual void setX(double x);
-	double getY() const;
-	virtual void setY(double y);
+	const Point& getPosition() const;
+	void setPosition(const Point& position);
 	double getTheta() const;
 	void setTheta(double theta);
 
 protected:
-	double x;
-	double y;
+	Point position;
 	double theta;
 };
 

@@ -8,11 +8,11 @@
 #include "GroupSocialSpace.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-GroupSocialSpace::GroupSocialSpace(double x, double y, int id):
-		SocialSpace(x,y,id), AgentContainer(){
+GroupSocialSpace::GroupSocialSpace(Point p, int id):
+		SocialSpace(p,id), AgentContainer(){
 }
-GroupSocialSpace::GroupSocialSpace(std::vector<Agent*>& a, double x, double y, int id):
-		SocialSpace(x,y,id), AgentContainer(a){
+GroupSocialSpace::GroupSocialSpace(std::vector<Agent*>& a, Point p, int id):
+		SocialSpace(p,id), AgentContainer(a){
 }
 
 GroupSocialSpace::~GroupSocialSpace() {

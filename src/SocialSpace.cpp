@@ -8,8 +8,8 @@
 #include "SocialSpace.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-SocialSpace::SocialSpace(double x, double y, int id):
-		IdentifiedObject(id), DrawnObject(x,y) {
+SocialSpace::SocialSpace(Point p, int id):
+		IdentifiedObject(id), DrawnObject(p) {
 }
 
 SocialSpace::~SocialSpace() {

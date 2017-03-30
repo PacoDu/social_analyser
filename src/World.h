@@ -13,18 +13,15 @@
 
 class World: public DrawnObject {
 public:
-	World(double w, double h, double x = 0, double y = 0, double theta = 0);
+	World(double w, double h, int wv, int hv, Point position = Point(), double theta = 0);
 	virtual ~World();
 
-	void draw();
+	void draw(World* world, Point p = Point());
 
 	double width;
 	double height;
 	double widthView;
 	double heightView;
-	double x;
-	double y;
-	double theta;
 
 };
 

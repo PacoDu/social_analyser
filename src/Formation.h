@@ -14,17 +14,19 @@
 #include "AgentContainer.h"
 #include "OSpace.h"
 #include "PSpace.h"
+#include "Point.h"
+#include "World.h"
 
 class Formation: public IdentifiedObject, public DrawnObject, public AgentContainer {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	Formation(GroupSocialSpace * sp, std::vector<Agent*>& a, double x=0, double y=0, double theta = 0, int id=0);
-	Formation(GroupSocialSpace * sp, double x=0, double y=0, double theta = 0, int id=0);
+	Formation(GroupSocialSpace * sp, std::vector<Agent*>& a, Point p = Point(), double theta = 0, int id=0);
+	Formation(GroupSocialSpace * sp, Point p = Point(), double theta = 0, int id=0);
 
 	~Formation();
 
 	// --- METHOD
-	void draw(double x, double y);
+	void draw(World* world, Point p = Point());
 	void computeSocialSpace();
 
 	// Getters & Setters

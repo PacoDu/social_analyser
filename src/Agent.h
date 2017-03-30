@@ -18,15 +18,13 @@ class PersonnalSocialSpace;
 class Agent: public IdentifiedObject, public DrawnObject {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	Agent();
-	Agent(Point p, double theta=0, int id=0);
+	Agent(Point p = Point(), double theta=0, int id=0);
 	~Agent();
 
 	// --- METHOD
-	ofPoint getPosition();
 	ofVec2f getDirection();
 
-	void draw(double x = 0, double y = 0);
+	void draw(World* world, Point p = Point());
 
 	// --- Getter & Setter
 	PersonnalSocialSpace* getSocialSpace() const;

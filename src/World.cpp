@@ -7,16 +7,16 @@
 
 #include "World.h"
 
-World::World(double w, double h, int wv, int hv, double x, double y, double theta):
-		DrawnObject(x,y,theta), width(w), height(h), widthView(wv), heightView(hv){
+World::World(double w, double h, int wv, int hv, Point position, double theta):
+		DrawnObject(position,theta), width(w), height(h), widthView(wv), heightView(hv){
 }
 
 World::~World() {
 	// TODO Auto-generated destructor stub
 }
 
-void World::draw() {
+void World::draw(World* world, Point p) {
 	ofNoFill();
-	ofDrawRectangle(this->x, this->y, this->width, this->height);
+	ofDrawRectangle(this->getX(), this->getY(), this->widthView, this->heightView);
 	ofFill();
 }

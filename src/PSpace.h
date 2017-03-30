@@ -9,15 +9,16 @@
 #define SRC_PSPACE_H_
 
 #include "GroupSocialSpace.h"
+#include "Point.h"
 
 class PSpace: public GroupSocialSpace {
 public:
-	PSpace(double innerRadius, double outerRadius, double x = 0, double y = 0, int id = 0);
-	PSpace(double innerRadius, double outerRadius, std::vector<Agent*>& a, double x = 0, double y = 0, int id = 0);
+	PSpace(double innerRadius, double outerRadius, Point p = Point(), int id = 0);
+	PSpace(double innerRadius, double outerRadius, std::vector<Agent*>& a, Point p = Point(), int id = 0);
 
 	~PSpace();
 
-	void draw(double x, double y);
+	void draw(World* world, Point p = Point());
 
 
 	// Getters & Setters
