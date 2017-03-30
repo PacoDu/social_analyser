@@ -22,7 +22,7 @@ public:
 
 	// --- METHOD
 	void compute();
-	double phi(double qx, double qy, double px, double py);
+	double phi(Point testedSpace);
 	void draw(World* world);
 
 protected:

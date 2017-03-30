@@ -8,6 +8,8 @@
 #ifndef SRC_POINT_H_
 #define SRC_POINT_H_
 
+#include "ofMain.h"
+
 class Point {
 public:
 	Point();
@@ -17,6 +19,8 @@ public:
 	double x;
 	double y;
 	double z;
+
+	int planSide(ofVec3f planeNormal, float planeDistance);
 };
 
 #endif /* SRC_POINT_H_ */

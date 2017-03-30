@@ -35,7 +35,7 @@ void GaussianSpace::compute() {
 	int a = 0, b = 0;
 	for(double i = this->_agent->getX() - (width/2), a = 0; i < this->_agent->getX() + width/2; i+=0.01, a++){
 		for(double j = this->_agent->getY() - (height/2), b = 0; j < this->_agent->getY() + height/2; j+=1, b++){
-			buffer[a][b] = this->phi(i,j, this->_agent->getX(), this->_agent->getY());
+			buffer[a][b] = this->phi(Point(i,j));
 		}
 	}
 
@@ -67,7 +67,7 @@ void GaussianSpace::compute() {
 	ofLogNotice("DEBUG") << "Data normalized";
 }
 
-double GaussianSpace::phi(double qx, double qy, double px, double py){
+double GaussianSpace::phi(Point testedSpace){
 	using namespace Eigen;
 
 	double sig = 0.45/2;
@@ -82,9 +82,11 @@ double GaussianSpace::phi(double qx, double qy, double px, double py){
 			sig, 0,
 			0, sig;
 
-	Vector2d q(qx,qy), p(px,py);
+	Vector2d q(testedSpace.x,testedSpace.y), p(this->getX(),this->getY());
 	Vector2d v = q-p;
 	Matrix<double, 1, 2> i;
+
+	// TODO use point.planSide ?
 	if(v[1] > 0){
 		i = v.transpose()*sigF.inverse();
 	}else {

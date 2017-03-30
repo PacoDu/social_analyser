@@ -17,3 +17,9 @@ Point::~Point() {
 	// TODO Auto-generated destructor stub
 }
 
+
+int Point::planSide(ofVec3f planeNormal, float planeDistance){
+	ofVec3f directionToPlane = planeDistance * planeNormal - ofVec3f(this->x, this->y, this->z);
+	float dot = directionToPlane.dot(planeNormal);
+	return (dot < 0 ? 1 : -1);
+}
