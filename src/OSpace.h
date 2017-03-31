@@ -14,7 +14,7 @@ class OSpace: public GroupSocialSpace {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
 	OSpace(double radius, Point p = Point(), int id = 0);
-	OSpace(double radius, std::vector<Agent*>& a, Point p = Point(), int id = 0);
+	OSpace(std::vector<Agent*>& a, Point p = Point(), int id = 0);
 	~OSpace();
 
 	// --- METHOD

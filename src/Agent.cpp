@@ -7,11 +7,12 @@
 
 #include "Agent.h"
 #include "PersonnalSocialSpace.h"
+#include "GaussianSpace.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-Agent::Agent(Point p, double theta, int id):
+Agent::Agent(World* world, Point p, double theta, int id):
 		IdentifiedObject(id), DrawnObject(p,theta) {
-	// Warning pSocialSpace is not initialized
+	pSocialSpace = new GaussianSpace(world, this);
 }
 
 Agent::~Agent() {
@@ -27,7 +28,10 @@ ofVec2f Agent::getDirection() {
 	return v;
 }
 
-void Agent::draw(World * world) {
+void Agent::draw(World * world, bool drawPersonnalSocialSpace) {
+	if(drawPersonnalSocialSpace){
+		this->pSocialSpace->draw(world);
+	}
 	Point pView = real_to_pixel(world, this->getPosition());
 	ofPushMatrix();
 		ofSetHexColor(0x6497b1);
@@ -40,6 +44,10 @@ void Agent::draw(World * world) {
 		ofSetHexColor(0x011f4b);
 		ofDrawCircle(0,0,5);
 	ofPopMatrix();
+}
+
+void Agent::draw(World * world) {
+	this->draw(world, false);
 }
 
 //void Agent::draw(bool drawSocialSpace, double x, double y){

@@ -20,8 +20,9 @@
 class Formation: public IdentifiedObject, public DrawnObject, public AgentContainer {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	Formation(GroupSocialSpace * sp, std::vector<Agent*>& a, Point p = Point(), double theta = 0, int id=0);
+	Formation(std::vector<Agent*>& a, Point p = Point(), double theta = 0, int id=0);
 	Formation(GroupSocialSpace * sp, Point p = Point(), double theta = 0, int id=0);
+	Formation(Point p = Point(), double theta = 0, int id=0);
 
 	~Formation();
 

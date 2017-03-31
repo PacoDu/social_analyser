@@ -9,13 +9,18 @@
 #include "Formation.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-Formation::Formation(GroupSocialSpace* sp, std::vector<Agent*>& a , Point p,
+Formation::Formation(std::vector<Agent*>& a , Point p,
 		double theta, int id):
-		IdentifiedObject(id), DrawnObject(p), AgentContainer(a), _socialSpace(sp){
+		IdentifiedObject(id), DrawnObject(p), AgentContainer(a){
+	_socialSpace = new OSpace(a);
 }
 
 Formation::Formation(GroupSocialSpace* sp, Point p, double theta, int id):
 		IdentifiedObject(id), DrawnObject(p), AgentContainer(), _socialSpace(sp){
+}
+
+Formation::Formation(Point p, double theta, int id):
+		IdentifiedObject(id), DrawnObject(p), AgentContainer(){
 }
 
 Formation::~Formation() {

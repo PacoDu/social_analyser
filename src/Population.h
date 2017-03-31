@@ -15,6 +15,7 @@
 #include "AgentContainer.h"
 #include "ofMain.h"
 #include "Population.h"
+#include "GaussianSpace.h"
 
 class Population: public IdentifiedObject, public DrawnObject, public AgentContainer {
 public:
@@ -25,6 +26,7 @@ public:
 
 	// --- METHOD
 	void draw(World* world);
+	void update(World* world);
 	void clear();
 
 	ofVec2f getBoundX();

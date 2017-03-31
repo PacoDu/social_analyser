@@ -8,20 +8,20 @@
 #include "PopulationManager.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-PopulationManager::PopulationManager(): DrawnObject() {
+PopulationManager::PopulationManager(World* world): DrawnObject(), world(world) {
 	this->_population = new Population();
 }
 
-PopulationManager::PopulationManager(std::string feature_file, Point p):
-		DrawnObject(p), feature_file(feature_file) {
+PopulationManager::PopulationManager(World* world, std::string feature_file, Point p):
+		DrawnObject(p), feature_file(feature_file), world(world) {
 	this->_population = new Population();
 	if(!this->loadFeatureJson()) this->loadFrame(frameIndex);
 
 	else throw std::string("Error while loading json file.");
 }
 
-PopulationManager::PopulationManager(std::string feature_file,
-		std::string gt_file, Point p): DrawnObject(p), feature_file(feature_file), gt_file(gt_file) {
+PopulationManager::PopulationManager(World* world, std::string feature_file,
+		std::string gt_file, Point p): DrawnObject(p), feature_file(feature_file), gt_file(gt_file), world(world) {
 
 	this->_population = new Population();
 	this->setGtEnabled(1);
@@ -50,14 +50,17 @@ int PopulationManager::loadFrame(unsigned int fIndex) {
 
 	for (Json::ArrayIndex i = 0; i < features["features"][frameIndex].size(); ++i)
 	{
-		this->_population->pushAgent(new Agent(
-				Point(
-						features["features"][frameIndex][i][1].asDouble(),
-						features["features"][frameIndex][i][2].asDouble()
-					),
-				features["features"][frameIndex][i][3].asDouble(),
-				features["features"][frameIndex][i][0].asInt()
-				));
+		Agent* a = new Agent(
+						this->world,
+						Point(
+								features["features"][frameIndex][i][1].asDouble()/10,
+								features["features"][frameIndex][i][2].asDouble()/10
+							),
+						features["features"][frameIndex][i][3].asDouble(),
+						features["features"][frameIndex][i][0].asInt()
+						);
+//		GaussianSpace * g = new GaussianSpace(a);
+		this->_population->pushAgent(a);
 	}
 
 	if(this->isGtEnabled()){
@@ -72,14 +75,18 @@ int PopulationManager::loadFrame(unsigned int fIndex) {
 			}
 
 			// TODO
-//			Formation* fformation = new Formation(group, 0, 0, i);
+			Formation* fformation = new Formation(group);
 //			fformation->computeSocialSpace();
 //
-//			this->_population->pushFormation(fformation);
+			this->_population->pushFormation(fformation);
 		}
 	}
 
 	return 0;
+}
+
+void PopulationManager::update(World * world){
+	this->_population->update(world);
 }
 
 int PopulationManager::loadJson() {

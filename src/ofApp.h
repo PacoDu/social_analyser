@@ -29,8 +29,12 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+		Population* pop;
 		PopulationManager* manager;
-		GaussianSpace* c;
-		Agent* a;
+		Formation* form;
+		std::vector<Agent *> agents;
+		Agent* a0;
+		Agent* a1;
+		Agent* a2;
 		World* world;
 };

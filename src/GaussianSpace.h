@@ -9,6 +9,7 @@
 #define SRC_GAUSSIANSPACE_H_
 
 #include "PersonnalSocialSpace.h"
+#include "World.h"
 
 #undef Success // Eigen import clash with X11, dirty fix
 #include "ofxMatrixEigen.h"
@@ -17,11 +18,12 @@
 class GaussianSpace: public PersonnalSocialSpace {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	GaussianSpace(Agent * a, Point p = Point(), double theta=0);
+//	GaussianSpace(Agent * a, Point p = Point(), double theta=0);
+	GaussianSpace(World* world, Agent * a, double theta=0);
 	virtual ~GaussianSpace();
 
 	// --- METHOD
-	void compute();
+	void compute(World* world);
 	double phi(Point testedSpace);
 	void draw(World* world);
 

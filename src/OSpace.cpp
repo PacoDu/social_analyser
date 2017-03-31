@@ -8,8 +8,10 @@
 #include "OSpace.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-OSpace::OSpace(double radius, std::vector<Agent*>& a , Point p, int id):
-		GroupSocialSpace(a, p, id), radius(radius){
+OSpace::OSpace(std::vector<Agent*>& a , Point p, int id):
+		GroupSocialSpace(a, p, id){
+	this->setX(a[0]->getX());
+	this->setY(a[0]->getY());
 }
 
 OSpace::OSpace(double radius, Point p, int id):
@@ -21,14 +23,22 @@ OSpace::~OSpace() {
 }
 
 // --- METHOD
+// TODO:
+// - order agents vector clockwise
+// - compute ospace center (C)
+// - phi gaussian representation of ospace knowing C
+// - compute social map
+// - draw social map
+
 void OSpace::draw(World* world) {
-//	ofPushMatrix();
-//		ofSetHexColor(0xd896ff);
-//		ofTranslate(x+this->getX(), y+this->getY());
-//
-//		ofDrawCircle(0, 0, this->getRadius());
-//
-//	ofPopMatrix();
+	Point pView = real_to_pixel(world, this->getPosition());
+	ofPushMatrix();
+		ofSetHexColor(0xd896ff);
+		ofTranslate(pView.x, pView.y);
+
+		ofDrawCircle(0, 0, 5);
+
+	ofPopMatrix();
 }
 
 // Getter & Setter

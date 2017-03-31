@@ -9,6 +9,7 @@
 #define PERSONNALSOCIALSPACE_H_
 
 #include "SocialSpace.h"
+#include "World.h"
 
 class Agent;
 
@@ -17,6 +18,8 @@ public:
 	// --- CONSTRUCTOR & DESTRUCTOR
 	PersonnalSocialSpace(Agent * a, Point p = Point(), double theta = 0, int id = 0);
 	virtual ~PersonnalSocialSpace();
+
+	virtual void compute(World * world) = 0;
 
 protected:
 	Agent * _agent;

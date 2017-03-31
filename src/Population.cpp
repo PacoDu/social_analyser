@@ -45,11 +45,18 @@ void Population::draw(World* world) {
 				<< ", Theta = " << this->_agents[i]->getTheta()
 				<< ", Theta (degres) = " << ofRadToDeg(this->_agents[i]->getTheta()) << std::endl;
 
-		this->_agents[i]->draw(world);
+		this->_agents[i]->draw(world, true);
 	}
 
 	ofSetHexColor(0x2C291F);
-	ofDrawBitmapString(ss.str(), 10, 14);
+	ofDrawBitmapString(ss.str(), world->getX(), world->getY()+world->heightView+20);
+}
+
+void Population::update(World* world){
+//	for(unsigned int i=0; i<this->_agents.size(); i++){
+//		GaussianSpace* c = (GaussianSpace*)this->_agents[i]->getSocialSpace();
+//		c->compute(world);
+//	}
 }
 
 void Population::clear() {

@@ -14,13 +14,14 @@
 #include "Population.h"
 #include "Agent.h"
 #include "Formation.h"
+#include "GaussianSpace.h"
 
 class PopulationManager: public DrawnObject {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	PopulationManager();
-	PopulationManager(std::string feature_file, Point p = Point());
-	PopulationManager(std::string feature_file, std::string gt_file, Point p = Point());
+	PopulationManager(World* world);
+	PopulationManager(World* world, std::string feature_file, Point p = Point());
+	PopulationManager(World* world, std::string feature_file, std::string gt_file, Point p = Point());
 
 	~PopulationManager();
 
@@ -34,6 +35,7 @@ public:
 	int previousFrame();
 
 	void draw(World* world);
+	void update(World* world);
 
 	// --- Getter & Setter
 	Population* getPopulation() const;
@@ -60,6 +62,7 @@ protected:
 	ofxJSONElement groundTruth;
 	std::string feature_file;
 	std::string gt_file;
+	World* world;
 
 	bool loaded = 0;
 	bool gt_enabled = 0;

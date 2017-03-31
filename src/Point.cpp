@@ -18,8 +18,36 @@ Point::~Point() {
 }
 
 
-int Point::planSide(ofVec3f planeNormal, float planeDistance){
-	ofVec3f directionToPlane = planeDistance * planeNormal - ofVec3f(this->x, this->y, this->z);
-	float dot = directionToPlane.dot(planeNormal);
-	return (dot < 0 ? 1 : -1);
+int Point::planSide(ofVec3f planeNormalA, ofVec3f a){
+	ofVec3f AB = ofVec3f(this->x, this->y, this->z) - a;
+	double dot = AB.dot(planeNormalA);
+	return (dot > 0 ? 1 : -1);
+}
+
+double Point::distance(Point p) {
+	return sqrt((p.x-x)*(p.x-x)+(p.y-y)*(p.y-y));
+}
+
+double Point::getX() const {
+	return x;
+}
+
+void Point::setX(double x) {
+	this->x = x;
+}
+
+double Point::getY() const {
+	return y;
+}
+
+void Point::setY(double y) {
+	this->y = y;
+}
+
+double Point::getZ() const {
+	return z;
+}
+
+void Point::setZ(double z) {
+	this->z = z;
 }

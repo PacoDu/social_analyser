@@ -20,7 +20,14 @@ public:
 	double y;
 	double z;
 
-	int planSide(ofVec3f planeNormal, float planeDistance);
+	int planSide(ofVec3f planeNormalA, ofVec3f a);
+	double distance(Point p);
+	double getX() const;
+	void setX(double x);
+	double getY() const;
+	void setY(double y);
+	double getZ() const;
+	void setZ(double z);
 };
 
 #endif /* SRC_POINT_H_ */
