@@ -15,11 +15,11 @@ LocalizedObject::~LocalizedObject() {
 }
 
 // --- Getter & Setter
-const Point& LocalizedObject::getPosition() const {
+Point LocalizedObject::getPosition() const {
 	return position;
 }
 
-void LocalizedObject::setPosition(const Point& position) {
+void LocalizedObject::setPosition(Point position) {
 	this->position = position;
 }
 

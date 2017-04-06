@@ -17,8 +17,8 @@ public:
 	virtual ~LocalizedObject();
 
 	// --- Getter & Setter
-	const Point& getPosition() const;
-	void setPosition(const Point& position);
+	Point getPosition() const;
+	void setPosition(Point position);
 	double getTheta() const;
 	void setTheta(double theta);
 

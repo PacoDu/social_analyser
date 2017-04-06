@@ -18,6 +18,8 @@ PopulationManager::PopulationManager(World* world, std::string feature_file, Poi
 	if(!this->loadFeatureJson()) this->loadFrame(frameIndex);
 
 	else throw std::string("Error while loading json file.");
+
+	this->findDataBounds();
 }
 
 PopulationManager::PopulationManager(World* world, std::string feature_file,
@@ -29,6 +31,8 @@ PopulationManager::PopulationManager(World* world, std::string feature_file,
 	int err = this->loadJson();
 	if(!err) this->loadFrame(frameIndex);
 	else ofLogError("PopulationManager::PopulationManager") << "Failed to load json";
+
+	this->findDataBounds();
 
 }
 
@@ -50,11 +54,16 @@ int PopulationManager::loadFrame(unsigned int fIndex) {
 
 	for (Json::ArrayIndex i = 0; i < features["features"][frameIndex].size(); ++i)
 	{
+//		Point pos;
+//		if(min < 0){
+//			pos.x = features["features"][frameIndex][i][1].asDouble() - min,
+//
+//		}
 		Agent* a = new Agent(
 						this->world,
 						Point(
-								features["features"][frameIndex][i][1].asDouble()/10,
-								features["features"][frameIndex][i][2].asDouble()/10
+								features["features"][frameIndex][i][1].asDouble()/100,
+								features["features"][frameIndex][i][2].asDouble()/100
 							),
 						features["features"][frameIndex][i][3].asDouble(),
 						features["features"][frameIndex][i][0].asInt()
@@ -76,7 +85,7 @@ int PopulationManager::loadFrame(unsigned int fIndex) {
 
 			// TODO
 			Formation* fformation = new Formation(group);
-//			fformation->computeSocialSpace();
+			fformation->computeSocialSpace(world);
 //
 			this->_population->pushFormation(fformation);
 		}
@@ -119,6 +128,22 @@ int PopulationManager::loadGroundTruthJson() {
 
 	return -1;
 }
+
+
+void PopulationManager::findDataBounds() {
+	min_x = INFINITY;
+	max_x = -INFINITY;
+
+	for (Json::ArrayIndex i = 0; i < features["features"].size(); ++i){
+		for (Json::ArrayIndex j = 0; j < features["features"][i].size(); ++j){
+//			for (Json::ArrayIndex k = 0; k < features["features"][i][j].size(); ++k){
+				if(features["features"][i][j][1].asDouble() > max_x) max_x = features["features"][i][j][1].asDouble();
+				if(features["features"][i][j][1].asDouble() < min_x) min_x = features["features"][i][j][1].asDouble();
+//			}
+		}
+	}
+}
+
 
 int PopulationManager::nextFrame() {
 	if(frameIndex < features["features"].size()) frameIndex++;

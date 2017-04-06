@@ -30,6 +30,7 @@ public:
 	int loadJson();
 	int loadFeatureJson();
 	int loadGroundTruthJson();
+	void findDataBounds();
 
 	int nextFrame();
 	int previousFrame();
@@ -63,6 +64,8 @@ protected:
 	std::string feature_file;
 	std::string gt_file;
 	World* world;
+
+	double min_x, min_y, max_x, max_y;
 
 	bool loaded = 0;
 	bool gt_enabled = 0;

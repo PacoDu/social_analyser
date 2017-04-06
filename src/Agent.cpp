@@ -24,7 +24,7 @@ Agent::~Agent() {
 ofVec2f Agent::getDirection() {
 	ofVec2f v = ofVec2f(1.0f, 0.0f);
 	v.rotate(ofRadToDeg(this->theta));
-
+	v.normalize();
 	return v;
 }
 

@@ -10,12 +10,20 @@
 // --- CONSTRUCTOR & DESTRUCTOR
 OSpace::OSpace(std::vector<Agent*>& a , Point p, int id):
 		GroupSocialSpace(a, p, id){
-	this->setX(a[0]->getX());
-	this->setY(a[0]->getY());
+	this->intersectionPoints.resize(a.size());
+	this->centroids.resize(a.size());
+	this->computeCenter();
+	this->sortAgents();
+	this->computeCentroids();
+
+	buffer = std::vector<std::vector<double>>(width, std::vector<double>(height));
+	frame.allocate(width, height, OF_IMAGE_COLOR_ALPHA);
+	frame.setColor(ofColor::white);
+	frame.update();
 }
 
-OSpace::OSpace(double radius, Point p, int id):
-		GroupSocialSpace(p,id), radius(radius){
+OSpace::OSpace(Point p, int id):
+		GroupSocialSpace(p,id){
 }
 
 OSpace::~OSpace() {
@@ -31,21 +39,265 @@ OSpace::~OSpace() {
 // - draw social map
 
 void OSpace::draw(World* world) {
-	Point pView = real_to_pixel(world, this->getPosition());
+
+	Point pView = real_to_pixel(world, Point(center.x, center.y));
+//	ofLogNotice("e") << pView.x << "," << pView.y;
+	ofPushMatrix();
+		ofTranslate(pView.x, pView.y);
+//		ofRotateZ(ofRadToDeg(this->_agent->getTheta()-PI/2));
+		ofTranslate(-width/2, -height/2);
+		ofSetHexColor(0xFFFFFF);
+		frame.draw(0,0);
+	ofPopMatrix();
+
+	pView = real_to_pixel(world, Point(center.x, center.y));
 	ofPushMatrix();
 		ofSetHexColor(0xd896ff);
 		ofTranslate(pView.x, pView.y);
+		ofDrawCircle(0, 0, 30);
+	ofPopMatrix();
 
-		ofDrawCircle(0, 0, 5);
+	for(unsigned int i=0; i < intersectionPoints.size(); i++){
+		pView = real_to_pixel(world, intersectionPoints[i]);
+		ofPushMatrix();
+			ofSetHexColor(0x0000FF);
+			ofTranslate(pView.x, pView.y);
+			ofDrawCircle(0, 0, 10);
+		ofPopMatrix();
+	}
 
+	for(unsigned int i=0; i < centroids.size(); i++){
+		pView = real_to_pixel(world, centroids[i]);
+		ofPushMatrix();
+			ofSetHexColor(0xFF0000);
+			ofTranslate(pView.x, pView.y);
+			ofDrawCircle(0, 0, 20);
+		ofPopMatrix();
+	}
+
+	pView = real_to_pixel(world, Point(center.x, center.y));
+//	ofLogNotice("e") << pView.x << "," << pView.y;
+	ofPushMatrix();
+		ofTranslate(pView.x, pView.y);
+		ofRotateZ(ofRadToDeg(this->getTheta()));
+		ofTranslate(-width/2, -height/2);
+		ofSetHexColor(0xFFFFFF);
+		frame.draw(0,0);
 	ofPopMatrix();
 }
 
 // Getter & Setter
-double OSpace::getRadius() const {
-	return radius;
+void OSpace::computeCenter() {
+	this->center.set(0,0,0);
+	for(unsigned int i=0; i < this->_agents.size(); i++){
+		this->center += ofPoint(this->_agents[i]->getPosition().x, this->_agents[i]->getPosition().y);
+	}
+
+	this->center /= this->_agents.size();
 }
 
-void OSpace::setRadius(double radius) {
-	this->radius = radius;
+void OSpace::sortAgents() {
+//	if(this->_agents.size() > 2){
+//
+//	}
+	bool shifted = false;
+	for(unsigned int i=0; i < this->_agents.size()-1; i++){
+		bool test = less(_agents[i]->getPosition(), _agents[i+1]->getPosition());
+		if(test){
+			Agent* tmp = _agents[i];
+			_agents[i] = _agents[i+1];
+			_agents[i+1] = tmp;
+
+			shifted = true;
+		}
+	}
+
+	for(unsigned int i=0; i < this->_agents.size(); i++){
+		_agents[i]->setId(i);
+	}
+
+	if(shifted) this->sortAgents();
+}
+
+bool OSpace::less(Point a, Point b)
+{
+    if (a.x - center.x >= 0 && b.x - center.x < 0)
+        return true;
+    if (a.x - center.x < 0 && b.x - center.x >= 0)
+        return false;
+    if (a.x - center.x == 0 && b.x - center.x == 0) {
+        if (a.y - center.y >= 0 || b.y - center.y >= 0)
+            return a.y > b.y;
+        return b.y > a.y;
+    }
+
+    // compute the cross product of vectors (center -> a) x (center -> b)
+    int det = (a.x - center.x) * (b.y - center.y) - (b.x - center.x) * (a.y - center.y);
+    if (det < 0)
+        return true;
+    if (det > 0)
+        return false;
+
+    // Points a and b are on the same line from the center
+    // check which Point is closer to the center
+    int d1 = (a.x - center.x) * (a.x - center.x) + (a.y - center.y) * (a.y - center.y);
+    int d2 = (b.x - center.x) * (b.x - center.x) + (b.y - center.y) * (b.y - center.y);
+    return d1 > d2;
+}
+
+double OSpace::phi(Point testedRealPoint, double dh, double di) {
+	using namespace Eigen;
+
+//	ofLogNotice("DEbug") << "dh=" << dh << " di=" << di;
+//	ofLogNotice("DEBUG") << "testedRealPoint(" << testedRealPoint.x << "," << testedRealPoint.y << ")";
+	Matrix<double,2,2> sig;
+	sig <<
+			dh/4, 0,
+			0, di/2;
+
+
+	Vector2d testedV(testedRealPoint.x,testedRealPoint.y), centerV(center.x, center.y);
+	Vector2d v = testedV-centerV;
+//	int delta = testedRealPoint.planSide(this->_agent->getDirection(), ofVec3f(this->_agent->getX(), this->_agent->getY()));
+	Matrix<double, 1, 2> i;
+
+	i = v.transpose()*sig.inverse();
+
+	double j =i*v;
+
+	return exp(-0.5*j);
+}
+
+void OSpace::compute(World* world) {
+	if(_agents.size() > 1){
+		this->computeCenter();
+		this->sortAgents();
+		this->computeCentroids();
+
+
+		double dh = sqrt((_agents[_agents.size()-1]->getX() - _agents[0]->getX())*(_agents[_agents.size()-1]->getX() - _agents[0]->getX()) + (_agents[_agents.size()-1]->getY() - _agents[0]->getY())*(_agents[_agents.size()-1]->getY() - _agents[0]->getY()));
+		for(unsigned int i=1; i < _agents.size()-1; i++){
+			dh += sqrt((_agents[i+1]->getX() - _agents[i]->getX())*(_agents[i+1]->getX() - _agents[i]->getX()) + (_agents[i+1]->getY() - _agents[i]->getY())*(_agents[i+1]->getY() - _agents[i]->getY()));
+		}
+		dh /= _agents.size();
+
+
+			// TODO di = 0 when agents.size = 2
+		double di = sqrt((centroids[centroids.size()-1].x - centroids[0].x)*(centroids[centroids.size()-1].x - centroids[0].x) + (centroids[centroids.size()-1].y - centroids[0].y)*(centroids[centroids.size()-1].y - centroids[0].y));
+		for(unsigned int i=1; i < centroids.size()-1; i++){
+			di += sqrt((centroids[i+1].x - centroids[i].x)*(centroids[i+1].x - centroids[i].x) + (centroids[i+1].y - centroids[i].y)*(centroids[i+1].y - centroids[i].y));
+		}
+		di /= centroids.size();
+		di *= 2;
+
+//		this->phi(x,y, dh, di);
+
+		double max = -INFINITY, min = INFINITY;
+		// Fill buffer with phi result
+		for(int i = 0; i < this->width; i++){
+			for(int j = 0; j < this->height; j++){
+				Point pv(center.x, center.y);
+				Point agentViewPoint = real_to_pixel(world, pv);
+				Point computedViewPoint = Point(agentViewPoint.x+i-width/2, agentViewPoint.y+j-height/2);
+				Point computedRealPoint = pixel_to_real(world, computedViewPoint);
+				buffer[i][j] = phi(computedRealPoint, dh, di);
+				if(buffer[i][j] > max) max = buffer[i][j];
+				if(buffer[i][j] < min) min = buffer[i][j];
+
+//				ofLogNotice("DEBUG") << " phi=" << phi(computedRealPoint, dh, di);
+			}
+		}
+
+		// Compute normalized map (0-255)
+		for(int i = 0; i < this->width; i++){
+			for(int j = 0; j < this->height; j++){
+				buffer[i][j] = ofMap(buffer[i][j], min, max, 0, 255);
+				ofColor c = ofColor(0xFF, 0xBF, 0x58, buffer[i][j]);
+				frame.setColor((int)i,(int)j, c);
+			}
+		}
+
+		frame.update();
+
+		// Compute rotation TODO ...
+		ofVec3f a(this->_agents[0]->getPosition().x, this->_agents[0]->getPosition().y);
+		ofVec3f b(this->center.x, this->center.y);
+		ofVec3f dir(b.x-a.x, b.y-a.y);
+		this->setTheta(dir.angleRad(ofVec3f(1,0,0)));
+
+		ofLogNotice("DEBUG") << "Gaussian space computed for Formation #" << this->getId();
+
+	}
+}
+
+void OSpace::computeCentroids() {
+	intersectionPoints.resize(_agents.size());
+	centroids.resize(_agents.size());
+
+	ofPoint realCenter;
+	ofVec3f toot;
+
+	for(unsigned int i=0; i < this->_agents.size(); i++){
+
+		unsigned int neighborIndex = i+1;
+		if(neighborIndex >= this->_agents.size()) neighborIndex = 0;
+
+		if(abs(ofRadToDeg(_agents[i]->getTheta())) == abs(ofRadToDeg(_agents[neighborIndex]->getTheta()))){
+			// TODO ...
+			Point p(0,0);
+			intersectionPoints[i] = p;
+			continue;
+		}
+
+		// Get line equation from agent position and direction:
+		Point ps1 = _agents[i]->getPosition();
+		Point pe1;
+		pe1.x = _agents[i]->getPosition().x+_agents[i]->getDirection().x;
+		pe1.y =  _agents[i]->getPosition().y+_agents[i]->getDirection().y;
+
+		Point ps2 = _agents[neighborIndex]->getPosition();
+		Point pe2;
+		pe2.x = _agents[neighborIndex]->getPosition().x + _agents[neighborIndex]->getDirection().x;
+		pe2.y = _agents[neighborIndex]->getPosition().y + _agents[neighborIndex]->getDirection().y;
+
+		// compute intersection
+		intersectionPoints[i] = lineIntersectionPoint(ps1, pe1, ps2, pe2);
+
+		// compute centroïds
+		Point centro;
+		centro.x = (intersectionPoints[i].x + ((_agents[neighborIndex]->getPosition().x + _agents[i]->getPosition().x)/2))/2;
+		centro.y = (intersectionPoints[i].y + ((_agents[neighborIndex]->getPosition().y + _agents[i]->getPosition().y)/2))/2;
+		centroids[i] = centro;
+
+		ofPoint c(centro.x, centro.y);
+		realCenter += c;
+	}
+
+	realCenter /=  this->_agents.size();
+	center.set(realCenter.x, realCenter.y, realCenter.z);
+}
+
+Point OSpace::lineIntersectionPoint(Point ps1, Point pe1, Point ps2, Point pe2)
+{
+  // Get A,B,C of first line - points : ps1 to pe1
+  double A1 = pe1.y-ps1.y;
+  double B1 = ps1.x-pe1.x;
+  double C1 = A1*ps1.x+B1*ps1.y;
+
+  // Get A,B,C of second line - points : ps2 to pe2
+  double A2 = pe2.y-ps2.y;
+  double B2 = ps2.x-pe2.x;
+  double C2 = A2*ps2.x+B2*ps2.y;
+
+  // Get delta and check if the lines are parallel
+  double delta = A1*B2 - A2*B1;
+  if(delta == 0) return Point(0,0);
+//     throw new std::logic_error( "Lines are parallel");
+
+  double a = (B2*C1 - B1*C2)/delta;
+  double b = (A1*C2 - A2*C1)/delta;
+
+  // now return the Vector2 intersection point
+   Point p(a,b);
+   return p;
 }

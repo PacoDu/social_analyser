@@ -28,9 +28,11 @@ public:
 
 	// --- METHOD
 	void draw(World* world);
-	void computeSocialSpace();
+	void computeSocialSpace(World* world);
 
 	// Getters & Setters
+	GroupSocialSpace* getSocialSpace() const;
+	void setSocialSpace(GroupSocialSpace* socialSpace);
 
 
 protected:

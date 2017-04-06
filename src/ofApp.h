@@ -37,4 +37,5 @@ class ofApp : public ofBaseApp{
 		Agent* a1;
 		Agent* a2;
 		World* world;
+		unsigned int mainIndex = 0;
 };

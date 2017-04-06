@@ -57,6 +57,9 @@ void Population::update(World* world){
 //		GaussianSpace* c = (GaussianSpace*)this->_agents[i]->getSocialSpace();
 //		c->compute(world);
 //	}
+	for(unsigned int i=0; i<this->_formations.size(); i++){
+		((OSpace*)_formations[i]->getSocialSpace())->compute(world);
+	}
 }
 
 void Population::clear() {
