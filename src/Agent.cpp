@@ -6,7 +6,6 @@
  */
 
 #include "Agent.h"
-#include "PersonnalSocialSpace.h"
 #include "GaussianSpace.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
@@ -58,10 +57,10 @@ void Agent::draw(World * world) {
 //}
 
 // --- Getter & Setter
-PersonnalSocialSpace* Agent::getSocialSpace() const {
-return pSocialSpace;
+GaussianSpace* Agent::getSocialSpace() {
+	return pSocialSpace;
 }
 
-void Agent::setSocialSpace(PersonnalSocialSpace* socialSpace) {
-pSocialSpace = socialSpace;
+void Agent::setSocialSpace(GaussianSpace* socialSpace) {
+	pSocialSpace = socialSpace;
 }

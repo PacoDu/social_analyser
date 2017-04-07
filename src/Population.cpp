@@ -35,7 +35,7 @@ void Population::draw(World* world) {
 				<< ": x = " << _formations[i]->getX()
 				<< ", y = " << _formations[i]->getY() << std::endl;
 
-		_formations[i]->draw(world);
+//		_formations[i]->draw(world);
 	}
 
 	for(unsigned int i=0; i<this->_agents.size(); i++){
@@ -45,7 +45,7 @@ void Population::draw(World* world) {
 				<< ", Theta = " << this->_agents[i]->getTheta()
 				<< ", Theta (degres) = " << ofRadToDeg(this->_agents[i]->getTheta()) << std::endl;
 
-		this->_agents[i]->draw(world, true);
+		this->_agents[i]->draw(world, false);
 	}
 
 	ofSetHexColor(0x2C291F);
@@ -57,9 +57,9 @@ void Population::update(World* world){
 //		GaussianSpace* c = (GaussianSpace*)this->_agents[i]->getSocialSpace();
 //		c->compute(world);
 //	}
-	for(unsigned int i=0; i<this->_formations.size(); i++){
-		((OSpace*)_formations[i]->getSocialSpace())->compute(world);
-	}
+//	for(unsigned int i=0; i<this->_formations.size(); i++){
+//		((OSpace*)_formations[i]->getSocialSpace())->compute(world);
+//	}
 }
 
 void Population::clear() {

@@ -19,6 +19,8 @@
 
 GaussianSpace::GaussianSpace(World* world, Agent * a, double theta):
 		PersonnalSocialSpace(a,Point(a->getX(),a->getY()), a->getTheta(), id){
+	setTheta(a->getTheta());
+
 	buffer = std::vector<std::vector<double>>(width, std::vector<double>(height));
 	frame.allocate(width, height, OF_IMAGE_COLOR_ALPHA);
 	frame.setColor(ofColor::white);
@@ -121,15 +123,27 @@ double GaussianSpace::phi(Point testedRealPoint){
 			sig, 0,
 			0, sig;
 
+	Matrix<double,2,2> rot;
+	rot <<
+			cos(this->_agent->getTheta()-PI/2), sin(this->_agent->getTheta()-PI/2),
+			-sin(this->_agent->getTheta()-PI/2), cos(this->_agent->getTheta()-PI/2);
+
+//	ofLogNotice("GaussianSpace::phi") << "Theta= " << getTheta();
+//	ofLogNotice("GaussianSpace::phi") << rot;
+
 
 	Vector2d testedV(testedRealPoint.x,testedRealPoint.y), agentV(this->_agent->getX(),this->_agent->getY());
 	Vector2d v = testedV-agentV;
-//	int delta = testedRealPoint.planSide(this->_agent->getDirection(), ofVec3f(this->_agent->getX(), this->_agent->getY()));
+
+	// Apply rotation for model:
+	v = rot*v;
+
+	int delta = testedRealPoint.planSide(this->_agent->getDirection(), ofVec3f(this->_agent->getX(), this->_agent->getY()));
 	Matrix<double, 1, 2> i;
 //	ofLogNotice("d") << " agent direction " << this->_agent->getDirection();
 
 //	ofLogNotice("d") << "tested x=" << testedRealPoint.x << " y=" << testedRealPoint.y << " agent x=" << this->_agent->getX() << " delta=" << delta;
-	if(testedRealPoint.y > this->_agent->getY()){
+	if(delta > 0){
 		i = v.transpose()*sigF.inverse();
 //		return 1;
 	}else {

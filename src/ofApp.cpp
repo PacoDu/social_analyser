@@ -4,6 +4,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	world = new World(10, 10, 600, 600, Point(20,20), 0);
+//	cell = new GridCell(1,0,Point(5,5));
 	pop = new Population();
 //	manager = new PopulationManager(world, "cocktail_party.json", "cocktail_party_gt.json");
 //	manager = new PopulationManager(world, "coffee_break.json");
@@ -29,6 +30,9 @@ void ofApp::setup(){
 	form = new Formation(agents);
 	pop->pushFormation(form);
 	pop->update(world);
+
+
+	map = new GridMap(world, pop, 0.5);
 //	pop->update(world);
 //	c->compute(world);
 //	manager->update(world);
@@ -49,8 +53,9 @@ void ofApp::draw(){
 //	form->draw(world);
 //	c->draw(world);
 //	a->draw(world);
+//	cell->draw(world);
+	map->draw(world);
 	pop->draw(world);
-
 
 //	manager->draw(world);
 //	c.draw(100,100);
@@ -88,7 +93,8 @@ void ofApp::keyPressed(int key){
 		if(mainIndex-1 >= 0) mainIndex--;
 	}
 
-	pop->update(world);
+//	pop->update(world);
+	map->update();
 }
 
 //--------------------------------------------------------------

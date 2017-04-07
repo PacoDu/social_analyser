@@ -9,6 +9,8 @@
 #include "Agent.h"
 #include "Point.h"
 #include "World.h"
+#include "GridMap.h"
+#include "GridCell.h"
 
 class ofApp : public ofBaseApp{
 
@@ -37,5 +39,7 @@ class ofApp : public ofBaseApp{
 		Agent* a1;
 		Agent* a2;
 		World* world;
+		GridMap* map;
+		GridCell* cell;
 		unsigned int mainIndex = 0;
 };

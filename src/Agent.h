@@ -13,7 +13,7 @@
 #include "DrawnObject.h"
 #include "Point.h"
 
-class PersonnalSocialSpace;
+class GaussianSpace;
 
 class Agent: public IdentifiedObject, public DrawnObject {
 public:
@@ -26,13 +26,13 @@ public:
 
 	void draw(World * world, bool drawPersonnalSocialSpace);
 	void draw(World* world);
+	GaussianSpace* getSocialSpace();
+	void setSocialSpace(GaussianSpace* socialSpace);
 
 	// --- Getter & Setter
-	PersonnalSocialSpace* getSocialSpace() const;
-	void setSocialSpace(PersonnalSocialSpace* socialSpace);
 
 protected:
-	PersonnalSocialSpace* pSocialSpace;
+	GaussianSpace* pSocialSpace;
 
 };
 
