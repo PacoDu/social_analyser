@@ -4,8 +4,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	world = new World(10, 10, 600, 600, Point(20,20), 0);
-//	cell = new GridCell(1,0,Point(5,5));
 	pop = new Population();
+
 //	manager = new PopulationManager(world, "cocktail_party.json", "cocktail_party_gt.json");
 //	manager = new PopulationManager(world, "coffee_break.json");
 
@@ -18,6 +18,7 @@ void ofApp::setup(){
 //		agents.push_back(a);
 //		pop->pushAgent(a);
 //	}
+
 	a0 = new Agent(world, Point(2, 7), 11.4, 0);
 	a1 = new Agent(world, Point(6, 4), 2.6, 1);
 	a2 = new Agent(world, Point(2, 3), 13.2, 2);
@@ -27,14 +28,13 @@ void ofApp::setup(){
 	pop->pushAgent(a1);
 	agents.push_back(a2);
 	pop->pushAgent(a2);
+
 	form = new Formation(agents);
 	pop->pushFormation(form);
-	pop->update(world);
 
 
-	map = new GridMap(world, pop, 0.5);
-//	pop->update(world);
-//	c->compute(world);
+	map = new GridMap(world, pop, 0.1);
+
 //	manager->update(world);
 }
 
@@ -48,21 +48,14 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 //	ofBackground(0xF9F9F9);
-//	c->draw(world);
+
 	world->draw();
 //	form->draw(world);
-//	c->draw(world);
-//	a->draw(world);
-//	cell->draw(world);
+
 	map->draw(world);
 	pop->draw(world);
 
 //	manager->draw(world);
-//	c.draw(100,100);
-//	std::stringstream ss;
-//	ss << "Frame #" << manager->getFrameIndex();
-//	ofSetHexColor(0x2C291F);
-//	ofDrawBitmapString(ss.str(), 800, 14);
 }
 
 //--------------------------------------------------------------
@@ -93,7 +86,6 @@ void ofApp::keyPressed(int key){
 		if(mainIndex-1 >= 0) mainIndex--;
 	}
 
-//	pop->update(world);
 	map->update();
 }
 

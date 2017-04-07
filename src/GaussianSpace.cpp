@@ -145,10 +145,8 @@ double GaussianSpace::phi(Point testedRealPoint){
 //	ofLogNotice("d") << "tested x=" << testedRealPoint.x << " y=" << testedRealPoint.y << " agent x=" << this->_agent->getX() << " delta=" << delta;
 	if(delta > 0){
 		i = v.transpose()*sigF.inverse();
-//		return 1;
 	}else {
 		i = v.transpose()*sigR.inverse();
-//		return 0;
 	}
 
 	double j =i*v;
@@ -158,7 +156,6 @@ double GaussianSpace::phi(Point testedRealPoint){
 
 void GaussianSpace::draw(World* world) {
 	Point pView = real_to_pixel(world, this->_agent->getPosition());
-//	ofLogNotice("e") << pView.x << "," << pView.y;
 	ofPushMatrix();
 		ofTranslate(pView.x, pView.y);
 		ofRotateZ(ofRadToDeg(this->_agent->getTheta()-PI/2));
