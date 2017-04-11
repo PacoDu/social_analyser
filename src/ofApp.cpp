@@ -19,21 +19,27 @@ void ofApp::setup(){
 //		pop->pushAgent(a);
 //	}
 
+
 	a0 = new Agent(world, Point(2, 7), 11.4, 0);
 	a1 = new Agent(world, Point(6, 4), 2.6, 1);
 	a2 = new Agent(world, Point(2, 3), 13.2, 2);
-	agents.push_back(a0);
+
+//	agents.push_back(a0);
+//	agents.push_back(a1);
+//	agents.push_back(a2);
+
 	pop->pushAgent(a0);
-	agents.push_back(a1);
 	pop->pushAgent(a1);
-	agents.push_back(a2);
 	pop->pushAgent(a2);
 
-	form = new Formation(agents);
-	pop->pushFormation(form);
+//	form = new Formation(agents);
+//	pop->pushFormation(form);
 
 
 	map = new GridMap(world, pop, 0.1);
+	gd = new GroupDetector(pop);
+
+	gd->detect();
 
 //	manager->update(world);
 }
@@ -63,29 +69,30 @@ void ofApp::keyPressed(int key){
 	if(key == OF_KEY_LEFT){
 //		manager->previousFrame();
 //		manager->update(world);
-		agents[mainIndex]->setX(agents[mainIndex]->getX()-1);
+		pop->getAgents()[mainIndex]->setX(pop->getAgents()[mainIndex]->getX()-1);
 	}
 	else if(key == OF_KEY_RIGHT){
 //		manager->nextFrame();
 //		manager->update(world);
-		agents[mainIndex]->setX(agents[mainIndex]->getX()+1);
+		pop->getAgents()[mainIndex]->setX(pop->getAgents()[mainIndex]->getX()+1);
 	}
 	else if(key == OF_KEY_UP){
-		agents[mainIndex]->setY(agents[mainIndex]->getY()-1);
+		pop->getAgents()[mainIndex]->setY(pop->getAgents()[mainIndex]->getY()-1);
 	}
 	else if(key == OF_KEY_DOWN){
-		agents[mainIndex]->setY(agents[mainIndex]->getY()+1);
+		pop->getAgents()[mainIndex]->setY(pop->getAgents()[mainIndex]->getY()+1);
 	}
 	else if(key == 'z'){
-		agents[mainIndex]->setTheta(agents[mainIndex]->getTheta()+0.2);
+		pop->getAgents()[mainIndex]->setTheta(pop->getAgents()[mainIndex]->getTheta()+0.2);
 	}
 	else if(key == 'e'){
-		if(mainIndex+1 < agents.size()) mainIndex++;
+		if(mainIndex+1 < pop->getAgents().size()) mainIndex++;
 	}
 	else if(key == 'r'){
 		if(mainIndex-1 >= 0) mainIndex--;
 	}
 
+	gd->detect();
 	map->update();
 }
 

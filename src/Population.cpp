@@ -35,11 +35,11 @@ void Population::draw(World* world) {
 				<< ": x = " << _formations[i]->getX()
 				<< ", y = " << _formations[i]->getY() << std::endl;
 
-//		_formations[i]->draw(world);
+		_formations[i]->draw(world);
 	}
 
 	for(unsigned int i=0; i<this->_agents.size(); i++){
-		ss << "Person #" << this->_agents[i]->getId()
+		ss << "Agent #" << this->_agents[i]->getId()
 				<< ": x = " << this->_agents[i]->getX()
 				<< ", y = " << this->_agents[i]->getY()
 				<< ", Theta = " << this->_agents[i]->getTheta()

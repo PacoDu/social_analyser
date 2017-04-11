@@ -7,11 +7,15 @@
 
 #include "Agent.h"
 #include "GaussianSpace.h"
+#include "Formation.h"
+
+// TODO Agent factory
 
 // --- CONSTRUCTOR & DESTRUCTOR
 Agent::Agent(World* world, Point p, double theta, int id):
 		IdentifiedObject(id), DrawnObject(p,theta) {
 	pSocialSpace = new GaussianSpace(world, this);
+	formation = NULL; // dirty and risky
 }
 
 Agent::~Agent() {
@@ -61,6 +65,37 @@ GaussianSpace* Agent::getSocialSpace() {
 	return pSocialSpace;
 }
 
+Agent* Agent::findNearestNeighbor(std::vector<Agent*> agents) {
+	// TODO use kd tree ?
+	double min_distance = INFINITY;
+	Agent * a;
+	for(unsigned int i = 0; i < agents.size(); i++){
+//		if(agents[i]->getId() != this->getId()){
+			double computedDist = this->position.distance(agents[i]->getPosition());
+			if(computedDist < min_distance){
+				min_distance = computedDist;
+				a = agents[i];
+			}
+//		}
+	}
+	return a;
+}
+
 void Agent::setSocialSpace(GaussianSpace* socialSpace) {
 	pSocialSpace = socialSpace;
+}
+
+Formation* Agent::getFormation() const {
+	return formation;
+}
+
+void Agent::setFormation(Formation* formation) {
+	this->formation = formation;
+}
+
+void Agent::deleteFormation() {
+	if(this->formation->getAgents().size() <= 1){
+		delete this->formation;
+	}
+	this->formation = NULL;
 }

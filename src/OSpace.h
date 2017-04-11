@@ -32,7 +32,8 @@ public:
 	double phi(Point testedPoint, double dh, double di);
 	bool less(Point a, Point b);
 	Point lineIntersectionPoint(Point ps1, Point pe1, Point ps2, Point pe2);
-
+	Point getCenter() const;
+	void setCenter(const ofPoint& center);
 
 protected:
 	ofPoint center;

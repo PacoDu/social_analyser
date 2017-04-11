@@ -21,6 +21,7 @@ class Formation: public IdentifiedObject, public DrawnObject, public AgentContai
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
 	Formation(std::vector<Agent*>& a, Point p = Point(), double theta = 0, int id=0);
+//	Formation(Agent* a, Point p = Point(), double theta = 0, int id=0);
 	Formation(GroupSocialSpace * sp, Point p = Point(), double theta = 0, int id=0);
 	Formation(Point p = Point(), double theta = 0, int id=0);
 
@@ -29,6 +30,8 @@ public:
 	// --- METHOD
 	void draw(World* world);
 	void computeSocialSpace(World* world);
+
+	void pushAgent(Agent* a);
 
 	// Getters & Setters
 	GroupSocialSpace* getSocialSpace() const;

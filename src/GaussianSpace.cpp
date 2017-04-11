@@ -21,11 +21,11 @@ GaussianSpace::GaussianSpace(World* world, Agent * a, double theta):
 		PersonnalSocialSpace(a,Point(a->getX(),a->getY()), a->getTheta(), id){
 	setTheta(a->getTheta());
 
-	buffer = std::vector<std::vector<double>>(width, std::vector<double>(height));
-	frame.allocate(width, height, OF_IMAGE_COLOR_ALPHA);
-	frame.setColor(ofColor::white);
-	frame.update();
-	this->compute(world);
+//	buffer = std::vector<std::vector<double>>(width, std::vector<double>(height));
+//	frame.allocate(width, height, OF_IMAGE_COLOR_ALPHA);
+//	frame.setColor(ofColor::white);
+//	frame.update();
+//	this->compute(world);
 //	a->setSocialSpace(this);
 }
 

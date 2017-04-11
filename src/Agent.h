@@ -13,6 +13,7 @@
 #include "DrawnObject.h"
 #include "Point.h"
 
+class Formation;
 class GaussianSpace;
 
 class Agent: public IdentifiedObject, public DrawnObject {
@@ -23,16 +24,20 @@ public:
 
 	// --- METHOD
 	ofVec2f getDirection();
+	Agent * findNearestNeighbor(std::vector<Agent*> agents);
 
 	void draw(World * world, bool drawPersonnalSocialSpace);
 	void draw(World* world);
 	GaussianSpace* getSocialSpace();
 	void setSocialSpace(GaussianSpace* socialSpace);
-
+	Formation* getFormation() const;
+	void setFormation(Formation* formation);
+	void deleteFormation();
 	// --- Getter & Setter
 
 protected:
 	GaussianSpace* pSocialSpace;
+	Formation* formation;
 
 };
 

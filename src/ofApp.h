@@ -11,6 +11,7 @@
 #include "World.h"
 #include "GridMap.h"
 #include "GridCell.h"
+#include "GroupDetector.h"
 
 class ofApp : public ofBaseApp{
 
@@ -41,5 +42,6 @@ class ofApp : public ofBaseApp{
 		World* world;
 		GridMap* map;
 		GridCell* cell;
+		GroupDetector* gd;
 		unsigned int mainIndex = 0;
 };

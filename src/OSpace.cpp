@@ -16,10 +16,10 @@ OSpace::OSpace(std::vector<Agent*>& a , Point p, int id):
 	this->sortAgents();
 	this->computeCentroids();
 
-	buffer = std::vector<std::vector<double>>(width, std::vector<double>(height));
-	frame.allocate(width, height, OF_IMAGE_COLOR_ALPHA);
-	frame.setColor(ofColor::white);
-	frame.update();
+//	buffer = std::vector<std::vector<double>>(width, std::vector<double>(height));
+//	frame.allocate(width, height, OF_IMAGE_COLOR_ALPHA);
+//	frame.setColor(ofColor::white);
+//	frame.update();
 }
 
 OSpace::OSpace(Point p, int id):
@@ -40,50 +40,48 @@ OSpace::~OSpace() {
 
 void OSpace::draw(World* world) {
 
-	Point pView = real_to_pixel(world, Point(center.x, center.y));
-//	ofLogNotice("e") << pView.x << "," << pView.y;
-	ofPushMatrix();
-		ofTranslate(pView.x, pView.y);
-//		ofRotateZ(ofRadToDeg(this->_agent->getTheta()-PI/2));
-		ofTranslate(-width/2, -height/2);
-		ofSetHexColor(0xFFFFFF);
-		frame.draw(0,0);
-	ofPopMatrix();
+//	Point pView = real_to_pixel(world, Point(center.x, center.y));
+//	ofPushMatrix();
+//		ofTranslate(pView.x, pView.y);
+////		ofRotateZ(ofRadToDeg(this->_agent->getTheta()-PI/2));
+//		ofTranslate(-width/2, -height/2);
+//		ofSetHexColor(0xFFFFFF);
+//		frame.draw(0,0);
+//	ofPopMatrix();
 
-	pView = real_to_pixel(world, Point(center.x, center.y));
+	Point pView = real_to_pixel(world, Point(center.x, center.y));
 	ofPushMatrix();
 		ofSetHexColor(0xd896ff);
 		ofTranslate(pView.x, pView.y);
 		ofDrawCircle(0, 0, 30);
 	ofPopMatrix();
-
-	for(unsigned int i=0; i < intersectionPoints.size(); i++){
-		pView = real_to_pixel(world, intersectionPoints[i]);
-		ofPushMatrix();
-			ofSetHexColor(0x0000FF);
-			ofTranslate(pView.x, pView.y);
-			ofDrawCircle(0, 0, 10);
-		ofPopMatrix();
-	}
-
-	for(unsigned int i=0; i < centroids.size(); i++){
-		pView = real_to_pixel(world, centroids[i]);
-		ofPushMatrix();
-			ofSetHexColor(0xFF0000);
-			ofTranslate(pView.x, pView.y);
-			ofDrawCircle(0, 0, 20);
-		ofPopMatrix();
-	}
-
-	pView = real_to_pixel(world, Point(center.x, center.y));
-//	ofLogNotice("e") << pView.x << "," << pView.y;
-	ofPushMatrix();
-		ofTranslate(pView.x, pView.y);
-		ofRotateZ(ofRadToDeg(this->getTheta()));
-		ofTranslate(-width/2, -height/2);
-		ofSetHexColor(0xFFFFFF);
-		frame.draw(0,0);
-	ofPopMatrix();
+//
+//	for(unsigned int i=0; i < intersectionPoints.size(); i++){
+//		pView = real_to_pixel(world, intersectionPoints[i]);
+//		ofPushMatrix();
+//			ofSetHexColor(0x0000FF);
+//			ofTranslate(pView.x, pView.y);
+//			ofDrawCircle(0, 0, 10);
+//		ofPopMatrix();
+//	}
+//
+//	for(unsigned int i=0; i < centroids.size(); i++){
+//		pView = real_to_pixel(world, centroids[i]);
+//		ofPushMatrix();
+//			ofSetHexColor(0xFF0000);
+//			ofTranslate(pView.x, pView.y);
+//			ofDrawCircle(0, 0, 20);
+//		ofPopMatrix();
+//	}
+//
+//	pView = real_to_pixel(world, Point(center.x, center.y));
+//	ofPushMatrix();
+//		ofTranslate(pView.x, pView.y);
+//		ofRotateZ(ofRadToDeg(this->getTheta()));
+//		ofTranslate(-width/2, -height/2);
+//		ofSetHexColor(0xFFFFFF);
+//		frame.draw(0,0);
+//	ofPopMatrix();
 }
 
 // Getter & Setter
@@ -112,9 +110,9 @@ void OSpace::sortAgents() {
 		}
 	}
 
-	for(unsigned int i=0; i < this->_agents.size(); i++){
-		_agents[i]->setId(i);
-	}
+//	for(unsigned int i=0; i < this->_agents.size(); i++){
+//		_agents[i]->setId(i);
+//	}
 
 	if(shifted) this->sortAgents();
 }
@@ -300,4 +298,12 @@ Point OSpace::lineIntersectionPoint(Point ps1, Point pe1, Point ps2, Point pe2)
   // now return the Vector2 intersection point
    Point p(a,b);
    return p;
+}
+
+Point OSpace::getCenter() const {
+	return Point(center.x, center.y);
+}
+
+void OSpace::setCenter(const ofPoint& center) {
+	this->center = center;
 }

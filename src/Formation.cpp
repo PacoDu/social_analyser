@@ -12,8 +12,17 @@
 Formation::Formation(std::vector<Agent*>& a , Point p,
 		double theta, int id):
 		IdentifiedObject(id), DrawnObject(p), AgentContainer(a){
+	for(unsigned int i = 0; i < a.size(); i++){
+		a[i]->setFormation(this);
+	}
 	_socialSpace = new OSpace(a);
 }
+//
+//Formation::Formation(Agent* a, Point p, double theta, int id) {
+//	std::vector<Agent *> av;
+//	av.push_back(a);
+//	Formation(av, p, theta, id);
+//}
 
 Formation::Formation(GroupSocialSpace* sp, Point p, double theta, int id):
 		IdentifiedObject(id), DrawnObject(p), AgentContainer(), _socialSpace(sp){
@@ -77,6 +86,17 @@ void Formation::computeSocialSpace(World* world) {
 
 GroupSocialSpace* Formation::getSocialSpace() const {
 	return _socialSpace;
+}
+
+void Formation::pushAgent(Agent* a) {
+	AgentContainer::pushAgent(a);
+	a->setFormation(this);
+	this->_socialSpace->pushAgent(a);
+
+	// TODO Fix dirty
+	((OSpace*)(this->_socialSpace))->computeCenter();
+	((OSpace*)(this->_socialSpace))->sortAgents();
+	((OSpace*)(this->_socialSpace))->computeCentroids();
 }
 
 void Formation::setSocialSpace(GroupSocialSpace* socialSpace) {
