@@ -23,6 +23,7 @@ public:
 	// --- METHOD
 	Agent * findNearestNeighbor(std::vector<Agent*> agents);
 	void draw(World* world);
+	Vector3d* getFOVIntersection(Agent * a);
 
 	// --- Getter & Setter
 	GaussianSpace* getSocialSpace() const;

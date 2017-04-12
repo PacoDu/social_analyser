@@ -55,6 +55,20 @@ Agent* Agent::findNearestNeighbor(std::vector<Agent*> agents) {
 	return a;
 }
 
+Vector3d* Agent::getFOVIntersection(Agent* a) {
+	// Return FOV intersection point or NULL if
+	Vector3d* intersec = rayIntersectionPoint(this->getPosition(), this->getDirection(), a->getPosition(), a->getDirection());
+	if(!intersec){
+		// Agents are parallels or do not intersect
+		if(fmod(a->getTheta()+M_PI,2*M_PI) == this->getTheta()){
+			// Agents are face to face return middle point
+			intersec = new Vector3d((this->getPosition()+a->getPosition())/2);
+		}
+	}
+
+	return intersec;
+}
+
 // --- Getter & Setter
 GaussianSpace* Agent::getSocialSpace() const {
 	return pSocialSpace;

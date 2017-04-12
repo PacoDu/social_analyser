@@ -21,6 +21,7 @@ float vProjection(float value, float inputMin, float inputMax, float outputMin, 
 double distance(Vector3d a, Vector3d b);
 int planSide(Vector3d testedPoint, Vector3d planeNormalA, Vector3d a);
 Vector3d lineIntersectionPoint(Vector3d ps1, Vector3d pe1, Vector3d ps2, Vector3d pe2);
-int rayIntersectionPoint(Vector3d as, Vector3d ad, Vector3d bs, Vector3d bd, Vector3d* intersection);
+Vector3d* rayIntersectionPoint(Vector3d as, Vector3d ad, Vector3d bs, Vector3d bd);
+double radToDeg(double rad);
 
 #endif /* SRC_UTILS_H_ */

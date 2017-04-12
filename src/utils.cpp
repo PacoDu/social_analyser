@@ -57,13 +57,13 @@ Vector3d lineIntersectionPoint(Vector3d ps1, Vector3d pe1, Vector3d ps2, Vector3
   double a = (B2*C1 - B1*C2)/delta;
   double b = (A1*C2 - A2*C1)/delta;
 
-  // now return the Vector3d intersection point
+  // return the Vector3d intersection point
   return Vector3d(a,b,0);
 }
 
-int rayIntersectionPoint(Vector3d as, Vector3d ad, Vector3d bs, Vector3d bd, Vector3d* intersection)
+Vector3d* rayIntersectionPoint(Vector3d as, Vector3d ad, Vector3d bs, Vector3d bd)
 {
-// Return 1 and fill Point intersection if ray intersect
+// Return intersection point if ray intersect, return NULL otherwise
 	// as : starting point, ad: direction vector
 	double dx = bs.x() - as.x();
 	double dy = bs.y() - as.y();
@@ -74,12 +74,14 @@ int rayIntersectionPoint(Vector3d as, Vector3d ad, Vector3d bs, Vector3d bd, Vec
 		double v = (dy * ad.x() - dx * ad.y()) / det;
 		if(u > 0 && v > 0){
 			// Rays intersect
-			intersection->x() = as.x() + u * ad.x();
-			intersection->y() = as.y() + u * ad.y();
-			return 1;
+			Vector3d * outV = new Vector3d(as.x() + u * ad.x(), as.y() + u * ad.y(), 0);
+			return outV;
 		}
 	}
-	// Rays are parallels
-	return 0;
+	// Rays are parallels or do not intersect
+	return NULL;
 }
 
+double radToDeg(double rad) {
+	return rad*180/M_PI;
+}

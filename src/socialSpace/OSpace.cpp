@@ -65,14 +65,14 @@ void OSpace::draw(World* world) {
 //		ofPopMatrix();
 //	}
 //
-//	for(unsigned int i=0; i < centroids.size(); i++){
-//		pView = real_to_pixel(world, centroids[i]);
-//		ofPushMatrix();
-//			ofSetHexColor(0xFF0000);
-//			ofTranslate(pView.x, pView.y);
-//			ofDrawCircle(0, 0, 20);
-//		ofPopMatrix();
-//	}
+	for(unsigned int i=0; i < centroids.size(); i++){
+		pView = real_to_pixel(world, centroids[i]);
+		ofPushMatrix();
+			ofSetHexColor(0xFF0000);
+			ofTranslate(pView.x(), pView.y());
+			ofDrawCircle(0, 0, 10);
+		ofPopMatrix();
+	}
 //
 //	pView = real_to_pixel(world, Point(center.x, center.y));
 //	ofPushMatrix();
@@ -231,43 +231,54 @@ void OSpace::computeCentroids() {
 	centroids.resize(_agents.size());
 
 	Vector3d realCenter;
+	int n = 0;
 
 	for(unsigned int i=0; i < this->_agents.size(); i++){
 
 		unsigned int neighborIndex = i+1;
 		if(neighborIndex >= this->_agents.size()) neighborIndex = 0;
 
-		if(abs(ofRadToDeg(_agents[i]->getTheta())) == abs(ofRadToDeg(_agents[neighborIndex]->getTheta()))){
-			// TODO ...
-			Vector3d p(0,0,0);
-			intersectionPoints[i] = p;
-			continue;
+		Vector3d* intersec = _agents[i]->getFOVIntersection(_agents[neighborIndex]);
+		if(intersec){
+			ofLogNotice("OSpace::computeCentroids") << "Agent#" << _agents[i]->getId() << " FOV intersection with Agent#" << _agents[neighborIndex]->getId();
+			n++; // dirty use push back and vector size (clash with resize)
+			intersectionPoints[i] = *intersec;
+			// compute centroïds
+			Vector3d centro;
+			centro.x() = (intersectionPoints[i].x() + ((_agents[neighborIndex]->getX() + _agents[i]->getX())/2))/2;
+			centro.y() = (intersectionPoints[i].y() + ((_agents[neighborIndex]->getY() + _agents[i]->getY())/2))/2;
+			centroids[i] = centro;
+			realCenter += centro;
 		}
-
-		// Get line equation from agent position and direction:
-		Vector3d ps1 = _agents[i]->getPosition();
-		Vector3d pe1;
-		pe1.x() = _agents[i]->getX()+_agents[i]->getDirection().x();
-		pe1.y() =  _agents[i]->getY()+_agents[i]->getDirection().y();
-
-		Vector3d ps2 = _agents[neighborIndex]->getPosition();
-		Vector3d pe2;
-		pe2.x() = _agents[neighborIndex]->getX() + _agents[neighborIndex]->getDirection().x();
-		pe2.y() = _agents[neighborIndex]->getY() + _agents[neighborIndex]->getDirection().y();
-
-		// compute intersection
-		intersectionPoints[i] = lineIntersectionPoint(ps1, pe1, ps2, pe2);
-
-		// compute centroïds
-		Vector3d centro;
-		centro.x() = (intersectionPoints[i].x() + ((_agents[neighborIndex]->getX() + _agents[i]->getX())/2))/2;
-		centro.y() = (intersectionPoints[i].y() + ((_agents[neighborIndex]->getY() + _agents[i]->getY())/2))/2;
-		centroids[i] = centro;
-
-		realCenter += centro;
+//		if(abs(fmod(radToDeg(_agents[i]->getTheta()),360)) == abs(fmod(radToDeg(_agents[neighborIndex]->getTheta()),360))){
+//			centro = (_agents[i]->getPosition() + _agents[neighborIndex]->getPosition())/2;
+//		}
+//		else{
+//			// Get line equation from agent position and direction:
+//			Vector3d ps1 = _agents[i]->getPosition();
+//			Vector3d pe1;
+//			pe1.x() = _agents[i]->getX()+_agents[i]->getDirection().x();
+//			pe1.y() =  _agents[i]->getY()+_agents[i]->getDirection().y();
+//
+//			Vector3d ps2 = _agents[neighborIndex]->getPosition();
+//			Vector3d pe2;
+//			pe2.x() = _agents[neighborIndex]->getX() + _agents[neighborIndex]->getDirection().x();
+//			pe2.y() = _agents[neighborIndex]->getY() + _agents[neighborIndex]->getDirection().y();
+//
+//			// compute intersection
+//			intersectionPoints[i] = lineIntersectionPoint(ps1, pe1, ps2, pe2);
+			// TODO FIX If line intersect behind agent, ignore point (use ray intersection)
+//			Vector3d* intersec = _agents[i]->getFOVIntersection(_agents[i]);
+//			if(intersec){
+//				// compute centroïds
+//				centro.x() = (intersectionPoints[i].x() + ((_agents[neighborIndex]->getX() + _agents[i]->getX())/2))/2;
+//				centro.y() = (intersectionPoints[i].y() + ((_agents[neighborIndex]->getY() + _agents[i]->getY())/2))/2;
+//				centroids[i] = centro;
+//			}
+//		}
 	}
 
-	realCenter /=  this->_agents.size();
+	realCenter /=  n;
 	center << realCenter.x(), realCenter.y(), realCenter.z();
 }
 

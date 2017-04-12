@@ -27,7 +27,7 @@ public:
 
 	// --- METHOD
 	void draw(World* world);
-
+	void update();
 	void pushAgent(Agent* a);
 
 	// Getters & Setters

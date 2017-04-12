@@ -8,7 +8,7 @@
 #include "LocalizedObject.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-LocalizedObject::LocalizedObject(Vector3d p, double theta): position(p), theta(theta) {
+LocalizedObject::LocalizedObject(Vector3d p, double theta): position(p), theta(fmod(theta,2*M_PI)) {
 }
 
 LocalizedObject::~LocalizedObject() {
@@ -28,7 +28,7 @@ double LocalizedObject::getTheta() const {
 }
 
 void LocalizedObject::setTheta(double theta) {
-	this->theta = theta;
+	this->theta = fmod(theta,2*M_PI);
 }
 
 Vector3d LocalizedObject::getDirection() {

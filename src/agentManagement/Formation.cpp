@@ -35,6 +35,10 @@ void Formation::pushAgent(Agent* a) {
 	this->_socialSpace->update();
 }
 
+void Formation::update() {
+	this->_socialSpace->update();
+}
+
 // Getters & Setters
 OSpace* Formation::getSocialSpace() const {
 	return _socialSpace;
