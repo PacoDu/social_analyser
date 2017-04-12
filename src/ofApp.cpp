@@ -1,9 +1,14 @@
 #include "ofApp.h"
-#include "Point.h"
+
+#undef Success // Eigen import clash with X11, dirty fix
+#include "ofxMatrixEigen.h"
+#include <cmath>
+
+using namespace Eigen;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	world = new World(10, 10, 600, 600, Point(20,20), 0);
+	world = new World(10, 10, 600, 600, Vector3d(20,20,0), 0);
 	pop = new Population();
 
 //	manager = new PopulationManager(world, "cocktail_party.json", "cocktail_party_gt.json");
@@ -20,26 +25,27 @@ void ofApp::setup(){
 //	}
 
 
-	a0 = new Agent(world, Point(2, 7), 11.4, 0);
-	a1 = new Agent(world, Point(6, 4), 2.6, 1);
-	a2 = new Agent(world, Point(2, 3), 13.2, 2);
+	a0 = new Agent(Vector3d(2, 7, 0), M_PI/2, 0);
+//	ofLogNotice("DEBUG") << "Agent direction " << a0->getDirection();
+	a1 = new Agent(Vector3d(6, 4, 0), M_PI/4, 1);
+	a2 = new Agent(Vector3d(2, 3, 0), M_PI, 2);
 
 //	agents.push_back(a0);
 //	agents.push_back(a1);
 //	agents.push_back(a2);
-
+//
 	pop->pushAgent(a0);
 	pop->pushAgent(a1);
 	pop->pushAgent(a2);
 
-//	form = new Formation(agents);
-//	pop->pushFormation(form);
+	form = new Formation(pop->getAgents());
+	pop->pushFormation(form);
 
-
+//
 	map = new GridMap(world, pop, 0.1);
-	gd = new GroupDetector(pop);
-
-	gd->detect();
+//	gd = new GroupDetector(pop);
+//
+//	gd->detect();
 
 //	manager->update(world);
 }
@@ -56,7 +62,8 @@ void ofApp::draw(){
 //	ofBackground(0xF9F9F9);
 
 	world->draw();
-//	form->draw(world);
+//	a0->draw(world);
+	//	form->draw(world);
 
 	map->draw(world);
 	pop->draw(world);
@@ -66,34 +73,34 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-	if(key == OF_KEY_LEFT){
-//		manager->previousFrame();
-//		manager->update(world);
-		pop->getAgents()[mainIndex]->setX(pop->getAgents()[mainIndex]->getX()-1);
-	}
-	else if(key == OF_KEY_RIGHT){
-//		manager->nextFrame();
-//		manager->update(world);
-		pop->getAgents()[mainIndex]->setX(pop->getAgents()[mainIndex]->getX()+1);
-	}
-	else if(key == OF_KEY_UP){
-		pop->getAgents()[mainIndex]->setY(pop->getAgents()[mainIndex]->getY()-1);
-	}
-	else if(key == OF_KEY_DOWN){
-		pop->getAgents()[mainIndex]->setY(pop->getAgents()[mainIndex]->getY()+1);
-	}
-	else if(key == 'z'){
-		pop->getAgents()[mainIndex]->setTheta(pop->getAgents()[mainIndex]->getTheta()+0.2);
-	}
-	else if(key == 'e'){
-		if(mainIndex+1 < pop->getAgents().size()) mainIndex++;
-	}
-	else if(key == 'r'){
-		if(mainIndex-1 >= 0) mainIndex--;
-	}
+//	if(key == OF_KEY_LEFT){
+////		manager->previousFrame();
+////		manager->update(world);
+//		pop->getAgents()[mainIndex]->setX(pop->getAgents()[mainIndex]->getX()-1);
+//	}
+//	else if(key == OF_KEY_RIGHT){
+////		manager->nextFrame();
+////		manager->update(world);
+//		pop->getAgents()[mainIndex]->setX(pop->getAgents()[mainIndex]->getX()+1);
+//	}
+//	else if(key == OF_KEY_UP){
+//		pop->getAgents()[mainIndex]->setY(pop->getAgents()[mainIndex]->getY()-1);
+//	}
+//	else if(key == OF_KEY_DOWN){
+//		pop->getAgents()[mainIndex]->setY(pop->getAgents()[mainIndex]->getY()+1);
+//	}
+//	else if(key == 'z'){
+//		pop->getAgents()[mainIndex]->setTheta(pop->getAgents()[mainIndex]->getTheta()+0.2);
+//	}
+//	else if(key == 'e'){
+//		if(mainIndex+1 < pop->getAgents().size()) mainIndex++;
+//	}
+//	else if(key == 'r'){
+//		if(mainIndex-1 >= 0) mainIndex--;
+//	}
 
-	gd->detect();
-	map->update();
+//	gd->detect();
+//	map->update();
 }
 
 //--------------------------------------------------------------

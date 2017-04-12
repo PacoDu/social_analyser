@@ -4,10 +4,9 @@
 #include "ofxJSON.h"
 #include <vector>
 
-#include "PopulationManager.h"
+//#include "PopulationManager.h"
 #include "GaussianSpace.h"
 #include "Agent.h"
-#include "Point.h"
 #include "World.h"
 #include "GridMap.h"
 #include "GridCell.h"
@@ -33,7 +32,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		
 		Population* pop;
-		PopulationManager* manager;
+//		PopulationManager* manager;
 		Formation* form;
 		std::vector<Agent *> agents;
 		Agent* a0;
