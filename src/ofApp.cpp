@@ -42,6 +42,7 @@ void ofApp::setup(){
 	pop->pushFormation(form);
 
 	map = new GridMap(world, pop, 0.1);
+	map->setPersonalSpaceEnabled(true);
 //	gd = new GroupDetector(pop);
 
 //	gd->detect();
@@ -51,9 +52,6 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-//	((OSpace*)form->getSocialSpace())->computeCenter();
-//	((OSpace*)form->getSocialSpace())->sortAgents();
-//	((OSpace*)form->getSocialSpace())->computeCentroids();
 }
 
 //--------------------------------------------------------------

@@ -69,8 +69,16 @@ void GridMap::compute() {
 			testedPoint.x() += _map[i][j]->getSize()/2;
 			testedPoint.y() += _map[i][j]->getSize()/2;
 
-			for(unsigned int i = 0; i < this->_population->getAgents().size(); i++){
-				cellValue += _population->getAgents()[i]->getSocialSpace()->phi(testedPoint);
+			if(this->isPersonalSpaceEnabled()){
+				for(unsigned int i = 0; i < this->_population->getAgents().size(); i++){
+					cellValue += _population->getAgents()[i]->getSocialSpace()->phi(testedPoint);
+				}
+			}
+
+			if(this->isGroupSpaceEnabled()){
+				for(unsigned int i = 0; i < this->_population->getFormations().size(); i++){
+					cellValue += _population->getFormations()[i]->getSocialSpace()->phi(testedPoint);
+				}
 			}
 
 			_map[i][j]->setValue(cellValue);
@@ -96,4 +104,20 @@ void GridMap::normalize(){
 void GridMap::update() {
 	compute();
 	normalize();
+}
+
+bool GridMap::isGroupSpaceEnabled() const {
+	return groupSpaceEnabled;
+}
+
+void GridMap::setGroupSpaceEnabled(bool groupSpaceEnabled) {
+	this->groupSpaceEnabled = groupSpaceEnabled;
+}
+
+bool GridMap::isPersonalSpaceEnabled() const {
+	return personalSpaceEnabled;
+}
+
+void GridMap::setPersonalSpaceEnabled(bool personalSpaceEnabled) {
+	this->personalSpaceEnabled = personalSpaceEnabled;
 }

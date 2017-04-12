@@ -27,10 +27,11 @@ public:
 	void draw(World* world);
 	void update();
 	void compute(World* world);
+	void computeCovarMatrix();
 	void computeCenter();
 	void computeCentroids();
 	void sortAgents();
-	double phi(Vector3d testedPoint, double dh, double di);
+	double phi(Vector3d testedPoint);
 	bool less(Vector3d a, Vector3d b);
 
 	// --- Getter & Setter
@@ -41,7 +42,7 @@ protected:
 	Vector3d center;
 	std::vector<Vector3d> intersectionPoints;
 	std::vector<Vector3d> centroids;
-
+	Matrix<double,2,2> covarMatrix;
 };
 
 #endif /* SRC_OSPACE_H_ */

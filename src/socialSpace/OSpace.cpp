@@ -35,6 +35,7 @@ void OSpace::update() {
 	this->computeCenter();
 	this->sortAgents();
 	this->computeCentroids();
+	this->computeCovarMatrix();
 }
 
 
@@ -143,21 +144,19 @@ bool OSpace::less(Vector3d a, Vector3d b)
     return d1 > d2;
 }
 
-double OSpace::phi(Vector3d testedRealPoint, double dh, double di) {
-	using namespace Eigen;
-
+double OSpace::phi(Vector3d testedRealPoint) {
 //	ofLogNotice("DEbug") << "dh=" << dh << " di=" << di;
 //	ofLogNotice("DEBUG") << "testedRealPoint(" << testedRealPoint.x << "," << testedRealPoint.y << ")";
-	Matrix<double,2,2> sig;
-	sig <<
-			dh/4, 0,
-			0, di/2;
+//	Matrix<double,2,2> sig;
+//	sig <<
+//			dh/4, 0,
+//			0, di/2;
 
 	Vector2d v = (testedRealPoint-center).head<2>();
 //	int delta = testedRealPoint.planSide(this->_agent->getDirection(), ofVec3f(this->_agent->getX(), this->_agent->getY()));
 	Matrix<double, 1, 2> i;
 
-	i = v.transpose()*sig.inverse();
+	i = v.transpose()*covarMatrix.inverse();
 
 	double j =i*v;
 
@@ -226,6 +225,26 @@ double OSpace::phi(Vector3d testedRealPoint, double dh, double di) {
 //	}
 //}
 
+void OSpace::computeCovarMatrix() {
+	double dh = sqrt((_agents[_agents.size()-1]->getX() - _agents[0]->getX())*(_agents[_agents.size()-1]->getX() - _agents[0]->getX()) + (_agents[_agents.size()-1]->getY() - _agents[0]->getY())*(_agents[_agents.size()-1]->getY() - _agents[0]->getY()));
+	for(unsigned int i=1; i < _agents.size()-1; i++){
+		dh += sqrt((_agents[i+1]->getX() - _agents[i]->getX())*(_agents[i+1]->getX() - _agents[i]->getX()) + (_agents[i+1]->getY() - _agents[i]->getY())*(_agents[i+1]->getY() - _agents[i]->getY()));
+	}
+	dh /= _agents.size();
+
+	// TODO di = 0 when agents.size = 2
+	double di = sqrt((centroids[centroids.size()-1].x() - centroids[0].x())*(centroids[centroids.size()-1].x() - centroids[0].x()) + (centroids[centroids.size()-1].y() - centroids[0].y())*(centroids[centroids.size()-1].y() - centroids[0].y()));
+	for(unsigned int i=1; i < centroids.size()-1; i++){
+		di += sqrt((centroids[i+1].x() - centroids[i].x())*(centroids[i+1].x() - centroids[i].x()) + (centroids[i+1].y() - centroids[i].y())*(centroids[i+1].y() - centroids[i].y()));
+	}
+	di /= centroids.size();
+	di *= 2;
+
+	this->covarMatrix <<
+						dh/4, 0,
+						0, di/2;
+}
+
 void OSpace::computeCentroids() {
 	intersectionPoints.resize(_agents.size());
 	centroids.resize(_agents.size());
@@ -250,32 +269,6 @@ void OSpace::computeCentroids() {
 			centroids[i] = centro;
 			realCenter += centro;
 		}
-//		if(abs(fmod(radToDeg(_agents[i]->getTheta()),360)) == abs(fmod(radToDeg(_agents[neighborIndex]->getTheta()),360))){
-//			centro = (_agents[i]->getPosition() + _agents[neighborIndex]->getPosition())/2;
-//		}
-//		else{
-//			// Get line equation from agent position and direction:
-//			Vector3d ps1 = _agents[i]->getPosition();
-//			Vector3d pe1;
-//			pe1.x() = _agents[i]->getX()+_agents[i]->getDirection().x();
-//			pe1.y() =  _agents[i]->getY()+_agents[i]->getDirection().y();
-//
-//			Vector3d ps2 = _agents[neighborIndex]->getPosition();
-//			Vector3d pe2;
-//			pe2.x() = _agents[neighborIndex]->getX() + _agents[neighborIndex]->getDirection().x();
-//			pe2.y() = _agents[neighborIndex]->getY() + _agents[neighborIndex]->getDirection().y();
-//
-//			// compute intersection
-//			intersectionPoints[i] = lineIntersectionPoint(ps1, pe1, ps2, pe2);
-			// TODO FIX If line intersect behind agent, ignore point (use ray intersection)
-//			Vector3d* intersec = _agents[i]->getFOVIntersection(_agents[i]);
-//			if(intersec){
-//				// compute centroïds
-//				centro.x() = (intersectionPoints[i].x() + ((_agents[neighborIndex]->getX() + _agents[i]->getX())/2))/2;
-//				centro.y() = (intersectionPoints[i].y() + ((_agents[neighborIndex]->getY() + _agents[i]->getY())/2))/2;
-//				centroids[i] = centro;
-//			}
-//		}
 	}
 
 	realCenter /=  n;
