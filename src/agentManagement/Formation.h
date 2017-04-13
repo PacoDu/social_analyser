@@ -34,6 +34,8 @@ public:
 	int isInFormation(Agent* a);
 	int isInFormation(unsigned int agentId);
 	std::vector<Agent *> initAgent(Agent * a);
+	void computeInteractionPotential();
+
 
 	// Getters & Setters
 	OSpace* getSocialSpace() const;
@@ -42,6 +44,7 @@ public:
 
 protected:
 	OSpace* _socialSpace;
+	double interactionPotential = 0;
 };
 
 

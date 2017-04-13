@@ -56,6 +56,25 @@ void Formation::update() {
 	this->_socialSpace->update();
 }
 
+void Formation::computeInteractionPotential() {
+	double meanInterPersoDist = 0;
+	double meanCenterDist = 0;
+
+	// Mean interpersonnal distance
+	for(unsigned int i = 0; i < this->_agents.size(); i++){
+		unsigned int neighborIndex = i+1;
+		if(neighborIndex >= this->_agents.size()) neighborIndex = 0;
+
+		meanInterPersoDist += distance(this->_agents[i]->getPosition(), this->_agents[neighborIndex]->getPosition());
+		meanCenterDist += distance(this->_agents[i]->getPosition(), this->_socialSpace->getCenter());
+	}
+
+	meanInterPersoDist /= this->_agents.size();
+	meanCenterDist /= this->_agents.size();
+
+	interactionPotential = meanInterPersoDist + meanCenterDist;
+}
+
 int Formation::isInFormation(unsigned int agentId) {
 	if(this->getAgent(agentId)){
 		return 1;
