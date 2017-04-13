@@ -7,6 +7,7 @@
 
 // TODO Merge constructor (e.i. lower constructor call the highest with default param)
 #include "Formation.h"
+#include "ofMain.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
 Formation::Formation(std::vector<Agent*> a , int id):
@@ -39,10 +40,19 @@ void Formation::pushAgent(Agent* a) {
 	else
 		this->_socialSpace->pushAgent(a);
 
-	this->_socialSpace->update();
+//	this->_socialSpace->update();
+}
+
+void Formation::removeAgent(unsigned int agentId) {
+	AgentContainer::removeAgent(agentId);
+
+	this->_socialSpace->removeAgent(agentId);
+
+//	this->_socialSpace->update();
 }
 
 void Formation::update() {
+	ofLogNotice("Formation::update") << "Updating social space for Formation#" << this->getId();
 	this->_socialSpace->update();
 }
 

@@ -30,6 +30,7 @@ public:
 	void draw(World* world);
 	void update();
 	void pushAgent(Agent* a);
+	void removeAgent(unsigned int agentId);
 	int isInFormation(Agent* a);
 	int isInFormation(unsigned int agentId);
 	std::vector<Agent *> initAgent(Agent * a);

@@ -31,6 +31,8 @@ OSpace::~OSpace() {
 void OSpace::update() {
 	this->intersectionPoints.resize(this->_agents.size());
 	this->centroids.resize(this->_agents.size());
+	this->intersectionPoints.clear();
+	this->centroids.clear();
 
 	this->computeCenter();
 	this->sortAgents();
