@@ -70,6 +70,7 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+	ofLogNotice("") << "__________________________________" << std::endl;
 	if(key == OF_KEY_LEFT){
 //		manager->previousFrame();
 //		manager->update(world);

@@ -74,12 +74,15 @@ void GroupDetector::detect() {
 		}
 	}
 
-
+	// Update social space for each formations
+	for(unsigned int i = 0; i < this->_population->getFormations().size(); i++){
+		this->_population->getFormations()[i]->update();
+	}
 }
 
 void GroupDetector::checkExistingFormation() {
 	for(unsigned int i = 0; i < _population->getFormations().size(); i++){
-		// Find agent in range from formation
+		// Find an agent is in range from formation
 		for(unsigned int k = 0; k < _population->getAgents().size(); k++){
 			if(_population->getFormations()[i] == _population->getRelatedFormation(_population->getAgents()[k])){
 				// Agent k is already in formation, skip
@@ -100,14 +103,27 @@ void GroupDetector::checkExistingFormation() {
 			}
 		}
 
+		// Find if an agent left the formation
 		for(unsigned int j = 0; j < _population->getFormations()[i]->getAgents().size(); j++){
-			if(distance(_population->getFormations()[i]->getAgents()[j]->getPosition(), _population->getFormations()[i]->getSocialSpace()->getCenter()) > maxDistanceThreshold){
-				// Agent is too far from formation center, remove
+			bool isInRange = false;
+
+			for(unsigned int l = 0; l < _population->getFormations()[i]->getAgents().size(); l++){
+				// Skip same agent
+				if(_population->getFormations()[i]->getAgents()[j] == _population->getFormations()[i]->getAgents()[l])
+					continue;
+
+				if(distance(_population->getFormations()[i]->getAgents()[j]->getPosition(), _population->getFormations()[i]->getAgents()[l]->getPosition()) < maxDistanceThreshold){
+					isInRange = true;
+				}
+			}
+
+			// Agent is too far from the formation, remove
+			if(!isInRange){
 				ofLogNotice("GroupDetector::checkExistingFormation")
 						<< "Removed Agent#" << _population->getFormations()[i]->getAgents()[j]->getId()
 						<< " from Formation#" << _population->getFormations()[i]->getId();
 				_population->getFormations()[i]->removeAgent(_population->getFormations()[i]->getAgents()[j]->getId());
-				// Decrement index
+				// Decrement index for next loop
 				j--;
 
 				// Check if formation is empty
