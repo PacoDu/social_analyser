@@ -10,4 +10,4 @@ This program represent a Population of Agents represented by their position X,Y 
 
 New social space representation can be implemented by extending PersonnalSocialSpace and GroupSocialSpace class. 
 
-ON WORK: The program aim to connect with ROS to send command to a robot for social proactive engagement of groups.
+ON WORK: The program aim to connect with ROS to send navigation command to a robot for social proactive engagement of groups.
