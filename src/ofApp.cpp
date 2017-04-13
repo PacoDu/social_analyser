@@ -38,14 +38,14 @@ void ofApp::setup(){
 	pop->pushAgent(a1);
 	pop->pushAgent(a2);
 
-	form = new Formation(pop->getAgents());
-	pop->pushFormation(form);
+//	form = new Formation(pop->getAgents());
+//	pop->pushFormation(form);
 
 	map = new GridMap(world, pop, 0.1);
-	map->setPersonalSpaceEnabled(true);
-//	gd = new GroupDetector(pop);
+//	map->setPersonalSpaceEnabled(true);
 
-//	gd->detect();
+	gd = new GroupDetector(pop);
+	gd->detect();
 
 //	manager->update(world);
 }
@@ -96,9 +96,9 @@ void ofApp::keyPressed(int key){
 		if(mainIndex-1 >= 0) mainIndex--;
 	}
 
-//	gd->detect();
+	gd->detect();
 	map->update();
-	form->update();
+//	form->update();
 }
 
 //--------------------------------------------------------------

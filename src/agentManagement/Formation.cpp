@@ -9,15 +9,17 @@
 #include "Formation.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-Formation::Formation(std::vector<Agent*> a , Vector3d p,
-		double theta, int id):
-		IdentifiedObject(id), DrawnObject(p), AgentContainer(a){
+Formation::Formation(std::vector<Agent*> a , int id):
+		IdentifiedObject(id), AgentContainer(a){
 	_socialSpace = new OSpace(a);
 }
 
-Formation::Formation(Vector3d p, double theta, int id):
-		IdentifiedObject(id), DrawnObject(p), AgentContainer(){
+Formation::Formation(int id): IdentifiedObject(id), AgentContainer(){
 	_socialSpace = NULL; // TODO init empty OSpace ?
+}
+
+Formation::Formation(Agent* a, int id):
+		Formation(initAgent(a), id){
 }
 
 Formation::~Formation() {
@@ -31,12 +33,36 @@ void Formation::draw(World* world) {
 
 void Formation::pushAgent(Agent* a) {
 	AgentContainer::pushAgent(a);
-	this->_socialSpace->pushAgent(a);
+
+	if(!this->_socialSpace)
+		this->_socialSpace = new OSpace(this->_agents);
+	else
+		this->_socialSpace->pushAgent(a);
+
 	this->_socialSpace->update();
 }
 
 void Formation::update() {
 	this->_socialSpace->update();
+}
+
+int Formation::isInFormation(unsigned int agentId) {
+	if(this->getAgent(agentId)){
+		return 1;
+	}
+	else{
+		return 0;
+	}
+}
+
+int Formation::isInFormation(Agent* a) {
+	return this->isInFormation(a->getId());
+}
+
+std::vector<Agent*> Formation::initAgent(Agent* a) {
+	std::vector<Agent *> av;
+	av.push_back(a);
+	return av;
 }
 
 // Getters & Setters
@@ -47,3 +73,4 @@ OSpace* Formation::getSocialSpace() const {
 void Formation::setSocialSpace(OSpace* socialSpace) {
 	_socialSpace = socialSpace;
 }
+

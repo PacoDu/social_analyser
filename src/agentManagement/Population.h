@@ -27,6 +27,11 @@ public:
 	void draw(World* world);
 //	void update(World* world);
 	void clear();
+	int isGrouped(Agent * a);
+	int isGrouped(unsigned int agentId);
+	Formation * getRelatedFormation(unsigned int agentId);
+	Formation * getRelatedFormation(Agent* a);
+
 
 	void pushFormation(Formation* f);
 	int removeFormation(unsigned int formationId);

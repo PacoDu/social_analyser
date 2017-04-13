@@ -17,11 +17,12 @@
 #include "World.h"
 
 // TODO Remove drawnobject formation, only map will be a drawnobject
-class Formation: public IdentifiedObject, public DrawnObject, public AgentContainer {
+class Formation: public IdentifiedObject, public AgentContainer {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
-	Formation(std::vector<Agent*> a, Vector3d p = Vector3d(), double theta = 0, int id=0);
-	Formation(Vector3d p = Vector3d(), double theta = 0, int id=0);
+	Formation(std::vector<Agent*> a, int id=0);
+	Formation(Agent* a, int id=0);
+	Formation(int id=0);
 
 	~Formation();
 
@@ -29,6 +30,9 @@ public:
 	void draw(World* world);
 	void update();
 	void pushAgent(Agent* a);
+	int isInFormation(Agent* a);
+	int isInFormation(unsigned int agentId);
+	std::vector<Agent *> initAgent(Agent * a);
 
 	// Getters & Setters
 	OSpace* getSocialSpace() const;

@@ -27,7 +27,7 @@ public:
 
 protected:
 	Population* _population;
-	double maxDistanceThreshold = 2;
+	double maxDistanceThreshold = 3;
 	//dirty
 	int formationId = 0;
 };

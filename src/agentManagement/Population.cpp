@@ -32,9 +32,11 @@ void Population::draw(World* world) {
 	std::stringstream ss;
 
 	for(unsigned int i=0; i<_formations.size(); i++){
-		ss << "Formation #" << _formations[i]->getId()
-				<< ": x = " << _formations[i]->getX()
-				<< ", y = " << _formations[i]->getY() << std::endl;
+		ss << "Formation #" << _formations[i]->getId() << ": ";
+				for(unsigned int k = 0; k < _formations[i]->getAgents().size(); k++){
+					ss << "Agent#" <<  _formations[i]->getAgents()[k]->getId() << ", ";
+				}
+		ss << std::endl;
 
 		_formations[i]->draw(world);
 	}
@@ -52,16 +54,6 @@ void Population::draw(World* world) {
 	ofSetHexColor(0x2C291F);
 	ofDrawBitmapString(ss.str(), world->getX(), world->getY()+world->heightView+20);
 }
-
-//void Population::update(World* world){
-////	for(unsigned int i=0; i<this->_agents.size(); i++){
-////		GaussianSpace* c = (GaussianSpace*)this->_agents[i]->getSocialSpace();
-////		c->compute(world);
-////	}
-////	for(unsigned int i=0; i<this->_formations.size(); i++){
-////		((OSpace*)_formations[i]->getSocialSpace())->compute(world);
-////	}
-//}
 
 void Population::clear() {
 	for(unsigned int i=0; i<this->_agents.size(); i++){
@@ -96,6 +88,32 @@ int Population::removeFormation(unsigned int formationId) {
 
 void Population::clearFormations() {
 	_formations.clear();
+}
+
+int Population::isGrouped(Agent* a) {
+	return this->isGrouped(a->getId());
+}
+
+int Population::isGrouped(unsigned int agentId) {
+	for(unsigned int i = 0; i < this->_formations.size(); i++){
+		if(this->_formations[i]->isInFormation(agentId)){
+			return 1;
+		}
+	}
+	return 0;
+}
+
+Formation* Population::getRelatedFormation(unsigned int agentId) {
+	for(unsigned int i = 0; i < this->_formations.size(); i++){
+		if(this->_formations[i]->isInFormation(agentId)){
+			return this->_formations[i];
+		}
+	}
+	return NULL;
+}
+
+Formation* Population::getRelatedFormation(Agent* a) {
+	return this->getRelatedFormation(a->getId());
 }
 
 // --- Getter & Setter
