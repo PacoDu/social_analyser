@@ -7,6 +7,8 @@
 
 // TODO Merge constructor (e.i. lower constructor call the highest with default param)
 #include "Formation.h"
+#include "config.h"
+#include "utils.h"
 #include "ofMain.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
@@ -54,6 +56,7 @@ void Formation::removeAgent(unsigned int agentId) {
 void Formation::update() {
 	ofLogNotice("Formation::update") << "Updating social space for Formation#" << this->getId();
 	this->_socialSpace->update();
+	this->computeInteractionPotential();
 }
 
 void Formation::computeInteractionPotential() {
@@ -72,7 +75,7 @@ void Formation::computeInteractionPotential() {
 	meanInterPersoDist /= this->_agents.size();
 	meanCenterDist /= this->_agents.size();
 
-	interactionPotential = meanInterPersoDist + meanCenterDist;
+	interactionPotential = (tanh(meanInterPersoDist) + tanh(meanCenterDist))/2;
 }
 
 int Formation::isInFormation(unsigned int agentId) {
@@ -103,3 +106,10 @@ void Formation::setSocialSpace(OSpace* socialSpace) {
 	_socialSpace = socialSpace;
 }
 
+double Formation::getInteractionPotential() const {
+	return interactionPotential;
+}
+
+void Formation::setInteractionPotential(double interactionPotential) {
+	this->interactionPotential = interactionPotential;
+}

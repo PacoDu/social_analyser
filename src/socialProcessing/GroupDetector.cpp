@@ -7,6 +7,7 @@
 
 #include "GroupDetector.h"
 #include "utils.h"
+#include "config.h"
 #include "ofMain.h"
 
 GroupDetector::GroupDetector(Population* pop): _population(pop) {
@@ -38,7 +39,7 @@ void GroupDetector::detect() {
 			Agent * neighbor =  _population->getAgents()[i]->findNearestNeighbor(agents);
 
 			// If nearest neighbor is too far, abort grouping for agent[i]
-			if(distance(_population->getAgents()[i]->getPosition(), neighbor->getPosition()) > maxDistanceThreshold)
+			if(distance(_population->getAgents()[i]->getPosition(), neighbor->getPosition()) > GROUP_DETECTION_DISTANCE_THRESHOLD)
 				break;
 
 			// if Agents are already grouped, skip
@@ -82,27 +83,6 @@ void GroupDetector::detect() {
 
 void GroupDetector::checkExistingFormation() {
 	for(unsigned int i = 0; i < _population->getFormations().size(); i++){
-		// Find an agent is in range from formation
-		for(unsigned int k = 0; k < _population->getAgents().size(); k++){
-			if(_population->getFormations()[i] == _population->getRelatedFormation(_population->getAgents()[k])){
-				// Agent k is already in formation, skip
-				continue;
-			}
-
-
-			for(unsigned int l = 0; l < _population->getFormations()[i]->getAgents().size(); l++){
-				// Is Agent k in range from formation i
-				if(distance(_population->getAgents()[k]->getPosition(), _population->getFormations()[i]->getAgents()[l]->getPosition()) < maxDistanceThreshold){
-					// Find agent k FOV intersection with one agent in formation i
-					if(_population->getAgents()[k]->getFOVIntersection(_population->getFormations()[i]->getAgents()[l])){
-						// match, group agent k in formation i
-						_population->getFormations()[i]->pushAgent(_population->getAgents()[k]);
-						break;
-					}
-				}
-			}
-		}
-
 		// Find if an agent left the formation
 		for(unsigned int j = 0; j < _population->getFormations()[i]->getAgents().size(); j++){
 			bool isInRange = false;
@@ -112,7 +92,7 @@ void GroupDetector::checkExistingFormation() {
 				if(_population->getFormations()[i]->getAgents()[j] == _population->getFormations()[i]->getAgents()[l])
 					continue;
 
-				if(distance(_population->getFormations()[i]->getAgents()[j]->getPosition(), _population->getFormations()[i]->getAgents()[l]->getPosition()) < maxDistanceThreshold){
+				if(distance(_population->getFormations()[i]->getAgents()[j]->getPosition(), _population->getFormations()[i]->getAgents()[l]->getPosition()) < GROUP_DETECTION_DISTANCE_THRESHOLD){
 					isInRange = true;
 				}
 			}
@@ -131,6 +111,27 @@ void GroupDetector::checkExistingFormation() {
 					ofLogNotice("GroupDetector::checkExistingFormation") << "Formation#" << _population->getFormations()[i]->getId() << " removed";
 					_population->removeFormation(_population->getFormations()[i]->getId());
 					i--;
+				}
+			}
+		}
+
+		// Find an agent is in range from formation
+		for(unsigned int k = 0; k < _population->getAgents().size(); k++){
+			if(_population->getFormations()[i] == _population->getRelatedFormation(_population->getAgents()[k])){
+				// Agent k is already in formation, skip
+				continue;
+			}
+
+
+			for(unsigned int l = 0; l < _population->getFormations()[i]->getAgents().size(); l++){
+				// Is Agent k in range from formation i
+				if(distance(_population->getAgents()[k]->getPosition(), _population->getFormations()[i]->getAgents()[l]->getPosition()) < GROUP_DETECTION_DISTANCE_THRESHOLD){
+					// Find agent k FOV intersection with one agent in formation i
+					if(_population->getAgents()[k]->getFOVIntersection(_population->getFormations()[i]->getAgents()[l])){
+						// match, group agent k in formation i
+						_population->getFormations()[i]->pushAgent(_population->getAgents()[k]);
+						break;
+					}
 				}
 			}
 		}

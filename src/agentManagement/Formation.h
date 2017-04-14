@@ -40,7 +40,8 @@ public:
 	// Getters & Setters
 	OSpace* getSocialSpace() const;
 	void setSocialSpace(OSpace* socialSpace);
-
+	double getInteractionPotential() const;
+	void setInteractionPotential(double interactionPotential = 0);
 
 protected:
 	OSpace* _socialSpace;

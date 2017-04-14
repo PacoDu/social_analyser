@@ -36,7 +36,7 @@ void Population::draw(World* world) {
 				for(unsigned int k = 0; k < _formations[i]->getAgents().size(); k++){
 					ss << "Agent#" <<  _formations[i]->getAgents()[k]->getId() << ", ";
 				}
-		ss << std::endl;
+				ss << " interactionPotential=" << _formations[i]->getInteractionPotential()	<< std::endl;
 
 		_formations[i]->draw(world);
 	}

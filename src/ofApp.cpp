@@ -74,21 +74,21 @@ void ofApp::keyPressed(int key){
 	if(key == OF_KEY_LEFT){
 //		manager->previousFrame();
 //		manager->update(world);
-		pop->getAgents()[mainIndex]->setX(pop->getAgents()[mainIndex]->getX()-1);
+		pop->getAgents()[mainIndex]->setX(pop->getAgents()[mainIndex]->getX()-0.5);
 	}
 	else if(key == OF_KEY_RIGHT){
 //		manager->nextFrame();
 //		manager->update(world);
-		pop->getAgents()[mainIndex]->setX(pop->getAgents()[mainIndex]->getX()+1);
+		pop->getAgents()[mainIndex]->setX(pop->getAgents()[mainIndex]->getX()+0.5);
 	}
 	else if(key == OF_KEY_UP){
-		pop->getAgents()[mainIndex]->setY(pop->getAgents()[mainIndex]->getY()-1);
+		pop->getAgents()[mainIndex]->setY(pop->getAgents()[mainIndex]->getY()-0.5);
 	}
 	else if(key == OF_KEY_DOWN){
-		pop->getAgents()[mainIndex]->setY(pop->getAgents()[mainIndex]->getY()+1);
+		pop->getAgents()[mainIndex]->setY(pop->getAgents()[mainIndex]->getY()+0.5);
 	}
 	else if(key == 'z'){
-		pop->getAgents()[mainIndex]->setTheta(pop->getAgents()[mainIndex]->getTheta()+0.2);
+		pop->getAgents()[mainIndex]->setTheta(pop->getAgents()[mainIndex]->getTheta()+0.1);
 	}
 	else if(key == 'e'){
 		if(mainIndex+1 < pop->getAgents().size()) mainIndex++;
@@ -96,9 +96,11 @@ void ofApp::keyPressed(int key){
 	else if(key == 'r'){
 		if(mainIndex-1 >= 0) mainIndex--;
 	}
+	else if(key == 'u'){
+		gd->detect();
+		map->update();
+	}
 
-	gd->detect();
-	map->update();
 //	form->update();
 }
 
