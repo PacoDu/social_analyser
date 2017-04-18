@@ -28,7 +28,7 @@ void OSpace::update() {
 	this->intersectionPoints.clear();
 	this->centroids.clear();
 
-	this->computeCenter();
+	this->computegCenter();
 	this->sortAgents();
 	this->computeCentroids();
 	this->computeCovarMatrix();
@@ -40,36 +40,44 @@ void OSpace::draw(World* world) {
 	ofPushMatrix();
 		ofSetHexColor(0xd896ff);
 		ofTranslate(pView.x(), pView.y());
-		ofDrawCircle(0, 0, 30);
+		ofDrawCircle(0, 0, 10);
 	ofPopMatrix();
 
-//	for(unsigned int i=0; i < intersectionPoints.size(); i++){
-//		pView = real_to_pixel(world, intersectionPoints[i]);
-//		ofPushMatrix();
-//			ofSetHexColor(0x0000FF);
-//			ofTranslate(pView.x, pView.y);
-//			ofDrawCircle(0, 0, 10);
-//		ofPopMatrix();
-//	}
+	pView = real_to_pixel(world, gCenter);
+	ofPushMatrix();
+		ofSetHexColor(0x0000ff);
+		ofTranslate(pView.x(), pView.y());
+		ofDrawCircle(0, 0, 10);
+	ofPopMatrix();
+
+
+	for(unsigned int i=0; i < intersectionPoints.size(); i++){
+		pView = real_to_pixel(world, intersectionPoints[i]);
+		ofPushMatrix();
+			ofSetHexColor(0xAFAFAF);
+			ofTranslate(pView.x(), pView.y());
+			ofDrawCircle(0, 0, 6);
+		ofPopMatrix();
+	}
 
 	for(unsigned int i=0; i < centroids.size(); i++){
 		pView = real_to_pixel(world, centroids[i]);
 		ofPushMatrix();
 			ofSetHexColor(0xFF0000);
 			ofTranslate(pView.x(), pView.y());
-			ofDrawCircle(0, 0, 10);
+			ofDrawCircle(0, 0, 6);
 		ofPopMatrix();
 	}
 }
 
 // Getter & Setter
-void OSpace::computeCenter() {
-	this->center << 0,0,0 ;
+void OSpace::computegCenter() {
+	this->gCenter << 0,0,0 ;
 	for(unsigned int i=0; i < this->_agents.size(); i++){
-		this->center += this->_agents[i]->getPosition();
+		this->gCenter += this->_agents[i]->getPosition();
 	}
 
-	this->center /= this->_agents.size();
+	this->gCenter /= this->_agents.size();
 }
 
 void OSpace::sortAgents() {
@@ -97,18 +105,18 @@ void OSpace::sortAgents() {
 
 bool OSpace::less(Vector3d a, Vector3d b)
 {
-    if (a.x() - center.x() >= 0 && b.x() - center.x() < 0)
+    if (a.x() - gCenter.x() >= 0 && b.x() - gCenter.x() < 0)
         return true;
-    if (a.x() - center.x() < 0 && b.x() - center.x() >= 0)
+    if (a.x() - gCenter.x() < 0 && b.x() - gCenter.x() >= 0)
         return false;
-    if (a.x() - center.x() == 0 && b.x() - center.x() == 0) {
-        if (a.y() - center.y() >= 0 || b.y() - center.y() >= 0)
+    if (a.x() - gCenter.x() == 0 && b.x() - gCenter.x() == 0) {
+        if (a.y() - gCenter.y() >= 0 || b.y() - gCenter.y() >= 0)
             return a.y() > b.y();
         return b.y() > a.y();
     }
 
     // compute the cross product of vectors (center -> a) x (center -> b)
-    int det = (a.x() - center.x()) * (b.y() - center.y()) - (b.x() - center.x()) * (a.y() - center.y());
+    int det = (a.x() - gCenter.x()) * (b.y() - gCenter.y()) - (b.x() - gCenter.x()) * (a.y() - gCenter.y());
     if (det < 0)
         return true;
     if (det > 0)
@@ -116,13 +124,38 @@ bool OSpace::less(Vector3d a, Vector3d b)
 
     // Points a and b are on the same line from the center
     // check which Point is closer to the center
-    int d1 = (a.x() - center.x()) * (a.x() - center.x()) + (a.y() - center.y()) * (a.y() - center.y());
-    int d2 = (b.x() - center.x()) * (b.x() - center.x()) + (b.y() - center.y()) * (b.y() - center.y());
+    int d1 = (a.x() - gCenter.x()) * (a.x() - gCenter.x()) + (a.y() - gCenter.y()) * (a.y() - gCenter.y());
+    int d2 = (b.x() - gCenter.x()) * (b.x() - gCenter.x()) + (b.y() - gCenter.y()) * (b.y() - gCenter.y());
     return d1 > d2;
 }
 
 double OSpace::phi(Vector3d testedRealPoint) {
 	Vector2d v = (testedRealPoint-center).head<2>();
+
+	Vector2d H1n;
+	H1n <<
+			(this->_agents[0]->getX() + this->_agents[this->_agents.size()-1]->getX())/2,
+			(this->_agents[0]->getY() + this->_agents[this->_agents.size()-1]->getY())/2;
+
+	Vector2d u1;
+	u1 <<
+			this->center.x() - H1n.x(),
+			this->center.y() - H1n.y();
+
+	Vector2d u2;
+	u2 <<
+			this->_agents[0]->getX() - H1n.x(),
+			this->_agents[0]->getY() - H1n.y();
+
+	u1.normalize();
+	u2.normalize();
+
+	Matrix<double, 2, 2> P;
+	P <<
+			u1.x(), u2.x(),
+			u1.y(), u2.y();
+
+	v = P.inverse() * v;
 
 	Matrix<double, 1, 2> i = v.transpose()*covarMatrix.inverse();
 
@@ -132,23 +165,29 @@ double OSpace::phi(Vector3d testedRealPoint) {
 }
 
 void OSpace::computeCovarMatrix() {
-	double dh = sqrt((_agents[_agents.size()-1]->getX() - _agents[0]->getX())*(_agents[_agents.size()-1]->getX() - _agents[0]->getX()) + (_agents[_agents.size()-1]->getY() - _agents[0]->getY())*(_agents[_agents.size()-1]->getY() - _agents[0]->getY()));
-	for(unsigned int i=1; i < _agents.size()-1; i++){
-		dh += sqrt((_agents[i+1]->getX() - _agents[i]->getX())*(_agents[i+1]->getX() - _agents[i]->getX()) + (_agents[i+1]->getY() - _agents[i]->getY())*(_agents[i+1]->getY() - _agents[i]->getY()));
+
+	double dh = distance(_agents[_agents.size()-1]->getPosition(), _agents[0]->getPosition());
+	for(unsigned int i=0; i < _agents.size()-1; i++){
+		dh += distance(_agents[i+1]->getPosition(), _agents[i]->getPosition());
 	}
 	dh /= _agents.size();
 
-	// TODO di = 0 when agents.size = 2
-	double di = sqrt((centroids[centroids.size()-1].x() - centroids[0].x())*(centroids[centroids.size()-1].x() - centroids[0].x()) + (centroids[centroids.size()-1].y() - centroids[0].y())*(centroids[centroids.size()-1].y() - centroids[0].y()));
-	for(unsigned int i=1; i < centroids.size()-1; i++){
-		di += sqrt((centroids[i+1].x() - centroids[i].x())*(centroids[i+1].x() - centroids[i].x()) + (centroids[i+1].y() - centroids[i].y())*(centroids[i+1].y() - centroids[i].y()));
+	double di = distance(centroids[centroids.size()-1], _agents[_agents.size()-1]->getPosition()-_agents[0]->getPosition());
+	//double di = sqrt((centroids[centroids.size()-1].x() - centroids[0].x())*(centroids[centroids.size()-1].x() - centroids[0].x()) + (centroids[centroids.size()-1].y() - centroids[0].y())*(centroids[centroids.size()-1].y() - centroids[0].y()));
+	for(unsigned int i=0; i < centroids.size()-1; i++){
+		//di += sqrt((centroids[i+1].x() - centroids[i].x())*(centroids[i+1].x() - centroids[i].x()) + (centroids[i+1].y() - centroids[i].y())*(centroids[i+1].y() - centroids[i].y()));
+		di += distance(centroids[i], _agents[i]->getPosition()-_agents[i+1]->getPosition());
 	}
 	di /= centroids.size();
 	di *= 2;
 
 	this->covarMatrix <<
+//						dh/4*dh/4, 0,
+//						0, di/2*di/2;
 						dh/4, 0,
 						0, di/2;
+
+	ofLogNotice("OSpace::computeCovarMatrix") << "Covariance matrix computed for Formation#" << this->getId() << ":" << std::endl << this->covarMatrix;
 }
 
 void OSpace::computeCentroids() {
@@ -166,7 +205,7 @@ void OSpace::computeCentroids() {
 		Vector3d* intersec = _agents[i]->getFOVIntersection(_agents[neighborIndex]);
 		if(intersec){
 			ofLogNotice("OSpace::computeCentroids") << "Agent#" << _agents[i]->getId() << " FOV intersection with Agent#" << _agents[neighborIndex]->getId();
-			n++; // dirty use push back and vector size (clash with resize)
+			n++; // dirty use push back and vector size (clash with resize if there is no intersect)
 			intersectionPoints[i] = *intersec;
 			// compute centroïds
 			Vector3d centro;
@@ -177,7 +216,9 @@ void OSpace::computeCentroids() {
 		}
 	}
 
-	realCenter /=  n;
+	if(n!=0)
+		realCenter /=  n;
+
 	center << realCenter.x(), realCenter.y(), realCenter.z();
 }
 
@@ -187,4 +228,12 @@ Vector3d OSpace::getCenter() const {
 
 void OSpace::setCenter(const Vector3d& center) {
 	this->center = center;
+}
+
+Vector3d OSpace::getgCenter() const {
+	return gCenter;
+}
+
+void OSpace::setgCenter(const Vector3d& gCenter) {
+	this->gCenter = gCenter;
 }

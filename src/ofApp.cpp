@@ -42,7 +42,9 @@ void ofApp::setup(){
 //	pop->pushFormation(form);
 
 	map = new GridMap(world, pop, 0.1);
-//	map->setPersonalSpaceEnabled(true);
+	map->setPersonalSpaceEnabled(true);
+	map->setGroupSpaceEnabled(true);
+	map->update();
 
 	gd = new GroupDetector(pop);
 	gd->detect();
@@ -90,16 +92,20 @@ void ofApp::keyPressed(int key){
 	else if(key == 'z'){
 		pop->getAgents()[mainIndex]->setTheta(pop->getAgents()[mainIndex]->getTheta()+0.1);
 	}
+	else if(key == 'a'){
+		pop->getAgents()[mainIndex]->setTheta(pop->getAgents()[mainIndex]->getTheta()-0.1);
+	}
 	else if(key == 'e'){
-		if(mainIndex+1 < pop->getAgents().size()) mainIndex++;
+		if(mainIndex < pop->getAgents().size()-1) mainIndex++;
 	}
 	else if(key == 'r'){
-		if(mainIndex-1 >= 0) mainIndex--;
+		if(mainIndex > 0) mainIndex--;
 	}
 	else if(key == 'u'){
 		gd->detect();
 		map->update();
 	}
+	ofLogNotice("DEBUG") << "Agent index = " << mainIndex;
 
 //	form->update();
 }

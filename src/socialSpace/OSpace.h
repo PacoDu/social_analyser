@@ -26,9 +26,8 @@ public:
 	// --- METHOD
 	void draw(World* world);
 	void update();
-	void compute(World* world);
 	void computeCovarMatrix();
-	void computeCenter();
+	void computegCenter();
 	void computeCentroids();
 	void sortAgents();
 	double phi(Vector3d testedPoint);
@@ -37,9 +36,12 @@ public:
 	// --- Getter & Setter
 	Vector3d getCenter() const;
 	void setCenter(const Vector3d& center);
+	Vector3d getgCenter() const;
+	void setgCenter(const Vector3d& gCenter);
 
 protected:
 	Vector3d center;
+	Vector3d gCenter;
 	std::vector<Vector3d> intersectionPoints;
 	std::vector<Vector3d> centroids;
 	Matrix<double,2,2> covarMatrix;

@@ -110,7 +110,10 @@ void GroupDetector::checkExistingFormation() {
 				if(_population->getFormations()[i]->getAgents().size() == 0){
 					ofLogNotice("GroupDetector::checkExistingFormation") << "Formation#" << _population->getFormations()[i]->getId() << " removed";
 					_population->removeFormation(_population->getFormations()[i]->getId());
-					i--;
+					if(i == 0)
+						break;
+					else
+						i--;
 				}
 			}
 		}

@@ -34,8 +34,11 @@ void Agent::draw(World * world) {
 		ofDrawBitmapString("#"+ofToString(this->getId()), -10, -20);
 		ofDrawTriangle(0, 10, 25, 0, 0, -10);
 
-		ofSetHexColor(0x011f4b);
+//		ofSetHexColor(0x011f4b);
+		ofSetHexColor(0xFFFFFF);
 		ofDrawCircle(0,0,5);
+		ofSetHexColor(0xFF0000);
+		ofDrawCircle(0,0,1);
 	ofPopMatrix();
 }
 

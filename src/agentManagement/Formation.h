@@ -17,7 +17,7 @@
 #include "World.h"
 
 // TODO Remove drawnobject formation, only map will be a drawnobject
-class Formation: public IdentifiedObject, public AgentContainer {
+class Formation: public IdentifiedObject, public DrawnObject, public AgentContainer {
 public:
 	// --- CONSTRUCTOR & DESTRUCTOR
 	Formation(std::vector<Agent*> a, int id=0);
@@ -35,6 +35,7 @@ public:
 	int isInFormation(unsigned int agentId);
 	std::vector<Agent *> initAgent(Agent * a);
 	void computeInteractionPotential();
+	void findInteractionPosition();
 
 
 	// Getters & Setters
@@ -46,6 +47,9 @@ public:
 protected:
 	OSpace* _socialSpace;
 	double interactionPotential = 0;
+	Vector3d interactionPosition;
+	std::vector<Vector3d> agentDir_ospace;
+	Vector3d interactionDirection;
 };
 
 
