@@ -129,6 +129,17 @@ bool OSpace::less(Vector3d a, Vector3d b)
     return d1 > d2;
 }
 
+// Without rotation
+//double OSpace::phi(Vector3d testedRealPoint) {
+//	Vector2d v = (testedRealPoint-center).head<2>();
+//
+//	Matrix<double, 1, 2> i = v.transpose()*covarMatrix.inverse();
+//
+//	double j =i*v;
+//
+//	return exp(-0.5*j);
+//}
+
 double OSpace::phi(Vector3d testedRealPoint) {
 	Vector2d v = (testedRealPoint-center).head<2>();
 
@@ -164,6 +175,7 @@ double OSpace::phi(Vector3d testedRealPoint) {
 	return exp(-0.5*j);
 }
 
+// Real math from Gomez paper
 void OSpace::computeCovarMatrix() {
 
 	double dh = distance(_agents[_agents.size()-1]->getPosition(), _agents[0]->getPosition());
@@ -189,6 +201,27 @@ void OSpace::computeCovarMatrix() {
 
 	ofLogNotice("OSpace::computeCovarMatrix") << "Covariance matrix computed for Formation#" << this->getId() << ":" << std::endl << this->covarMatrix;
 }
+
+// Old version wrong math
+//void OSpace::computeCovarMatrix() {
+//	double dh = sqrt((_agents[_agents.size()-1]->getX() - _agents[0]->getX())*(_agents[_agents.size()-1]->getX() - _agents[0]->getX()) + (_agents[_agents.size()-1]->getY() - _agents[0]->getY())*(_agents[_agents.size()-1]->getY() - _agents[0]->getY()));
+//	for(unsigned int i=1; i < _agents.size()-1; i++){
+//		dh += sqrt((_agents[i+1]->getX() - _agents[i]->getX())*(_agents[i+1]->getX() - _agents[i]->getX()) + (_agents[i+1]->getY() - _agents[i]->getY())*(_agents[i+1]->getY() - _agents[i]->getY()));
+//	}
+//	dh /= _agents.size();
+//
+//	// TODO di = 0 when agents.size = 2
+//	double di = sqrt((centroids[centroids.size()-1].x() - centroids[0].x())*(centroids[centroids.size()-1].x() - centroids[0].x()) + (centroids[centroids.size()-1].y() - centroids[0].y())*(centroids[centroids.size()-1].y() - centroids[0].y()));
+//	for(unsigned int i=1; i < centroids.size()-1; i++){
+//		di += sqrt((centroids[i+1].x() - centroids[i].x())*(centroids[i+1].x() - centroids[i].x()) + (centroids[i+1].y() - centroids[i].y())*(centroids[i+1].y() - centroids[i].y()));
+//	}
+//	di /= centroids.size();
+//	di *= 2;
+//
+//	this->covarMatrix <<
+//						dh/4, 0,
+//						0, di/2;
+//}
 
 void OSpace::computeCentroids() {
 	intersectionPoints.resize(_agents.size());
