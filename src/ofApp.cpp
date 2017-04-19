@@ -1,4 +1,6 @@
 #include "ofApp.h"
+#include "udp_server.h"
+#include "config.h"
 
 #undef Success // Eigen import clash with X11, dirty fix
 #include "ofxMatrixEigen.h"
@@ -8,6 +10,7 @@ using namespace Eigen;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+
 	world = new World(10, 10, 600, 600, Vector3d(20,20,0), 0);
 	pop = new Population();
 

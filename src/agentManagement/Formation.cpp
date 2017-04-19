@@ -206,3 +206,11 @@ double Formation::getInteractionPotential() const {
 void Formation::setInteractionPotential(double interactionPotential) {
 	this->interactionPotential = interactionPotential;
 }
+
+const Vector3d& Formation::getInteractionPosition() const {
+	return interactionPosition;
+}
+
+void Formation::setInteractionPosition(const Vector3d& interactionPosition) {
+	this->interactionPosition = interactionPosition;
+}

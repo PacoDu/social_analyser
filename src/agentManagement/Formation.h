@@ -43,6 +43,8 @@ public:
 	void setSocialSpace(OSpace* socialSpace);
 	double getInteractionPotential() const;
 	void setInteractionPotential(double interactionPotential = 0);
+	const Vector3d& getInteractionPosition() const;
+	void setInteractionPosition(const Vector3d& interactionPosition);
 
 protected:
 	OSpace* _socialSpace;
