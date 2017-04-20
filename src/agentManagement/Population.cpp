@@ -33,8 +33,8 @@ void Population::draw(World* world) {
 
 	for(unsigned int i=0; i<_formations.size(); i++){
 		ss << "Formation #" << _formations[i]->getId() << ": ";
-				for(unsigned int k = 0; k < _formations[i]->getAgents().size(); k++){
-					ss << "Agent#" <<  _formations[i]->getAgents()[k]->getId() << ", ";
+				for(unsigned int k = 0; k < _formations[i]->getSocialSpace()->getAgents().size(); k++){
+					ss << "Agent#" <<  _formations[i]->getSocialSpace()->getAgents()[k]->getId() << ", ";
 				}
 				ss << " interactionPotential=" << _formations[i]->getInteractionPotential()	<< std::endl;
 

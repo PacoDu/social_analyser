@@ -41,17 +41,17 @@ void Formation::draw(World* world) {
 		ofDrawCircle(0, 0, 10);
 	ofPopMatrix();
 
-//	pView = real_to_pixel(world, this->_socialSpace->getCenter());
-//	ofPushMatrix();
-//		ofTranslate(pView.x(), pView.y());
-//		ofSetHexColor(0xFF0000);
-//		ofDrawLine(0,0, interactionDirection.x()*500, interactionDirection.y()*500);
-//		ofSetHexColor(0xFFFFFF);
-//		for(auto p: agentDir_ospace){
-//			p *= 500;
-//			ofDrawLine(0,0, p.x(), p.y());
-//		}
-//	ofPopMatrix();
+	pView = real_to_pixel(world, this->_socialSpace->getCenter());
+	ofPushMatrix();
+		ofTranslate(pView.x(), pView.y());
+		ofSetHexColor(0xFFFFFF);
+		for(auto p: agentDir_ospace){
+			p *= 500;
+			ofDrawLine(0,0, p.x(), p.y());
+		}
+		ofSetHexColor(0xFF0000);
+		ofDrawLine(0,0, interactionDirection.x()*300, interactionDirection.y()*300);
+	ofPopMatrix();
 }
 
 void Formation::pushAgent(Agent* a) {
@@ -127,48 +127,52 @@ void Formation::findInteractionPosition() {
 	// Compute angle between Agents and find max angle
 	double maxAngle = 0;
 	int maxAngleIndex = -1;
+	int maxNeighborAngleIndex = -1;
 	for(unsigned int i = 0; i < agentDir_ospace.size(); i++){
 		unsigned int neighborIndex = i+1;
 		if(neighborIndex >= agentDir_ospace.size()) neighborIndex = 0;
 
-		double aAngle = atan2(agentDir_ospace[neighborIndex].y(), agentDir_ospace[neighborIndex].x()) - atan2(agentDir_ospace[i].y(), agentDir_ospace[i].x());
+		double aAngle = atan2(agentDir_ospace[i].y(), agentDir_ospace[i].x()) - atan2(agentDir_ospace[neighborIndex].y(), agentDir_ospace[neighborIndex].x());
 		if(aAngle < 0) aAngle += 2 * M_PI; // [0, 2PI]
 
 		if(maxAngle < aAngle){
 			maxAngle = aAngle;
+
+			maxNeighborAngleIndex = neighborIndex;
 			maxAngleIndex = i;
 		}
 
 		ofLogNotice("Formation::findInteractionPosition")
-			<< "Angle(#" << sortedAgents[i]->getId() << ",#"
-			<< sortedAgents[neighborIndex]->getId() << ")=" << aAngle;
+			<< "Angle(#" << sortedAgents[neighborIndex]->getId() << ",#"
+			<< sortedAgents[i]->getId() << ")=" << aAngle;
 	}
 
 //	int maxAngleIndex = std::distance(agentAngle_ospace.begin(), std::max_element(agentAngle_ospace.begin(), agentAngle_ospace.end()));
-	unsigned int nIndex = maxAngleIndex+1;
-	if(nIndex >= agentDir_ospace.size()) nIndex = 0;
-	double rotAngle = maxAngle/2;
+	double rotAngle = -maxAngle/2;
 
 	ofLogNotice("Formation::findInteractionPosition")
 		<< "Max angle found between Agent#" << sortedAgents[maxAngleIndex]->getId()
-		<< " and Agent#" << sortedAgents[nIndex]->getId();
+		<< " and Agent#" << sortedAgents[maxNeighborAngleIndex]->getId();
 
 	// Create interaction position vector from gravity center
 	Rotation2Dd t(rotAngle);
 	Vector2d tmp = t.toRotationMatrix()*agentDir_ospace[maxAngleIndex].head<2>(); // Ignore Z
-	Vector3d interactionDirection(tmp.x(), tmp.y(), 0);
-	interactionDirection.normalize();
+	interactionDirection << tmp.x(), tmp.y(), 0;
+//	interactionDirection.normalize();
 
-	// Compute mean distance from gravity center
+	ofLogNotice("Formation::findInteractionPosition") << "Direction vector :" << std::endl << interactionDirection;
+
+	// Compute mean distance from middle between gravity center and ospace center
 	// TODO can be optimized and computed in previous loop
 	double meanDistGCenter = 0;
+	Vector3d meanCenter = (gCenter + this->_socialSpace->getCenter())/2;
 	for(auto * a: sortedAgents)
 	{
-		meanDistGCenter += distance(a->getPosition(), gCenter);
+		meanDistGCenter += distance(a->getPosition(), meanCenter);
 	}
 	meanDistGCenter /= sortedAgents.size();
 
-	interactionPosition = gCenter + (interactionDirection * meanDistGCenter);
+	interactionPosition = meanCenter + (interactionDirection * meanDistGCenter*2);
 }
 
 int Formation::isInFormation(unsigned int agentId) {

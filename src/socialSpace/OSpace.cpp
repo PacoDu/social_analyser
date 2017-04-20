@@ -101,6 +101,12 @@ void OSpace::sortAgents() {
 //	}
 
 	if(shifted) this->sortAgents();
+	else{
+		ofLogNotice("OSpace::sortAgents") << "Agents sorted conter clock wise";
+		for(unsigned int i=0; i < this->_agents.size(); i++){
+			ofLogNotice("OSpace::sortAgents") << i << ": Agent#" << this->_agents[i]->getId();
+		}
+	}
 }
 
 bool OSpace::less(Vector3d a, Vector3d b)

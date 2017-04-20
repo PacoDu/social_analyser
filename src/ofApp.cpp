@@ -11,7 +11,7 @@ using namespace Eigen;
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-	world = new World(10, 10, 600, 600, Vector3d(20,20,0), 0);
+	world = new World(5, 5, 600, 600, Vector3d(20,20,0), 0);
 	pop = new Population();
 
 //	manager = new PopulationManager(world, "cocktail_party.json", "cocktail_party_gt.json");
@@ -29,9 +29,9 @@ void ofApp::setup(){
 
 
 //	ofLogNotice("DEBUG") << "Agent direction " << a0->getDirection();
-	a0 = new Agent(Vector3d(2, 7, 0), 5.17, 0);
-	a1 = new Agent(Vector3d(4, 6, 0), 3.18, 1);
-	a2 = new Agent(Vector3d(2, 5, 0), 0.97, 2);
+	a0 = new Agent(Vector3d(2, 2, 0), 5.17, 0);
+	a1 = new Agent(Vector3d(4, 4, 0), 3.18, 1);
+	a2 = new Agent(Vector3d(3, 3, 0), 0.97, 2);
 
 //	agents.push_back(a0);
 //	agents.push_back(a1);
@@ -45,8 +45,8 @@ void ofApp::setup(){
 //	pop->pushFormation(form);
 
 	map = new GridMap(world, pop, 0.1);
-	map->setPersonalSpaceEnabled(true);
-	map->setGroupSpaceEnabled(true);
+	map->setPersonalSpaceEnabled(false);
+	map->setGroupSpaceEnabled(false);
 	map->update();
 
 	gd = new GroupDetector(pop);
@@ -103,6 +103,11 @@ void ofApp::keyPressed(int key){
 	}
 	else if(key == 'r'){
 		if(mainIndex > 0) mainIndex--;
+	}
+	else if(key == 'v'){
+		Agent * newAgent = new Agent(Vector3d(0, 0, 0), 0.0, pop->getAgents().size());
+		pop->pushAgent(newAgent);
+		mainIndex = pop->getAgents().size()-1;
 	}
 	else if(key == 'u'){
 		gd->detect();
