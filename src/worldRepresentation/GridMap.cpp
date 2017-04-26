@@ -40,25 +40,11 @@ GridMap::~GridMap() {
 }
 
 void GridMap::draw(World* world) {
-//	Point pView = real_to_pixel(world, this->getPosition());
-//	ofPushMatrix();
-//		ofTranslate(pView.x, pView.y);
-//		ofRotateZ(ofRadToDeg(this->getTheta()));
-//	std::stringstream ss;
-
 	for(unsigned int i=0; i < this->height/this->resolution; i++){
 		for(unsigned int j=0; j < this->width/this->resolution; j++){
 			_map[i][j]->draw(world);
-//			ss << "GridCell #" << _map[i][j]->getId()
-//					<< ": x = " << _map[i][j]->getX()
-//					<< ", y = " << _map[i][j]->getY() << std::endl;
 		}
 	}
-
-
-//	ofSetHexColor(0x2C291F);
-//	ofDrawBitmapString(ss.str(), world->getX(), world->getY()+world->heightView+100);
-//	ofPopMatrix();
 }
 
 void GridMap::compute() {
@@ -96,9 +82,9 @@ void GridMap::compute() {
 void GridMap::normalize(){
 	for(unsigned int i=0; i < this->height/this->resolution; i++){
 		for(unsigned int j=0; j < this->width/this->resolution; j++){
-			int newVal = (int)ofMap(_map[i][j]->getValue(), this->minValue, this->maxValue, 0, 255);
+//			int newVal = (int)ofMap(_map[i][j]->getValue(), this->minValue, this->maxValue, 0, 255);
+			int newVal = (int)ofMap(_map[i][j]->getValue(), 0, 1, 0, 255, true);
 			_map[i][j]->setValue(newVal);
-
 		}
 	}
 }
@@ -157,7 +143,7 @@ double heuristicDiagonalCostEstimate(GridCell* start, GridCell* end){
 	double dx = abs(start->getX() - end->getX());
 	double dy = abs(start->getY() - end->getY());
 	double D = 1; // Cost for moving forward
-	double D2 = 5; // Cost for moving diagonally
+	double D2 = sqrt(2); // Cost for moving diagonally
 	return D * (dx + dy) + (D2 - 2 * D) * min(dx, dy);
 }
 
@@ -165,20 +151,6 @@ double heuristicDiagonalCostEstimate(GridCell* start, GridCell* end){
 
 // A* algorithm
 std::vector<GridCell*> GridMap::findPath(GridCell* startCell, GridCell* endCell){
-//	typedef std::pair<double, GridCell*> VCell;
-//
-//	struct CompaireVCell
-//	{
-//	    bool operator()(VCell const& a, VCell const& b) const
-//	    {
-//	        return a.first > b.first;
-//	    }
-//	};
-//
-//	std::priority_queue<VCell, std::vector<VCell>, CompaireVCell > openNodesPQ;
-//	std::map<GridCell*, GridCell*> cameFrom;
-//	std::map<GridCell*, double> gScore;
-
 	ofLogNotice("DEBUG") << "Computing path for Cell#" << startCell->getId() << " to Cell#" << endCell->getId();
 
 	startCell->setGoal();
@@ -198,9 +170,9 @@ std::vector<GridCell*> GridMap::findPath(GridCell* startCell, GridCell* endCell)
 	gScore[startCell] = 0;
 
 	int ret = 0;
-//	while(!ret){
-//		ret = pathFinderNextStep();
-//	}
+	while(!ret){
+		ret = pathFinderNextStep();
+	}
 
 	std::vector<GridCell*> pathFound;
 
@@ -208,58 +180,6 @@ std::vector<GridCell*> GridMap::findPath(GridCell* startCell, GridCell* endCell)
 		pathFound = constructPath();
 
 	return pathFound;
-
-//
-//	while(!openNodesPQ.empty()){
-//		// Get highest priority cell (lowest score)
-//		ofLogNotice("DEBUG") << "Processing Cell#" << openNodesPQ.top().second->getId() << " value=" << openNodesPQ.top().second->getValue() ;
-//		GridCell* currentNode = openNodesPQ.top().second;
-//
-//		if(currentNode == endCell){
-//			ofLogNotice("DEBUG") << "Goal reached";
-//			break;
-//		}
-//
-//		// Find neighbor
-//		std::vector<GridCell*> neighbors = this->neighbors(currentNode);
-//		for(auto * nextNode: neighbors){
-//			double newCost = gScore[currentNode] + nextNode->getValue();
-//
-//			// nextNode not in gScore or newCost < gScore
-//			// nextNode haven't been evaluated or newCost is lower than previous evaluation (better path)
-//			// gScore.find(nextNode) == gScore.end() ||
-//			if( gScore.find(nextNode) == gScore.end()
-//					|| (gScore.find(nextNode) != gScore.end() && newCost < gScore[nextNode])){
-//
-//				gScore[nextNode] = newCost;
-//				double priority = newCost + heuristicDiagonalCostEstimate(nextNode, endCell);
-//
-//				openNodesPQ.push(std::make_pair(priority, nextNode));
-//				cameFrom[nextNode] = currentNode;
-//
-//				nextNode->setAStarScore(newCost);
-//
-//				ofLogNotice("DEBUG") << "Node#" << nextNode->getId() << " score=" << newCost << " priority=" << priority;
-//			}
-//		}
-//
-//		openNodesPQ.pop();
-//	}
-//
-//	// Construct path
-//	this->deselectCells();
-//	std::vector<GridCell*> pathFound;
-//	GridCell* currentCell = endCell;
-//
-//	pathFound.push_back(currentCell);
-//
-//	while(currentCell != startCell){
-//		currentCell = cameFrom[currentCell];
-//		pathFound.push_back(currentCell);
-//		currentCell->setCellSelected();
-//	}
-//
-//	return pathFound;
 }
 
 
@@ -272,6 +192,17 @@ GridCell* GridMap::getCell(int cellId) {
 		}
 	}
 	return nullptr;
+}
+
+GridCell* GridMap::getCell(double x, double y){
+	int i = round((y-this->getY())/this->resolution);
+	int j = round((x-this->getX())/this->resolution);
+
+	if(i < _map.size() && i >= 0
+			&& j < _map[i].size() && j >= 0)
+		return _map[i][j];
+	else
+		return nullptr;
 }
 
 void GridMap::deselectCells() {
@@ -291,6 +222,7 @@ void GridMap::resetCellColor() {
 		}
 	}
 }
+
 
 
 bool GridMap::isGroupSpaceEnabled() const {
@@ -316,12 +248,12 @@ bool GridMap::isBorderEnabled() const {
 // Return -1 if goal is not reachable, 0 if nextstep is needed, 1 if goal is reached
 int GridMap::pathFinderNextStep() {
 	if(!openNodesPQ.empty()){
-		// Get highest priority cell (lowest score)
 		ofLogNotice("DEBUG") << "Processing Cell#"
 				<< openNodesPQ.top().second->getId()
 				<< " priority=" << openNodesPQ.top().first
 				<< " value=" << openNodesPQ.top().second->getValue() ;
 
+		// Get highest priority cell (lowest score)
 		GridCell* currentNode = openNodesPQ.top().second;
 		openNodesPQ.pop();
 		currentNode->setFrontier(false);
@@ -332,7 +264,7 @@ int GridMap::pathFinderNextStep() {
 		}
 
 		// Find neighbor
-		std::vector<GridCell*> neighbors = this->neighbors(currentNode, false);
+		std::vector<GridCell*> neighbors = this->neighbors(currentNode, true);
 		for(auto * nextNode: neighbors){
 			double newCost = gScore[currentNode] + currentNode->getValue();
 
@@ -341,7 +273,7 @@ int GridMap::pathFinderNextStep() {
 			if( gScore.find(nextNode) == gScore.end() || newCost < gScore[nextNode]){
 
 				gScore[nextNode] = newCost;
-				double priority = newCost + heuristicManhattanCostEstimate(nextNode, endCell);
+				double priority = newCost + heuristicDiagonalCostEstimate(nextNode, endCell);
 
 				openNodesPQ.push(std::make_pair(priority, nextNode));
 				cameFrom[nextNode] = currentNode;
@@ -358,15 +290,6 @@ int GridMap::pathFinderNextStep() {
 		ofLogNotice("DEBUG") << "Error goal unreachable";
 		return -1;
 	}
-
-
-	int i = 0;
-	for(auto * cell: _map[0]){
-		if(cell->isProcessed())
-			i++;
-	}
-
-	ofLogNotice("DEBUG") << "_map[0] => " << i << " Cells processed.";
 
 	return 0;
 }
@@ -386,6 +309,15 @@ std::vector<GridCell*> GridMap::constructPath() {
 	}
 
 	return pathFound;
+}
+
+void GridMap::setInfoEnabled(bool infoEnabled) {
+	for(unsigned int i=0; i < this->height/this->resolution; i++){
+		for(unsigned int j=0; j < this->width/this->resolution; j++){
+			_map[i][j]->setInfoEnabled(infoEnabled);
+		}
+	}
+	this->infoEnabled = infoEnabled;
 }
 
 void GridMap::setBorderEnabled(bool borderEnabled) {

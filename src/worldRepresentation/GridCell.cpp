@@ -34,13 +34,12 @@ void GridCell::draw(World* world) {
 			ofSetColor(0,255,255);
 		else if(isCellSelected())
 			ofSetColor(0, 255, 0);
-		else if(isFrontier())
-			ofSetColor(255,0,0);
 		else if(isProcessed())
 			ofSetColor(150,150,150);
+		else if(isFrontier())
+			ofSetColor(255,0,0);
 		else
-			ofSetColor(0,0,0);
-//			ofSetColor((int)_value,(int)_value, (int)_value);
+			ofSetColor((int)_value,(int)_value, (int)_value);
 
 		ofFill();
 		ofDrawRectangle(0,0, sView.x()-pView.x(), sView.x()-pView.x());
@@ -51,16 +50,18 @@ void GridCell::draw(World* world) {
 			ofDrawRectangle(0,0, sView.x()-pView.x(), sView.x()-pView.x());
 			ofFill();
 		}
-		ofDrawBitmapString("#"+ofToString(this->getId()), 5, 20);
+		if(isInfoEnabled())
+			ofDrawBitmapString("#"+ofToString(this->getId()), 5, 20);
 	ofPopMatrix();
 
-
-	pView = real_to_pixel(world, Vector3d(this->getX()+this->_size/2, this->getY()+this->_size/2, 0));
-	ofPushMatrix();
-		ofTranslate(pView.x(), pView.y());
-		ofDrawBitmapString("A*:"+ofToString(this->_aStarScore), -20, 0);
-		ofDrawBitmapString("v:"+ofToString(this->_value), -20, 15);
-	ofPopMatrix();
+	if(isInfoEnabled()){
+		pView = real_to_pixel(world, Vector3d(this->getX()+this->_size/2, this->getY()+this->_size/2, 0));
+		ofPushMatrix();
+			ofTranslate(pView.x(), pView.y());
+			ofDrawBitmapString("A*:"+ofToString(this->_aStarScore), -20, 0);
+			ofDrawBitmapString("v:"+ofToString(this->_value), -20, 15);
+		ofPopMatrix();
+	}
 
 }
 
@@ -130,4 +131,20 @@ bool GridCell::isStart() const {
 
 void GridCell::setStart(bool start) {
 	this->start = start;
+}
+
+double GridCell::getStarScore() const {
+	return _aStarScore;
+}
+
+void GridCell::setStarScore(double starScore) {
+	_aStarScore = starScore;
+}
+
+bool GridCell::isInfoEnabled() const {
+	return infoEnabled;
+}
+
+void GridCell::setInfoEnabled(bool infoEnabled) {
+	this->infoEnabled = infoEnabled;
 }

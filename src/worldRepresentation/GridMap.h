@@ -31,6 +31,9 @@ public:
 	std::vector<GridCell*> neighbors(GridCell* cell, bool allowDiagonalMove = true);
 	std::vector<GridCell*> findPath(GridCell* startCell, GridCell* endCell);
 	GridCell* getCell(int cellId);
+	GridCell* getCell(double x, double y);
+
+	void setInfoEnabled(bool infoEnabled = false);
 
 	// --- Getter & Setter
 	bool isGroupSpaceEnabled() const;
@@ -41,15 +44,16 @@ public:
 	void setBorderEnabled(bool borderEnabled = true);
 
 protected:
+	Population* _population;
 	double width;
 	double height;
 	double resolution;
 	double minValue;
 	double maxValue;
-	Population* _population;
 	bool personalSpaceEnabled = true;
 	bool groupSpaceEnabled = true;
 	bool borderEnabled = false;
+	bool infoEnabled = false;
 
 
 

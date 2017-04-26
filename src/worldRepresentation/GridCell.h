@@ -40,6 +40,10 @@ public:
 	void setGoal(bool goal = true);
 	bool isStart() const;
 	void setStart(bool start = true);
+	double getStarScore() const;
+	void setStarScore(double starScore);
+	bool isInfoEnabled() const;
+	void setInfoEnabled(bool infoEnabled = true);
 
 protected:
 	double _value;
@@ -53,6 +57,7 @@ protected:
 	bool processed = false;
 	bool goal = false;
 	bool start = false;
+	bool infoEnabled = false;
 
 
 };
