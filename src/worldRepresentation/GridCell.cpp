@@ -28,14 +28,40 @@ void GridCell::draw(World* world) {
 	ofPushMatrix();
 		ofTranslate(pView.x(), pView.y());
 		ofRotateZ(ofRadToDeg(this->getTheta()));
-		ofSetColor((int)_value,(int)_value, (int)_value);
+		if(isGoal())
+			ofSetColor(255,255,0);
+		else if(isStart())
+			ofSetColor(0,255,255);
+		else if(isCellSelected())
+			ofSetColor(0, 255, 0);
+		else if(isFrontier())
+			ofSetColor(255,0,0);
+		else if(isProcessed())
+			ofSetColor(150,150,150);
+		else
+			ofSetColor(0,0,0);
+//			ofSetColor((int)_value,(int)_value, (int)_value);
+
 		ofFill();
 		ofDrawRectangle(0,0, sView.x()-pView.x(), sView.x()-pView.x());
-//		ofSetColor(255, 255, 255);
-//		ofNoFill();
-//		ofSetLineWidth(0.05);
-//		ofDrawRectangle(0,0, sView.x-pView.x, sView.x-pView.x);
+		ofSetColor(255, 255, 255);
+		if(isBorderEnabled()){
+			ofNoFill();
+			ofSetLineWidth(0.02);
+			ofDrawRectangle(0,0, sView.x()-pView.x(), sView.x()-pView.x());
+			ofFill();
+		}
+		ofDrawBitmapString("#"+ofToString(this->getId()), 5, 20);
 	ofPopMatrix();
+
+
+	pView = real_to_pixel(world, Vector3d(this->getX()+this->_size/2, this->getY()+this->_size/2, 0));
+	ofPushMatrix();
+		ofTranslate(pView.x(), pView.y());
+		ofDrawBitmapString("A*:"+ofToString(this->_aStarScore), -20, 0);
+		ofDrawBitmapString("v:"+ofToString(this->_value), -20, 15);
+	ofPopMatrix();
+
 }
 
 void GridCell::setValue(double value) {
@@ -48,4 +74,60 @@ double GridCell::getSize() const {
 
 void GridCell::setSize(double size) {
 	_size = size;
+}
+
+bool GridCell::isBorderEnabled() const {
+	return borderEnabled;
+}
+
+void GridCell::setBorderEnabled(bool borderEnabled) {
+	this->borderEnabled = borderEnabled;
+}
+
+double GridCell::getAStarScore() const {
+	return _aStarScore;
+}
+
+void GridCell::setAStarScore(int starScore) {
+	_aStarScore = starScore;
+}
+
+bool GridCell::isCellSelected() const {
+	return cellSelected;
+}
+
+void GridCell::setCellSelected(bool cellSelected) {
+	this->cellSelected = cellSelected;
+}
+
+bool GridCell::isFrontier() const {
+	return frontier;
+}
+
+void GridCell::setFrontier(bool frontier) {
+	this->frontier = frontier;
+}
+
+bool GridCell::isProcessed() const {
+	return processed;
+}
+
+void GridCell::setProcessed(bool processed) {
+	this->processed = processed;
+}
+
+bool GridCell::isGoal() const {
+	return goal;
+}
+
+void GridCell::setGoal(bool goal) {
+	this->goal = goal;
+}
+
+bool GridCell::isStart() const {
+	return start;
+}
+
+void GridCell::setStart(bool start) {
+	this->start = start;
 }

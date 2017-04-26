@@ -8,14 +8,14 @@
 int main( ){
 //	std::thread t1(udp_server_run, UDP_SERVER_PORT);
 
-//	ofSetupOpenGL(1024,768,OF_WINDOW);			// <-------- setup the GL context
+	ofSetupOpenGL(1024,768,OF_WINDOW);			// <-------- setup the GL context
 
-	// this kicks off the running of my app
-	// can be OF_WINDOW or OF_FULLSCREEN
-	// pass in width and height too:
-//	ofRunApp(new ofApp());
+//	 this kicks off the running of my app
+//	 can be OF_WINDOW or OF_FULLSCREEN
+//	 pass in width and height too:
+	ofRunApp(new ofApp());
 
-	UDPServer server(UDP_SERVER_PORT);
-
-	server.run();
+//	UDPServer server(UDP_SERVER_PORT);
+//
+//	server.run();
 }

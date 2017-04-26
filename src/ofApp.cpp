@@ -11,7 +11,7 @@ using namespace Eigen;
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-	world = new World(5, 5, 600, 600, Vector3d(20,20,0), 0);
+	world = new World(7, 7, 800, 800, Vector3d(20,20,0), 0);
 	pop = new Population();
 
 //	manager = new PopulationManager(world, "cocktail_party.json", "cocktail_party_gt.json");
@@ -37,20 +37,21 @@ void ofApp::setup(){
 //	agents.push_back(a1);
 //	agents.push_back(a2);
 //
-	pop->pushAgent(a0);
-	pop->pushAgent(a1);
-	pop->pushAgent(a2);
+//	pop->pushAgent(a0);
+//	pop->pushAgent(a1);
+//	pop->pushAgent(a2);
 
 //	form = new Formation(pop->getAgents());
 //	pop->pushFormation(form);
 
 	map = new GridMap(world, pop, 0.1);
-	map->setPersonalSpaceEnabled(false);
-	map->setGroupSpaceEnabled(false);
+	map->setPersonalSpaceEnabled(true);
+	map->setGroupSpaceEnabled(true);
+	map->setBorderEnabled(true);
 	map->update();
 
-	gd = new GroupDetector(pop);
-	gd->detect();
+//	gd = new GroupDetector(pop);
+//	gd->detect();
 
 //	manager->update(world);
 }
@@ -110,9 +111,18 @@ void ofApp::keyPressed(int key){
 		mainIndex = pop->getAgents().size()-1;
 	}
 	else if(key == 'u'){
-		gd->detect();
+//		gd->detect();
 		map->update();
 	}
+	else if(key == 'i'){
+		map->findPath(map->getCell(0), map->getCell(399));
+	}
+	else if(key == 'b'){
+		if(map->pathFinderNextStep() == 1)
+			map->constructPath();
+	}
+
+
 	ofLogNotice("DEBUG") << "Agent index = " << mainIndex;
 
 //	form->update();

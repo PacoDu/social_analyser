@@ -72,6 +72,7 @@ void GroupDetector::detect() {
 		if(_population->getFormations()[i]->getAgents().size() <= 1){
 			ofLogNotice("GroupDetector::detect") << "Removed alone Formation#" << _population->getFormations()[i]->getId();
 			_population->removeFormation(_population->getFormations()[i]->getId());
+			i--;
 		}
 	}
 

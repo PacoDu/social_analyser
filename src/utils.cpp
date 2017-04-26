@@ -85,3 +85,4 @@ Vector3d* rayIntersectionPoint(Vector3d as, Vector3d ad, Vector3d bs, Vector3d b
 double radToDeg(double rad) {
 	return rad*180/M_PI;
 }
+
