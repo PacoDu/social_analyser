@@ -49,7 +49,9 @@ void GroupDetector::detect() {
 				if(_population->getAgents()[i]->getFOVIntersection(neighbor)){
 					//add neighbor to formation
 					ofLogNotice("GroupDetector::detect") << "Detected neighbor#" << neighbor->getId() << " for Agent#" << _population->getAgents()[i]->getId();
-					_population->removeFormation(_population->getRelatedFormation(neighbor)->getId());
+					if(_population->getRelatedFormation(neighbor))
+						_population->removeFormation(_population->getRelatedFormation(neighbor)->getId());
+
 					_population->getRelatedFormation(_population->getAgents()[i])->pushAgent(neighbor);
 
 					ofLogNotice("GroupDetector::detect") << "Formation#"

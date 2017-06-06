@@ -43,31 +43,53 @@ void OSpace::draw(World* world) {
 		ofDrawCircle(0, 0, 10);
 	ofPopMatrix();
 
-	pView = real_to_pixel(world, gCenter);
-	ofPushMatrix();
-		ofSetHexColor(0x0000ff);
-		ofTranslate(pView.x(), pView.y());
-		ofDrawCircle(0, 0, 10);
-	ofPopMatrix();
-
-
-	for(unsigned int i=0; i < intersectionPoints.size(); i++){
-		pView = real_to_pixel(world, intersectionPoints[i]);
-		ofPushMatrix();
-			ofSetHexColor(0xAFAFAF);
-			ofTranslate(pView.x(), pView.y());
-			ofDrawCircle(0, 0, 6);
-		ofPopMatrix();
+//	pView = real_to_pixel(world, gCenter);
+//	ofPushMatrix();
+//		ofSetHexColor(0x0000ff);
+//		ofTranslate(pView.x(), pView.y());
+//		ofDrawCircle(0, 0, 10);
+//	ofPopMatrix();
+	for(auto dh: dh_seg){
+			pView = real_to_pixel(world, dh[0]);
+			Vector3d p2 = real_to_pixel(world, dh[1]);
+//			double angle = acos((dh[0]-dh[1]).dot(Vector3d(1,0,0)));
+				ofPushMatrix();
+//					ofRotate(angle);
+					ofSetHexColor(0xFF0000);
+//					ofTranslate(pView.x(), pView.y());
+					ofDrawLine(pView.x(),pView.y(),p2.x(), p2.y());
+				ofPopMatrix();
+	}
+	for(auto dh: di_seg){
+			pView = real_to_pixel(world, dh[0]);
+			Vector3d p2 = real_to_pixel(world, dh[1]);
+//			double angle = acos((dh[0]-dh[1]).dot(Vector3d(1,0,0)));
+				ofPushMatrix();
+//					ofRotate(angle);
+					ofSetHexColor(0x00FF00);
+//					ofTranslate(pView.x(), pView.y());
+					ofDrawLine(pView.x(),pView.y(),p2.x(), p2.y());
+				ofPopMatrix();
 	}
 
-	for(unsigned int i=0; i < centroids.size(); i++){
-		pView = real_to_pixel(world, centroids[i]);
-		ofPushMatrix();
-			ofSetHexColor(0xFF0000);
-			ofTranslate(pView.x(), pView.y());
-			ofDrawCircle(0, 0, 6);
-		ofPopMatrix();
-	}
+
+//	for(unsigned int i=0; i < intersectionPoints.size(); i++){
+//		pView = real_to_pixel(world, intersectionPoints[i]);
+//		ofPushMatrix();
+//			ofSetHexColor(0xAFAFAF);
+//			ofTranslate(pView.x(), pView.y());
+//			ofDrawCircle(0, 0, 6);
+//		ofPopMatrix();
+//	}
+//
+//	for(unsigned int i=0; i < centroids.size(); i++){
+//		pView = real_to_pixel(world, centroids[i]);
+//		ofPushMatrix();
+//			ofSetHexColor(0xFF0000);
+//			ofTranslate(pView.x(), pView.y());
+//			ofDrawCircle(0, 0, 6);
+//		ofPopMatrix();
+//	}
 }
 
 // Getter & Setter
@@ -167,10 +189,17 @@ double OSpace::phi(Vector3d testedRealPoint) {
 	u1.normalize();
 	u2.normalize();
 
+//	Matrix<double, 2, 2> P;
+//	P <<
+//			u1.x(), u2.x(),
+//			u1.y(), u2.y();
+
+	double rAngle = this->rotation;
 	Matrix<double, 2, 2> P;
-	P <<
-			u1.x(), u2.x(),
-			u1.y(), u2.y();
+		P <<
+			cos(rAngle-M_PI/2), sin(rAngle-M_PI/2),
+			-sin(rAngle-M_PI/2), cos(rAngle-M_PI/2);
+
 
 	v = P.inverse() * v;
 
@@ -183,29 +212,79 @@ double OSpace::phi(Vector3d testedRealPoint) {
 
 // Real math from Gomez paper
 void OSpace::computeCovarMatrix() {
+	if(_agents.size()>1){
 
+
+	dh_seg.clear();
+	di_seg.clear();
+//	std::vector<std::vector<Agent*>> dh_seg;
+	std::vector<Vector3d> tmp;
+	tmp.push_back(_agents[_agents.size()-1]->getPosition());
+	tmp.push_back(_agents[0]->getPosition());
 	double dh = distance(_agents[_agents.size()-1]->getPosition(), _agents[0]->getPosition());
-	for(unsigned int i=0; i < _agents.size()-1; i++){
-		dh += distance(_agents[i+1]->getPosition(), _agents[i]->getPosition());
-	}
-	dh /= _agents.size();
+	dh_seg.push_back(tmp);
 
-	double di = distance(centroids[centroids.size()-1], _agents[_agents.size()-1]->getPosition()-_agents[0]->getPosition());
-	//double di = sqrt((centroids[centroids.size()-1].x() - centroids[0].x())*(centroids[centroids.size()-1].x() - centroids[0].x()) + (centroids[centroids.size()-1].y() - centroids[0].y())*(centroids[centroids.size()-1].y() - centroids[0].y()));
-	for(unsigned int i=0; i < centroids.size()-1; i++){
-		//di += sqrt((centroids[i+1].x() - centroids[i].x())*(centroids[i+1].x() - centroids[i].x()) + (centroids[i+1].y() - centroids[i].y())*(centroids[i+1].y() - centroids[i].y()));
-		di += distance(centroids[i], _agents[i]->getPosition()-_agents[i+1]->getPosition());
+
+	if(_agents.size()>2){
+		for(unsigned int i=0; i < _agents.size()-1; i++){
+			std::vector<Vector3d> tmp2;
+			tmp2.push_back(_agents[i+1]->getPosition());
+			tmp2.push_back(_agents[i]->getPosition());
+			dh += distance(_agents[i+1]->getPosition(), _agents[i]->getPosition());
+			dh_seg.push_back(tmp2);
+		}
+		dh /= _agents.size();
 	}
-	di /= centroids.size();
-	di *= 2;
+
+	double di = 0;
+if(_agents[_agents.size()-1]->getFOVIntersection(_agents[0])){
+
+	std::vector<Vector3d> tmp3;
+		tmp3.push_back(*_agents[_agents.size()-1]->getFOVIntersection(_agents[0]));
+		tmp3.push_back((_agents[_agents.size()-1]->getPosition()+_agents[0]->getPosition())/2);
+		this->rotation = acos((*_agents[_agents.size()-1]->getFOVIntersection(_agents[0])-(_agents[_agents.size()-1]->getPosition()+_agents[0]->getPosition())/2).dot(Vector3d(1,0,0)));
+
+		//ofLogNotice("DEBUG") << "Angle = " << this->rotation;
+	di += distance(*_agents[_agents.size()-1]->getFOVIntersection(_agents[0]), (_agents[_agents.size()-1]->getPosition()+_agents[0]->getPosition())/2);
+	di_seg.push_back(tmp3);
+}
+	//double di = sqrt((centroids[centroids.size()-1].x() - centroids[0].x())*(centroids[centroids.size()-1].x() - centroids[0].x()) + (centroids[centroids.size()-1].y() - centroids[0].y())*(centroids[centroids.size()-1].y() - centroids[0].y()));
+	if(_agents.size()>2){
+		for(unsigned int i=0; i < _agents.size()-1; i++){
+			//di += sqrt((centroids[i+1].x() - centroids[i].x())*(centroids[i+1].x() - centroids[i].x()) + (centroids[i+1].y() - centroids[i].y())*(centroids[i+1].y() - centroids[i].y()));
+			std::vector<Vector3d> tmp4;
+			Vector3d * fov = _agents[i+1]->getFOVIntersection(_agents[i]);
+			if(!fov) continue;
+			tmp4.push_back(*_agents[i+1]->getFOVIntersection(_agents[i]));
+			tmp4.push_back((_agents[i]->getPosition()+_agents[i+1]->getPosition())/2);
+			di += distance(*_agents[i+1]->getFOVIntersection(_agents[i]),(_agents[i]->getPosition()+_agents[i+1]->getPosition())/2);
+			di_seg.push_back(tmp4);
+		}
+		di /= _agents.size();
+		di *= 2;
+
+//		this->covarMatrix <<
+//		//						dh/4*dh/4, 0,
+//		//						0, di/2*di/2;
+//								dh*dh, 0,
+//								0, di*di;
+	}
+
 
 	this->covarMatrix <<
-//						dh/4*dh/4, 0,
-//						0, di/2*di/2;
-						dh/4, 0,
-						0, di/2;
+			//						dh/4*dh/4, 0,
+			//						0, di/2*di/2;
+									dh/4*dh/4, 0,
+									0, di/2*di/2;
+
+//	this->covarMatrix <<
+////						dh/4*dh/4, 0,
+////						0, di/2*di/2;
+//						dh/4, 0,
+//						0, di/2;
 
 	ofLogNotice("OSpace::computeCovarMatrix") << "Covariance matrix computed for Formation#" << this->getId() << ":" << std::endl << this->covarMatrix;
+	}
 }
 
 // Old version wrong math

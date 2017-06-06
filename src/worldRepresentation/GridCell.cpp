@@ -46,7 +46,7 @@ void GridCell::draw(World* world) {
 		ofSetColor(255, 255, 255);
 		if(isBorderEnabled()){
 			ofNoFill();
-			ofSetLineWidth(0.02);
+			ofSetLineWidth(0.01);
 			ofDrawRectangle(0,0, sView.x()-pView.x(), sView.x()-pView.x());
 			ofFill();
 		}

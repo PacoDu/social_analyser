@@ -23,6 +23,8 @@ public:
 	OSpace(std::vector<Agent*>& a, int id = 0);
 	~OSpace();
 
+	std::vector<std::vector<Vector3d>> dh_seg;
+	std::vector<std::vector<Vector3d>> di_seg;
 	// --- METHOD
 	void draw(World* world);
 	void update();
@@ -42,6 +44,7 @@ public:
 protected:
 	Vector3d center;
 	Vector3d gCenter;
+	double rotation = 0.0f;
 	std::vector<Vector3d> intersectionPoints;
 	std::vector<Vector3d> centroids;
 	Matrix<double,2,2> covarMatrix;

@@ -26,3 +26,35 @@ void World::draw(){
 	ofDrawRectangle(this->getX(), this->getY(), this->widthView, this->heightView);
 	ofFill();
 }
+
+double World::getHeight() const {
+	return height;
+}
+
+void World::setHeight(double height) {
+	this->height = height;
+}
+
+double World::getHeightView() const {
+	return heightView;
+}
+
+void World::setHeightView(double heightView) {
+	this->heightView = heightView;
+}
+
+double World::getWidth() const {
+	return width;
+}
+
+void World::setWidth(double width) {
+	this->width = width;
+}
+
+double World::getWidthView() const {
+	return widthView;
+}
+
+void World::setWidthView(double widthView) {
+	this->widthView = widthView;
+}

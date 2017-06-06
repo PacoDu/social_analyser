@@ -6,12 +6,15 @@
  */
 
 #include "GridMap.h"
+#include "utils.h"
 //#include "ofMain.h"
 
 GridMap::GridMap(World* world, Population* pop,  double resolution):
 		IdentifiedObject(), DrawnObject(), _population(pop), width(world->width), height(world->height), resolution(resolution) {
 	assert(fmod(width*100,resolution*100) == 0);
 	assert(fmod(height*100,resolution*100) == 0);
+
+	ofLogNotice("DEBUG") << "Gridmap init w=" << width << " height=" << height;
 
 //	_map.resize((int)(this->height/this->resolution), std::vector<GridCell*>((int)(this->width/this->resolution), ));
 	int cellId = 0;
@@ -23,7 +26,9 @@ GridMap::GridMap(World* world, Population* pop,  double resolution):
 					Vector3d(this->getX()+this->resolution*j, this->getY()+this->resolution*i, 0),
 					cellId)
 			);
-			cellId++;
+
+//			ofLogNotice("DEBUG") << "Cell res=" << resolution << " pos=" <<  Vector3d(this->getX()+this->resolution*j, this->getY()+this->resolution*i, 0);
+ 			cellId++;
 		}
 		_map.push_back(tmp);
 	}
@@ -59,7 +64,8 @@ void GridMap::compute() {
 
 			if(this->isPersonalSpaceEnabled()){
 				for(unsigned int i = 0; i < this->_population->getAgents().size(); i++){
-					cellValue += _population->getAgents()[i]->getSocialSpace()->phi(testedPoint);
+					if(_population->getAgents()[i]->getSocialSpace()->phi(testedPoint) > 0.01)
+						cellValue += _population->getAgents()[i]->getSocialSpace()->phi(testedPoint);
 				}
 			}
 
@@ -83,7 +89,7 @@ void GridMap::normalize(){
 	for(unsigned int i=0; i < this->height/this->resolution; i++){
 		for(unsigned int j=0; j < this->width/this->resolution; j++){
 //			int newVal = (int)ofMap(_map[i][j]->getValue(), this->minValue, this->maxValue, 0, 255);
-			int newVal = (int)ofMap(_map[i][j]->getValue(), 0, 1, 0, 255, true);
+			int newVal = (int)vProjection(_map[i][j]->getValue(), 0, 1, 0, 255, true);
 			_map[i][j]->setValue(newVal);
 		}
 	}
@@ -153,13 +159,14 @@ double heuristicDiagonalCostEstimate(GridCell* start, GridCell* end){
 std::vector<GridCell*> GridMap::findPath(GridCell* startCell, GridCell* endCell){
 	ofLogNotice("DEBUG") << "Computing path for Cell#" << startCell->getId() << " to Cell#" << endCell->getId();
 
+	this->resetCellColor();
 	startCell->setGoal();
 	endCell->setStart();
 
 	openNodesPQ = std::priority_queue<VCell, std::vector<VCell>, CompaireVCell >();
 	cameFrom.clear();
 	gScore.clear();
-	this->resetCellColor();
+
 
 	this->startCell = startCell;
 	this->endCell = endCell;
@@ -219,6 +226,8 @@ void GridMap::resetCellColor() {
 			cell->setCellSelected(false);
 			cell->setFrontier(false);
 			cell->setProcessed(false);
+			cell->setStart(false);
+			cell->setGoal(false);
 		}
 	}
 }
@@ -256,8 +265,8 @@ int GridMap::pathFinderNextStep() {
 		// Get highest priority cell (lowest score)
 		GridCell* currentNode = openNodesPQ.top().second;
 		openNodesPQ.pop();
-		currentNode->setFrontier(false);
-		currentNode->setProcessed();
+//		currentNode->setFrontier(false);
+//		currentNode->setProcessed();
 
 		if(currentNode == endCell){
 			return 1;
@@ -280,7 +289,7 @@ int GridMap::pathFinderNextStep() {
 
 				nextNode->setAStarScore(newCost);
 
-				nextNode->setFrontier();
+//				nextNode->setFrontier();
 
 				ofLogNotice("DEBUG") << "Node#" << nextNode->getId() << " score=" << newCost << " priority=" << priority;
 			}

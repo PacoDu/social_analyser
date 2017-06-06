@@ -2,9 +2,10 @@
 
 #include "ofMain.h"
 #include "ofxJSON.h"
+#include "ofxGui.h"
 #include <vector>
 
-//#include "PopulationManager.h"
+#include "PopulationManager.h"
 #include "GaussianSpace.h"
 #include "Agent.h"
 #include "World.h"
@@ -30,9 +31,12 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+		void exit();
+
+		void buttonPressed();
 		
 		Population* pop;
-//		PopulationManager* manager;
+		PopulationManager* manager;
 		Formation* form;
 		std::vector<Agent *> agents;
 		Agent* a0;
@@ -43,4 +47,8 @@ class ofApp : public ofBaseApp{
 		GridCell* cell;
 		GroupDetector* gd;
 		unsigned int mainIndex = 0;
+
+
+		ofxButton button;
+		ofxPanel gui;
 };

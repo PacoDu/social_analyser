@@ -31,6 +31,16 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
+			<name>addons/ofxCsv</name>
+			<type>2</type>
+			<locationURI>/home/paco/dev/of_v0.9.8_linux64_release/addons/ofxCsv</locationURI>
+		</link>
+		<link>
+			<name>addons/ofxGui</name>
+			<type>2</type>
+			<locationURI>/home/paco/dev/of_v0.9.8_linux64_release/addons/ofxGui</locationURI>
+		</link>
+		<link>
 			<name>addons/ofxJSON</name>
 			<type>2</type>
 			<locationURI>/home/paco/dev/of_v0.9.8_linux64_release/addons/ofxJSON</locationURI>

@@ -26,17 +26,22 @@ Agent::~Agent() {
 // --- METHOD
 void Agent::draw(World * world) {
 	Vector3d pView = real_to_pixel(world, this->getPosition());
+	double shoulderLength = real_to_pixel(world, Vector3d(0,0.45,0)).y() - world->getPosition().y();
+	double headRadius = real_to_pixel(world, Vector3d(0.16,0,0)).x() - world->getPosition().x();
 	ofPushMatrix();
 		ofSetHexColor(0x6497b1);
 		ofTranslate(pView.x(), pView.y());
 		ofRotateZ(ofRadToDeg(this->getTheta()));
 
-		ofDrawBitmapString("#"+ofToString(this->getId()), -10, -20);
-		ofDrawTriangle(0, 10, 25, 0, 0, -10);
+		ofSetHexColor(0xFF0000);
+		ofDrawBitmapString("#"+ofToString(this->getId()), -shoulderLength/2, -shoulderLength/2);
+
+		ofSetHexColor(0x6497b1);
+		ofDrawTriangle(0, shoulderLength/2, shoulderLength, 0, 0, -shoulderLength/2);
 
 //		ofSetHexColor(0x011f4b);
-		ofSetHexColor(0xFFFFFF);
-		ofDrawCircle(0,0,5);
+		ofSetHexColor(0xEEEEEE);
+		ofDrawCircle(0,0,headRadius);
 		ofSetHexColor(0xFF0000);
 		ofDrawCircle(0,0,1);
 	ofPopMatrix();

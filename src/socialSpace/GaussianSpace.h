@@ -22,6 +22,7 @@ public:
 	GaussianSpace(Agent * a, int id=0);
 	virtual ~GaussianSpace();
 
+
 	// --- METHOD
 	double phi(Vector3d testedRealPoint);
 
