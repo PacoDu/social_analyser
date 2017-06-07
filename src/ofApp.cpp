@@ -129,21 +129,12 @@ void ofApp::setup(){
 //					gd->detect(); // TODO Strange bug, if detect is done befor map init map is miss located with an Y offset
 //	//	manager->update(world);
 //	manager = new PopulationManager("coffee_break.json", "coffee_break_gt.json");
-
-	button.addListener(this, &ofApp::buttonPressed);
-
-	gui.setup();
-	gui.add(button.setup("button"));
+		gui = new Gui();
 }
 
 void ofApp::exit(){
-	button.removeListener(this, &ofApp::buttonPressed);
+	gui->exit();
 }
-
-void ofApp::buttonPressed(){
-	ofLogNotice("Button") << "Pressed";
-}
-
 
 //--------------------------------------------------------------
 void ofApp::update(){
@@ -156,7 +147,7 @@ void ofApp::draw(){
 //	world->draw();
 
 	manager->draw(world);
-//	gui.draw();
+	gui->draw();
 
 //	map->draw(world);
 //	pop->draw(world);

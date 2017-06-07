@@ -2,7 +2,6 @@
 
 #include "ofMain.h"
 #include "ofxJSON.h"
-#include "ofxGui.h"
 #include <vector>
 
 #include "PopulationManager.h"
@@ -12,6 +11,7 @@
 #include "GridMap.h"
 #include "GridCell.h"
 #include "GroupDetector.h"
+#include "Gui.h"
 
 class ofApp : public ofBaseApp{
 
@@ -35,6 +35,8 @@ class ofApp : public ofBaseApp{
 
 		void buttonPressed();
 		
+		Gui * gui;
+
 		Population* pop;
 		PopulationManager* manager;
 		Formation* form;
@@ -47,8 +49,4 @@ class ofApp : public ofBaseApp{
 		GridCell* cell;
 		GroupDetector* gd;
 		unsigned int mainIndex = 0;
-
-
-		ofxButton button;
-		ofxPanel gui;
 };
