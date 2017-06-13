@@ -232,7 +232,7 @@ int UDPServer::send_frame3() {
 		nForm += 1;
 	}
 
-	uint8_t sendBuffer[2+nForm*9+nAgents*4];
+	uint8_t sendBuffer[2+nForm*13+nAgents*4];
 
 	// set Frame type
 	sendBuffer[0] = 3;
@@ -253,12 +253,15 @@ int UDPServer::send_frame3() {
 			offset += 4;
 		}
 
-		float x,y;
+		float x,y,pot;
 		x = f->getSocialSpace()->getCenter().x();
 		y = f->getSocialSpace()->getCenter().y();
+		pot = f->getInteractionPotential();
 		memcpy(&sendBuffer[2+offset], &x, sizeof(x));
 		offset += 4;
 		memcpy(&sendBuffer[2+offset], &y, sizeof(y));
+		offset += 4;
+		memcpy(&sendBuffer[2+offset], &pot, sizeof(pot));
 		offset += 4;
 	}
 

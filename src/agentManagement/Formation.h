@@ -87,6 +87,8 @@ public:
 	void setInteractionPotential(double interactionPotential = 0);
 	const Vector3d& getInteractionPosition() const;
 	void setInteractionPosition(const Vector3d& interactionPosition);
+	const Vector3d& getInteractionDirection() const;
+	void setInteractionDirection(const Vector3d& interactionDirection);
 
 protected:
 	OSpace* _socialSpace;

@@ -12,7 +12,7 @@
 // --- CONSTRUCTOR & DESTRUCTOR
 PopulationManager::PopulationManager(World* world): DrawnObject(), world(world) {
 	this->_population = new Population();
-	map = new GridMap(this->world, this->_population, 0.1);
+	map = new GridMap(this->world, this->_population, 0.25);
 	map->setPersonalSpaceEnabled(true);
 	map->setGroupSpaceEnabled(true);
 	map->setBorderEnabled(false);

@@ -11,7 +11,9 @@
 #include <limits>
 #include "utils.h"
 
-#include "ofMain.h"
+#ifdef USE_OFX
+	#include "ofMain.h"
+#endif
 
 // --- CONSTRUCTOR & DESTRUCTOR
 Agent::Agent(Vector3d position, double theta, int id):

@@ -119,7 +119,7 @@ void ofApp::setup(){
 
 	robot = new Robot(Vector3d(0.5,0.5,0));
 
-	world = new World(5 ,5, 600, 600, Vector3d(20,20,0), 0);
+	world = new World(10 ,10, 600, 600, Vector3d(20,20,0), 0);
 
 	manager = new PopulationManager(world);
 	a0 = new Agent(Vector3d(1.5, 2.5, 0), 5.37, 0);

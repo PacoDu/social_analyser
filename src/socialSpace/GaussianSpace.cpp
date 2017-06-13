@@ -64,6 +64,7 @@ double GaussianSpace::phi(Vector3d testedRealPoint){
 
 	double j =i*v2;
 //
-	return exp(-0.5*j);
+	double ret = exp(-0.5*j);
+	return ret>GAUSSIAN_SPACE_INFLUENCE_TRESHOLD?ret:0;
 }
 

@@ -73,23 +73,23 @@ void OSpace::draw(World* world) {
 	}
 
 
-//	for(unsigned int i=0; i < intersectionPoints.size(); i++){
-//		pView = real_to_pixel(world, intersectionPoints[i]);
-//		ofPushMatrix();
-//			ofSetHexColor(0xAFAFAF);
-//			ofTranslate(pView.x(), pView.y());
-//			ofDrawCircle(0, 0, 6);
-//		ofPopMatrix();
-//	}
-//
-//	for(unsigned int i=0; i < centroids.size(); i++){
-//		pView = real_to_pixel(world, centroids[i]);
-//		ofPushMatrix();
-//			ofSetHexColor(0xFF0000);
-//			ofTranslate(pView.x(), pView.y());
-//			ofDrawCircle(0, 0, 6);
-//		ofPopMatrix();
-//	}
+	for(auto ip: intersectionPoints){
+		pView = real_to_pixel(world, ip);
+		ofPushMatrix();
+			ofSetHexColor(0xAFAFAF);
+			ofTranslate(pView.x(), pView.y());
+			ofDrawCircle(0, 0, 6);
+		ofPopMatrix();
+	}
+
+	for(auto c: centroids){
+		pView = real_to_pixel(world, c);
+		ofPushMatrix();
+			ofSetHexColor(0xFF0000);
+			ofTranslate(pView.x(), pView.y());
+			ofDrawCircle(0, 0, 6);
+		ofPopMatrix();
+	}
 }
 
 // Getter & Setter
@@ -320,7 +320,7 @@ void OSpace::computeCentroids() {
 		unsigned int neighborIndex = i+1;
 		if(neighborIndex >= this->_agents.size()) neighborIndex = 0;
 
-		Vector3d* intersec = _agents[i]->getFOVIntersection(_agents[neighborIndex]);
+		Vector3d * intersec = _agents[i]->getFOVIntersection(_agents[neighborIndex]);
 		if(intersec){
 //			ofLogNotice("OSpace::computeCentroids") << "Agent#" << _agents[i]->getId() << " FOV intersection with Agent#" << _agents[neighborIndex]->getId();
 			n++; // dirty use push back and vector size (clash with resize if there is no intersect)
@@ -334,10 +334,13 @@ void OSpace::computeCentroids() {
 		}
 	}
 
+
+	ofLogNotice("Debug") << n;
 	if(n!=0)
 		realCenter /=  n;
 
 	center << realCenter.x(), realCenter.y(), realCenter.z();
+//	ofLogNotice("DEBUG") << center;
 }
 
 Vector3d OSpace::getCenter() const {

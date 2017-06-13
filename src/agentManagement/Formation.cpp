@@ -265,3 +265,11 @@ const Vector3d& Formation::getInteractionPosition() const {
 void Formation::setInteractionPosition(const Vector3d& interactionPosition) {
 	this->interactionPosition = interactionPosition;
 }
+
+const Vector3d& Formation::getInteractionDirection() const {
+	return interactionDirection;
+}
+
+void Formation::setInteractionDirection(const Vector3d& interactionDirection) {
+	this->interactionDirection = interactionDirection;
+}

@@ -31,6 +31,8 @@ public:
 	bool seekStarted = 0;
 	std::chrono::time_point<std::chrono::system_clock> startInteractionTime;
 	std::chrono::time_point<std::chrono::system_clock> startSeekTime;
+	std::chrono::time_point<std::chrono::system_clock> startMutualFacialGaze;
+
 	SocialState state = SEEK_INTERACTION;
 	PopulationManager * manager;
 	Robot * robot;

@@ -41,6 +41,7 @@ public:
 	Agent * gazeTarget;
 
 	double targetAngle;
+	double * finalTargetAngle;
 	double startAngle;
 	double rotDist;
 
@@ -49,7 +50,7 @@ public:
 
 	double moveDist;
 	double moveSpeed = 0.5f;
-	double rotSpeed = 2.0f;
+	double rotSpeed = 4.0f;
 	bool initPoint = 1;
 };
 

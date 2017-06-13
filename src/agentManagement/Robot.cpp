@@ -61,7 +61,7 @@ int min(int a, int b){ return a>b?b:a; };
 
 void Robot::update() {
 	if(goal != nullptr){
-		if(initPoint){
+		if(initPoint && path.size() > 1){
 			int nextPathIndex = pathIndex + 5;
 
 			ofLogNotice("DEBUG") << "PathIndex = " << pathIndex << " nextPathIndex=" << min(nextPathIndex, path.size()-1);
@@ -72,7 +72,8 @@ void Robot::update() {
 			moveDist = distance(startMarker->getPosition(), endMarker->getPosition());
 
 			startAngle = this->getTheta();
-			Vector3d rDirection = vectLerp(startMarker->getPosition(), endMarker->getPosition(), 1) - this->getPosition();
+			int angleDelta = 2;
+			Vector3d rDirection = vectLerp(path[min(pathIndex+angleDelta, path.size()-2)]->getPosition(), path[min(nextPathIndex+angleDelta, path.size()-1)]->getPosition(), 1) - this->getPosition();
 			targetAngle = atan2(rDirection.y(), rDirection.x()) - atan2(0,1);
 			startRotTime = std::chrono::system_clock::now();
 
@@ -81,12 +82,10 @@ void Robot::update() {
 //
 			initPoint = 0;
 
-			if(startMarker == endMarker){
-				resetPathFinding();
-				return;
-			}
-
 		}
+
+		if(finalTargetAngle && pathIndex + 5 > path.size())
+			targetAngle = *finalTargetAngle;
 
 		while (targetAngle > this->getTheta() + M_PI )
 			targetAngle -= 2* M_PI;
@@ -125,21 +124,24 @@ void Robot::update() {
 			}
 			if(fracMove >= 1){
 				initPoint = 1;
-				if(pathIndex + 5 < path.size()){
-					pathIndex+=5;
-				}
-				else{
-					resetPathFinding();
-					return;
-				}
+//				if(pathIndex + 5 < path.size()){
+				pathIndex+=5;
+//				}
+//				else{
+//					pathIndex+=1;
+//				}
 			}
 		}
 		else{
 			startMoveTime = std::chrono::system_clock::now();
 		}
 
+//		if(finalTargetAngle && pathIndex > path.size()- 20){
+//			this->setTheta(this->getTheta()*(1-alphaRot)+finalTargetAngle * alphaRot);
+//		}else{
 
-		this->setTheta(this->getTheta()*(1-alphaRot)+targetAngle * alphaRot);
+			this->setTheta(this->getTheta()*(1-alphaRot)+targetAngle * alphaRot);
+//		}
 
 	}
 }
