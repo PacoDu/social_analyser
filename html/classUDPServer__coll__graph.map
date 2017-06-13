@@ -1,0 +1,18 @@
+<map id="UDPServer" name="UDPServer">
+<area shape="rect" id="node2" href="$classSocialPlanner.html" title="SocialPlanner" alt="" coords="591,455,693,481"/>
+<area shape="rect" id="node3" href="$classRobot.html" title="This class represent the Robot. " alt="" coords="345,276,403,303"/>
+<area shape="rect" id="node4" href="$classIdentifiedObject.html" title="This class is an interface for class that need a unique identifier. " alt="" coords="339,81,452,108"/>
+<area shape="rect" id="node7" href="$classAgent.html" title="This class represent the Agents. " alt="" coords="223,157,279,184"/>
+<area shape="rect" id="node10" href="$classSocialSpace.html" title="SocialSpace" alt="" coords="71,157,165,184"/>
+<area shape="rect" id="node11" href="$classGridCell.html" title="GridCell" alt="" coords="507,157,577,184"/>
+<area shape="rect" id="node13" href="$classGridMap.html" title="GridMap" alt="" coords="583,276,653,303"/>
+<area shape="rect" id="node14" href="$classPopulation.html" title="This class represent Population around the Robot. " alt="" coords="706,157,789,184"/>
+<area shape="rect" id="node5" href="$classDrawnObject.html" title="This class is an interface for class that are drawn on OFX gui. " alt="" coords="569,81,667,108"/>
+<area shape="rect" id="node12" href="$classPopulationManager.html" title="PopulationManager" alt="" coords="679,365,813,392"/>
+<area shape="rect" id="node16" href="$classWorld.html" title="World" alt="" coords="739,217,795,243"/>
+<area shape="rect" id="node6" href="$classLocalizedObject.html" title="LocalizedObject" alt="" coords="561,5,675,32"/>
+<area shape="rect" id="node9" href="$classPersonnalSocialSpace.html" title="PersonnalSocialSpace" alt="" coords="5,276,159,303"/>
+<area shape="rect" id="node8" href="$classGaussianSpace.html" title="GaussianSpace" alt="" coords="111,365,226,392"/>
+<area shape="rect" id="node17" href="$classGroupDetector.html" title="GroupDetector" alt="" coords="910,276,1017,303"/>
+<area shape="rect" id="node15" href="$classAgentContainer.html" title="This class is an interface for class that contains multiples Agents. " alt="" coords="691,81,803,108"/>
+</map>

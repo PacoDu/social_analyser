@@ -1,7 +1,7 @@
 # social_analyser
 
-Depends on https://github.com/openframeworks/openFrameworks
-and Eigen3 https://github.com/naokiring/ofxMatrixEigen
+Depends Eigen3 https://github.com/naokiring/ofxMatrixEigen
+and OpenFrameworks (Optionnal) https://github.com/openframeworks/openFrameworks for visualisation.
 
 The code can be use without openFrameworks (remove draw function, include Eigen3 lib)
 

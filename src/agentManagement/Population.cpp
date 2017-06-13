@@ -1,12 +1,16 @@
-/*
- * Population.cpp
- *
- *  Created on: Mar 24, 2017
- *      Author: paco
+/**
+ * @file Population.cpp
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 24 mars 2017
  */
 
 #include "Population.h"
-#include "ofMain.h"
+
+#ifdef USE_OFX
+	#include "ofMain.h"
+#endif
 
 // --- CONSTRUCTOR & DESTRUCTOR
 Population::Population(Vector3d p, int id):
@@ -18,64 +22,55 @@ Population::Population(std::vector<Agent*> a, Vector3d p, int id):
 }
 
 Population::~Population() {
-	for(unsigned int i=0; i<this->_formations.size(); i++){
-		delete this->_formations[i];
-	}
+	for(auto * f: this->_formations){delete f;}
 
-	for(unsigned int i=0; i<this->_agents.size(); i++){
-		delete this->_agents[i];
-	}
+	for(auto * a: this->_agents){delete a;}
 }
 
 // --- METHOD
+#ifdef USE_OFX
 void Population::draw(World* world) {
 	std::stringstream ss;
 
-	for(unsigned int i=0; i<_formations.size(); i++){
-		ss << "Formation #" << _formations[i]->getId() << ": ";
-				for(unsigned int k = 0; k < _formations[i]->getSocialSpace()->getAgents().size(); k++){
-					ss << "Agent#" <<  _formations[i]->getSocialSpace()->getAgents()[k]->getId() << ", ";
-				}
-				ss << " interactionPotential=" << _formations[i]->getInteractionPotential()	<< std::endl;
+	for(auto *f : this->_formations){
+		ss << "Formation #" << f->getId() << ": ";
 
-		_formations[i]->draw(world);
+		for(auto * a: f->getSocialSpace()->getAgents()){
+			ss << "Agent#" <<  a->getId() << ", ";
+		}
+
+		ss << " interactionPotential=" << f->getInteractionPotential()	<< std::endl;
+
+		f->draw(world);
 	}
 
-	for(unsigned int i=0; i<this->_agents.size(); i++){
-		ss << "Agent #" << this->_agents[i]->getId()
-				<< ": x = " << this->_agents[i]->getX()
-				<< ", y = " << this->_agents[i]->getY()
-				<< ", Theta = " << this->_agents[i]->getTheta()
-				<< ", Theta (degres) = " << ofRadToDeg(this->_agents[i]->getTheta()) << std::endl;
+	for(auto * a: this->_agents){
+		ss << "Agent #" << a->getId()
+				<< ": x = " << a->getX()
+				<< ", y = " << a->getY()
+				<< ", Theta = " << a->getTheta()
+				<< ", Theta (degres) = " << ofRadToDeg(a->getTheta()) << std::endl;
 
-		this->_agents[i]->draw(world);
+		a->draw(world);
 	}
 
 	ofSetHexColor(0x2C291F);
 	ofDrawBitmapString(ss.str(), world->getX(), world->getY()+world->heightView+20);
 }
+#endif
 
 void Population::clear() {
-	for(unsigned int i=0; i<this->_agents.size(); i++){
-		delete this->_agents[i];
-	}
+	for(auto *a: this->_agents){ delete a;}
 
 	this->_agents.clear();
 
-	for(unsigned int i=0; i<_formations.size(); i++){
-		delete _formations[i];
-	}
+	for(auto * f: this->_formations){delete f;}
 
 	this->_formations.clear();
 
 	ofLogNotice("Population::clear") << "Population#" << this->getId() << " cleared";
 }
 
-
-/**
- *
- * @param f
- */
 void Population::pushFormation(Formation* f) {
 	_formations.push_back(f);
 }
@@ -99,8 +94,8 @@ int Population::isGrouped(Agent* a) {
 }
 
 int Population::isGrouped(unsigned int agentId) {
-	for(unsigned int i = 0; i < this->_formations.size(); i++){
-		if(this->_formations[i]->isInFormation(agentId)){
+	for(auto * f: this->_formations){
+		if(f->isInFormation(agentId)){
 			return 1;
 		}
 	}
@@ -108,12 +103,12 @@ int Population::isGrouped(unsigned int agentId) {
 }
 
 Formation* Population::getRelatedFormation(unsigned int agentId) {
-	for(unsigned int i = 0; i < this->_formations.size(); i++){
-		if(this->_formations[i]->isInFormation(agentId)){
-			return this->_formations[i];
+	for(auto * f: this->_formations){
+		if(f->isInFormation(agentId)){
+			return f;
 		}
 	}
-	return NULL;
+	return nullptr;
 }
 
 Formation* Population::getRelatedFormation(Agent* a) {

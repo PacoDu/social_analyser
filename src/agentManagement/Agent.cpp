@@ -1,10 +1,11 @@
 /**
- * \file Agent.cpp
- * \brief
- * \author Paco Dupont
- * \version 0.1
- * \date 24 mars 2017
+ * @file Agent.cpp
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 24 mars 2017
  */
+
 #include "Agent.h"
 #include "GaussianSpace.h"
 #include "Formation.h"

@@ -1,8 +1,9 @@
-/*
- * LocalizedObject.h
- *
- *  Created on: Mar 27, 2017
- *      Author: paco
+/**
+ * @file LocalizedObject.h
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 27 mars 2017
  */
 
 #ifndef SRC_LOCALIZEDOBJECT_H_

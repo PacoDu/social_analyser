@@ -30,7 +30,7 @@ public:
 	 * Constructor of the Agent class, initialize a PersonnalSocialSpace
 	 *
 	 * @param position : Initial position of the Agent in World
-	 * @param theta : Initial Angle of the Agent
+	 * @param theta : Initial angle of the Agent
 	 * @param id : Unique identifier of the Agent
 	 */
 	Agent(Vector3d position = Vector3d(), double theta=0, int id=0);
@@ -45,7 +45,7 @@ public:
 	/**
 	 * @brief Find the nearest neighbor available in the list passed in parameters
 	 *
-	 * @param agents
+	 * @param agents : A list of Agents
 	 * @return The nearest Agent available in agents
 	 */
 	Agent * findNearestNeighbor(std::vector<Agent*> agents);
@@ -82,7 +82,7 @@ public:
 	void setSocialSpace(GaussianSpace* socialSpace);
 
 protected:
-	GaussianSpace* pSocialSpace; /*< PersonnalSocialSpace related to the Agent */
+	GaussianSpace* pSocialSpace; //!< PersonnalSocialSpace related to the Agent
 };
 
 #endif /* SRC_AGENT_H_ */

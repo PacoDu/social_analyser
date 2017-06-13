@@ -1,0 +1,23 @@
+<map id="ofApp" name="ofApp">
+<area shape="rect" id="node3" href="$classAgent.html" title="This class represent the Agents. " alt="" coords="351,632,407,659"/>
+<area shape="rect" id="node8" href="$classPersonnalSocialSpace.html" title="PersonnalSocialSpace" alt="" coords="545,697,699,724"/>
+<area shape="rect" id="node14" href="$classRobot.html" title="This class represent the Robot. " alt="" coords="593,479,651,505"/>
+<area shape="rect" id="node4" href="$classIdentifiedObject.html" title="This class is an interface for class that need a unique identifier. " alt="" coords="169,559,283,585"/>
+<area shape="rect" id="node9" href="$classSocialSpace.html" title="SocialSpace" alt="" coords="332,799,427,825"/>
+<area shape="rect" id="node10" href="$classGridMap.html" title="GridMap" alt="" coords="587,201,657,228"/>
+<area shape="rect" id="node11" href="$classGridCell.html" title="GridCell" alt="" coords="345,163,414,189"/>
+<area shape="rect" id="node12" href="$classPopulation.html" title="This class represent Population around the Robot. " alt="" coords="338,432,421,459"/>
+<area shape="rect" id="node17" href="$classFormation.html" title="This class represent the social Formation. " alt="" coords="1058,824,1138,851"/>
+<area shape="rect" id="node5" href="$classDrawnObject.html" title="This class is an interface for class that are drawn on OFX gui. " alt="" coords="177,292,275,319"/>
+<area shape="rect" id="node16" href="$classWorld.html" title="World" alt="" coords="594,56,650,83"/>
+<area shape="rect" id="node18" href="$classOSpace.html" title="OSpace" alt="" coords="815,824,884,851"/>
+<area shape="rect" id="node22" href="$classPopulationManager.html" title="PopulationManager" alt="" coords="783,275,916,301"/>
+<area shape="rect" id="node6" href="$classLocalizedObject.html" title="LocalizedObject" alt="" coords="5,292,120,319"/>
+<area shape="rect" id="node7" href="$classGaussianSpace.html" title="GaussianSpace" alt="" coords="792,653,907,680"/>
+<area shape="rect" id="node19" href="$classGroupSocialSpace.html" title="GroupSocialSpace" alt="" coords="557,849,687,876"/>
+<area shape="rect" id="node20" href="$classGroupDetector.html" title="GroupDetector" alt="" coords="569,387,675,413"/>
+<area shape="rect" id="node13" href="$classAgentContainer.html" title="This class is an interface for class that contains multiples Agents. " alt="" coords="170,900,282,927"/>
+<area shape="rect" id="node21" href="$classSocialPlanner.html" title="SocialPlanner" alt="" coords="1047,332,1149,359"/>
+<area shape="rect" id="node15" href="$classGui.html" title="Gui" alt="" coords="1275,697,1318,724"/>
+<area shape="rect" id="node23" href="$classUDPServer.html" title="UDPServer" alt="" coords="1252,305,1341,332"/>
+</map>

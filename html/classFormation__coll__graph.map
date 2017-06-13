@@ -1,0 +1,9 @@
+<map id="Formation" name="Formation">
+<area shape="rect" id="node2" href="$classIdentifiedObject.html" title="This class is an interface for class that need a unique identifier. " alt="" coords="13,5,126,32"/>
+<area shape="rect" id="node8" href="$classSocialSpace.html" title="SocialSpace" alt="" coords="182,81,277,108"/>
+<area shape="rect" id="node3" href="$classDrawnObject.html" title="This class is an interface for class that are drawn on OFX gui. " alt="" coords="51,157,149,184"/>
+<area shape="rect" id="node6" href="$classOSpace.html" title="OSpace" alt="" coords="137,233,207,260"/>
+<area shape="rect" id="node4" href="$classLocalizedObject.html" title="LocalizedObject" alt="" coords="43,81,157,108"/>
+<area shape="rect" id="node5" href="$classAgentContainer.html" title="This class is an interface for class that contains multiples Agents. " alt="" coords="301,81,413,108"/>
+<area shape="rect" id="node7" href="$classGroupSocialSpace.html" title="GroupSocialSpace" alt="" coords="173,157,304,184"/>
+</map>

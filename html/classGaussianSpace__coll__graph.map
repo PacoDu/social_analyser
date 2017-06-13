@@ -1,0 +1,8 @@
+<map id="GaussianSpace" name="GaussianSpace">
+<area shape="rect" id="node5" href="$classAgent.html" title="This class represent the Agents. " alt="" coords="184,171,240,197"/>
+<area shape="rect" id="node2" href="$classPersonnalSocialSpace.html" title="PersonnalSocialSpace" alt="" coords="135,260,289,287"/>
+<area shape="rect" id="node3" href="$classSocialSpace.html" title="SocialSpace" alt="" coords="267,171,362,197"/>
+<area shape="rect" id="node4" href="$classIdentifiedObject.html" title="This class is an interface for class that need a unique identifier. " alt="" coords="267,81,381,108"/>
+<area shape="rect" id="node6" href="$classDrawnObject.html" title="This class is an interface for class that are drawn on OFX gui. " alt="" coords="144,81,243,108"/>
+<area shape="rect" id="node7" href="$classLocalizedObject.html" title="LocalizedObject" alt="" coords="136,5,251,32"/>
+</map>

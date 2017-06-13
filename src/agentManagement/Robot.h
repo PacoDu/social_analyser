@@ -1,8 +1,9 @@
-/*
- * Robot.h
- *
- *  Created on: Jun 7, 2017
- *      Author: paco
+/**
+ * @file Robot.h
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 7 juin 2017
  */
 
 #ifndef SRC_AGENTMANAGEMENT_ROBOT_H_
@@ -11,17 +12,48 @@
 #include "IdentifiedObject.h"
 #include "DrawnObject.h"
 
-#include <chrono>
 #include "World.h"
 #include "GridCell.h"
 #include "Agent.h"
 
+#include <chrono>
+
+/**
+ * @class Robot
+ * @brief This class represent the Robot
+ *
+ * This class manage the Robot and its movement
+ */
 class Robot: public IdentifiedObject, public DrawnObject {
 public:
-	Robot(Vector3d position=Vector3d(0,0,0), double theta=0);
-	virtual ~Robot();
 
+	/**
+	 * @brief Constructor
+	 *
+	 * Constructor of the Robot class
+	 *
+	 * @param position : Initial position of the Robot in World
+	 * @param theta : Initial angle of the Robot
+	 */
+	Robot(Vector3d position=Vector3d(0,0,0), double theta=0);
+
+	/**
+	 * @brief Destructor
+	 *
+	 * Destructor of the Robot class
+	 */
+	~Robot();
+
+
+#ifdef USE_OFX
+	/**
+	 * @brief Openframeworks GUI drawing for visualization
+	 *
+	 * @param world : The main frame coordinates
+	 */
 	void draw(World * world);
+#endif
+
 	void update();
 
 	void resetPathFinding();

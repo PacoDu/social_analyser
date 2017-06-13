@@ -1,13 +1,17 @@
-/*
- * Robot.cpp
- *
- *  Created on: Jun 7, 2017
- *      Author: paco
+/**
+ * @file Robot.h
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 7 juin 2017
  */
 
 #include "Robot.h"
 #include "utils.h"
-#include "ofMain.h"
+
+#ifdef USE_OFX
+	#include "ofMain.h"
+#endif
 
 Robot::Robot(Vector3d position, double theta): DrawnObject(position, theta) {
 
