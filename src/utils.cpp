@@ -61,6 +61,9 @@ Vector3d lineIntersectionPoint(Vector3d ps1, Vector3d pe1, Vector3d ps2, Vector3
   return Vector3d(a,b,0);
 }
 
+/**
+ * @param as
+ */
 Vector3d* rayIntersectionPoint(Vector3d as, Vector3d ad, Vector3d bs, Vector3d bd)
 {
 // Return intersection point if ray intersect, return NULL otherwise
@@ -86,3 +89,10 @@ double radToDeg(double rad) {
 	return rad*180/M_PI;
 }
 
+double lerp(double start, double stop, double amt) {
+	return start + (stop-start) * amt;
+}
+
+Vector3d vectLerp(Vector3d start, Vector3d stop, double amt) {
+	return start + (stop-start) * amt;
+}

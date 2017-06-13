@@ -34,6 +34,8 @@ public:
 	int loadGroundTruthJson();
 	void findDataBounds();
 
+	Formation* getHighestFormationInteractionPotential();
+
 	void runTest();
 
 	int nextFrame();
@@ -62,6 +64,8 @@ public:
 	bool isLoaded() const;
 	void setLoaded(bool loaded);
 	World* getWorld() const;
+	GridMap* getMap() const;
+
 //	void setWorld(const World*& world);
 
 protected:

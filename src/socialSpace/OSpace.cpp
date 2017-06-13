@@ -124,9 +124,9 @@ void OSpace::sortAgents() {
 
 	if(shifted) this->sortAgents();
 	else{
-		ofLogNotice("OSpace::sortAgents") << "Agents sorted conter clock wise";
+//		ofLogNotice("OSpace::sortAgents") << "Agents sorted conter clock wise";
 		for(unsigned int i=0; i < this->_agents.size(); i++){
-			ofLogNotice("OSpace::sortAgents") << i << ": Agent#" << this->_agents[i]->getId();
+//			ofLogNotice("OSpace::sortAgents") << i << ": Agent#" << this->_agents[i]->getId();
 		}
 	}
 }
@@ -210,7 +210,7 @@ double OSpace::phi(Vector3d testedRealPoint) {
 	return exp(-0.5*j);
 }
 
-// Real math from Gomez paper
+// math from Gomez paper
 void OSpace::computeCovarMatrix() {
 	if(_agents.size()>1){
 
@@ -283,7 +283,7 @@ if(_agents[_agents.size()-1]->getFOVIntersection(_agents[0])){
 //						dh/4, 0,
 //						0, di/2;
 
-	ofLogNotice("OSpace::computeCovarMatrix") << "Covariance matrix computed for Formation#" << this->getId() << ":" << std::endl << this->covarMatrix;
+//	ofLogNotice("OSpace::computeCovarMatrix") << "Covariance matrix computed for Formation#" << this->getId() << ":" << std::endl << this->covarMatrix;
 	}
 }
 
@@ -322,7 +322,7 @@ void OSpace::computeCentroids() {
 
 		Vector3d* intersec = _agents[i]->getFOVIntersection(_agents[neighborIndex]);
 		if(intersec){
-			ofLogNotice("OSpace::computeCentroids") << "Agent#" << _agents[i]->getId() << " FOV intersection with Agent#" << _agents[neighborIndex]->getId();
+//			ofLogNotice("OSpace::computeCentroids") << "Agent#" << _agents[i]->getId() << " FOV intersection with Agent#" << _agents[neighborIndex]->getId();
 			n++; // dirty use push back and vector size (clash with resize if there is no intersect)
 			intersectionPoints[i] = *intersec;
 			// compute centroïds

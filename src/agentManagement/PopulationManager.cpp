@@ -13,7 +13,7 @@
 PopulationManager::PopulationManager(World* world): DrawnObject(), world(world) {
 	this->_population = new Population();
 	map = new GridMap(this->world, this->_population, 0.1);
-	map->setPersonalSpaceEnabled(false);
+	map->setPersonalSpaceEnabled(true);
 	map->setGroupSpaceEnabled(true);
 	map->setBorderEnabled(false);
 	map->update();
@@ -378,6 +378,24 @@ void PopulationManager::findInteraction() {
 
 World* PopulationManager::getWorld() const{
 	return world;
+}
+
+GridMap* PopulationManager::getMap() const {
+	return map;
+}
+
+Formation* PopulationManager::getHighestFormationInteractionPotential() {
+	Formation * selectedForm = nullptr;
+	double highestPot = 0;
+
+	for(auto * f: _population->getFormations()){
+		if(f->getInteractionPotential() > highestPot && map->getCell(f->getInteractionPosition().x(), f->getInteractionPosition().y())){
+			selectedForm = f;
+			highestPot = f->getInteractionPotential();
+		}
+	}
+
+	return selectedForm;
 }
 
 //void PopulationManager::setWorld(const World*& world) {

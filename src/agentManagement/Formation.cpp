@@ -1,11 +1,10 @@
-/*
- * Formation.cpp
- *
- *  Created on: Mar 24, 2017
- *      Author: paco
+/**
+ * @file Formation.cpp
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 24 mars 2017
  */
-
-// TODO Merge constructor (e.i. lower constructor call the highest with default param)
 #include "Formation.h"
 #include "config.h"
 #include "utils.h"
@@ -13,17 +12,17 @@
 #include "ofMain.h"
 
 // --- CONSTRUCTOR & DESTRUCTOR
-Formation::Formation(std::vector<Agent*> a , int id):
-		IdentifiedObject(id), AgentContainer(a){
-	_socialSpace = new OSpace(a);
+Formation::Formation(std::vector<Agent*> agents , int id):
+		IdentifiedObject(id), AgentContainer(agents){
+	_socialSpace = new OSpace(agents);
 }
 
 Formation::Formation(int id): IdentifiedObject(id), AgentContainer(){
 	_socialSpace = NULL; // TODO init empty OSpace ?
 }
 
-Formation::Formation(Agent* a, int id):
-		Formation(initAgent(a), id){
+Formation::Formation(Agent* agent, int id):
+		Formation(initAgent(agent), id){
 }
 
 Formation::~Formation() {
@@ -31,10 +30,14 @@ Formation::~Formation() {
 }
 
 // --- METHOD
+#ifdef USE_OFX
 void Formation::draw(World* world) {
 	_socialSpace->draw(world);
 
+	// Coordinates projection
 	Vector3d pView = real_to_pixel(world, interactionPosition);
+
+	// Drawing
 	ofPushMatrix();
 		ofTranslate(pView.x(), pView.y());
 		ofSetHexColor(0xFF0000);
@@ -56,14 +59,15 @@ void Formation::draw(World* world) {
 //		ofDrawLine(0,0, interactionDirection.x()*300, interactionDirection.y()*300);
 //	ofPopMatrix();
 }
+#endif
 
-void Formation::pushAgent(Agent* a) {
-	AgentContainer::pushAgent(a);
+void Formation::pushAgent(Agent* agent) {
+	AgentContainer::pushAgent(agent);
 
 	if(!this->_socialSpace)
 		this->_socialSpace = new OSpace(this->_agents);
 	else
-		this->_socialSpace->pushAgent(a);
+		this->_socialSpace->pushAgent(agent);
 
 //	this->_socialSpace->update();
 }
@@ -77,7 +81,7 @@ void Formation::removeAgent(unsigned int agentId) {
 }
 
 void Formation::update() {
-	ofLogNotice("Formation::update") << "Updating social space for Formation#" << this->getId();
+//	ofLogNotice("Formation::update") << "Updating social space for Formation#" << this->getId();
 	this->_socialSpace->update();
 	this->computeInteractionPotential();
 	this->findInteractionPosition();
@@ -116,7 +120,7 @@ void Formation::findInteractionPosition() {
 
 	Vector3d gCenter = this->_socialSpace->getgCenter();
 
-	ofLogNotice("DEBUG") << "Center=" << this->_socialSpace->getCenter();
+//	ofLogNotice("DEBUG") << "Center=" << this->_socialSpace->getCenter();
 
 	agentDir_ospace.clear();
 
@@ -133,7 +137,7 @@ void Formation::findInteractionPosition() {
 	int maxNeighborAngleIndex = -1;
 
 	if(agentDir_ospace.size() > 2){
-		ofLogNotice("Method1");
+//		ofLogNotice("Method1");
 		for(unsigned int i = 0; i < agentDir_ospace.size(); i++){
 			unsigned int neighborIndex = i+1;
 			if(neighborIndex >= agentDir_ospace.size()) neighborIndex = 0;
@@ -154,13 +158,13 @@ void Formation::findInteractionPosition() {
 				maxAngleIndex = i;
 			}
 
-			ofLogNotice("Formation::findInteractionPosition")
-				<< "Angle(#" << sortedAgents[i]->getId() << ",#"
-				<< sortedAgents[neighborIndex]->getId() << ")=" << aAngle;
+//			ofLogNotice("Formation::findInteractionPosition")
+//				<< "Angle(#" << sortedAgents[i]->getId() << ",#"
+//				<< sortedAgents[neighborIndex]->getId() << ")=" << aAngle;
 		}
 	}
 	else{
-		ofLogNotice("Method2");
+//		ofLogNotice("Method2");
 		for(unsigned int i = 0; i < agentDir_ospace.size(); i++){
 			unsigned int neighborIndex = i+1;
 			if(neighborIndex >= agentDir_ospace.size()) neighborIndex = 0;
@@ -175,18 +179,18 @@ void Formation::findInteractionPosition() {
 				maxAngleIndex = i;
 			}
 
-			ofLogNotice("Formation::findInteractionPosition")
-				<< "Angle(#" << sortedAgents[i]->getId() << ",#"
-				<< sortedAgents[neighborIndex]->getId() << ")=" << aAngle;
+//			ofLogNotice("Formation::findInteractionPosition")
+//				<< "Angle(#" << sortedAgents[i]->getId() << ",#"
+//				<< sortedAgents[neighborIndex]->getId() << ")=" << aAngle;
 		}
 	}
 
 //	int maxAngleIndex = std::distance(agentAngle_ospace.begin(), std::max_element(agentAngle_ospace.begin(), agentAngle_ospace.end()));
 	double rotAngle = maxAngle/2;
 
-	ofLogNotice("Formation::findInteractionPosition")
-		<< "Max angle found between Agent#" << sortedAgents[maxAngleIndex]->getId()
-		<< " and Agent#" << sortedAgents[maxNeighborAngleIndex]->getId() << " rotAngle=" << rotAngle;
+//	ofLogNotice("Formation::findInteractionPosition")
+//		<< "Max angle found between Agent#" << sortedAgents[maxAngleIndex]->getId()
+//		<< " and Agent#" << sortedAgents[maxNeighborAngleIndex]->getId() << " rotAngle=" << rotAngle;
 
 	// Create interaction position vector from gravity center
 	Rotation2Dd t(rotAngle);
@@ -201,7 +205,7 @@ void Formation::findInteractionPosition() {
 
 //	interactionDirection.normalize();
 
-	ofLogNotice("Formation::findInteractionPosition") << "Direction vector :" << std::endl << interactionDirection;
+//	ofLogNotice("Formation::findInteractionPosition") << "Direction vector :" << std::endl << interactionDirection;
 
 	// Compute mean distance from middle between gravity center and ospace center
 	// TODO can be optimized and computed in previous loop

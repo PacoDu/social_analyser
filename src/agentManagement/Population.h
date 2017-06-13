@@ -1,8 +1,9 @@
-/*
- * Population.h
- *
- *  Created on: Mar 24, 2017
- *      Author: paco
+/**
+ * @file Population.h
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 24 mars 2017
  */
 
 #ifndef SRC_POPULATION_H_
@@ -27,6 +28,7 @@ public:
 	void draw(World* world);
 //	void update(World* world);
 	void clear();
+	Formation * getHighestFormationInteractionPotential();
 	int isGrouped(Agent * a);
 	int isGrouped(unsigned int agentId);
 	Formation * getRelatedFormation(unsigned int agentId);

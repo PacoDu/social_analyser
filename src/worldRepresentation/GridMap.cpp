@@ -82,7 +82,7 @@ void GridMap::compute() {
 		}
 	}
 
-	ofLogNotice("GridMap::compute") << "Social map computed min=" << minValue << ", max=" << maxValue;
+//	ofLogNotice("GridMap::compute") << "Social map computed min=" << minValue << ", max=" << maxValue;
 }
 
 void GridMap::normalize(){
@@ -154,14 +154,14 @@ double heuristicDiagonalCostEstimate(GridCell* start, GridCell* end){
 }
 
 
-
 // A* algorithm
 std::vector<GridCell*> GridMap::findPath(GridCell* startCell, GridCell* endCell){
-	ofLogNotice("DEBUG") << "Computing path for Cell#" << startCell->getId() << " to Cell#" << endCell->getId();
+	ofLogNotice("GridMap::findPath") << "Computing path for Cell#" << startCell->getId() << " to Cell#" << endCell->getId();
+	ofLogNotice("DEBUG") << "__________________________________________________________________________";
 
 	this->resetCellColor();
-	startCell->setGoal();
-	endCell->setStart();
+	startCell->setStart();
+	endCell->setGoal();
 
 	openNodesPQ = std::priority_queue<VCell, std::vector<VCell>, CompaireVCell >();
 	cameFrom.clear();
@@ -183,8 +183,10 @@ std::vector<GridCell*> GridMap::findPath(GridCell* startCell, GridCell* endCell)
 
 	std::vector<GridCell*> pathFound;
 
-	if(ret == 1)
+	if(ret == 1){
 		pathFound = constructPath();
+		std::reverse(pathFound.begin(), pathFound.end());
+	}
 
 	return pathFound;
 }
@@ -257,10 +259,10 @@ bool GridMap::isBorderEnabled() const {
 // Return -1 if goal is not reachable, 0 if nextstep is needed, 1 if goal is reached
 int GridMap::pathFinderNextStep() {
 	if(!openNodesPQ.empty()){
-		ofLogNotice("DEBUG") << "Processing Cell#"
-				<< openNodesPQ.top().second->getId()
-				<< " priority=" << openNodesPQ.top().first
-				<< " value=" << openNodesPQ.top().second->getValue() ;
+//		ofLogNotice("DEBUG") << "Processing Cell#"
+//				<< openNodesPQ.top().second->getId()
+//				<< " priority=" << openNodesPQ.top().first
+//				<< " value=" << openNodesPQ.top().second->getValue() ;
 
 		// Get highest priority cell (lowest score)
 		GridCell* currentNode = openNodesPQ.top().second;
@@ -291,7 +293,7 @@ int GridMap::pathFinderNextStep() {
 
 //				nextNode->setFrontier();
 
-				ofLogNotice("DEBUG") << "Node#" << nextNode->getId() << " score=" << newCost << " priority=" << priority;
+				//ofLogNotice("DEBUG") << "Node#" << nextNode->getId() << " score=" << newCost << " priority=" << priority;
 			}
 		}
 	}
@@ -315,6 +317,11 @@ std::vector<GridCell*> GridMap::constructPath() {
 		currentCell = cameFrom[currentCell];
 		pathFound.push_back(currentCell);
 		currentCell->setCellSelected();
+
+		if(pathFound.size() > 4*width/resolution){
+			ofLogNotice("DEBUG") << "ERROR infinite path";
+			break;
+		}
 	}
 
 	return pathFound;

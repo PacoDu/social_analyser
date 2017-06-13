@@ -13,21 +13,27 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include "Agent.h"
-#include "Population.h"
-#include "GroupDetector.h"
+#include "SocialPlanner.h"
+
 
 class UDPServer {
 public:
-	UDPServer(int port);
+	UDPServer(int port, SocialPlanner * p);
 	virtual ~UDPServer();
+
+	std::thread spawn();
 
 	int parse();
 	int parse_frame0();
+	int send_frame0();
 	int send_frame1();
 	int send_frame2();
+	int send_frame3();
 	int do_read();
 	int do_send(uint8_t * sendBuffer, int sendBuffer_size);
+	void update();
 	void run();
+	void sendAll();
 
 	void updateOrPushAgent(int id, float x, float y, float z, float theta);
 
@@ -42,8 +48,7 @@ protected:
 	const static int recvBuffer_size = 122;
 	uint8_t recvBuffer[recvBuffer_size];
 
-	Population* pop;
-	GroupDetector* gd;
+	SocialPlanner* planner;
 };
 
 #endif /* SRC_UDPSERVER_H_ */

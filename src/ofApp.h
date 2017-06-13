@@ -12,6 +12,9 @@
 #include "GridCell.h"
 #include "GroupDetector.h"
 #include "Gui.h"
+#include "Robot.h"
+#include "SocialPlanner.h"
+#include "UDPServer.h"
 
 class ofApp : public ofBaseApp{
 
@@ -35,8 +38,14 @@ class ofApp : public ofBaseApp{
 
 		void buttonPressed();
 		
+
+
 		Gui * gui;
 
+		std::thread server_thread;
+		UDPServer * udpServ;
+		Robot * robot;
+		SocialPlanner* socialPlanner;
 		Population* pop;
 		PopulationManager* manager;
 		Formation* form;

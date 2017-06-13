@@ -1,6 +1,5 @@
 #include "ofMain.h"
 #include "ofApp.h"
-#include "udp_server.h"
 #include "UDPServer.h"
 #include "config.h"
 

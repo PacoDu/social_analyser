@@ -6,6 +6,7 @@
  */
 
 #include "UDPServer.h"
+#include "config.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -14,7 +15,7 @@
 #include <cmath>
 
 using namespace Eigen;
-UDPServer::UDPServer(int port): portNumber(port) {
+UDPServer::UDPServer(int port, SocialPlanner * p): portNumber(port), planner(p) {
 	//---- create UDP socket ----
 	udpReceiveSocket = socket(PF_INET,SOCK_DGRAM,0);
 	udpSendSocket = socket(PF_INET,SOCK_DGRAM,0);
@@ -24,14 +25,14 @@ UDPServer::UDPServer(int port): portNumber(port) {
 	myAddr.sin_port=htons(portNumber);
 	myAddr.sin_addr.s_addr=htonl(INADDR_ANY);
 
-	// Bind to port
+//	// Bind to port
 	bind(udpReceiveSocket, (struct sockaddr *)&myAddr, sizeof(myAddr));
 
 	printf("UDP Server started on port: %d\n", portNumber);
 
-
-	pop = new Population();
-	gd = new GroupDetector(pop);
+//
+//	pop = new Population();
+//	gd = new GroupDetector(pop);
 }
 
 UDPServer::~UDPServer() {
@@ -58,11 +59,20 @@ int UDPServer::do_send(uint8_t * sendBuffer, int sendBuffer_size) {
 	struct sockaddr_in toAddr;
 	toAddr.sin_family = AF_INET;
 	toAddr.sin_port = htons(portNumber);
-	toAddr.sin_addr = fromAddr.sin_addr;
+	toAddr.sin_addr.s_addr = inet_addr(IP_UDP_CLIENT);//fromAddr.sin_addr;
 
 	int ret = sendto(udpSendSocket, sendBuffer, sendBuffer_size, 0, (struct sockaddr *)&toAddr, sizeof(toAddr));
 
-	printf("Replied to client: %s:%d\n", inet_ntoa(toAddr.sin_addr), toAddr.sin_port);
+#ifdef ENABLE_CLIENT2
+	struct sockaddr_in toAddr2;
+	toAddr2.sin_family = AF_INET;
+	toAddr2.sin_port = htons(portNumber);
+	toAddr2.sin_addr.s_addr = inet_addr(IP_UDP_CLIENT2);//fromAddr.sin_addr;
+
+	int ret2 = sendto(udpSendSocket, sendBuffer, sendBuffer_size, 0, (struct sockaddr *)&toAddr2, sizeof(toAddr2));
+#endif
+
+//	printf("Send to client: %s:%d\n", inet_ntoa(toAddr.sin_addr), toAddr.sin_port);
 	return ret;
 }
 
@@ -82,8 +92,8 @@ int UDPServer::parse() {
 
 int UDPServer::parse_frame0() {
 	int n = recvBuffer[1];
-	pop->clearAgents(); // TODO update existing agents
-	pop->clearFormations();
+//	pop->clearAgents(); // TODO update existing agents
+//	pop->clearFormations();
 
 	for(unsigned int i = 2; i < 2+n*20; i+=20){
 		int id;
@@ -107,78 +117,192 @@ int UDPServer::parse_frame0() {
 		updateOrPushAgent(id, x, y, z, theta);
 	}
 
-	if(n>0)
-		gd->detect();
+//	if(n>0)
+//		planner->getManager()->update();
 
 	return n;
 }
 
+// Agents position
+int UDPServer::send_frame0() {
+	Population * pop = planner->getManager()->getPopulation();
+
+	uint8_t * sendBuffer;
+	sendBuffer = new uint8_t[2+20*pop->getAgents().size()];
+
+	// set Frame type
+	sendBuffer[0] = 0;
+
+	sendBuffer[1] = pop->getAgents().size();
+
+	for(int i = 0; i < pop->getAgents().size(); i++){
+		// fill frame
+		float x = 0, y=0, z=0, theta=0;
+		int id;
+		id = (int)pop->getAgents()[i]->getId();
+
+		x = (float)pop->getAgents()[i]->getX();
+		y = (float)pop->getAgents()[i]->getY();
+		z = (float)pop->getAgents()[i]->getPosition().z();
+		theta = (float)pop->getAgents()[i]->getTheta();
+
+		memcpy(&sendBuffer[2+i*20], &id, sizeof(id));
+		memcpy(&sendBuffer[2+i*20+4], &x, sizeof(x));
+		memcpy(&sendBuffer[2+i*20+8], &y, sizeof(y));
+		memcpy(&sendBuffer[2+i*20+12], &z, sizeof(z));
+		memcpy(&sendBuffer[2+i*20+16], &theta, sizeof(theta));
+	}
+
+//	ofLogNotice("UDPServer") << "Sending frame#0 n=" << pop->getAgents().size();
+
+	do_send(sendBuffer, 2+pop->getAgents().size()*20);
+
+	return 0;
+}
+
+//Robot position
 int UDPServer::send_frame1() {
-	uint8_t sendBuffer[9] = {0}; // T(Bytes) | x(float) | y(float)
+	uint8_t sendBuffer[17] = {0}; // T(Bytes) | x(float) | y(float) | theta(float) | gazeId(int)
 
 	// set Frame type
 	sendBuffer[0] = 1;
 
 	// fill frame
-	float x = 0, y=0;
-	if(pop->getFormations().size() > 0){
-		x = (float)pop->getFormations()[0]->getSocialSpace()->getCenter().x();
-		y = (float)pop->getFormations()[0]->getSocialSpace()->getCenter().y();
-	}
+	float x = 0, y=0, theta=0;
+	int gazeId = -1;
+	x = (float)planner->getRobot()->getX();
+	y = (float)planner->getRobot()->getY();
+	theta = (float)planner->getRobot()->getTheta();
+
+	if(planner->getRobot()->gazeTarget)
+		gazeId = planner->getRobot()->gazeTarget->getId();
 
 	memcpy(&sendBuffer[1], &x, sizeof(x));
 	memcpy(&sendBuffer[5], &y, sizeof(y));
+	memcpy(&sendBuffer[9], &theta, sizeof(theta));
+	memcpy(&sendBuffer[13], &gazeId, sizeof(gazeId));
 
-	printf("Sending frame#1 center(%.2f,%.2f)\n", x, y);
+//	printf("UDPServer: Sending frame#1 Robot position(%.2f,%.2f,%.2f)\n", x, y, theta);
 
-	do_send(sendBuffer, 9);
+	do_send(sendBuffer, 17);
 
 	return 0;
 }
 
-int UDPServer::send_frame2() {
-	uint8_t sendBuffer[9] = {0}; // T(Bytes) | x(float) | y(float)
 
-	// set Frame type
+//Robot Path
+int UDPServer::send_frame2() {
+	std::vector<GridCell*> path = planner->getRobot()->getPath();
+
+//	std::vector<uint8_t> sendBuffer;
+
+	uint8_t sendBuffer[5+path.size()*8];
+
+	// Set frame type
 	sendBuffer[0] = 2;
 
-	// fill frame
-	float x = 0, y=0;
-	if(pop->getFormations().size() > 0){
-		x = (float)pop->getFormations()[0]->getInteractionPosition().x();
-		y = (float)pop->getFormations()[0]->getInteractionPosition().y();
+	// Set path length
+	int length = path.size();
+	memcpy(&sendBuffer[1], &length, sizeof(length));
+
+	int i = 0;
+	for(auto * cell: path){
+		float x,y;
+		x = cell->getX()+cell->getSize()/2;
+		y = cell->getY()+cell->getSize()/2;
+
+		memcpy(&sendBuffer[5+8*i], &x, sizeof(x));
+		memcpy(&sendBuffer[5+4+8*i], &y, sizeof(y));
+		i++;
 	}
 
-	memcpy(&sendBuffer[1], &x, sizeof(x));
-	memcpy(&sendBuffer[5], &y, sizeof(y));
-
-	printf("Sending frame#2 center(%.2f,%.2f)\n", x, y);
-
-	do_send(sendBuffer, 9);
+	do_send(sendBuffer, path.size()*8+5);
 
 	return 0;
 }
 
-void UDPServer::run() {
-	while(1){
-		do_read();
-		parse();
-		send_frame1();
-		send_frame2();
+// Formations
+int UDPServer::send_frame3() {
+	Population * pop = planner->getManager()->getPopulation();
+
+	int nForm = 0;
+	int nAgents = 0;
+	for(auto * f: pop->getFormations()){
+		nAgents += f->getAgents().size();
+		nForm += 1;
 	}
+
+	uint8_t sendBuffer[2+nForm*9+nAgents*4];
+
+	// set Frame type
+	sendBuffer[0] = 3;
+
+	// set formation number
+	sendBuffer[1] = pop->getFormations().size();
+
+	// Fill frame
+	int offset = 0;
+	for(auto * f: pop->getFormations()){
+		sendBuffer[2+offset] = f->getAgents().size();
+		offset ++;
+
+		for(auto * a: f->getAgents()){
+			int id = a->getId();
+
+			memcpy(&sendBuffer[2+offset], &id, sizeof(id));
+			offset += 4;
+		}
+
+		float x,y;
+		x = f->getSocialSpace()->getCenter().x();
+		y = f->getSocialSpace()->getCenter().y();
+		memcpy(&sendBuffer[2+offset], &x, sizeof(x));
+		offset += 4;
+		memcpy(&sendBuffer[2+offset], &y, sizeof(y));
+		offset += 4;
+	}
+
+//	ofLogNotice("UDPServer") << "Sending frame#3 n=" << pop->getFormations().size();
+
+	do_send(sendBuffer, 2+offset);
+
+	return 0;
+}
+
+void UDPServer::update() {
+//		do_read();
+		parse();
+		this->sendAll();
+}
+
+void UDPServer::run(){
+	while(1){
+		this->do_read();
+	}
+}
+
+void UDPServer::sendAll() {
+		this->send_frame0();
+		this->send_frame1();
+		this->send_frame2();
+		this->send_frame3();
+}
+
+std::thread UDPServer::spawn() {
+	return std::thread([this] { run(); } );
 }
 
 void UDPServer::updateOrPushAgent(int id, float x, float y, float z,
 		float theta) {
-	Agent* a = pop->getAgent(id);
+	Agent* a = planner->getManager()->getPopulation()->getAgent(id);
 	if(a){
 		a->setX(x);
 		a->setY(y);
-//		a->setZ(z); TODO
+//		a->setZ(z);
 		a->setTheta(theta);
 	}
 	else{
 		a = new Agent(Vector3d(x, y, z), theta, id);
-		pop->pushAgent(a);
+		planner->getManager()->getPopulation()->pushAgent(a);
 	}
 }
