@@ -94,13 +94,62 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">GridMap::CompaireVCell Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Define an operator for <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> and associated gScore comparison for A* algorithm.  
+ <a href="structGridMap_1_1CompaireVCell.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="GridMap_8h_source.html">GridMap.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2d96fc322b8347479bc4cb5764c37922"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d96fc322b8347479bc4cb5764c37922"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (VCell const &amp;a, VCell const &amp;b) const </td></tr>
+<tr class="memitem:a2d96fc322b8347479bc4cb5764c37922"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGridMap_1_1CompaireVCell.html#a2d96fc322b8347479bc4cb5764c37922">operator()</a> (<a class="el" href="classGridMap.html#a3589e78d066f9c12b000f85f870afbc4">VCell</a> const &amp;a, <a class="el" href="classGridMap.html#a3589e78d066f9c12b000f85f870afbc4">VCell</a> const &amp;b) const </td></tr>
 <tr class="separator:a2d96fc322b8347479bc4cb5764c37922"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Define an operator for <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> and associated gScore comparison for A* algorithm. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a2d96fc322b8347479bc4cb5764c37922"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GridMap::CompaireVCell::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGridMap.html#a3589e78d066f9c12b000f85f870afbc4">VCell</a> const &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classGridMap.html#a3589e78d066f9c12b000f85f870afbc4">VCell</a> const &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>: The VCell compared </td></tr>
+    <tr><td class="paramname">b</td><td>: The other VCell compared </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if VCell have a greater score than the VCell b </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>src/worldRepresentation/<a class="el" href="GridMap_8h_source.html">GridMap.h</a></li>
 </ul>

@@ -2,7 +2,7 @@
 <area shape="rect" id="node2" href="$classIdentifiedObject.html" title="This class is an interface for class that need a unique identifier. " alt="" coords="140,81,253,108"/>
 <area shape="rect" id="node5" href="$classAgent.html" title="This class represent the Agents. " alt="" coords="211,157,267,184"/>
 <area shape="rect" id="node8" href="$classSocialSpace.html" title="This class is an abstract class for representing SocialSpace. " alt="" coords="29,157,124,184"/>
-<area shape="rect" id="node9" href="$classGridCell.html" title="GridCell" alt="" coords="305,157,374,184"/>
+<area shape="rect" id="node9" href="$classGridCell.html" title="This class represent a cell in the GridMap. " alt="" coords="305,157,374,184"/>
 <area shape="rect" id="node3" href="$classDrawnObject.html" title="This class is an interface for class that are drawn on OFX gui. " alt="" coords="290,81,389,108"/>
 <area shape="rect" id="node4" href="$classLocalizedObject.html" title="This class is an interface for object that are localized in real World. " alt="" coords="282,5,397,32"/>
 <area shape="rect" id="node7" href="$classPersonnalSocialSpace.html" title="This class is an interface to implement representation of a PersonnalSocialSpace. ..." alt="" coords="5,276,159,303"/>

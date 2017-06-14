@@ -1,8 +1,9 @@
-/*
- * GridCell.cpp
- *
- *  Created on: Apr 6, 2017
- *      Author: paco
+/**
+ * @file GridCell.cpp
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 6 avril 2017
  */
 
 #include "GridCell.h"
@@ -21,6 +22,7 @@ double GridCell::getValue() const {
 	return _value;
 }
 
+#if USE_OFX
 void GridCell::draw(World* world) {
 	Vector3d pView = real_to_pixel(world, this->getPosition());
 	Vector3d sView = real_to_pixel(world, Vector3d(this->getX()+this->_size, 0, 0));
@@ -64,6 +66,7 @@ void GridCell::draw(World* world) {
 	}
 
 }
+#endif
 
 void GridCell::setValue(double value) {
 	_value = value;
@@ -131,14 +134,6 @@ bool GridCell::isStart() const {
 
 void GridCell::setStart(bool start) {
 	this->start = start;
-}
-
-double GridCell::getStarScore() const {
-	return _aStarScore;
-}
-
-void GridCell::setStarScore(double starScore) {
-	_aStarScore = starScore;
 }
 
 bool GridCell::isInfoEnabled() const {

@@ -1,8 +1,8 @@
 <map id="DrawnObject" name="DrawnObject">
 <area shape="rect" id="node3" href="$classAgent.html" title="This class represent the Agents. " alt="" coords="5,155,61,181"/>
 <area shape="rect" id="node4" href="$classFormation.html" title="This class represent the social Formation. " alt="" coords="85,155,165,181"/>
-<area shape="rect" id="node5" href="$classGridCell.html" title="GridCell" alt="" coords="189,155,259,181"/>
-<area shape="rect" id="node6" href="$classGridMap.html" title="GridMap" alt="" coords="283,155,354,181"/>
+<area shape="rect" id="node5" href="$classGridCell.html" title="This class represent a cell in the GridMap. " alt="" coords="189,155,259,181"/>
+<area shape="rect" id="node6" href="$classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. " alt="" coords="283,155,354,181"/>
 <area shape="rect" id="node7" href="$classOSpace.html" title="This class is an implementation of the GroupSocialSpace. " alt="" coords="379,155,448,181"/>
 <area shape="rect" id="node8" href="$classPopulation.html" title="This class represent Population around the Robot. " alt="" coords="472,155,555,181"/>
 <area shape="rect" id="node9" href="$classPopulationManager.html" title="PopulationManager" alt="" coords="579,155,712,181"/>

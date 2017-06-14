@@ -25,14 +25,10 @@ UDPServer::UDPServer(int port, SocialPlanner * p): portNumber(port), planner(p) 
 	myAddr.sin_port=htons(portNumber);
 	myAddr.sin_addr.s_addr=htonl(INADDR_ANY);
 
-//	// Bind to port
+	// Bind to port
 	bind(udpReceiveSocket, (struct sockaddr *)&myAddr, sizeof(myAddr));
 
 	printf("UDP Server started on port: %d\n", portNumber);
-
-//
-//	pop = new Population();
-//	gd = new GroupDetector(pop);
 }
 
 UDPServer::~UDPServer() {
@@ -69,7 +65,7 @@ int UDPServer::do_send(uint8_t * sendBuffer, int sendBuffer_size) {
 	toAddr2.sin_port = htons(portNumber);
 	toAddr2.sin_addr.s_addr = inet_addr(IP_UDP_CLIENT2);//fromAddr.sin_addr;
 
-	int ret2 = sendto(udpSendSocket, sendBuffer, sendBuffer_size, 0, (struct sockaddr *)&toAddr2, sizeof(toAddr2));
+	sendto(udpSendSocket, sendBuffer, sendBuffer_size, 0, (struct sockaddr *)&toAddr2, sizeof(toAddr2));
 #endif
 
 //	printf("Send to client: %s:%d\n", inet_ntoa(toAddr.sin_addr), toAddr.sin_port);
@@ -84,7 +80,7 @@ int UDPServer::parse() {
 			break;
 		default:
 			printf("Unknown frame type: %d, parsing failed\n", recvBuffer[0]);
-			return 0;
+			return -1;
 			break;
 
 	}
@@ -95,7 +91,7 @@ int UDPServer::parse_frame0() {
 //	pop->clearAgents(); // TODO update existing agents
 //	pop->clearFormations();
 
-	for(unsigned int i = 2; i < 2+n*20; i+=20){
+	for(int i = 2; i < 2+n*20; i+=20){
 		int id;
 		float x, y, z, theta;
 		int tx, ty, tz, ttheta;
@@ -135,7 +131,7 @@ int UDPServer::send_frame0() {
 
 	sendBuffer[1] = pop->getAgents().size();
 
-	for(int i = 0; i < pop->getAgents().size(); i++){
+	for(unsigned int i = 0; i < pop->getAgents().size(); i++){
 		// fill frame
 		float x = 0, y=0, z=0, theta=0;
 		int id;

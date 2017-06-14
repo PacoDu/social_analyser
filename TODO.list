@@ -1,5 +1,5 @@
 - GUI
-- Refactoring
+X Refactoring
 X GroupDetector fix
-- Robot movement fix
+X Robot movement fix
 - Fix seek_interaction behavior (update path during move)

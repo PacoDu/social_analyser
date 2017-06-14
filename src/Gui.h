@@ -10,6 +10,10 @@
 
 #include "ofxGui.h"
 
+/**
+ * @class Gui
+ * @brief Graphical User Interface
+ */
 class Gui {
 public:
 	Gui();

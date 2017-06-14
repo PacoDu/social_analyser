@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['ofapp',['ofApp',['../classofApp.html',1,'']]],
-  ['ospace',['OSpace',['../classOSpace.html',1,'OSpace'],['../classOSpace.html#ae160e76b0b2d3c1367946f8bb965bd1e',1,'OSpace::OSpace(int id=0)'],['../classOSpace.html#acd0c5685bc984af6287108710a1333ff',1,'OSpace::OSpace(std::vector&lt; Agent * &gt; &amp;agents, int id=0)']]],
-  ['ospace_2ecpp',['OSpace.cpp',['../OSpace_8cpp.html',1,'']]],
-  ['ospace_2eh',['OSpace.h',['../OSpace_8h.html',1,'']]]
+  ['manager',['manager',['../classSocialPlanner.html#aaed8a44f9e82ca53141f6a556365754a',1,'SocialPlanner']]],
+  ['maxvalue',['maxValue',['../classGridMap.html#a275bf52aba3335c8fa35d9c57e177dd9',1,'GridMap']]],
+  ['minvalue',['minValue',['../classGridMap.html#a448b6975949273a3890b9911b635ca98',1,'GridMap']]],
+  ['movedist',['moveDist',['../classRobot.html#a8f87b634a13863235dd64bdc2ac64eb1',1,'Robot']]],
+  ['movespeed',['moveSpeed',['../classRobot.html#a9ffd926d965152cb275765d1abaee1cf',1,'Robot']]],
+  ['myaddr',['myAddr',['../classUDPServer.html#a5c3df3c08b3534a1af6ee5ecd342c2df',1,'UDPServer']]]
 ];

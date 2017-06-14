@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['id',['id',['../classIdentifiedObject.html#ad044a317a9b573a3d1bcd025df166eb5',1,'IdentifiedObject']]],
-  ['interactiondirection',['interactionDirection',['../classFormation.html#aa68570fc8c85c172fadaf93d30367371',1,'Formation']]],
-  ['interactionposition',['interactionPosition',['../classFormation.html#a5e33d98c2b9ec916e601ae27d6c7f2ef',1,'Formation']]],
-  ['interactionpotential',['interactionPotential',['../classFormation.html#afac1af6d51a6b8a910df4574cb7a6931',1,'Formation']]],
-  ['interactionstarted',['interactionStarted',['../classSocialPlanner.html#a13bcec9af0fe2827d8cb1054ea20b591',1,'SocialPlanner']]],
-  ['intersectionpoints',['intersectionPoints',['../classOSpace.html#acc818308e36fff24106eaa8f00388038',1,'OSpace']]]
+  ['gazetarget',['gazeTarget',['../classRobot.html#a16adeabd42cf91daf19f7737d7f6c1f3',1,'Robot']]],
+  ['gcenter',['gCenter',['../classOSpace.html#a023a293d79b949534f94eedbac932cec',1,'OSpace']]],
+  ['goal',['goal',['../classRobot.html#a5abff8bb9893b5fbd509c20e7fa2ffb5',1,'Robot::goal()'],['../classGridCell.html#afe1b6d3afa06397f1732c07cfd9111ed',1,'GridCell::goal()']]],
+  ['groupspaceenabled',['groupSpaceEnabled',['../classGridMap.html#ace7258ad25fea48c37b88e7de9c0b1b4',1,'GridMap']]],
+  ['gscore',['gScore',['../classGridMap.html#a5c051634746830ef50796760cdd90105',1,'GridMap']]]
 ];

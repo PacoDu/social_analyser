@@ -16,6 +16,10 @@
 #include "SocialPlanner.h"
 #include "UDPServer.h"
 
+/**
+ * @class ofApp
+ * @brief The Openframeworks main class
+ */
 class ofApp : public ofBaseApp{
 
 	public:

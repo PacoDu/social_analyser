@@ -22,6 +22,7 @@ Robot::~Robot() {
 }
 
 // --- METHOD
+#if USE_OFX
 void Robot::draw(World * world) {
 	Vector3d pView = real_to_pixel(world, this->getPosition());
 	double shoulderLength = real_to_pixel(world, Vector3d(0,0.35,0)).y() - world->getPosition().y();
@@ -44,6 +45,7 @@ void Robot::draw(World * world) {
 		ofDrawCircle(0,0,1);
 	ofPopMatrix();
 }
+#endif
 
 GridCell* Robot::getGoal() const {
 	return goal;

@@ -94,6 +94,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>This class manage the 2D <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> computed from the Agents <a class="el" href="classSocialSpace.html" title="This class is an abstract class for representing SocialSpace. ">SocialSpace</a>.  
+ <a href="classGridMap.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="GridMap_8h_source.html">GridMap.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GridMap:</div>
@@ -111,7 +114,7 @@ Collaboration diagram for GridMap:</div>
 <div class="center"><img src="classGridMap__coll__graph.png" border="0" usemap="#GridMap_coll__map" alt="Collaboration graph"/></div>
 <map name="GridMap_coll__map" id="GridMap_coll__map">
 <area shape="rect" id="node2" href="classIdentifiedObject.html" title="This class is an interface for class that need a unique identifier. " alt="" coords="5,81,119,108"/>
-<area shape="rect" id="node5" href="classGridCell.html" title="GridCell" alt="" coords="58,157,127,184"/>
+<area shape="rect" id="node5" href="classGridCell.html" title="This class represent a cell in the GridMap. " alt="" coords="58,157,127,184"/>
 <area shape="rect" id="node6" href="classPopulation.html" title="This class represent Population around the Robot. " alt="" coords="151,157,234,184"/>
 <area shape="rect" id="node3" href="classDrawnObject.html" title="This class is an interface for class that are drawn on OFX gui. " alt="" coords="143,81,242,108"/>
 <area shape="rect" id="node4" href="classLocalizedObject.html" title="This class is an interface for object that are localized in real World. " alt="" coords="135,5,250,32"/>
@@ -122,68 +125,74 @@ Collaboration diagram for GridMap:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGridMap_1_1CompaireVCell.html">CompaireVCell</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define an operator for <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> and associated gScore comparison for A* algorithm.  <a href="structGridMap_1_1CompaireVCell.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa5a60e82b2bf8b2005ef7c71e7080904"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#aa5a60e82b2bf8b2005ef7c71e7080904">GridMap</a> (<a class="el" href="classWorld.html">World</a> *world, <a class="el" href="classPopulation.html">Population</a> *pop, double resolution=0.1)</td></tr>
+<tr class="memitem:aa5a60e82b2bf8b2005ef7c71e7080904"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#aa5a60e82b2bf8b2005ef7c71e7080904">GridMap</a> (<a class="el" href="classWorld.html">World</a> *world, <a class="el" href="classPopulation.html">Population</a> *pop, double <a class="el" href="classGridMap.html#a8481536f663251381674b71090754e1d">resolution</a>=0.1)</td></tr>
 <tr class="memdesc:aa5a60e82b2bf8b2005ef7c71e7080904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aa5a60e82b2bf8b2005ef7c71e7080904">More...</a><br /></td></tr>
 <tr class="separator:aa5a60e82b2bf8b2005ef7c71e7080904"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53cc0906130bae883f5d544480039118"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a53cc0906130bae883f5d544480039118">~GridMap</a> ()</td></tr>
 <tr class="memdesc:a53cc0906130bae883f5d544480039118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a53cc0906130bae883f5d544480039118">More...</a><br /></td></tr>
 <tr class="separator:a53cc0906130bae883f5d544480039118"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac13f92dd7cdcfed701cf900eb592126b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac13f92dd7cdcfed701cf900eb592126b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>compute</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#ac13f92dd7cdcfed701cf900eb592126b">compute</a> ()</td></tr>
+<tr class="memdesc:ac13f92dd7cdcfed701cf900eb592126b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the value of each <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> in the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> based on Agents <a class="el" href="classSocialSpace.html" title="This class is an abstract class for representing SocialSpace. ">SocialSpace</a>. <br /></td></tr>
 <tr class="separator:ac13f92dd7cdcfed701cf900eb592126b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5321e644c2398b2d0e50091b410f6ec3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5321e644c2398b2d0e50091b410f6ec3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>normalize</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a5321e644c2398b2d0e50091b410f6ec3">normalize</a> ()</td></tr>
+<tr class="memdesc:a5321e644c2398b2d0e50091b410f6ec3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize the GridCells value between 0 and 1. <br /></td></tr>
 <tr class="separator:a5321e644c2398b2d0e50091b410f6ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dcf97b44802b1ecf294f4e1fc79b94b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5dcf97b44802b1ecf294f4e1fc79b94b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a5dcf97b44802b1ecf294f4e1fc79b94b">update</a> ()</td></tr>
+<tr class="memdesc:a5dcf97b44802b1ecf294f4e1fc79b94b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> by calling compute and normalize function. <br /></td></tr>
 <tr class="separator:a5dcf97b44802b1ecf294f4e1fc79b94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43a70209f5c8c5cf833500ce1d95880c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43a70209f5c8c5cf833500ce1d95880c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>deselectCells</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a43a70209f5c8c5cf833500ce1d95880c">deselectCells</a> ()</td></tr>
+<tr class="memdesc:a43a70209f5c8c5cf833500ce1d95880c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> to selected False. <br /></td></tr>
 <tr class="separator:a43a70209f5c8c5cf833500ce1d95880c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a095c92e0c8abe909144cd9bf03fb2675"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a095c92e0c8abe909144cd9bf03fb2675"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>pathFinderNextStep</b> ()</td></tr>
+<tr class="memitem:a095c92e0c8abe909144cd9bf03fb2675"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a095c92e0c8abe909144cd9bf03fb2675">pathFinderNextStep</a> ()</td></tr>
+<tr class="memdesc:a095c92e0c8abe909144cd9bf03fb2675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute one step of the A* algorithm.  <a href="#a095c92e0c8abe909144cd9bf03fb2675">More...</a><br /></td></tr>
 <tr class="separator:a095c92e0c8abe909144cd9bf03fb2675"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2eb9ca9d4f2f1552f200ce4b9582d01"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2eb9ca9d4f2f1552f200ce4b9582d01"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resetCellColor</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#ae2eb9ca9d4f2f1552f200ce4b9582d01">resetCellColor</a> ()</td></tr>
+<tr class="memdesc:ae2eb9ca9d4f2f1552f200ce4b9582d01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the color of all <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a>. <br /></td></tr>
 <tr class="separator:ae2eb9ca9d4f2f1552f200ce4b9582d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9471e8e29679bb4e38f2a3011a394c4d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9471e8e29679bb4e38f2a3011a394c4d"></a>
-std::vector&lt; <a class="el" href="classGridCell.html">GridCell</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>constructPath</b> ()</td></tr>
+<tr class="memitem:a9471e8e29679bb4e38f2a3011a394c4d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classGridCell.html">GridCell</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a9471e8e29679bb4e38f2a3011a394c4d">constructPath</a> ()</td></tr>
+<tr class="memdesc:a9471e8e29679bb4e38f2a3011a394c4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the path from A* algorithm result.  <a href="#a9471e8e29679bb4e38f2a3011a394c4d">More...</a><br /></td></tr>
 <tr class="separator:a9471e8e29679bb4e38f2a3011a394c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecc6cb12f384e8049a4f029a68b11f73"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aecc6cb12f384e8049a4f029a68b11f73"></a>
-std::vector&lt; <a class="el" href="classGridCell.html">GridCell</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>neighbors</b> (<a class="el" href="classGridCell.html">GridCell</a> *cell, bool allowDiagonalMove=true)</td></tr>
+<tr class="memitem:aecc6cb12f384e8049a4f029a68b11f73"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classGridCell.html">GridCell</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#aecc6cb12f384e8049a4f029a68b11f73">neighbors</a> (<a class="el" href="classGridCell.html">GridCell</a> *cell, bool allowDiagonalMove=true)</td></tr>
+<tr class="memdesc:aecc6cb12f384e8049a4f029a68b11f73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the neighbors of a <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> in the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a>.  <a href="#aecc6cb12f384e8049a4f029a68b11f73">More...</a><br /></td></tr>
 <tr class="separator:aecc6cb12f384e8049a4f029a68b11f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a976f63082aba927b21bc0d5a83c2261d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a976f63082aba927b21bc0d5a83c2261d"></a>
-std::vector&lt; <a class="el" href="classGridCell.html">GridCell</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>findPath</b> (<a class="el" href="classGridCell.html">GridCell</a> *startCell, <a class="el" href="classGridCell.html">GridCell</a> *endCell)</td></tr>
+<tr class="memitem:a976f63082aba927b21bc0d5a83c2261d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classGridCell.html">GridCell</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a976f63082aba927b21bc0d5a83c2261d">findPath</a> (<a class="el" href="classGridCell.html">GridCell</a> *<a class="el" href="classGridMap.html#a5c3e52ee3c6cc6183ac94d3cb31d6a93">startCell</a>, <a class="el" href="classGridCell.html">GridCell</a> *<a class="el" href="classGridMap.html#a0ad10e901c423350fd0e578b256bb2f8">endCell</a>)</td></tr>
+<tr class="memdesc:a976f63082aba927b21bc0d5a83c2261d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find path between two given <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> in parameters.  <a href="#a976f63082aba927b21bc0d5a83c2261d">More...</a><br /></td></tr>
 <tr class="separator:a976f63082aba927b21bc0d5a83c2261d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad604252ee398bcccc6f6d0705c81810d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad604252ee398bcccc6f6d0705c81810d"></a>
-<a class="el" href="classGridCell.html">GridCell</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getCell</b> (int cellId)</td></tr>
-<tr class="separator:ad604252ee398bcccc6f6d0705c81810d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5dd1d791747a4580e6c9d73a12b5953f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5dd1d791747a4580e6c9d73a12b5953f"></a>
-<a class="el" href="classGridCell.html">GridCell</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getCell</b> (double x, double y)</td></tr>
+<tr class="memitem:a2041007472f0be8fffe93cb1c25d8e9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGridCell.html">GridCell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a2041007472f0be8fffe93cb1c25d8e9f">getCell</a> (unsigned int cellId)</td></tr>
+<tr class="memdesc:a2041007472f0be8fffe93cb1c25d8e9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> in the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> by id.  <a href="#a2041007472f0be8fffe93cb1c25d8e9f">More...</a><br /></td></tr>
+<tr class="separator:a2041007472f0be8fffe93cb1c25d8e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dd1d791747a4580e6c9d73a12b5953f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGridCell.html">GridCell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a5dd1d791747a4580e6c9d73a12b5953f">getCell</a> (double x, double y)</td></tr>
+<tr class="memdesc:a5dd1d791747a4580e6c9d73a12b5953f"><td class="mdescLeft">&#160;</td><td class="mdescRight">find a <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> in the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> from its real coordinates  <a href="#a5dd1d791747a4580e6c9d73a12b5953f">More...</a><br /></td></tr>
 <tr class="separator:a5dd1d791747a4580e6c9d73a12b5953f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c15016c5c2e1d2befdff013df12fe39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a2c15016c5c2e1d2befdff013df12fe39">setInfoEnabled</a> (bool infoEnabled=false)</td></tr>
+<tr class="memitem:a2c15016c5c2e1d2befdff013df12fe39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a2c15016c5c2e1d2befdff013df12fe39">setInfoEnabled</a> (bool <a class="el" href="classGridMap.html#ab106fa68828f14f788e697728b94992b">infoEnabled</a>=false)</td></tr>
 <tr class="memdesc:a2c15016c5c2e1d2befdff013df12fe39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple setter.  <a href="#a2c15016c5c2e1d2befdff013df12fe39">More...</a><br /></td></tr>
 <tr class="separator:a2c15016c5c2e1d2befdff013df12fe39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08ebd0d61670045ed7cbbdf33626d1af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a08ebd0d61670045ed7cbbdf33626d1af">isGroupSpaceEnabled</a> () const </td></tr>
 <tr class="memdesc:a08ebd0d61670045ed7cbbdf33626d1af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple getter.  <a href="#a08ebd0d61670045ed7cbbdf33626d1af">More...</a><br /></td></tr>
 <tr class="separator:a08ebd0d61670045ed7cbbdf33626d1af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0923c16f8e6d2a08f02d8b32d0a5ef40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a0923c16f8e6d2a08f02d8b32d0a5ef40">setGroupSpaceEnabled</a> (bool groupSpaceEnabled=true)</td></tr>
+<tr class="memitem:a0923c16f8e6d2a08f02d8b32d0a5ef40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a0923c16f8e6d2a08f02d8b32d0a5ef40">setGroupSpaceEnabled</a> (bool <a class="el" href="classGridMap.html#ace7258ad25fea48c37b88e7de9c0b1b4">groupSpaceEnabled</a>=true)</td></tr>
 <tr class="memdesc:a0923c16f8e6d2a08f02d8b32d0a5ef40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple setter.  <a href="#a0923c16f8e6d2a08f02d8b32d0a5ef40">More...</a><br /></td></tr>
 <tr class="separator:a0923c16f8e6d2a08f02d8b32d0a5ef40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad37f0bb29e70f2cba3988fd1743d07d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#ad37f0bb29e70f2cba3988fd1743d07d9">isPersonalSpaceEnabled</a> () const </td></tr>
 <tr class="memdesc:ad37f0bb29e70f2cba3988fd1743d07d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple getter.  <a href="#ad37f0bb29e70f2cba3988fd1743d07d9">More...</a><br /></td></tr>
 <tr class="separator:ad37f0bb29e70f2cba3988fd1743d07d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5ed7378de3de7f4a4edddfb53a43af0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#ac5ed7378de3de7f4a4edddfb53a43af0">setPersonalSpaceEnabled</a> (bool personalSpaceEnabled=true)</td></tr>
+<tr class="memitem:ac5ed7378de3de7f4a4edddfb53a43af0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#ac5ed7378de3de7f4a4edddfb53a43af0">setPersonalSpaceEnabled</a> (bool <a class="el" href="classGridMap.html#ab61a1f66414c31e4ffdd15cbd8c2f373">personalSpaceEnabled</a>=true)</td></tr>
 <tr class="memdesc:ac5ed7378de3de7f4a4edddfb53a43af0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple setter.  <a href="#ac5ed7378de3de7f4a4edddfb53a43af0">More...</a><br /></td></tr>
 <tr class="separator:ac5ed7378de3de7f4a4edddfb53a43af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab56b76831425dc0e3bf1c84d2a42bde1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#ab56b76831425dc0e3bf1c84d2a42bde1">isBorderEnabled</a> () const </td></tr>
 <tr class="memdesc:ab56b76831425dc0e3bf1c84d2a42bde1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple getter.  <a href="#ab56b76831425dc0e3bf1c84d2a42bde1">More...</a><br /></td></tr>
 <tr class="separator:ab56b76831425dc0e3bf1c84d2a42bde1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ca0ec500c27b1c47ab0a73bceca44ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a3ca0ec500c27b1c47ab0a73bceca44ea">setBorderEnabled</a> (bool borderEnabled=true)</td></tr>
+<tr class="memitem:a3ca0ec500c27b1c47ab0a73bceca44ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a3ca0ec500c27b1c47ab0a73bceca44ea">setBorderEnabled</a> (bool <a class="el" href="classGridMap.html#aad72652fe3a6ab78b47bce0c0daaaab5">borderEnabled</a>=true)</td></tr>
 <tr class="memdesc:a3ca0ec500c27b1c47ab0a73bceca44ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple setter.  <a href="#a3ca0ec500c27b1c47ab0a73bceca44ea">More...</a><br /></td></tr>
 <tr class="separator:a3ca0ec500c27b1c47ab0a73bceca44ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classIdentifiedObject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classIdentifiedObject')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classIdentifiedObject.html">IdentifiedObject</a></td></tr>
@@ -249,56 +258,72 @@ std::vector&lt; <a class="el" href="classGridCell.html">GridCell</a> * &gt;&#160
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
-<tr class="memitem:a4e57a8d33d27a6626b2825410b0d82d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e57a8d33d27a6626b2825410b0d82d9"></a>
-typedef std::pair&lt; double, <a class="el" href="classGridCell.html">GridCell</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>VCell</b></td></tr>
-<tr class="separator:a4e57a8d33d27a6626b2825410b0d82d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3589e78d066f9c12b000f85f870afbc4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3589e78d066f9c12b000f85f870afbc4"></a>
+typedef std::pair&lt; double, <a class="el" href="classGridCell.html">GridCell</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a3589e78d066f9c12b000f85f870afbc4">VCell</a></td></tr>
+<tr class="memdesc:a3589e78d066f9c12b000f85f870afbc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define an operator for <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> and associated gScore comparison for A* algorithm. <br /></td></tr>
+<tr class="separator:a3589e78d066f9c12b000f85f870afbc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ac43b2a50b73da8fe3c04635a6924dfc6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac43b2a50b73da8fe3c04635a6924dfc6"></a>
-<a class="el" href="classPopulation.html">Population</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_population</b></td></tr>
+<a class="el" href="classPopulation.html">Population</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#ac43b2a50b73da8fe3c04635a6924dfc6">_population</a></td></tr>
+<tr class="memdesc:ac43b2a50b73da8fe3c04635a6924dfc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classPopulation.html" title="This class represent Population around the Robot. ">Population</a> related to the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a>. <br /></td></tr>
 <tr class="separator:ac43b2a50b73da8fe3c04635a6924dfc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a919ed90a283eb5ae30704e50e589a48f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a919ed90a283eb5ae30704e50e589a48f"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>width</b></td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a919ed90a283eb5ae30704e50e589a48f">width</a></td></tr>
+<tr class="memdesc:a919ed90a283eb5ae30704e50e589a48f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The real width of the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> in meter. <br /></td></tr>
 <tr class="separator:a919ed90a283eb5ae30704e50e589a48f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19dc2d36c3064698b34ef59433378b1a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19dc2d36c3064698b34ef59433378b1a"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>height</b></td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a19dc2d36c3064698b34ef59433378b1a">height</a></td></tr>
+<tr class="memdesc:a19dc2d36c3064698b34ef59433378b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The real height of the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> in meter. <br /></td></tr>
 <tr class="separator:a19dc2d36c3064698b34ef59433378b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8481536f663251381674b71090754e1d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8481536f663251381674b71090754e1d"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>resolution</b></td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a8481536f663251381674b71090754e1d">resolution</a></td></tr>
+<tr class="memdesc:a8481536f663251381674b71090754e1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The resolution of the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a>. <br /></td></tr>
 <tr class="separator:a8481536f663251381674b71090754e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a448b6975949273a3890b9911b635ca98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a448b6975949273a3890b9911b635ca98"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>minValue</b></td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a448b6975949273a3890b9911b635ca98">minValue</a></td></tr>
+<tr class="memdesc:a448b6975949273a3890b9911b635ca98"><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum value of a <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> in the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a>. <br /></td></tr>
 <tr class="separator:a448b6975949273a3890b9911b635ca98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a275bf52aba3335c8fa35d9c57e177dd9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a275bf52aba3335c8fa35d9c57e177dd9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>maxValue</b></td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a275bf52aba3335c8fa35d9c57e177dd9">maxValue</a></td></tr>
+<tr class="memdesc:a275bf52aba3335c8fa35d9c57e177dd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum value of a <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> in the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a>. <br /></td></tr>
 <tr class="separator:a275bf52aba3335c8fa35d9c57e177dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab61a1f66414c31e4ffdd15cbd8c2f373"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab61a1f66414c31e4ffdd15cbd8c2f373"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>personalSpaceEnabled</b> = true</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#ab61a1f66414c31e4ffdd15cbd8c2f373">personalSpaceEnabled</a> = true</td></tr>
+<tr class="memdesc:ab61a1f66414c31e4ffdd15cbd8c2f373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable the computing of the PersonalSocialSpace in the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a>. <br /></td></tr>
 <tr class="separator:ab61a1f66414c31e4ffdd15cbd8c2f373"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace7258ad25fea48c37b88e7de9c0b1b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace7258ad25fea48c37b88e7de9c0b1b4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>groupSpaceEnabled</b> = true</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#ace7258ad25fea48c37b88e7de9c0b1b4">groupSpaceEnabled</a> = true</td></tr>
+<tr class="memdesc:ace7258ad25fea48c37b88e7de9c0b1b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable the computing of the <a class="el" href="classGroupSocialSpace.html" title="This class is an interface to implement representation of a GroupSocialSpace. ">GroupSocialSpace</a> in the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a>. <br /></td></tr>
 <tr class="separator:ace7258ad25fea48c37b88e7de9c0b1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad72652fe3a6ab78b47bce0c0daaaab5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad72652fe3a6ab78b47bce0c0daaaab5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>borderEnabled</b> = false</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#aad72652fe3a6ab78b47bce0c0daaaab5">borderEnabled</a> = false</td></tr>
+<tr class="memdesc:aad72652fe3a6ab78b47bce0c0daaaab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable the drawing of the <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> border. <br /></td></tr>
 <tr class="separator:aad72652fe3a6ab78b47bce0c0daaaab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab106fa68828f14f788e697728b94992b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab106fa68828f14f788e697728b94992b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>infoEnabled</b> = false</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#ab106fa68828f14f788e697728b94992b">infoEnabled</a> = false</td></tr>
+<tr class="memdesc:ab106fa68828f14f788e697728b94992b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable the drawing of the <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> information. <br /></td></tr>
 <tr class="separator:ab106fa68828f14f788e697728b94992b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85c0c815d6667c3a0c0f966512df6c4d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85c0c815d6667c3a0c0f966512df6c4d"></a>
-std::priority_queue&lt; VCell, std::vector&lt; VCell &gt;, <a class="el" href="structGridMap_1_1CompaireVCell.html">CompaireVCell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>openNodesPQ</b></td></tr>
+std::priority_queue&lt; <a class="el" href="classGridMap.html#a3589e78d066f9c12b000f85f870afbc4">VCell</a>, std::vector&lt; <a class="el" href="classGridMap.html#a3589e78d066f9c12b000f85f870afbc4">VCell</a> &gt;, <a class="el" href="structGridMap_1_1CompaireVCell.html">CompaireVCell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a85c0c815d6667c3a0c0f966512df6c4d">openNodesPQ</a></td></tr>
+<tr class="memdesc:a85c0c815d6667c3a0c0f966512df6c4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Priority queue for open nodes processing in A* algorithm. <br /></td></tr>
 <tr class="separator:a85c0c815d6667c3a0c0f966512df6c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad90ffedc0a4704793d2ad9ac05d1707a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad90ffedc0a4704793d2ad9ac05d1707a"></a>
-std::map&lt; <a class="el" href="classGridCell.html">GridCell</a> *, <a class="el" href="classGridCell.html">GridCell</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>cameFrom</b></td></tr>
+std::map&lt; <a class="el" href="classGridCell.html">GridCell</a> *, <a class="el" href="classGridCell.html">GridCell</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#ad90ffedc0a4704793d2ad9ac05d1707a">cameFrom</a></td></tr>
+<tr class="memdesc:ad90ffedc0a4704793d2ad9ac05d1707a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Path relation between <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> for A* algorithm. <br /></td></tr>
 <tr class="separator:ad90ffedc0a4704793d2ad9ac05d1707a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c051634746830ef50796760cdd90105"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5c051634746830ef50796760cdd90105"></a>
-std::map&lt; <a class="el" href="classGridCell.html">GridCell</a> *, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>gScore</b></td></tr>
+std::map&lt; <a class="el" href="classGridCell.html">GridCell</a> *, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a5c051634746830ef50796760cdd90105">gScore</a></td></tr>
+<tr class="memdesc:a5c051634746830ef50796760cdd90105"><td class="mdescLeft">&#160;</td><td class="mdescRight">The score obtained in A* algorithm associated to its <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a>. <br /></td></tr>
 <tr class="separator:a5c051634746830ef50796760cdd90105"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ad10e901c423350fd0e578b256bb2f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ad10e901c423350fd0e578b256bb2f8"></a>
-<a class="el" href="classGridCell.html">GridCell</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>endCell</b></td></tr>
+<a class="el" href="classGridCell.html">GridCell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a0ad10e901c423350fd0e578b256bb2f8">endCell</a></td></tr>
+<tr class="memdesc:a0ad10e901c423350fd0e578b256bb2f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> for the path. <br /></td></tr>
 <tr class="separator:a0ad10e901c423350fd0e578b256bb2f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c3e52ee3c6cc6183ac94d3cb31d6a93"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5c3e52ee3c6cc6183ac94d3cb31d6a93"></a>
-<a class="el" href="classGridCell.html">GridCell</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>startCell</b></td></tr>
+<a class="el" href="classGridCell.html">GridCell</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridMap.html#a5c3e52ee3c6cc6183ac94d3cb31d6a93">startCell</a></td></tr>
+<tr class="memdesc:a5c3e52ee3c6cc6183ac94d3cb31d6a93"><td class="mdescLeft">&#160;</td><td class="mdescRight">The starting <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> for the path. <br /></td></tr>
 <tr class="separator:a5c3e52ee3c6cc6183ac94d3cb31d6a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classIdentifiedObject"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classIdentifiedObject')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classIdentifiedObject.html">IdentifiedObject</a></td></tr>
 <tr class="memitem:ad044a317a9b573a3d1bcd025df166eb5 inherit pro_attribs_classIdentifiedObject"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad044a317a9b573a3d1bcd025df166eb5"></a>
@@ -316,7 +341,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="separator:aa5f7b070b6dc97a64a90797a0bca56e2 inherit pro_attribs_classLocalizedObject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class manage the 2D <a class="el" href="classGridMap.html">GridMap</a> computed from the Agents <a class="el" href="classSocialSpace.html" title="This class is an abstract class for representing SocialSpace. ">SocialSpace</a> </p>
+<div class="textblock"><p>This class manage the 2D <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> computed from the Agents <a class="el" href="classSocialSpace.html" title="This class is an abstract class for representing SocialSpace. ">SocialSpace</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa5a60e82b2bf8b2005ef7c71e7080904"></a>
 <div class="memitem">
@@ -349,12 +374,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><div class="memdoc">
 
 <p>Constructor. </p>
-<p>Constructor of the <a class="el" href="classGridMap.html">GridMap</a> class</p>
+<p>Constructor of the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> class</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">world</td><td>: The main frame coordinates </td></tr>
-    <tr><td class="paramname">pop</td><td>: The population related to this <a class="el" href="classGridMap.html">GridMap</a> </td></tr>
-    <tr><td class="paramname">resolution</td><td>: The resolution of the <a class="el" href="classGridMap.html">GridMap</a>, must be a fraction of the <a class="el" href="classWorld.html" title="This class represent the main frame coordinates and its projection in pixels. ">World</a> width and height </td></tr>
+    <tr><td class="paramname">pop</td><td>: The population related to this <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> </td></tr>
+    <tr><td class="paramname">resolution</td><td>: The resolution of the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a>, must be a fraction of the <a class="el" href="classWorld.html" title="This class represent the main frame coordinates and its projection in pixels. ">World</a> width and height </td></tr>
   </table>
   </dd>
 </dl>
@@ -383,11 +408,126 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><div class="memdoc">
 
 <p>Destructor. </p>
-<p>Destructor of the <a class="el" href="classGridMap.html">GridMap</a> class </p>
+<p>Destructor of the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> class </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a9471e8e29679bb4e38f2a3011a394c4d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classGridCell.html">GridCell</a> * &gt; GridMap::constructPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build the path from A* algorithm result. </p>
+<dl class="section return"><dt>Returns</dt><dd>List of <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> representing the path found in the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a976f63082aba927b21bc0d5a83c2261d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classGridCell.html">GridCell</a> * &gt; GridMap::findPath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGridCell.html">GridCell</a> *&#160;</td>
+          <td class="paramname"><em>startCell</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classGridCell.html">GridCell</a> *&#160;</td>
+          <td class="paramname"><em>endCell</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find path between two given <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> in parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startCell</td><td>: The starting <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> </td></tr>
+    <tr><td class="paramname">endCell</td><td>: The goal <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The path found in the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> in a list of <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2041007472f0be8fffe93cb1c25d8e9f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGridCell.html">GridCell</a> * GridMap::getCell </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>cellId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> in the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> by id. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cellId</td><td>: The unique identifier of the <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The corresponding <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a>, null if not found </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5dd1d791747a4580e6c9d73a12b5953f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGridCell.html">GridCell</a> * GridMap::getCell </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>find a <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> in the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a> from its real coordinates </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>: The x coordinate of the <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> in meter </td></tr>
+    <tr><td class="paramname">y</td><td>: The y coordinate of the <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> in meter</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The corresponding <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a>, null if not found </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ab56b76831425dc0e3bf1c84d2a42bde1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -439,6 +579,60 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 <p>Simple getter. </p>
 <dl class="section return"><dt>Returns</dt><dd>personalSpaceEnabled </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aecc6cb12f384e8049a4f029a68b11f73"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classGridCell.html">GridCell</a> * &gt; GridMap::neighbors </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGridCell.html">GridCell</a> *&#160;</td>
+          <td class="paramname"><em>cell</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowDiagonalMove</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find the neighbors of a <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> in the <a class="el" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. ">GridMap</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cell</td><td>: Target <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> </td></tr>
+    <tr><td class="paramname">allowDiagonalMove</td><td>: Allow diagonal neighboring</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>List of neighbors <a class="el" href="classGridCell.html" title="This class represent a cell in the GridMap. ">GridCell</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a095c92e0c8abe909144cd9bf03fb2675"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GridMap::pathFinderNextStep </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute one step of the A* algorithm. </p>
+<dl class="section return"><dt>Returns</dt><dd>1 if pathFinder reached goal, -1 pathFinder couldn't reach the goal, 0 otherwise </dd></dl>
 
 </div>
 </div>

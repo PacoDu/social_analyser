@@ -92,6 +92,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">UDPServer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class manage the UDP Server sending computed data to a visualization software and receiving <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> data from other sensor sources.  
+ <a href="classUDPServer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="UDPServer_8h_source.html">UDPServer.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for UDPServer:</div>
 <div class="dyncontent">
@@ -102,8 +107,8 @@ Collaboration diagram for UDPServer:</div>
 <area shape="rect" id="node4" href="classIdentifiedObject.html" title="This class is an interface for class that need a unique identifier. " alt="" coords="339,81,452,108"/>
 <area shape="rect" id="node7" href="classAgent.html" title="This class represent the Agents. " alt="" coords="223,157,279,184"/>
 <area shape="rect" id="node10" href="classSocialSpace.html" title="This class is an abstract class for representing SocialSpace. " alt="" coords="71,157,165,184"/>
-<area shape="rect" id="node11" href="classGridCell.html" title="GridCell" alt="" coords="507,157,577,184"/>
-<area shape="rect" id="node13" href="classGridMap.html" title="GridMap" alt="" coords="583,276,653,303"/>
+<area shape="rect" id="node11" href="classGridCell.html" title="This class represent a cell in the GridMap. " alt="" coords="507,157,577,184"/>
+<area shape="rect" id="node13" href="classGridMap.html" title="This class manage the 2D GridMap computed from the Agents SocialSpace. " alt="" coords="583,276,653,303"/>
 <area shape="rect" id="node14" href="classPopulation.html" title="This class represent Population around the Robot. " alt="" coords="706,157,789,184"/>
 <area shape="rect" id="node5" href="classDrawnObject.html" title="This class is an interface for class that are drawn on OFX gui. " alt="" coords="569,81,667,108"/>
 <area shape="rect" id="node12" href="classPopulationManager.html" title="PopulationManager" alt="" coords="679,365,813,392"/>
@@ -118,79 +123,395 @@ Collaboration diagram for UDPServer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abbd9cca219a5ffce025458eeaeab75d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbd9cca219a5ffce025458eeaeab75d2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>UDPServer</b> (int port, <a class="el" href="classSocialPlanner.html">SocialPlanner</a> *p)</td></tr>
-<tr class="separator:abbd9cca219a5ffce025458eeaeab75d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a854b519058c67d57546486bcc9c50de9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a854b519058c67d57546486bcc9c50de9"></a>
-std::thread&#160;</td><td class="memItemRight" valign="bottom"><b>spawn</b> ()</td></tr>
+<tr class="memitem:a50889d5ad89f209c9894084a34f82e3b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a50889d5ad89f209c9894084a34f82e3b">UDPServer</a> (int port, <a class="el" href="classSocialPlanner.html">SocialPlanner</a> *sPlanner)</td></tr>
+<tr class="memdesc:a50889d5ad89f209c9894084a34f82e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a50889d5ad89f209c9894084a34f82e3b">More...</a><br /></td></tr>
+<tr class="separator:a50889d5ad89f209c9894084a34f82e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09b1a38f1a03d3832f85fe05e6370a11"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a09b1a38f1a03d3832f85fe05e6370a11">~UDPServer</a> ()</td></tr>
+<tr class="memdesc:a09b1a38f1a03d3832f85fe05e6370a11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a09b1a38f1a03d3832f85fe05e6370a11">More...</a><br /></td></tr>
+<tr class="separator:a09b1a38f1a03d3832f85fe05e6370a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a854b519058c67d57546486bcc9c50de9"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a854b519058c67d57546486bcc9c50de9">spawn</a> ()</td></tr>
+<tr class="memdesc:a854b519058c67d57546486bcc9c50de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Launch the <a class="el" href="classUDPServer.html" title="This class manage the UDP Server sending computed data to a visualization software and receiving Agen...">UDPServer</a> receive function in a new thread.  <a href="#a854b519058c67d57546486bcc9c50de9">More...</a><br /></td></tr>
 <tr class="separator:a854b519058c67d57546486bcc9c50de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae819b033ef968a8231ed1413da3c46d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae819b033ef968a8231ed1413da3c46d5"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>parse</b> ()</td></tr>
+<tr class="memitem:ae819b033ef968a8231ed1413da3c46d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#ae819b033ef968a8231ed1413da3c46d5">parse</a> ()</td></tr>
+<tr class="memdesc:ae819b033ef968a8231ed1413da3c46d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the data received by the receive thread.  <a href="#ae819b033ef968a8231ed1413da3c46d5">More...</a><br /></td></tr>
 <tr class="separator:ae819b033ef968a8231ed1413da3c46d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a215a250437888719487938c72ce3225c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a215a250437888719487938c72ce3225c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>parse_frame0</b> ()</td></tr>
+<tr class="memitem:a215a250437888719487938c72ce3225c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a215a250437888719487938c72ce3225c">parse_frame0</a> ()</td></tr>
+<tr class="memdesc:a215a250437888719487938c72ce3225c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse frame0 containing <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> data.  <a href="#a215a250437888719487938c72ce3225c">More...</a><br /></td></tr>
 <tr class="separator:a215a250437888719487938c72ce3225c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5303b2aeaec59beafd748d2938b807a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5303b2aeaec59beafd748d2938b807a2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>send_frame0</b> ()</td></tr>
+<tr class="memitem:a5303b2aeaec59beafd748d2938b807a2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a5303b2aeaec59beafd748d2938b807a2">send_frame0</a> ()</td></tr>
+<tr class="memdesc:a5303b2aeaec59beafd748d2938b807a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create frame0 containing all <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> data from the <a class="el" href="classPopulation.html" title="This class represent Population around the Robot. ">Population</a>.  <a href="#a5303b2aeaec59beafd748d2938b807a2">More...</a><br /></td></tr>
 <tr class="separator:a5303b2aeaec59beafd748d2938b807a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcbe3797150866d0c82e00941555da38"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adcbe3797150866d0c82e00941555da38"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>send_frame1</b> ()</td></tr>
+<tr class="memitem:adcbe3797150866d0c82e00941555da38"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#adcbe3797150866d0c82e00941555da38">send_frame1</a> ()</td></tr>
+<tr class="memdesc:adcbe3797150866d0c82e00941555da38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create frame1 containing the <a class="el" href="classRobot.html" title="This class represent the Robot. ">Robot</a> data.  <a href="#adcbe3797150866d0c82e00941555da38">More...</a><br /></td></tr>
 <tr class="separator:adcbe3797150866d0c82e00941555da38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79979deab54cb01a0b50ada969671d56"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79979deab54cb01a0b50ada969671d56"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>send_frame2</b> ()</td></tr>
+<tr class="memitem:a79979deab54cb01a0b50ada969671d56"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a79979deab54cb01a0b50ada969671d56">send_frame2</a> ()</td></tr>
+<tr class="memdesc:a79979deab54cb01a0b50ada969671d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create frame2 containing <a class="el" href="classRobot.html" title="This class represent the Robot. ">Robot</a> path.  <a href="#a79979deab54cb01a0b50ada969671d56">More...</a><br /></td></tr>
 <tr class="separator:a79979deab54cb01a0b50ada969671d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b774afaed3846e2f76a9c91f674606f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b774afaed3846e2f76a9c91f674606f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>send_frame3</b> ()</td></tr>
+<tr class="memitem:a6b774afaed3846e2f76a9c91f674606f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a6b774afaed3846e2f76a9c91f674606f">send_frame3</a> ()</td></tr>
+<tr class="memdesc:a6b774afaed3846e2f76a9c91f674606f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create frame3 containing <a class="el" href="classFormation.html" title="This class represent the social Formation. ">Formation</a> data.  <a href="#a6b774afaed3846e2f76a9c91f674606f">More...</a><br /></td></tr>
 <tr class="separator:a6b774afaed3846e2f76a9c91f674606f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a6bdedbe6263fd3d47a4c546d7b18a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a6bdedbe6263fd3d47a4c546d7b18a3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>do_read</b> ()</td></tr>
+<tr class="memitem:a6a6bdedbe6263fd3d47a4c546d7b18a3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a6a6bdedbe6263fd3d47a4c546d7b18a3">do_read</a> ()</td></tr>
+<tr class="memdesc:a6a6bdedbe6263fd3d47a4c546d7b18a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read input data on the receive socket.  <a href="#a6a6bdedbe6263fd3d47a4c546d7b18a3">More...</a><br /></td></tr>
 <tr class="separator:a6a6bdedbe6263fd3d47a4c546d7b18a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6b0c9536c775b43becc75ccd957ef2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6b0c9536c775b43becc75ccd957ef2d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>do_send</b> (uint8_t *sendBuffer, int sendBuffer_size)</td></tr>
+<tr class="memitem:ad6b0c9536c775b43becc75ccd957ef2d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#ad6b0c9536c775b43becc75ccd957ef2d">do_send</a> (uint8_t *sendBuffer, int sendBuffer_size)</td></tr>
+<tr class="memdesc:ad6b0c9536c775b43becc75ccd957ef2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send output data on the send socket.  <a href="#ad6b0c9536c775b43becc75ccd957ef2d">More...</a><br /></td></tr>
 <tr class="separator:ad6b0c9536c775b43becc75ccd957ef2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a466fc85beccb1b6c49566a326558181f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a466fc85beccb1b6c49566a326558181f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a466fc85beccb1b6c49566a326558181f">update</a> ()</td></tr>
+<tr class="memdesc:a466fc85beccb1b6c49566a326558181f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the received data and send every frame. <br /></td></tr>
 <tr class="separator:a466fc85beccb1b6c49566a326558181f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab30d892e78733f051ade74aa7dc0cab8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab30d892e78733f051ade74aa7dc0cab8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#ab30d892e78733f051ade74aa7dc0cab8">run</a> ()</td></tr>
+<tr class="memdesc:ab30d892e78733f051ade74aa7dc0cab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The threaded read socket. <br /></td></tr>
 <tr class="separator:ab30d892e78733f051ade74aa7dc0cab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43c0540544b344eb4826d9d80e94ce2b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43c0540544b344eb4826d9d80e94ce2b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>sendAll</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a43c0540544b344eb4826d9d80e94ce2b">sendAll</a> ()</td></tr>
+<tr class="memdesc:a43c0540544b344eb4826d9d80e94ce2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send all the frame. <br /></td></tr>
 <tr class="separator:a43c0540544b344eb4826d9d80e94ce2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1dd8ed3154b5b7b631f9ca8e4f55473"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1dd8ed3154b5b7b631f9ca8e4f55473"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateOrPushAgent</b> (int id, float x, float y, float z, float theta)</td></tr>
+<tr class="memitem:ab1dd8ed3154b5b7b631f9ca8e4f55473"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#ab1dd8ed3154b5b7b631f9ca8e4f55473">updateOrPushAgent</a> (int id, float x, float y, float z, float theta)</td></tr>
+<tr class="memdesc:ab1dd8ed3154b5b7b631f9ca8e4f55473"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update or add <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> to the <a class="el" href="classPopulation.html" title="This class represent Population around the Robot. ">Population</a>.  <a href="#ab1dd8ed3154b5b7b631f9ca8e4f55473">More...</a><br /></td></tr>
 <tr class="separator:ab1dd8ed3154b5b7b631f9ca8e4f55473"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a34c019dd10cdc8643f2fe6dfd3a15d43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34c019dd10cdc8643f2fe6dfd3a15d43"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>portNumber</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a34c019dd10cdc8643f2fe6dfd3a15d43">portNumber</a></td></tr>
+<tr class="memdesc:a34c019dd10cdc8643f2fe6dfd3a15d43"><td class="mdescLeft">&#160;</td><td class="mdescRight">The port used by the UDP Server. <br /></td></tr>
 <tr class="separator:a34c019dd10cdc8643f2fe6dfd3a15d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c3df3c08b3534a1af6ee5ecd342c2df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5c3df3c08b3534a1af6ee5ecd342c2df"></a>
-struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><b>myAddr</b></td></tr>
+struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a5c3df3c08b3534a1af6ee5ecd342c2df">myAddr</a></td></tr>
+<tr class="memdesc:a5c3df3c08b3534a1af6ee5ecd342c2df"><td class="mdescLeft">&#160;</td><td class="mdescRight">The network information of the server. <br /></td></tr>
 <tr class="separator:a5c3df3c08b3534a1af6ee5ecd342c2df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98ea45f01a27c04ebb9f2a559b5e76f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98ea45f01a27c04ebb9f2a559b5e76f3"></a>
-struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><b>fromAddr</b></td></tr>
+struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a98ea45f01a27c04ebb9f2a559b5e76f3">fromAddr</a></td></tr>
+<tr class="memdesc:a98ea45f01a27c04ebb9f2a559b5e76f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The network information of the client. <br /></td></tr>
 <tr class="separator:a98ea45f01a27c04ebb9f2a559b5e76f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aced8b309e82ca4857b2de79021df0ddc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aced8b309e82ca4857b2de79021df0ddc"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>udpReceiveSocket</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#aced8b309e82ca4857b2de79021df0ddc">udpReceiveSocket</a></td></tr>
+<tr class="memdesc:aced8b309e82ca4857b2de79021df0ddc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive socket file descriptor. <br /></td></tr>
 <tr class="separator:aced8b309e82ca4857b2de79021df0ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac282adf9b0b5769f2c82d766987b7095"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac282adf9b0b5769f2c82d766987b7095"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>udpSendSocket</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#ac282adf9b0b5769f2c82d766987b7095">udpSendSocket</a></td></tr>
+<tr class="memdesc:ac282adf9b0b5769f2c82d766987b7095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send socket file descriptor. <br /></td></tr>
 <tr class="separator:ac282adf9b0b5769f2c82d766987b7095"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9daec2c3b9615ab5057f31c02f83d7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9daec2c3b9615ab5057f31c02f83d7f"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>recvBuffer</b> [recvBuffer_size]</td></tr>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#aa9daec2c3b9615ab5057f31c02f83d7f">recvBuffer</a> [<a class="el" href="classUDPServer.html#a725d95367e21b9579e37e41276e27f47">recvBuffer_size</a>]</td></tr>
+<tr class="memdesc:aa9daec2c3b9615ab5057f31c02f83d7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive buffer. <br /></td></tr>
 <tr class="separator:aa9daec2c3b9615ab5057f31c02f83d7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac608d4c0ce01b31a57a6c616fb3fb092"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac608d4c0ce01b31a57a6c616fb3fb092"></a>
-<a class="el" href="classSocialPlanner.html">SocialPlanner</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>planner</b></td></tr>
+<a class="el" href="classSocialPlanner.html">SocialPlanner</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#ac608d4c0ce01b31a57a6c616fb3fb092">planner</a></td></tr>
+<tr class="memdesc:ac608d4c0ce01b31a57a6c616fb3fb092"><td class="mdescLeft">&#160;</td><td class="mdescRight">The related <a class="el" href="classSocialPlanner.html" title="This class is a state machine controlling the Robot behavior. ">SocialPlanner</a>. <br /></td></tr>
 <tr class="separator:ac608d4c0ce01b31a57a6c616fb3fb092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
 <tr class="memitem:a725d95367e21b9579e37e41276e27f47"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a725d95367e21b9579e37e41276e27f47"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>recvBuffer_size</b> = 122</td></tr>
+static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPServer.html#a725d95367e21b9579e37e41276e27f47">recvBuffer_size</a> = 122</td></tr>
+<tr class="memdesc:a725d95367e21b9579e37e41276e27f47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive buffer size. <br /></td></tr>
 <tr class="separator:a725d95367e21b9579e37e41276e27f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class manage the UDP Server sending computed data to a visualization software and receiving <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> data from other sensor sources. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a50889d5ad89f209c9894084a34f82e3b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UDPServer::UDPServer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classSocialPlanner.html">SocialPlanner</a> *&#160;</td>
+          <td class="paramname"><em>sPlanner</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<p>Constructor of the <a class="el" href="classUDPServer.html" title="This class manage the UDP Server sending computed data to a visualization software and receiving Agen...">UDPServer</a> class</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>: The server port </td></tr>
+    <tr><td class="paramname">sPlanner</td><td>: The <a class="el" href="classSocialPlanner.html" title="This class is a state machine controlling the Robot behavior. ">SocialPlanner</a> connected to this server </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a09b1a38f1a03d3832f85fe05e6370a11"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UDPServer::~UDPServer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+<p>Destructor of the <a class="el" href="classUDPServer.html" title="This class manage the UDP Server sending computed data to a visualization software and receiving Agen...">UDPServer</a> class </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a6a6bdedbe6263fd3d47a4c546d7b18a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UDPServer::do_read </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read input data on the receive socket. </p>
+<dl class="section return"><dt>Returns</dt><dd>number of Bytes read, 0 or negative value in case of I/O error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad6b0c9536c775b43becc75ccd957ef2d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UDPServer::do_send </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>sendBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sendBuffer_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send output data on the send socket. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sendBuffer</td><td>: The data buffer </td></tr>
+    <tr><td class="paramname">sendBuffer_size</td><td>: The size of the data buffer</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes send, 0 or negative value in case of I/O error </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae819b033ef968a8231ed1413da3c46d5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UDPServer::parse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parse the data received by the receive thread. </p>
+<dl class="section return"><dt>Returns</dt><dd>A positive number if parse was successful, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a215a250437888719487938c72ce3225c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UDPServer::parse_frame0 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parse frame0 containing <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> data. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> parsed </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5303b2aeaec59beafd748d2938b807a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UDPServer::send_frame0 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create frame0 containing all <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> data from the <a class="el" href="classPopulation.html" title="This class represent Population around the Robot. ">Population</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adcbe3797150866d0c82e00941555da38"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UDPServer::send_frame1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create frame1 containing the <a class="el" href="classRobot.html" title="This class represent the Robot. ">Robot</a> data. </p>
+<dl class="section return"><dt>Returns</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a79979deab54cb01a0b50ada969671d56"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UDPServer::send_frame2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create frame2 containing <a class="el" href="classRobot.html" title="This class represent the Robot. ">Robot</a> path. </p>
+<dl class="section return"><dt>Returns</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6b774afaed3846e2f76a9c91f674606f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UDPServer::send_frame3 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create frame3 containing <a class="el" href="classFormation.html" title="This class represent the social Formation. ">Formation</a> data. </p>
+<dl class="section return"><dt>Returns</dt><dd>0 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a854b519058c67d57546486bcc9c50de9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::thread UDPServer::spawn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Launch the <a class="el" href="classUDPServer.html" title="This class manage the UDP Server sending computed data to a visualization software and receiving Agen...">UDPServer</a> receive function in a new thread. </p>
+<dl class="section return"><dt>Returns</dt><dd>The thread created </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab1dd8ed3154b5b7b631f9ca8e4f55473"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UDPServer::updateOrPushAgent </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>theta</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update or add <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> to the <a class="el" href="classPopulation.html" title="This class represent Population around the Robot. ">Population</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>: The unique identifier of the <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> </td></tr>
+    <tr><td class="paramname">x</td><td>: The x coordinate of the <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> </td></tr>
+    <tr><td class="paramname">y</td><td>: The y coordinate of the <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> </td></tr>
+    <tr><td class="paramname">z</td><td>: The z coordinate of the <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> </td></tr>
+    <tr><td class="paramname">theta</td><td>: The angle of the <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="UDPServer_8h_source.html">UDPServer.h</a></li>
 <li>src/UDPServer.cpp</li>
