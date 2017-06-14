@@ -1,12 +1,15 @@
 <map id="src/agentManagement/Formation.h" name="src/agentManagement/Formation.h">
 <area shape="rect" id="node2" href="$Agent_8cpp.html" title="src/agentManagement\l/Agent.cpp" alt="" coords="5,95,156,136"/>
 <area shape="rect" id="node3" href="$Formation_8cpp.html" title="src/agentManagement\l/Formation.cpp" alt="" coords="180,95,331,136"/>
-<area shape="rect" id="node4" href="$Population_8h.html" title="src/agentManagement\l/Population.h" alt="" coords="457,95,608,136"/>
-<area shape="rect" id="node6" href="$PopulationManager_8h_source.html" title="src/agentManagement\l/PopulationManager.h" alt="" coords="533,273,684,315"/>
-<area shape="rect" id="node5" href="$Population_8cpp.html" title="src/agentManagement\l/Population.cpp" alt="" coords="457,184,608,225"/>
-<area shape="rect" id="node10" href="$GroupDetector_8h_source.html" title="src/socialProcessing\l/GroupDetector.h" alt="" coords="820,184,963,225"/>
-<area shape="rect" id="node11" href="$GridMap_8h_source.html" title="src/worldRepresentation\l/GridMap.h" alt="" coords="633,184,795,225"/>
-<area shape="rect" id="node7" href="$ofApp_8h_source.html" title="src/ofApp.h" alt="" coords="651,527,740,553"/>
-<area shape="rect" id="node8" href="$SocialPlanner_8h_source.html" title="src/socialProcessing\l/SocialPlanner.h" alt="" coords="515,363,657,404"/>
-<area shape="rect" id="node9" href="$UDPServer_8h_source.html" title="src/UDPServer.h" alt="" coords="485,452,607,479"/>
+<area shape="rect" id="node4" href="$Population_8h.html" title="src/agentManagement\l/Population.h" alt="" coords="407,95,557,136"/>
+<area shape="rect" id="node6" href="$PopulationManager_8h_source.html" title="src/agentManagement\l/PopulationManager.h" alt="" coords="407,273,557,315"/>
+<area shape="rect" id="node5" href="$Population_8cpp.html" title="src/agentManagement\l/Population.cpp" alt="" coords="407,184,557,225"/>
+<area shape="rect" id="node11" href="$GroupDetector_8h.html" title="src/socialProcessing\l/GroupDetector.h" alt="" coords="188,184,331,225"/>
+<area shape="rect" id="node13" href="$GridMap_8h.html" title="src/worldRepresentation\l/GridMap.h" alt="" coords="633,184,795,225"/>
+<area shape="rect" id="node7" href="$ofApp_8h_source.html" title="src/ofApp.h" alt="" coords="375,541,464,568"/>
+<area shape="rect" id="node8" href="$SocialPlanner_8h.html" title="src/socialProcessing\l/SocialPlanner.h" alt="" coords="389,363,532,404"/>
+<area shape="rect" id="node9" href="$UDPServer_8h_source.html" title="src/UDPServer.h" alt="" coords="259,459,382,486"/>
+<area shape="rect" id="node10" href="$SocialPlanner_8cpp.html" title="src/socialProcessing\l/SocialPlanner.cpp" alt="" coords="457,452,600,493"/>
+<area shape="rect" id="node12" href="$GroupDetector_8cpp.html" title="src/socialProcessing\l/GroupDetector.cpp" alt="" coords="240,273,383,315"/>
+<area shape="rect" id="node14" href="$GridMap_8cpp.html" title="src/worldRepresentation\l/GridMap.cpp" alt="" coords="582,273,745,315"/>
 </map>

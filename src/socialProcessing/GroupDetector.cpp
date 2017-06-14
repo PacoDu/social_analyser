@@ -1,14 +1,14 @@
-/*
- * GroupDetector.cpp
- *
- *  Created on: Apr 10, 2017
- *      Author: paco
+/**
+ * @file GroupDetector.cpp
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 10 avril 2017
  */
 
 #include "GroupDetector.h"
 #include "utils.h"
 #include "config.h"
-#include "ofMain.h"
 
 GroupDetector::GroupDetector(Population* pop): _population(pop) {
 }
@@ -21,12 +21,12 @@ void GroupDetector::detect() {
 	checkExistingFormation();
 
 	// Init create 1 formation for each agent
-	for(unsigned int i = 0; i < _population->getAgents().size(); i++){
-		if(!this->_population->isGrouped(this->_population->getAgents()[i])){
-//			ofLogNotice("GroupDetector::detect") << "Initialized formation for Agent#" << _population->getAgents()[i]->getId();
-			Formation* f = new Formation(this->_population->getAgents()[i], formationId);
-			formationId++;
-			_population->pushFormation(f);
+	for(auto * a: this->_population->getAgents()){
+		if(!this->_population->isGrouped(a)){
+//			ofLogNotice("GroupDetector::detect") << "Initialized formation for Agent#" << a->getId();
+			Formation* f = new Formation(a, this->formationId);
+			this->formationId++;
+			this->_population->pushFormation(f);
 		}
 	}
 
@@ -79,8 +79,8 @@ void GroupDetector::detect() {
 	}
 
 	// Update social space for each formations
-	for(unsigned int i = 0; i < this->_population->getFormations().size(); i++){
-		this->_population->getFormations()[i]->update();
+	for(auto * f: this->_population->getFormations()){
+		f->update();
 	}
 }
 
@@ -109,16 +109,16 @@ void GroupDetector::checkExistingFormation() {
 
 			// Agent is too far from the formation, remove
 			if(!isInRange || !isInFOV){
-				ofLogNotice("GroupDetector::checkExistingFormation")
-						<< "Removed Agent#" << _population->getFormations()[i]->getAgents()[j]->getId()
-						<< " from Formation#" << _population->getFormations()[i]->getId();
+//				ofLogNotice("GroupDetector::checkExistingFormation")
+//						<< "Removed Agent#" << _population->getFormations()[i]->getAgents()[j]->getId()
+//						<< " from Formation#" << _population->getFormations()[i]->getId();
 				_population->getFormations()[i]->removeAgent(_population->getFormations()[i]->getAgents()[j]->getId());
 				// Decrement index for next loop
 				j--;
 
 				// Check if formation is empty
 				if(_population->getFormations()[i]->getAgents().size() == 0){
-					ofLogNotice("GroupDetector::checkExistingFormation") << "Formation#" << _population->getFormations()[i]->getId() << " removed";
+//					ofLogNotice("GroupDetector::checkExistingFormation") << "Formation#" << _population->getFormations()[i]->getId() << " removed";
 					_population->removeFormation(_population->getFormations()[i]->getId());
 					if(i == 0)
 						break;

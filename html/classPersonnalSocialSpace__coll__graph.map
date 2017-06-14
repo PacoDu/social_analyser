@@ -1,8 +1,8 @@
 <map id="PersonnalSocialSpace" name="PersonnalSocialSpace">
-<area shape="rect" id="node7" href="$classGaussianSpace.html" title="GaussianSpace" alt="" coords="5,233,120,260"/>
-<area shape="rect" id="node2" href="$classSocialSpace.html" title="SocialSpace" alt="" coords="110,81,205,108"/>
+<area shape="rect" id="node7" href="$classGaussianSpace.html" title="This class is an implementation of the PersonnalSocialSpace. " alt="" coords="5,233,120,260"/>
+<area shape="rect" id="node2" href="$classSocialSpace.html" title="This class is an abstract class for representing SocialSpace. " alt="" coords="110,81,205,108"/>
 <area shape="rect" id="node3" href="$classIdentifiedObject.html" title="This class is an interface for class that need a unique identifier. " alt="" coords="161,5,274,32"/>
 <area shape="rect" id="node4" href="$classAgent.html" title="This class represent the Agents. " alt="" coords="180,323,236,349"/>
 <area shape="rect" id="node5" href="$classDrawnObject.html" title="This class is an interface for class that are drawn on OFX gui. " alt="" coords="291,233,389,260"/>
-<area shape="rect" id="node6" href="$classLocalizedObject.html" title="LocalizedObject" alt="" coords="287,157,401,184"/>
+<area shape="rect" id="node6" href="$classLocalizedObject.html" title="This class is an interface for object that are localized in real World. " alt="" coords="287,157,401,184"/>
 </map>

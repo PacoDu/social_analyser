@@ -1,7 +1,7 @@
 <map id="SocialSpace" name="SocialSpace">
-<area shape="rect" id="node3" href="$classGroupSocialSpace.html" title="GroupSocialSpace" alt="" coords="5,155,136,181"/>
-<area shape="rect" id="node5" href="$classPersonnalSocialSpace.html" title="PersonnalSocialSpace" alt="" coords="159,155,313,181"/>
+<area shape="rect" id="node3" href="$classGroupSocialSpace.html" title="This class is an interface to implement representation of a GroupSocialSpace. " alt="" coords="5,155,136,181"/>
+<area shape="rect" id="node5" href="$classPersonnalSocialSpace.html" title="This class is an interface to implement representation of a PersonnalSocialSpace. ..." alt="" coords="159,155,313,181"/>
 <area shape="rect" id="node2" href="$classIdentifiedObject.html" title="This class is an interface for class that need a unique identifier. " alt="" coords="97,5,210,32"/>
-<area shape="rect" id="node4" href="$classOSpace.html" title="OSpace" alt="" coords="36,229,105,256"/>
-<area shape="rect" id="node6" href="$classGaussianSpace.html" title="GaussianSpace" alt="" coords="179,229,293,256"/>
+<area shape="rect" id="node4" href="$classOSpace.html" title="This class is an implementation of the GroupSocialSpace. " alt="" coords="36,229,105,256"/>
+<area shape="rect" id="node6" href="$classGaussianSpace.html" title="This class is an implementation of the PersonnalSocialSpace. " alt="" coords="179,229,293,256"/>
 </map>

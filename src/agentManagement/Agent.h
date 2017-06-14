@@ -5,6 +5,7 @@
  * @version 0.1
  * @date 24 mars 2017
  */
+
 #ifndef SRC_AGENT_H_
 #define SRC_AGENT_H_
 
@@ -50,7 +51,7 @@ public:
 	 */
 	Agent * findNearestNeighbor(std::vector<Agent*> agents);
 
-#ifdef USE_OFX
+#if USE_OFX
 	/**
 	 * @brief Openframeworks GUI drawing for visualization
 	 *

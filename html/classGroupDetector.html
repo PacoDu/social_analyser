@@ -91,6 +91,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">GroupDetector Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class is dedicated to process every Agents in the <a class="el" href="classPopulation.html" title="This class represent Population around the Robot. ">Population</a> and create every <a class="el" href="classFormation.html" title="This class represent the social Formation. ">Formation</a>.  
+ <a href="classGroupDetector.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="GroupDetector_8h_source.html">GroupDetector.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for GroupDetector:</div>
 <div class="dyncontent">
@@ -99,35 +104,115 @@ Collaboration diagram for GroupDetector:</div>
 <area shape="rect" id="node2" href="classPopulation.html" title="This class represent Population around the Robot. " alt="" coords="151,157,234,184"/>
 <area shape="rect" id="node3" href="classIdentifiedObject.html" title="This class is an interface for class that need a unique identifier. " alt="" coords="5,81,119,108"/>
 <area shape="rect" id="node4" href="classDrawnObject.html" title="This class is an interface for class that are drawn on OFX gui. " alt="" coords="143,81,242,108"/>
-<area shape="rect" id="node5" href="classLocalizedObject.html" title="LocalizedObject" alt="" coords="135,5,250,32"/>
+<area shape="rect" id="node5" href="classLocalizedObject.html" title="This class is an interface for object that are localized in real World. " alt="" coords="135,5,250,32"/>
 <area shape="rect" id="node6" href="classAgentContainer.html" title="This class is an interface for class that contains multiples Agents. " alt="" coords="266,81,378,108"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a85c950492809247f6ff0649c5101ce81"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85c950492809247f6ff0649c5101ce81"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GroupDetector</b> (<a class="el" href="classPopulation.html">Population</a> *pop)</td></tr>
+<tr class="memitem:a85c950492809247f6ff0649c5101ce81"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroupDetector.html#a85c950492809247f6ff0649c5101ce81">GroupDetector</a> (<a class="el" href="classPopulation.html">Population</a> *pop)</td></tr>
+<tr class="memdesc:a85c950492809247f6ff0649c5101ce81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a85c950492809247f6ff0649c5101ce81">More...</a><br /></td></tr>
 <tr class="separator:a85c950492809247f6ff0649c5101ce81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f97c96bbd5c874e788371dffa074001"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f97c96bbd5c874e788371dffa074001"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>detect</b> ()</td></tr>
+<tr class="memitem:a5b44e047c1f6864e665d917ba7da8a51"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroupDetector.html#a5b44e047c1f6864e665d917ba7da8a51">~GroupDetector</a> ()</td></tr>
+<tr class="memdesc:a5b44e047c1f6864e665d917ba7da8a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#a5b44e047c1f6864e665d917ba7da8a51">More...</a><br /></td></tr>
+<tr class="separator:a5b44e047c1f6864e665d917ba7da8a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f97c96bbd5c874e788371dffa074001"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroupDetector.html#a4f97c96bbd5c874e788371dffa074001">detect</a> ()</td></tr>
+<tr class="memdesc:a4f97c96bbd5c874e788371dffa074001"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find and create every Formations in the <a class="el" href="classPopulation.html" title="This class represent Population around the Robot. ">Population</a>.  <a href="#a4f97c96bbd5c874e788371dffa074001">More...</a><br /></td></tr>
 <tr class="separator:a4f97c96bbd5c874e788371dffa074001"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bee5ba0c6e18594eb810e21ee75bac4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8bee5ba0c6e18594eb810e21ee75bac4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>checkExistingFormation</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroupDetector.html#a8bee5ba0c6e18594eb810e21ee75bac4">checkExistingFormation</a> ()</td></tr>
+<tr class="memdesc:a8bee5ba0c6e18594eb810e21ee75bac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if existing Formations are empty or if <a class="el" href="classAgent.html" title="This class represent the Agents. ">Agent</a> is alone in a <a class="el" href="classFormation.html" title="This class represent the social Formation. ">Formation</a> and remove them. <br /></td></tr>
 <tr class="separator:a8bee5ba0c6e18594eb810e21ee75bac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a773ce547e63eac75d32d964d70180cd9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a773ce547e63eac75d32d964d70180cd9"></a>
-<a class="el" href="classPopulation.html">Population</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_population</b></td></tr>
+<a class="el" href="classPopulation.html">Population</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroupDetector.html#a773ce547e63eac75d32d964d70180cd9">_population</a></td></tr>
+<tr class="memdesc:a773ce547e63eac75d32d964d70180cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classPopulation.html" title="This class represent Population around the Robot. ">Population</a> processed by the <a class="el" href="classGroupDetector.html" title="This class is dedicated to process every Agents in the Population and create every Formation...">GroupDetector</a>. <br /></td></tr>
 <tr class="separator:a773ce547e63eac75d32d964d70180cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cb0f3a229ac96d133f657e306d5d685"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2cb0f3a229ac96d133f657e306d5d685"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>formationId</b> = 0</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroupDetector.html#a2cb0f3a229ac96d133f657e306d5d685">formationId</a> = 0</td></tr>
+<tr class="memdesc:a2cb0f3a229ac96d133f657e306d5d685"><td class="mdescLeft">&#160;</td><td class="mdescRight">The actual increment for unique identifier of the Formations created. <br /></td></tr>
 <tr class="separator:a2cb0f3a229ac96d133f657e306d5d685"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class is dedicated to process every Agents in the <a class="el" href="classPopulation.html" title="This class represent Population around the Robot. ">Population</a> and create every <a class="el" href="classFormation.html" title="This class represent the social Formation. ">Formation</a>. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>This class should be an interface and actual logic should be implemented has BasicGroupDetector </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a85c950492809247f6ff0649c5101ce81"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GroupDetector::GroupDetector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPopulation.html">Population</a> *&#160;</td>
+          <td class="paramname"><em>pop</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<p>Constructor of the <a class="el" href="classGroupDetector.html" title="This class is dedicated to process every Agents in the Population and create every Formation...">GroupDetector</a> class</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pop</td><td>: The <a class="el" href="classPopulation.html" title="This class represent Population around the Robot. ">Population</a> that the detector will process </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5b44e047c1f6864e665d917ba7da8a51"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GroupDetector::~GroupDetector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+<p>Destructor of the <a class="el" href="classGroupDetector.html" title="This class is dedicated to process every Agents in the Population and create every Formation...">GroupDetector</a> class, it does not call the related <a class="el" href="classPopulation.html" title="This class represent Population around the Robot. ">Population</a> destructor </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a4f97c96bbd5c874e788371dffa074001"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GroupDetector::detect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find and create every Formations in the <a class="el" href="classPopulation.html" title="This class represent Population around the Robot. ">Population</a>. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Fix group detection, it doesn't work in some cases </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/socialProcessing/<a class="el" href="GroupDetector_8h_source.html">GroupDetector.h</a></li>
-<li>src/socialProcessing/GroupDetector.cpp</li>
+<li>src/socialProcessing/<a class="el" href="GroupDetector_8cpp.html">GroupDetector.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

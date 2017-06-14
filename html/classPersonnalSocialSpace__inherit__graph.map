@@ -1,5 +1,5 @@
 <map id="PersonnalSocialSpace" name="PersonnalSocialSpace">
-<area shape="rect" id="node4" href="$classGaussianSpace.html" title="GaussianSpace" alt="" coords="25,229,139,256"/>
-<area shape="rect" id="node2" href="$classSocialSpace.html" title="SocialSpace" alt="" coords="35,80,129,107"/>
+<area shape="rect" id="node4" href="$classGaussianSpace.html" title="This class is an implementation of the PersonnalSocialSpace. " alt="" coords="25,229,139,256"/>
+<area shape="rect" id="node2" href="$classSocialSpace.html" title="This class is an abstract class for representing SocialSpace. " alt="" coords="35,80,129,107"/>
 <area shape="rect" id="node3" href="$classIdentifiedObject.html" title="This class is an interface for class that need a unique identifier. " alt="" coords="25,5,139,32"/>
 </map>

@@ -1,8 +1,9 @@
-/*
- * SocialSpace.cpp
- *
- *  Created on: Mar 27, 2017
- *      Author: paco
+/**
+ * @file SocialSpace.cpp
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 27 mars 2017
  */
 
 #include "SocialSpace.h"

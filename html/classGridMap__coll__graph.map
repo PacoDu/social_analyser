@@ -3,6 +3,6 @@
 <area shape="rect" id="node5" href="$classGridCell.html" title="GridCell" alt="" coords="58,157,127,184"/>
 <area shape="rect" id="node6" href="$classPopulation.html" title="This class represent Population around the Robot. " alt="" coords="151,157,234,184"/>
 <area shape="rect" id="node3" href="$classDrawnObject.html" title="This class is an interface for class that are drawn on OFX gui. " alt="" coords="143,81,242,108"/>
-<area shape="rect" id="node4" href="$classLocalizedObject.html" title="LocalizedObject" alt="" coords="135,5,250,32"/>
+<area shape="rect" id="node4" href="$classLocalizedObject.html" title="This class is an interface for object that are localized in real World. " alt="" coords="135,5,250,32"/>
 <area shape="rect" id="node7" href="$classAgentContainer.html" title="This class is an interface for class that contains multiples Agents. " alt="" coords="266,81,378,108"/>
 </map>

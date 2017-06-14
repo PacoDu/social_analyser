@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['id',['id',['../classIdentifiedObject.html#ad044a317a9b573a3d1bcd025df166eb5',1,'IdentifiedObject']]],
-  ['interactiondirection',['interactionDirection',['../classFormation.html#aa68570fc8c85c172fadaf93d30367371',1,'Formation']]],
-  ['interactionposition',['interactionPosition',['../classFormation.html#a5e33d98c2b9ec916e601ae27d6c7f2ef',1,'Formation']]],
-  ['interactionpotential',['interactionPotential',['../classFormation.html#afac1af6d51a6b8a910df4574cb7a6931',1,'Formation']]]
+  ['center',['center',['../classOSpace.html#a7ec22529d88e51876ff7eba9cdcdca05',1,'OSpace']]],
+  ['centroids',['centroids',['../classOSpace.html#aaa01a3a29082df6be390aa1869946af7',1,'OSpace']]],
+  ['covarmatrix',['covarMatrix',['../classOSpace.html#af7b7e14739162e0b40da89484c351dd7',1,'OSpace']]]
 ];

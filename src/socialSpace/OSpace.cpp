@@ -1,8 +1,9 @@
-/*
- * OSpace.cpp
- *
- *  Created on: Mar 27, 2017
- *      Author: paco
+/**
+ * @file OSpace.cpp
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 27 mars 2017
  */
 
 #include "OSpace.h"
@@ -34,7 +35,7 @@ void OSpace::update() {
 	this->computeCovarMatrix();
 }
 
-
+#if USE_OFX
 void OSpace::draw(World* world) {
 	Vector3d pView = real_to_pixel(world, center);
 	ofPushMatrix();
@@ -91,12 +92,13 @@ void OSpace::draw(World* world) {
 		ofPopMatrix();
 	}
 }
+#endif
 
 // Getter & Setter
 void OSpace::computegCenter() {
 	this->gCenter << 0,0,0 ;
-	for(unsigned int i=0; i < this->_agents.size(); i++){
-		this->gCenter += this->_agents[i]->getPosition();
+	for(auto * a: this->_agents){
+		this->gCenter += a->getPosition();
 	}
 
 	this->gCenter /= this->_agents.size();
@@ -123,12 +125,12 @@ void OSpace::sortAgents() {
 //	}
 
 	if(shifted) this->sortAgents();
-	else{
+//	else{
 //		ofLogNotice("OSpace::sortAgents") << "Agents sorted conter clock wise";
-		for(unsigned int i=0; i < this->_agents.size(); i++){
+//		for(unsigned int i=0; i < this->_agents.size(); i++){
 //			ofLogNotice("OSpace::sortAgents") << i << ": Agent#" << this->_agents[i]->getId();
-		}
-	}
+//		}
+//	}
 }
 
 bool OSpace::less(Vector3d a, Vector3d b)

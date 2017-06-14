@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['population_2ecpp',['Population.cpp',['../Population_8cpp.html',1,'']]],
-  ['population_2eh',['Population.h',['../Population_8h.html',1,'']]]
+  ['identifiedobject_2ecpp',['IdentifiedObject.cpp',['../IdentifiedObject_8cpp.html',1,'']]],
+  ['identifiedobject_2eh',['IdentifiedObject.h',['../IdentifiedObject_8h.html',1,'']]]
 ];

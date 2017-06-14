@@ -1,8 +1,9 @@
-/*
- * GaussianSpace.cpp
- *
- *  Created on: Mar 28, 2017
- *      Author: paco
+/**
+ * @file GaussianSpace.cpp
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 28 mars 2017
  */
 
 #include "GaussianSpace.h"

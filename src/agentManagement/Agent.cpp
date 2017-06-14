@@ -12,7 +12,7 @@
 #include <limits>
 #include "utils.h"
 
-#ifdef USE_OFX
+#if USE_OFX
 	#include "ofMain.h"
 #endif
 

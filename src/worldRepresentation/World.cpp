@@ -1,12 +1,16 @@
-/*
- * World.cpp
- *
- *  Created on: Mar 29, 2017
- *      Author: paco
+/**
+ * @file World.h
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 29 mars 2017
  */
 
 #include "World.h"
-#include "ofMain.h"
+
+#if USE_OFX
+	#include "ofMain.h"
+#endif
 
 World::World(double w, double h, int wv, int hv, Vector3d position, double theta):
 		DrawnObject(position,theta), width(w), height(h), widthView(wv), heightView(hv){
@@ -16,6 +20,7 @@ World::~World() {
 	// TODO Auto-generated destructor stub
 }
 
+#if USE_OFX
 void World::draw(World* world) {
 	// TODO dirty
 	this->draw();
@@ -26,6 +31,7 @@ void World::draw(){
 	ofDrawRectangle(this->getX(), this->getY(), this->widthView, this->heightView);
 	ofFill();
 }
+#endif
 
 double World::getHeight() const {
 	return height;

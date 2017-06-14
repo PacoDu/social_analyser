@@ -1,8 +1,9 @@
-/*
- * PersonnalSocialSpace.cpp
- *
- *  Created on: Mar 29, 2017
- *      Author: paco
+/**
+ * @file PersonnalSocialSpace.cpp
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 29 mars 2017
  */
 
 #include "PersonnalSocialSpace.h"

@@ -1,20 +1,9 @@
 var searchData=
 [
-  ['gaussianspace',['GaussianSpace',['../classGaussianSpace.html',1,'']]],
-  ['getagent',['getAgent',['../classAgentContainer.html#a140e5a8416b3c0d4fe917641f3dc35de',1,'AgentContainer']]],
-  ['getagents',['getAgents',['../classAgentContainer.html#a9b6f87fa0c8b3ca9d49e2cff3d1c1343',1,'AgentContainer']]],
-  ['getformations',['getFormations',['../classPopulation.html#aaca5634d7b5cc94d2268812e492e3c13',1,'Population']]],
-  ['getfovintersection',['getFOVIntersection',['../classAgent.html#aef81d0795b37875777ca21d6d866ce31',1,'Agent']]],
-  ['gethighestformationinteractionpotential',['getHighestFormationInteractionPotential',['../classPopulation.html#aa39ee4e80d5cfd38a946395be1c49177',1,'Population']]],
-  ['getid',['getId',['../classIdentifiedObject.html#a1fdb1d89faff5712c9016c4fdd55bf47',1,'IdentifiedObject']]],
-  ['getinteractiondirection',['getInteractionDirection',['../classFormation.html#aa7b5cef840f4d1faefa49ef27e72c8f9',1,'Formation']]],
-  ['getinteractionposition',['getInteractionPosition',['../classFormation.html#af6cf9389675ea316079ef643f55ffaae',1,'Formation']]],
-  ['getinteractionpotential',['getInteractionPotential',['../classFormation.html#a1e7f7add3878012188316df803ce5677',1,'Formation']]],
-  ['getrelatedformation',['getRelatedFormation',['../classPopulation.html#ad13aa87e5d1088faeca0071f8e3637d0',1,'Population::getRelatedFormation(unsigned int agentId)'],['../classPopulation.html#a3ebbdff664c498dcdbcdf9941c710b6f',1,'Population::getRelatedFormation(Agent *a)']]],
-  ['getsocialspace',['getSocialSpace',['../classAgent.html#aa42fced9ebe2bfec4b789ae5ed714bba',1,'Agent::getSocialSpace()'],['../classFormation.html#a51d07ac063aa2897f2c756dfea14ff5e',1,'Formation::getSocialSpace()']]],
-  ['gridcell',['GridCell',['../classGridCell.html',1,'']]],
-  ['gridmap',['GridMap',['../classGridMap.html',1,'']]],
-  ['groupdetector',['GroupDetector',['../classGroupDetector.html',1,'']]],
-  ['groupsocialspace',['GroupSocialSpace',['../classGroupSocialSpace.html',1,'']]],
-  ['gui',['Gui',['../classGui.html',1,'']]]
+  ['findinteractionposition',['findInteractionPosition',['../classFormation.html#a5fd3207fbc27069771949e48c6fed283',1,'Formation']]],
+  ['findnearestneighbor',['findNearestNeighbor',['../classAgent.html#a7ccfca9f14ee9d5afda1ac12effd1a33',1,'Agent']]],
+  ['formation',['Formation',['../classFormation.html',1,'Formation'],['../classFormation.html#a5ec34c4941defd2b033f1f03bb42671f',1,'Formation::Formation(std::vector&lt; Agent * &gt; agents, int id=0)'],['../classFormation.html#a9c1013f55ac92dc20a81abc47c7849f2',1,'Formation::Formation(Agent *agent, int id=0)'],['../classFormation.html#a7e1681f1a7b0e540f3c011179d5e8f12',1,'Formation::Formation(int id=0)']]],
+  ['formation_2ecpp',['Formation.cpp',['../Formation_8cpp.html',1,'']]],
+  ['formation_2eh',['Formation.h',['../Formation_8h.html',1,'']]],
+  ['formationid',['formationId',['../classGroupDetector.html#a2cb0f3a229ac96d133f657e306d5d685',1,'GroupDetector']]]
 ];

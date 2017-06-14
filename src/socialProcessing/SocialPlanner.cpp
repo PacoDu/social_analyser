@@ -1,8 +1,9 @@
-/*
- * SocialPlanner.cpp
- *
- *  Created on: Jun 7, 2017
- *      Author: paco
+/**
+ * @file SocialPlanner.cpp
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 7 juin 2017
  */
 
 #include "SocialPlanner.h"
@@ -48,7 +49,7 @@ void SocialPlanner::seek_interaction() {
 	if(manager->getHighestFormationInteractionPotential() && deltaT.count() > SEEK_INTERACTION_MIN_TIME){
 		double potential = manager->getHighestFormationInteractionPotential()->getInteractionPotential();
 
-		if(potential > 0.7){
+		if(potential > INTERACTION_POTENTIAL_THRESHOLD){
 			robot->resetPathFinding();
 			this->state = ENGAGEMENT;
 			seekStarted = 0;

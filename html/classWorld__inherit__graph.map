@@ -1,4 +1,4 @@
 <map id="World" name="World">
 <area shape="rect" id="node2" href="$classDrawnObject.html" title="This class is an interface for class that are drawn on OFX gui. " alt="" coords="13,80,112,107"/>
-<area shape="rect" id="node3" href="$classLocalizedObject.html" title="LocalizedObject" alt="" coords="5,5,120,32"/>
+<area shape="rect" id="node3" href="$classLocalizedObject.html" title="This class is an interface for object that are localized in real World. " alt="" coords="5,5,120,32"/>
 </map>

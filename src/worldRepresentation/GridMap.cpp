@@ -1,8 +1,9 @@
-/*
- * GridMap.cpp
- *
- *  Created on: Apr 6, 2017
- *      Author: paco
+/**
+ * @file GridMap.cpp
+ * @brief
+ * @author Paco Dupont
+ * @version 0.1
+ * @date 6 avril 2017
  */
 
 #include "GridMap.h"
@@ -44,6 +45,7 @@ GridMap::~GridMap() {
 	}
 }
 
+#if USE_OFX
 void GridMap::draw(World* world) {
 	for(unsigned int i=0; i < this->height/this->resolution; i++){
 		for(unsigned int j=0; j < this->width/this->resolution; j++){
@@ -51,6 +53,7 @@ void GridMap::draw(World* world) {
 		}
 	}
 }
+#endif
 
 void GridMap::compute() {
 	minValue = INFINITY;

@@ -1,6 +1,6 @@
 <map id="AgentContainer" name="AgentContainer">
 <area shape="rect" id="node2" href="$classFormation.html" title="This class represent the social Formation. " alt="" coords="5,80,85,107"/>
-<area shape="rect" id="node3" href="$classGroupSocialSpace.html" title="GroupSocialSpace" alt="" coords="109,80,240,107"/>
+<area shape="rect" id="node3" href="$classGroupSocialSpace.html" title="This class is an interface to implement representation of a GroupSocialSpace. " alt="" coords="109,80,240,107"/>
 <area shape="rect" id="node5" href="$classPopulation.html" title="This class represent Population around the Robot. " alt="" coords="264,80,347,107"/>
-<area shape="rect" id="node4" href="$classOSpace.html" title="OSpace" alt="" coords="140,155,209,181"/>
+<area shape="rect" id="node4" href="$classOSpace.html" title="This class is an implementation of the GroupSocialSpace. " alt="" coords="140,155,209,181"/>
 </map>

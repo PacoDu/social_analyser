@@ -1,19 +1,19 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" href="$classAgentContainer.html" title="This class is an interface for class that contains multiples Agents. " alt="" coords="169,85,281,111"/>
 <area shape="rect" id="node2" href="$classFormation.html" title="This class represent the social Formation. " alt="" coords="356,85,436,111"/>
-<area shape="rect" id="node3" href="$classGroupSocialSpace.html" title="GroupSocialSpace" alt="" coords="522,9,653,35"/>
+<area shape="rect" id="node3" href="$classGroupSocialSpace.html" title="This class is an interface to implement representation of a GroupSocialSpace. " alt="" coords="522,9,653,35"/>
 <area shape="rect" id="node5" href="$classPopulation.html" title="This class represent Population around the Robot. " alt="" coords="355,135,437,162"/>
-<area shape="rect" id="node4" href="$classOSpace.html" title="OSpace" alt="" coords="735,301,804,327"/>
+<area shape="rect" id="node4" href="$classOSpace.html" title="This class is an implementation of the GroupSocialSpace. " alt="" coords="735,301,804,327"/>
 <area shape="rect" id="node6" href="$classIdentifiedObject.html" title="This class is an interface for class that need a unique identifier. " alt="" coords="168,186,281,213"/>
 <area shape="rect" id="node7" href="$classAgent.html" title="This class represent the Agents. " alt="" coords="368,237,424,263"/>
 <area shape="rect" id="node8" href="$classGridCell.html" title="GridCell" alt="" coords="361,287,431,314"/>
 <area shape="rect" id="node9" href="$classGridMap.html" title="GridMap" alt="" coords="361,338,431,365"/>
 <area shape="rect" id="node10" href="$classRobot.html" title="This class represent the Robot. " alt="" coords="367,186,425,213"/>
-<area shape="rect" id="node11" href="$classSocialSpace.html" title="SocialSpace" alt="" coords="349,34,443,61"/>
-<area shape="rect" id="node12" href="$classPersonnalSocialSpace.html" title="PersonnalSocialSpace" alt="" coords="511,59,664,86"/>
-<area shape="rect" id="node13" href="$classGaussianSpace.html" title="GaussianSpace" alt="" coords="712,59,827,86"/>
-<area shape="rect" id="node14" href="$classLocalizedObject.html" title="LocalizedObject" alt="" coords="5,287,120,314"/>
+<area shape="rect" id="node11" href="$classSocialSpace.html" title="This class is an abstract class for representing SocialSpace. " alt="" coords="349,34,443,61"/>
+<area shape="rect" id="node12" href="$classPersonnalSocialSpace.html" title="This class is an interface to implement representation of a PersonnalSocialSpace. ..." alt="" coords="511,59,664,86"/>
+<area shape="rect" id="node13" href="$classGaussianSpace.html" title="This class is an implementation of the PersonnalSocialSpace. " alt="" coords="712,59,827,86"/>
+<area shape="rect" id="node14" href="$classLocalizedObject.html" title="This class is an interface for object that are localized in real World. " alt="" coords="5,287,120,314"/>
 <area shape="rect" id="node15" href="$classDrawnObject.html" title="This class is an interface for class that are drawn on OFX gui. " alt="" coords="175,287,274,314"/>
 <area shape="rect" id="node16" href="$classPopulationManager.html" title="PopulationManager" alt="" coords="329,439,463,466"/>
-<area shape="rect" id="node17" href="$classWorld.html" title="World" alt="" coords="368,389,424,415"/>
+<area shape="rect" id="node17" href="$classWorld.html" title="This class represent the main frame coordinates and its projection in pixels. " alt="" coords="368,389,424,415"/>
 </map>

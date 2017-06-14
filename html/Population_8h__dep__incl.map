@@ -1,9 +1,12 @@
 <map id="src/agentManagement/Population.h" name="src/agentManagement/Population.h">
 <area shape="rect" id="node2" href="$Population_8cpp.html" title="src/agentManagement\l/Population.cpp" alt="" coords="5,95,156,136"/>
 <area shape="rect" id="node3" href="$PopulationManager_8h_source.html" title="src/agentManagement\l/PopulationManager.h" alt="" coords="285,184,436,225"/>
-<area shape="rect" id="node7" href="$GroupDetector_8h_source.html" title="src/socialProcessing\l/GroupDetector.h" alt="" coords="180,95,323,136"/>
-<area shape="rect" id="node8" href="$GridMap_8h_source.html" title="src/worldRepresentation\l/GridMap.h" alt="" coords="398,95,561,136"/>
-<area shape="rect" id="node4" href="$ofApp_8h_source.html" title="src/ofApp.h" alt="" coords="329,437,419,464"/>
-<area shape="rect" id="node5" href="$SocialPlanner_8h_source.html" title="src/socialProcessing\l/SocialPlanner.h" alt="" coords="313,273,456,315"/>
-<area shape="rect" id="node6" href="$UDPServer_8h_source.html" title="src/UDPServer.h" alt="" coords="313,363,435,389"/>
+<area shape="rect" id="node8" href="$GroupDetector_8h.html" title="src/socialProcessing\l/GroupDetector.h" alt="" coords="180,95,323,136"/>
+<area shape="rect" id="node10" href="$GridMap_8h.html" title="src/worldRepresentation\l/GridMap.h" alt="" coords="429,95,591,136"/>
+<area shape="rect" id="node4" href="$ofApp_8h_source.html" title="src/ofApp.h" alt="" coords="316,452,405,479"/>
+<area shape="rect" id="node5" href="$SocialPlanner_8h.html" title="src/socialProcessing\l/SocialPlanner.h" alt="" coords="289,273,432,315"/>
+<area shape="rect" id="node6" href="$UDPServer_8h_source.html" title="src/UDPServer.h" alt="" coords="299,370,422,397"/>
+<area shape="rect" id="node7" href="$SocialPlanner_8cpp.html" title="src/socialProcessing\l/SocialPlanner.cpp" alt="" coords="447,363,589,404"/>
+<area shape="rect" id="node9" href="$GroupDetector_8cpp.html" title="src/socialProcessing\l/GroupDetector.cpp" alt="" coords="31,184,173,225"/>
+<area shape="rect" id="node11" href="$GridMap_8cpp.html" title="src/worldRepresentation\l/GridMap.cpp" alt="" coords="461,184,623,225"/>
 </map>
