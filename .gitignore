@@ -1,3 +1,5 @@
 obj/
 bin/social_analyser_debug
 core
+doc/latex/*
+!doc/latex/refman.pdf
