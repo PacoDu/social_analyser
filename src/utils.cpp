@@ -96,3 +96,9 @@ double lerp(double start, double stop, double amt) {
 Vector3d vectLerp(Vector3d start, Vector3d stop, double amt) {
 	return start + (stop-start) * amt;
 }
+
+double signed_angle(Vector3d a, Vector3d b) {
+	double angle = atan2(b.y(), b.x()) - atan2(a.y(), a.x());
+
+	return angle;
+}

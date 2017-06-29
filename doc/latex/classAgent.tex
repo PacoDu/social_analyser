@@ -1,0 +1,172 @@
+\hypertarget{classAgent}{}\section{Agent Class Reference}
+\label{classAgent}\index{Agent@{Agent}}
+
+
+This class represent the Agents.  
+
+
+
+
+{\ttfamily \#include $<$Agent.\+h$>$}
+
+
+
+Inheritance diagram for Agent\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{classAgent__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Agent\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{classAgent__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAgent_add6bcb014f4572bf90e489dbd35df597}{Agent} (Vector3d \hyperlink{classLocalizedObject_a340834deefc9e5c39da1f26c4ebf4f8c}{position}=Vector3d(), double \hyperlink{classLocalizedObject_aa5f7b070b6dc97a64a90797a0bca56e2}{theta}=0, int \hyperlink{classIdentifiedObject_ad044a317a9b573a3d1bcd025df166eb5}{id}=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classAgent_ab8dd8d152605cf1339fed595376e83cb}{$\sim$\+Agent} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hyperlink{classAgent}{Agent} $\ast$ \hyperlink{classAgent_a7ccfca9f14ee9d5afda1ac12effd1a33}{find\+Nearest\+Neighbor} (std\+::vector$<$ \hyperlink{classAgent}{Agent} $\ast$ $>$ agents)
+\begin{DoxyCompactList}\small\item\em Find the nearest neighbor available in the list passed in parameters. \end{DoxyCompactList}\item 
+Vector3d $\ast$ \hyperlink{classAgent_aef81d0795b37875777ca21d6d866ce31}{get\+F\+O\+V\+Intersection} (\hyperlink{classAgent}{Agent} $\ast$agent)
+\begin{DoxyCompactList}\small\item\em Find the intersection point in the field of view with the other \hyperlink{classAgent}{Agent} passed in parameter. \end{DoxyCompactList}\item 
+\hyperlink{classGaussianSpace}{Gaussian\+Space} $\ast$ \hyperlink{classAgent_aa42fced9ebe2bfec4b789ae5ed714bba}{get\+Social\+Space} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classAgent_a6b113ba7509327039373927a2e8a4e4c}{set\+Social\+Space} (\hyperlink{classGaussianSpace}{Gaussian\+Space} $\ast$social\+Space)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGaussianSpace}{Gaussian\+Space} $\ast$ \hyperlink{classAgent_a4ccee7065613fc2ae660ccdf29097daa}{p\+Social\+Space}\hypertarget{classAgent_a4ccee7065613fc2ae660ccdf29097daa}{}\label{classAgent_a4ccee7065613fc2ae660ccdf29097daa}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classPersonnalSocialSpace}{Personnal\+Social\+Space} related to the \hyperlink{classAgent}{Agent}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represent the Agents. 
+
+This class manage the Agents detected around the robot 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Agent@{Agent}!Agent@{Agent}}
+\index{Agent@{Agent}!Agent@{Agent}}
+\subsubsection[{\texorpdfstring{Agent(\+Vector3d position=\+Vector3d(), double theta=0, int id=0)}{Agent(Vector3d position=Vector3d(), double theta=0, int id=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Agent\+::\+Agent (
+\begin{DoxyParamCaption}
+\item[{Vector3d}]{position = {\ttfamily Vector3d()}, }
+\item[{double}]{theta = {\ttfamily 0}, }
+\item[{int}]{id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgent_add6bcb014f4572bf90e489dbd35df597}{}\label{classAgent_add6bcb014f4572bf90e489dbd35df597}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classAgent}{Agent} class, initialize a \hyperlink{classPersonnalSocialSpace}{Personnal\+Social\+Space}
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \+: Initial position of the \hyperlink{classAgent}{Agent} in \hyperlink{classWorld}{World} \\
+\hline
+{\em theta} & \+: Initial angle of the \hyperlink{classAgent}{Agent} \\
+\hline
+{\em id} & \+: Unique identifier of the \hyperlink{classAgent}{Agent} \\
+\hline
+\end{DoxyParams}
+\index{Agent@{Agent}!````~Agent@{$\sim$\+Agent}}
+\index{````~Agent@{$\sim$\+Agent}!Agent@{Agent}}
+\subsubsection[{\texorpdfstring{$\sim$\+Agent()}{~Agent()}}]{\setlength{\rightskip}{0pt plus 5cm}Agent\+::$\sim$\+Agent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgent_ab8dd8d152605cf1339fed595376e83cb}{}\label{classAgent_ab8dd8d152605cf1339fed595376e83cb}
+
+
+Destructor. 
+
+Destructor of the \hyperlink{classAgent}{Agent} class, destroy the related \hyperlink{classPersonnalSocialSpace}{Personnal\+Social\+Space} 
+
+\subsection{Member Function Documentation}
+\index{Agent@{Agent}!find\+Nearest\+Neighbor@{find\+Nearest\+Neighbor}}
+\index{find\+Nearest\+Neighbor@{find\+Nearest\+Neighbor}!Agent@{Agent}}
+\subsubsection[{\texorpdfstring{find\+Nearest\+Neighbor(std\+::vector$<$ Agent $\ast$ $>$ agents)}{findNearestNeighbor(std::vector< Agent * > agents)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Agent} $\ast$ Agent\+::find\+Nearest\+Neighbor (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Agent} $\ast$ $>$}]{agents}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgent_a7ccfca9f14ee9d5afda1ac12effd1a33}{}\label{classAgent_a7ccfca9f14ee9d5afda1ac12effd1a33}
+
+
+Find the nearest neighbor available in the list passed in parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agents} & \+: A list of Agents \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The nearest \hyperlink{classAgent}{Agent} available in agents 
+\end{DoxyReturn}
+\index{Agent@{Agent}!get\+F\+O\+V\+Intersection@{get\+F\+O\+V\+Intersection}}
+\index{get\+F\+O\+V\+Intersection@{get\+F\+O\+V\+Intersection}!Agent@{Agent}}
+\subsubsection[{\texorpdfstring{get\+F\+O\+V\+Intersection(\+Agent $\ast$agent)}{getFOVIntersection(Agent *agent)}}]{\setlength{\rightskip}{0pt plus 5cm}Vector3d $\ast$ Agent\+::get\+F\+O\+V\+Intersection (
+\begin{DoxyParamCaption}
+\item[{{\bf Agent} $\ast$}]{agent}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgent_aef81d0795b37875777ca21d6d866ce31}{}\label{classAgent_aef81d0795b37875777ca21d6d866ce31}
+
+
+Find the intersection point in the field of view with the other \hyperlink{classAgent}{Agent} passed in parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent} & \+: The targeted \hyperlink{classAgent}{Agent} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The intersection point in the field of view of both \hyperlink{classAgent}{Agent}, returns N\+U\+LL if there is no intersection
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]Take parallel \hyperlink{classAgent}{Agent} into account, actually return N\+U\+LL if Agents are parallel \end{DoxyRefDesc}
+\index{Agent@{Agent}!get\+Social\+Space@{get\+Social\+Space}}
+\index{get\+Social\+Space@{get\+Social\+Space}!Agent@{Agent}}
+\subsubsection[{\texorpdfstring{get\+Social\+Space() const }{getSocialSpace() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Gaussian\+Space} $\ast$ Agent\+::get\+Social\+Space (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classAgent_aa42fced9ebe2bfec4b789ae5ed714bba}{}\label{classAgent_aa42fced9ebe2bfec4b789ae5ed714bba}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+Personal\+Social\+Space 
+\end{DoxyReturn}
+\index{Agent@{Agent}!set\+Social\+Space@{set\+Social\+Space}}
+\index{set\+Social\+Space@{set\+Social\+Space}!Agent@{Agent}}
+\subsubsection[{\texorpdfstring{set\+Social\+Space(\+Gaussian\+Space $\ast$social\+Space)}{setSocialSpace(GaussianSpace *socialSpace)}}]{\setlength{\rightskip}{0pt plus 5cm}void Agent\+::set\+Social\+Space (
+\begin{DoxyParamCaption}
+\item[{{\bf Gaussian\+Space} $\ast$}]{social\+Space}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgent_a6b113ba7509327039373927a2e8a4e4c}{}\label{classAgent_a6b113ba7509327039373927a2e8a4e4c}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em social\+Space} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/agent\+Management/\hyperlink{Agent_8h}{Agent.\+h}\item 
+src/agent\+Management/\hyperlink{Agent_8cpp}{Agent.\+cpp}\end{DoxyCompactItemize}

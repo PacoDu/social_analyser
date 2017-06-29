@@ -45,7 +45,6 @@ public:
 	/**
 	 * @brief Find and create every Formations in the Population
 	 *
-	 * @todo Fix group detection, it doesn't work in some cases
 	 */
 	void detect();
 

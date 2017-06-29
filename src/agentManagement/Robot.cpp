@@ -52,7 +52,7 @@ GridCell* Robot::getGoal() const {
 }
 
 void Robot::resetPathFinding() {
-	ofLogNotice("DEBUG") << " RESET ROBOT PATHFINDING";
+//	ofLogNotice("DEBUG") << " RESET ROBOT PATHFINDING";
 	this->goal = nullptr;
 	this->path.clear();
 	this->pathIndex = 0;
@@ -66,11 +66,13 @@ void Robot::setGoal(GridCell* goal) {
 int min(int a, int b){ return a>b?b:a; };
 
 void Robot::update() {
+	int gh = this->gazeTarget?this->gazeTarget->getId():-1;
+//	ofLogNotice("DEBUG") << "GAZE TARGET = " << gh;
 	if(goal != nullptr){
 		if(initPoint && path.size() > 1){
 			int nextPathIndex = pathIndex + 5;
 
-			ofLogNotice("DEBUG") << "PathIndex = " << pathIndex << " nextPathIndex=" << min(nextPathIndex, path.size()-1);
+//			ofLogNotice("DEBUG") << "PathIndex = " << pathIndex << " nextPathIndex=" << min(nextPathIndex, path.size()-1);
 
 			startMarker = path[min(pathIndex, path.size()-1)];
 			endMarker = path[min(nextPathIndex, path.size()-1)];
@@ -99,7 +101,7 @@ void Robot::update() {
 		while (targetAngle < this->getTheta() - M_PI )
 			targetAngle += 2* M_PI;
 
-		ofLogNotice("Robot::update") << " targetAngle = " << targetAngle << " pathIndex = " << pathIndex << " RobotTheta="<< getTheta() <<" rotDist=" << targetAngle - getTheta();
+//		ofLogNotice("Robot::update") << " targetAngle = " << targetAngle << " pathIndex = " << pathIndex << " RobotTheta="<< getTheta() <<" rotDist=" << targetAngle - getTheta() << " moveDist=" << moveDist;
 
 
 
@@ -124,8 +126,9 @@ void Robot::update() {
 			Vector3d estimatedPosition = vectLerp(startMarker->getPosition(), endMarker->getPosition(), fracMove);
 
 			this->setPosition(this->getPosition()*(1-alphaMove) + estimatedPosition * alphaMove);
-
-			if(this->getX() > 5 || this->getY() > 5 || this->getX() != this->getX()){
+//			ofLogNotice("ROBOT") << "New robot POSITION ! startMarker#" << startMarker->getId() << " endMarker#" << endMarker->getId() << " fracMove =" << fracMove << " estimatedPosition * alphaMove =" << estimatedPosition * alphaMove;
+//			ofLogNotice("ROBOT") << "Robot position  " << this->getPosition();
+			if(this->getX() != this->getX()){
 				ofLogNotice("DEBUG") << "Robot out of bounds !!!!";
 			}
 			if(fracMove >= 1){
@@ -140,6 +143,7 @@ void Robot::update() {
 		}
 		else{
 			startMoveTime = std::chrono::system_clock::now();
+//			ofLogNotice("ROBOT") << "ROBOT DIDNT MOVE, waiting for rotation. Rotdist = " << abs(rotDist) << " treshold=" << ROBOT_MAX_ROT_DELTA_BEFORE_MOVE;
 		}
 
 //		if(finalTargetAngle && pathIndex > path.size()- 20){

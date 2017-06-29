@@ -25,5 +25,6 @@ Vector3d* rayIntersectionPoint(Vector3d as, Vector3d ad, Vector3d bs, Vector3d b
 double radToDeg(double rad);
 double lerp(double start, double stop, double amt);
 Vector3d vectLerp(Vector3d start, Vector3d stop, double amt);
+double signed_angle(Vector3d a, Vector3d b);
 
 #endif /* SRC_UTILS_H_ */

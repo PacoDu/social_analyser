@@ -1,0 +1,81 @@
+\hypertarget{GridMap_8cpp}{}\section{src/world\+Representation/\+Grid\+Map.cpp File Reference}
+\label{GridMap_8cpp}\index{src/world\+Representation/\+Grid\+Map.\+cpp@{src/world\+Representation/\+Grid\+Map.\+cpp}}
+{\ttfamily \#include \char`\"{}Grid\+Map.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\\*
+Include dependency graph for Grid\+Map.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{GridMap_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{GridMap_8cpp_adf050f28ce6e2ae82d60a359d11c3319}{heuristic\+Manhattan\+Cost\+Estimate} (\hyperlink{classGridCell}{Grid\+Cell} $\ast$start, \hyperlink{classGridCell}{Grid\+Cell} $\ast$end)
+\begin{DoxyCompactList}\small\item\em Estimate the cost of movement from a \hyperlink{classGridCell}{Grid\+Cell} to another. \end{DoxyCompactList}\item 
+double \hyperlink{GridMap_8cpp_ac4876d5bdd3fc7d446133f4ca7942a39}{heuristic\+Diagonal\+Cost\+Estimate} (\hyperlink{classGridCell}{Grid\+Cell} $\ast$start, \hyperlink{classGridCell}{Grid\+Cell} $\ast$end)
+\begin{DoxyCompactList}\small\item\em Estimate the cost of movement from a \hyperlink{classGridCell}{Grid\+Cell} to another. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Paco Dupont 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+6 avril 2017 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{Grid\+Map.\+cpp@{Grid\+Map.\+cpp}!heuristic\+Diagonal\+Cost\+Estimate@{heuristic\+Diagonal\+Cost\+Estimate}}
+\index{heuristic\+Diagonal\+Cost\+Estimate@{heuristic\+Diagonal\+Cost\+Estimate}!Grid\+Map.\+cpp@{Grid\+Map.\+cpp}}
+\subsubsection[{\texorpdfstring{heuristic\+Diagonal\+Cost\+Estimate(\+Grid\+Cell $\ast$start, Grid\+Cell $\ast$end)}{heuristicDiagonalCostEstimate(GridCell *start, GridCell *end)}}]{\setlength{\rightskip}{0pt plus 5cm}double heuristic\+Diagonal\+Cost\+Estimate (
+\begin{DoxyParamCaption}
+\item[{{\bf Grid\+Cell} $\ast$}]{start, }
+\item[{{\bf Grid\+Cell} $\ast$}]{end}
+\end{DoxyParamCaption}
+)}\hypertarget{GridMap_8cpp_ac4876d5bdd3fc7d446133f4ca7942a39}{}\label{GridMap_8cpp_ac4876d5bdd3fc7d446133f4ca7942a39}
+
+
+Estimate the cost of movement from a \hyperlink{classGridCell}{Grid\+Cell} to another. 
+
+Estimate the cost of movement from a \hyperlink{classGridCell}{Grid\+Cell} to another with diagonal heuristic. This estimate is better for 8 movement allowed
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & \+: The starting \hyperlink{classGridCell}{Grid\+Cell} \\
+\hline
+{\em end} & \+: The target \hyperlink{classGridCell}{Grid\+Cell}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the estimated cost 
+\end{DoxyReturn}
+\index{Grid\+Map.\+cpp@{Grid\+Map.\+cpp}!heuristic\+Manhattan\+Cost\+Estimate@{heuristic\+Manhattan\+Cost\+Estimate}}
+\index{heuristic\+Manhattan\+Cost\+Estimate@{heuristic\+Manhattan\+Cost\+Estimate}!Grid\+Map.\+cpp@{Grid\+Map.\+cpp}}
+\subsubsection[{\texorpdfstring{heuristic\+Manhattan\+Cost\+Estimate(\+Grid\+Cell $\ast$start, Grid\+Cell $\ast$end)}{heuristicManhattanCostEstimate(GridCell *start, GridCell *end)}}]{\setlength{\rightskip}{0pt plus 5cm}double heuristic\+Manhattan\+Cost\+Estimate (
+\begin{DoxyParamCaption}
+\item[{{\bf Grid\+Cell} $\ast$}]{start, }
+\item[{{\bf Grid\+Cell} $\ast$}]{end}
+\end{DoxyParamCaption}
+)}\hypertarget{GridMap_8cpp_adf050f28ce6e2ae82d60a359d11c3319}{}\label{GridMap_8cpp_adf050f28ce6e2ae82d60a359d11c3319}
+
+
+Estimate the cost of movement from a \hyperlink{classGridCell}{Grid\+Cell} to another. 
+
+Estimate the cost of movement from a \hyperlink{classGridCell}{Grid\+Cell} to another with manhattan heuristic. This estimate is better for 4 movement allowed
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & \+: The starting \hyperlink{classGridCell}{Grid\+Cell} \\
+\hline
+{\em end} & \+: The target \hyperlink{classGridCell}{Grid\+Cell}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the estimated cost 
+\end{DoxyReturn}

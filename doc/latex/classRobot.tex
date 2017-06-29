@@ -1,0 +1,217 @@
+\hypertarget{classRobot}{}\section{Robot Class Reference}
+\label{classRobot}\index{Robot@{Robot}}
+
+
+This class represent the \hyperlink{classRobot}{Robot}.  
+
+
+
+
+{\ttfamily \#include $<$Robot.\+h$>$}
+
+
+
+Inheritance diagram for Robot\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{classRobot__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Robot\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classRobot__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRobot_a02cded1ec8e6c536a2e07a44d45b3551}{Robot} (Vector3d \hyperlink{classLocalizedObject_a340834deefc9e5c39da1f26c4ebf4f8c}{position}=Vector3d(0, 0, 0), double \hyperlink{classLocalizedObject_aa5f7b070b6dc97a64a90797a0bca56e2}{theta}=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classRobot_a924320124b09c2f2ac1621aa210d5f38}{$\sim$\+Robot} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classRobot_adc34eec22821c2dce23904a5ea75cf13}{update} ()\hypertarget{classRobot_adc34eec22821c2dce23904a5ea75cf13}{}\label{classRobot_adc34eec22821c2dce23904a5ea75cf13}
+
+\begin{DoxyCompactList}\small\item\em Compute the movement and the rotation of the \hyperlink{classRobot}{Robot} based on the computed path and linear interpolation between points. \end{DoxyCompactList}\item 
+void \hyperlink{classRobot_a2a169125261257a4900c546c6b9a02b0}{reset\+Path\+Finding} ()\hypertarget{classRobot_a2a169125261257a4900c546c6b9a02b0}{}\label{classRobot_a2a169125261257a4900c546c6b9a02b0}
+
+\begin{DoxyCompactList}\small\item\em Reset path finding process. \end{DoxyCompactList}\item 
+\hyperlink{classGridCell}{Grid\+Cell} $\ast$ \hyperlink{classRobot_affcb4c5da6b12767dfcd72c326a7700d}{get\+Goal} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classRobot_a1217544214600ddd32ff2f060f1bee15}{set\+Goal} (\hyperlink{classGridCell}{Grid\+Cell} $\ast$\hyperlink{classRobot_a5abff8bb9893b5fbd509c20e7fa2ffb5}{goal})
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classGridCell}{Grid\+Cell} $\ast$ $>$ \hyperlink{classRobot_a4b33fb1546feb63a73f75a9c073d6d6f}{get\+Path} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classRobot_a12b5d95d7764f62b83ed237d18399f13}{set\+Path} (std\+::vector$<$ \hyperlink{classGridCell}{Grid\+Cell} $\ast$ $>$ \hyperlink{classRobot_a6a62d6834a3be1352b81d380cc396e7b}{path})
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGridCell}{Grid\+Cell} $\ast$ \hyperlink{classRobot_a5abff8bb9893b5fbd509c20e7fa2ffb5}{goal}\hypertarget{classRobot_a5abff8bb9893b5fbd509c20e7fa2ffb5}{}\label{classRobot_a5abff8bb9893b5fbd509c20e7fa2ffb5}
+
+\begin{DoxyCompactList}\small\item\em The current goal of the \hyperlink{classRobot}{Robot}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classGridCell}{Grid\+Cell} $\ast$ $>$ \hyperlink{classRobot_a6a62d6834a3be1352b81d380cc396e7b}{path}\hypertarget{classRobot_a6a62d6834a3be1352b81d380cc396e7b}{}\label{classRobot_a6a62d6834a3be1352b81d380cc396e7b}
+
+\begin{DoxyCompactList}\small\item\em The current path followed by the \hyperlink{classRobot}{Robot}. \end{DoxyCompactList}\item 
+int \hyperlink{classRobot_a4720ed975e9fae5466f00da717dbb522}{path\+Index}\hypertarget{classRobot_a4720ed975e9fae5466f00da717dbb522}{}\label{classRobot_a4720ed975e9fae5466f00da717dbb522}
+
+\begin{DoxyCompactList}\small\item\em The current path index. \end{DoxyCompactList}\item 
+\hyperlink{classGridCell}{Grid\+Cell} $\ast$ \hyperlink{classRobot_afec08358c6c5f12d6d85dfa78a1faa0b}{start\+Marker}\hypertarget{classRobot_afec08358c6c5f12d6d85dfa78a1faa0b}{}\label{classRobot_afec08358c6c5f12d6d85dfa78a1faa0b}
+
+\begin{DoxyCompactList}\small\item\em The starting \hyperlink{classGridCell}{Grid\+Cell}. \end{DoxyCompactList}\item 
+\hyperlink{classGridCell}{Grid\+Cell} $\ast$ \hyperlink{classRobot_a6743f0c8b4ae8377d4b275cb452eb924}{end\+Marker}\hypertarget{classRobot_a6743f0c8b4ae8377d4b275cb452eb924}{}\label{classRobot_a6743f0c8b4ae8377d4b275cb452eb924}
+
+\begin{DoxyCompactList}\small\item\em The goal \hyperlink{classGridCell}{Grid\+Cell}. \end{DoxyCompactList}\item 
+std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \hyperlink{classRobot_a4d1fbc7e28a1e3d07bbdfdcc8612a3bf}{start\+Move\+Time}\hypertarget{classRobot_a4d1fbc7e28a1e3d07bbdfdcc8612a3bf}{}\label{classRobot_a4d1fbc7e28a1e3d07bbdfdcc8612a3bf}
+
+\begin{DoxyCompactList}\small\item\em Start time of the movement. \end{DoxyCompactList}\item 
+std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \hyperlink{classRobot_a2eba6b986b51c8197d77bc8c8169fb99}{start\+Rot\+Time}\hypertarget{classRobot_a2eba6b986b51c8197d77bc8c8169fb99}{}\label{classRobot_a2eba6b986b51c8197d77bc8c8169fb99}
+
+\begin{DoxyCompactList}\small\item\em Start time of the rotation. \end{DoxyCompactList}\item 
+\hyperlink{classAgent}{Agent} $\ast$ \hyperlink{classRobot_a16adeabd42cf91daf19f7737d7f6c1f3}{gaze\+Target}\hypertarget{classRobot_a16adeabd42cf91daf19f7737d7f6c1f3}{}\label{classRobot_a16adeabd42cf91daf19f7737d7f6c1f3}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classRobot}{Robot} gaze targeted \hyperlink{classAgent}{Agent} for social signals. \end{DoxyCompactList}\item 
+double \hyperlink{classRobot_a0d83147dd6fa4db281ed2d6f3c37adf7}{target\+Angle}\hypertarget{classRobot_a0d83147dd6fa4db281ed2d6f3c37adf7}{}\label{classRobot_a0d83147dd6fa4db281ed2d6f3c37adf7}
+
+\begin{DoxyCompactList}\small\item\em The current targeted angle. \end{DoxyCompactList}\item 
+double $\ast$ \hyperlink{classRobot_af3df5c8b9901dc8bc721cb0a4fdbc489}{final\+Target\+Angle}\hypertarget{classRobot_af3df5c8b9901dc8bc721cb0a4fdbc489}{}\label{classRobot_af3df5c8b9901dc8bc721cb0a4fdbc489}
+
+\begin{DoxyCompactList}\small\item\em The targeted angle at the end of the movement. \end{DoxyCompactList}\item 
+double \hyperlink{classRobot_a6dfebfac8d7ce0da74e9b725b497c525}{start\+Angle}\hypertarget{classRobot_a6dfebfac8d7ce0da74e9b725b497c525}{}\label{classRobot_a6dfebfac8d7ce0da74e9b725b497c525}
+
+\begin{DoxyCompactList}\small\item\em The initial angle of the \hyperlink{classRobot}{Robot}. \end{DoxyCompactList}\item 
+double \hyperlink{classRobot_ab79446f46b69d63a3341a4def1e5a043}{rot\+Dist}\hypertarget{classRobot_ab79446f46b69d63a3341a4def1e5a043}{}\label{classRobot_ab79446f46b69d63a3341a4def1e5a043}
+
+\begin{DoxyCompactList}\small\item\em The rotation distance of the actual segment. \end{DoxyCompactList}\item 
+double \hyperlink{classRobot_a8f87b634a13863235dd64bdc2ac64eb1}{move\+Dist}\hypertarget{classRobot_a8f87b634a13863235dd64bdc2ac64eb1}{}\label{classRobot_a8f87b634a13863235dd64bdc2ac64eb1}
+
+\begin{DoxyCompactList}\small\item\em The movement distance of the actual segment. \end{DoxyCompactList}\item 
+double \hyperlink{classRobot_a4c80046bdc0e2fc0abe63fc8eebb252b}{alpha\+Move} = 0.\+05\hypertarget{classRobot_a4c80046bdc0e2fc0abe63fc8eebb252b}{}\label{classRobot_a4c80046bdc0e2fc0abe63fc8eebb252b}
+
+\begin{DoxyCompactList}\small\item\em Used by the movement formulae. \end{DoxyCompactList}\item 
+double \hyperlink{classRobot_ac7f70af1a0589ef3f2964cc1fe17705d}{alpha\+Rot} = 0.\+05\hypertarget{classRobot_ac7f70af1a0589ef3f2964cc1fe17705d}{}\label{classRobot_ac7f70af1a0589ef3f2964cc1fe17705d}
+
+\begin{DoxyCompactList}\small\item\em Used by the rotation formulae. \end{DoxyCompactList}\item 
+double \hyperlink{classRobot_a9ffd926d965152cb275765d1abaee1cf}{move\+Speed} = 0.\+5f\hypertarget{classRobot_a9ffd926d965152cb275765d1abaee1cf}{}\label{classRobot_a9ffd926d965152cb275765d1abaee1cf}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classRobot}{Robot} move speed in meter/s. \end{DoxyCompactList}\item 
+double \hyperlink{classRobot_ac3f99d1bd98a5d7f65c7d419fe6436b3}{rot\+Speed} = 4.\+0f\hypertarget{classRobot_ac3f99d1bd98a5d7f65c7d419fe6436b3}{}\label{classRobot_ac3f99d1bd98a5d7f65c7d419fe6436b3}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classRobot}{Robot} move speed in radian/s. \end{DoxyCompactList}\item 
+bool \hyperlink{classRobot_a8ece8d9045201ce807d1b90e2eb34dd4}{init\+Point} = 1\hypertarget{classRobot_a8ece8d9045201ce807d1b90e2eb34dd4}{}\label{classRobot_a8ece8d9045201ce807d1b90e2eb34dd4}
+
+\begin{DoxyCompactList}\small\item\em Enable or disable path finding segment initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class represent the \hyperlink{classRobot}{Robot}. 
+
+This class manage the \hyperlink{classRobot}{Robot} and its movement 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Robot@{Robot}!Robot@{Robot}}
+\index{Robot@{Robot}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{Robot(\+Vector3d position=\+Vector3d(0, 0, 0), double theta=0)}{Robot(Vector3d position=Vector3d(0, 0, 0), double theta=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Robot\+::\+Robot (
+\begin{DoxyParamCaption}
+\item[{Vector3d}]{position = {\ttfamily Vector3d(0,0,0)}, }
+\item[{double}]{theta = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobot_a02cded1ec8e6c536a2e07a44d45b3551}{}\label{classRobot_a02cded1ec8e6c536a2e07a44d45b3551}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classRobot}{Robot} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \+: Initial position of the \hyperlink{classRobot}{Robot} in \hyperlink{classWorld}{World} \\
+\hline
+{\em theta} & \+: Initial angle of the \hyperlink{classRobot}{Robot} \\
+\hline
+\end{DoxyParams}
+\index{Robot@{Robot}!````~Robot@{$\sim$\+Robot}}
+\index{````~Robot@{$\sim$\+Robot}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{$\sim$\+Robot()}{~Robot()}}]{\setlength{\rightskip}{0pt plus 5cm}Robot\+::$\sim$\+Robot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobot_a924320124b09c2f2ac1621aa210d5f38}{}\label{classRobot_a924320124b09c2f2ac1621aa210d5f38}
+
+
+Destructor. 
+
+Destructor of the \hyperlink{classRobot}{Robot} class 
+
+\subsection{Member Function Documentation}
+\index{Robot@{Robot}!get\+Goal@{get\+Goal}}
+\index{get\+Goal@{get\+Goal}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{get\+Goal() const }{getGoal() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Grid\+Cell} $\ast$ Robot\+::get\+Goal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classRobot_affcb4c5da6b12767dfcd72c326a7700d}{}\label{classRobot_affcb4c5da6b12767dfcd72c326a7700d}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+goal 
+\end{DoxyReturn}
+\index{Robot@{Robot}!get\+Path@{get\+Path}}
+\index{get\+Path@{get\+Path}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{get\+Path() const }{getPath() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Grid\+Cell} $\ast$ $>$ Robot\+::get\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classRobot_a4b33fb1546feb63a73f75a9c073d6d6f}{}\label{classRobot_a4b33fb1546feb63a73f75a9c073d6d6f}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+path 
+\end{DoxyReturn}
+\index{Robot@{Robot}!set\+Goal@{set\+Goal}}
+\index{set\+Goal@{set\+Goal}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{set\+Goal(\+Grid\+Cell $\ast$goal)}{setGoal(GridCell *goal)}}]{\setlength{\rightskip}{0pt plus 5cm}void Robot\+::set\+Goal (
+\begin{DoxyParamCaption}
+\item[{{\bf Grid\+Cell} $\ast$}]{goal}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobot_a1217544214600ddd32ff2f060f1bee15}{}\label{classRobot_a1217544214600ddd32ff2f060f1bee15}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & \\
+\hline
+\end{DoxyParams}
+\index{Robot@{Robot}!set\+Path@{set\+Path}}
+\index{set\+Path@{set\+Path}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{set\+Path(std\+::vector$<$ Grid\+Cell $\ast$ $>$ path)}{setPath(std::vector< GridCell * > path)}}]{\setlength{\rightskip}{0pt plus 5cm}void Robot\+::set\+Path (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Grid\+Cell} $\ast$ $>$}]{path}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobot_a12b5d95d7764f62b83ed237d18399f13}{}\label{classRobot_a12b5d95d7764f62b83ed237d18399f13}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/agent\+Management/\hyperlink{Robot_8h}{Robot.\+h}\item 
+src/agent\+Management/Robot.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,197 @@
+\hypertarget{classAgentContainer}{}\section{Agent\+Container Class Reference}
+\label{classAgentContainer}\index{Agent\+Container@{Agent\+Container}}
+
+
+This class is an interface for class that contains multiples Agents.  
+
+
+
+
+{\ttfamily \#include $<$Agent\+Container.\+h$>$}
+
+
+
+Inheritance diagram for Agent\+Container\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{classAgentContainer__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAgentContainer_ac7e6b1698c4270e58f6143af974b0317}{Agent\+Container} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classAgentContainer_af38dc491d4e987a33fac7eebcbf2006b}{Agent\+Container} (std\+::vector$<$ \hyperlink{classAgent}{Agent} $\ast$ $>$ \&agents)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classAgentContainer_a968652639a4749f9a279fbcdf0c671e3}{$\sim$\+Agent\+Container} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classAgentContainer_a9fcac4f7f925326633b3d74f3923c5ff}{push\+Agent} (\hyperlink{classAgent}{Agent} $\ast$agent)
+\begin{DoxyCompactList}\small\item\em Add an \hyperlink{classAgent}{Agent} to the container. \end{DoxyCompactList}\item 
+int \hyperlink{classAgentContainer_a08536f977e775903573a3891a7d2f314}{remove\+Agent} (unsigned int agent\+Id)
+\begin{DoxyCompactList}\small\item\em Remove an \hyperlink{classAgent}{Agent} by id from the container. \end{DoxyCompactList}\item 
+void \hyperlink{classAgentContainer_a0c33290cf10b72894c245fcc298755b3}{clear\+Agents} ()
+\begin{DoxyCompactList}\small\item\em Clear the container. \end{DoxyCompactList}\item 
+\hyperlink{classAgent}{Agent} $\ast$ \hyperlink{classAgentContainer_a140e5a8416b3c0d4fe917641f3dc35de}{get\+Agent} (unsigned int agent\+Id)
+\begin{DoxyCompactList}\small\item\em Get an \hyperlink{classAgent}{Agent} by id from the container. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classAgent}{Agent} $\ast$ $>$ \hyperlink{classAgentContainer_a9b6f87fa0c8b3ca9d49e2cff3d1c1343}{get\+Agents} ()
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classAgentContainer_a3e7b68a0539a9f4f9ba067943adfd7c1}{set\+Agents} (const std\+::vector$<$ \hyperlink{classAgent}{Agent} $\ast$ $>$ \&agents)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{classAgent}{Agent} $\ast$ $>$ \hyperlink{classAgentContainer_adbcf662c5eb935864cfa02dc617e867c}{\+\_\+agents}\hypertarget{classAgentContainer_adbcf662c5eb935864cfa02dc617e867c}{}\label{classAgentContainer_adbcf662c5eb935864cfa02dc617e867c}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classAgent}{Agent} container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is an interface for class that contains multiples Agents. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Agent\+Container@{Agent\+Container}!Agent\+Container@{Agent\+Container}}
+\index{Agent\+Container@{Agent\+Container}!Agent\+Container@{Agent\+Container}}
+\subsubsection[{\texorpdfstring{Agent\+Container()}{AgentContainer()}}]{\setlength{\rightskip}{0pt plus 5cm}Agent\+Container\+::\+Agent\+Container (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgentContainer_ac7e6b1698c4270e58f6143af974b0317}{}\label{classAgentContainer_ac7e6b1698c4270e58f6143af974b0317}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classAgentContainer}{Agent\+Container} class, initialize an empty container \index{Agent\+Container@{Agent\+Container}!Agent\+Container@{Agent\+Container}}
+\index{Agent\+Container@{Agent\+Container}!Agent\+Container@{Agent\+Container}}
+\subsubsection[{\texorpdfstring{Agent\+Container(std\+::vector$<$ Agent $\ast$ $>$ \&agents)}{AgentContainer(std::vector< Agent * > &agents)}}]{\setlength{\rightskip}{0pt plus 5cm}Agent\+Container\+::\+Agent\+Container (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Agent} $\ast$ $>$ \&}]{agents}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgentContainer_af38dc491d4e987a33fac7eebcbf2006b}{}\label{classAgentContainer_af38dc491d4e987a33fac7eebcbf2006b}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classAgentContainer}{Agent\+Container} class, initialize the container with agents
+
+
+\begin{DoxyParams}{Parameters}
+{\em agents} & \+: The Agents present in the container \\
+\hline
+\end{DoxyParams}
+\index{Agent\+Container@{Agent\+Container}!````~Agent\+Container@{$\sim$\+Agent\+Container}}
+\index{````~Agent\+Container@{$\sim$\+Agent\+Container}!Agent\+Container@{Agent\+Container}}
+\subsubsection[{\texorpdfstring{$\sim$\+Agent\+Container()}{~AgentContainer()}}]{\setlength{\rightskip}{0pt plus 5cm}Agent\+Container\+::$\sim$\+Agent\+Container (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classAgentContainer_a968652639a4749f9a279fbcdf0c671e3}{}\label{classAgentContainer_a968652639a4749f9a279fbcdf0c671e3}
+
+
+Destructor. 
+
+Destructor of the \hyperlink{classAgentContainer}{Agent\+Container} class 
+
+\subsection{Member Function Documentation}
+\index{Agent\+Container@{Agent\+Container}!clear\+Agents@{clear\+Agents}}
+\index{clear\+Agents@{clear\+Agents}!Agent\+Container@{Agent\+Container}}
+\subsubsection[{\texorpdfstring{clear\+Agents()}{clearAgents()}}]{\setlength{\rightskip}{0pt plus 5cm}void Agent\+Container\+::clear\+Agents (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgentContainer_a0c33290cf10b72894c245fcc298755b3}{}\label{classAgentContainer_a0c33290cf10b72894c245fcc298755b3}
+
+
+Clear the container. 
+
+Clear the container, this function doesn\textquotesingle{}t call the \hyperlink{classAgent}{Agent} destructor \index{Agent\+Container@{Agent\+Container}!get\+Agent@{get\+Agent}}
+\index{get\+Agent@{get\+Agent}!Agent\+Container@{Agent\+Container}}
+\subsubsection[{\texorpdfstring{get\+Agent(unsigned int agent\+Id)}{getAgent(unsigned int agentId)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Agent} $\ast$ Agent\+Container\+::get\+Agent (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{agent\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgentContainer_a140e5a8416b3c0d4fe917641f3dc35de}{}\label{classAgentContainer_a140e5a8416b3c0d4fe917641f3dc35de}
+
+
+Get an \hyperlink{classAgent}{Agent} by id from the container. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent\+Id} & \+: \hyperlink{classAgent}{Agent} id to get from the container\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \hyperlink{classAgent}{Agent}, null otherwise 
+\end{DoxyReturn}
+\index{Agent\+Container@{Agent\+Container}!get\+Agents@{get\+Agents}}
+\index{get\+Agents@{get\+Agents}!Agent\+Container@{Agent\+Container}}
+\subsubsection[{\texorpdfstring{get\+Agents()}{getAgents()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Agent} $\ast$ $>$ Agent\+Container\+::get\+Agents (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgentContainer_a9b6f87fa0c8b3ca9d49e2cff3d1c1343}{}\label{classAgentContainer_a9b6f87fa0c8b3ca9d49e2cff3d1c1343}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+Agents 
+\end{DoxyReturn}
+\index{Agent\+Container@{Agent\+Container}!push\+Agent@{push\+Agent}}
+\index{push\+Agent@{push\+Agent}!Agent\+Container@{Agent\+Container}}
+\subsubsection[{\texorpdfstring{push\+Agent(\+Agent $\ast$agent)}{pushAgent(Agent *agent)}}]{\setlength{\rightskip}{0pt plus 5cm}void Agent\+Container\+::push\+Agent (
+\begin{DoxyParamCaption}
+\item[{{\bf Agent} $\ast$}]{agent}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgentContainer_a9fcac4f7f925326633b3d74f3923c5ff}{}\label{classAgentContainer_a9fcac4f7f925326633b3d74f3923c5ff}
+
+
+Add an \hyperlink{classAgent}{Agent} to the container. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent} & \+: The \hyperlink{classAgent}{Agent} to add \\
+\hline
+\end{DoxyParams}
+\index{Agent\+Container@{Agent\+Container}!remove\+Agent@{remove\+Agent}}
+\index{remove\+Agent@{remove\+Agent}!Agent\+Container@{Agent\+Container}}
+\subsubsection[{\texorpdfstring{remove\+Agent(unsigned int agent\+Id)}{removeAgent(unsigned int agentId)}}]{\setlength{\rightskip}{0pt plus 5cm}int Agent\+Container\+::remove\+Agent (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{agent\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgentContainer_a08536f977e775903573a3891a7d2f314}{}\label{classAgentContainer_a08536f977e775903573a3891a7d2f314}
+
+
+Remove an \hyperlink{classAgent}{Agent} by id from the container. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent\+Id} & \+: The \hyperlink{classAgent}{Agent} id to remove\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 if \hyperlink{classAgent}{Agent} id is not found 
+\end{DoxyReturn}
+\index{Agent\+Container@{Agent\+Container}!set\+Agents@{set\+Agents}}
+\index{set\+Agents@{set\+Agents}!Agent\+Container@{Agent\+Container}}
+\subsubsection[{\texorpdfstring{set\+Agents(const std\+::vector$<$ Agent $\ast$ $>$ \&agents)}{setAgents(const std::vector< Agent * > &agents)}}]{\setlength{\rightskip}{0pt plus 5cm}void Agent\+Container\+::set\+Agents (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ {\bf Agent} $\ast$ $>$ \&}]{agents}
+\end{DoxyParamCaption}
+)}\hypertarget{classAgentContainer_a3e7b68a0539a9f4f9ba067943adfd7c1}{}\label{classAgentContainer_a3e7b68a0539a9f4f9ba067943adfd7c1}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agents} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/generic\+Type/\hyperlink{AgentContainer_8h}{Agent\+Container.\+h}\item 
+src/generic\+Type/\hyperlink{AgentContainer_8cpp}{Agent\+Container.\+cpp}\end{DoxyCompactItemize}

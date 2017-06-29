@@ -1,0 +1,237 @@
+\hypertarget{classLocalizedObject}{}\section{Localized\+Object Class Reference}
+\label{classLocalizedObject}\index{Localized\+Object@{Localized\+Object}}
+
+
+This class is an interface for object that are localized in real \hyperlink{classWorld}{World}.  
+
+
+
+
+{\ttfamily \#include $<$Localized\+Object.\+h$>$}
+
+
+
+Inheritance diagram for Localized\+Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLocalizedObject__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLocalizedObject_a85c2aba0c93b4d90b9e001409d6a5381}{Localized\+Object} (Vector3d \hyperlink{classLocalizedObject_a340834deefc9e5c39da1f26c4ebf4f8c}{position}=Vector3d(), double \hyperlink{classLocalizedObject_aa5f7b070b6dc97a64a90797a0bca56e2}{theta}=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classLocalizedObject_a1425438490ec7cd508721b9ccaef7a80}{$\sim$\+Localized\+Object} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+Vector3d \hyperlink{classLocalizedObject_ab3a9262ca2086b812166a5b23df0a34c}{get\+Direction} ()
+\begin{DoxyCompactList}\small\item\em Compute the direction vector of the object from its angle. \end{DoxyCompactList}\item 
+double \hyperlink{classLocalizedObject_a5fec63cd061189992f011237a62c81b2}{getX} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classLocalizedObject_a53154ec51dcbf7d200f8f6f09c65f247}{setX} (double x)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+double \hyperlink{classLocalizedObject_a406d1b48a67b1d6bbfc98d6b57c7f24e}{getY} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classLocalizedObject_a6d9bf8b47e887c48d126fa367d1c084b}{setY} (double y)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+Vector3d \hyperlink{classLocalizedObject_a711da75e218c7cc64b57088d3c1a8c73}{get\+Position} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classLocalizedObject_adbdcf655524574dc3c1a4d3f9adfd259}{set\+Position} (Vector3d \hyperlink{classLocalizedObject_a340834deefc9e5c39da1f26c4ebf4f8c}{position})
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+double \hyperlink{classLocalizedObject_a9a5927a035686eccc401aa2b1e8d0595}{get\+Theta} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classLocalizedObject_ac23f5d3d6afebb24e5b52c71197f3551}{set\+Theta} (double \hyperlink{classLocalizedObject_aa5f7b070b6dc97a64a90797a0bca56e2}{theta})
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector3d \hyperlink{classLocalizedObject_a340834deefc9e5c39da1f26c4ebf4f8c}{position}\hypertarget{classLocalizedObject_a340834deefc9e5c39da1f26c4ebf4f8c}{}\label{classLocalizedObject_a340834deefc9e5c39da1f26c4ebf4f8c}
+
+\begin{DoxyCompactList}\small\item\em The position of the object. \end{DoxyCompactList}\item 
+double \hyperlink{classLocalizedObject_aa5f7b070b6dc97a64a90797a0bca56e2}{theta}\hypertarget{classLocalizedObject_aa5f7b070b6dc97a64a90797a0bca56e2}{}\label{classLocalizedObject_aa5f7b070b6dc97a64a90797a0bca56e2}
+
+\begin{DoxyCompactList}\small\item\em The angle of the object relative to X axis (1,0,0) (arround Z axis (0,0,1)) and in radian normalized between \mbox{[}0,2\+PI\mbox{]}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is an interface for object that are localized in real \hyperlink{classWorld}{World}. 
+
+This class is an interface for object that are localize in real \hyperlink{classWorld}{World} with x, y, z and Theta coordinates 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Localized\+Object@{Localized\+Object}!Localized\+Object@{Localized\+Object}}
+\index{Localized\+Object@{Localized\+Object}!Localized\+Object@{Localized\+Object}}
+\subsubsection[{\texorpdfstring{Localized\+Object(\+Vector3d position=\+Vector3d(), double theta=0)}{LocalizedObject(Vector3d position=Vector3d(), double theta=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Localized\+Object\+::\+Localized\+Object (
+\begin{DoxyParamCaption}
+\item[{Vector3d}]{position = {\ttfamily Vector3d()}, }
+\item[{double}]{theta = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classLocalizedObject_a85c2aba0c93b4d90b9e001409d6a5381}{}\label{classLocalizedObject_a85c2aba0c93b4d90b9e001409d6a5381}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classLocalizedObject}{Localized\+Object} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \+: The initial position of the object \\
+\hline
+{\em theta} & \+: The initial angle of the object relative to X axis in radian \\
+\hline
+\end{DoxyParams}
+\index{Localized\+Object@{Localized\+Object}!````~Localized\+Object@{$\sim$\+Localized\+Object}}
+\index{````~Localized\+Object@{$\sim$\+Localized\+Object}!Localized\+Object@{Localized\+Object}}
+\subsubsection[{\texorpdfstring{$\sim$\+Localized\+Object()}{~LocalizedObject()}}]{\setlength{\rightskip}{0pt plus 5cm}Localized\+Object\+::$\sim$\+Localized\+Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classLocalizedObject_a1425438490ec7cd508721b9ccaef7a80}{}\label{classLocalizedObject_a1425438490ec7cd508721b9ccaef7a80}
+
+
+Destructor. 
+
+Destructor of the \hyperlink{classLocalizedObject}{Localized\+Object} class 
+
+\subsection{Member Function Documentation}
+\index{Localized\+Object@{Localized\+Object}!get\+Direction@{get\+Direction}}
+\index{get\+Direction@{get\+Direction}!Localized\+Object@{Localized\+Object}}
+\subsubsection[{\texorpdfstring{get\+Direction()}{getDirection()}}]{\setlength{\rightskip}{0pt plus 5cm}Vector3d Localized\+Object\+::get\+Direction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classLocalizedObject_ab3a9262ca2086b812166a5b23df0a34c}{}\label{classLocalizedObject_ab3a9262ca2086b812166a5b23df0a34c}
+
+
+Compute the direction vector of the object from its angle. 
+
+\begin{DoxyReturn}{Returns}
+The direction Vector3d 
+\end{DoxyReturn}
+\index{Localized\+Object@{Localized\+Object}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!Localized\+Object@{Localized\+Object}}
+\subsubsection[{\texorpdfstring{get\+Position() const }{getPosition() const }}]{\setlength{\rightskip}{0pt plus 5cm}Vector3d Localized\+Object\+::get\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classLocalizedObject_a711da75e218c7cc64b57088d3c1a8c73}{}\label{classLocalizedObject_a711da75e218c7cc64b57088d3c1a8c73}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+position 
+\end{DoxyReturn}
+\index{Localized\+Object@{Localized\+Object}!get\+Theta@{get\+Theta}}
+\index{get\+Theta@{get\+Theta}!Localized\+Object@{Localized\+Object}}
+\subsubsection[{\texorpdfstring{get\+Theta() const }{getTheta() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Localized\+Object\+::get\+Theta (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classLocalizedObject_a9a5927a035686eccc401aa2b1e8d0595}{}\label{classLocalizedObject_a9a5927a035686eccc401aa2b1e8d0595}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+theta 
+\end{DoxyReturn}
+\index{Localized\+Object@{Localized\+Object}!getX@{getX}}
+\index{getX@{getX}!Localized\+Object@{Localized\+Object}}
+\subsubsection[{\texorpdfstring{get\+X() const }{getX() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Localized\+Object\+::getX (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classLocalizedObject_a5fec63cd061189992f011237a62c81b2}{}\label{classLocalizedObject_a5fec63cd061189992f011237a62c81b2}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+X coordinate of the position vector 
+\end{DoxyReturn}
+\index{Localized\+Object@{Localized\+Object}!getY@{getY}}
+\index{getY@{getY}!Localized\+Object@{Localized\+Object}}
+\subsubsection[{\texorpdfstring{get\+Y() const }{getY() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Localized\+Object\+::getY (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classLocalizedObject_a406d1b48a67b1d6bbfc98d6b57c7f24e}{}\label{classLocalizedObject_a406d1b48a67b1d6bbfc98d6b57c7f24e}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+Y coordinate of the position vector 
+\end{DoxyReturn}
+\index{Localized\+Object@{Localized\+Object}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Localized\+Object@{Localized\+Object}}
+\subsubsection[{\texorpdfstring{set\+Position(\+Vector3d position)}{setPosition(Vector3d position)}}]{\setlength{\rightskip}{0pt plus 5cm}void Localized\+Object\+::set\+Position (
+\begin{DoxyParamCaption}
+\item[{Vector3d}]{position}
+\end{DoxyParamCaption}
+)}\hypertarget{classLocalizedObject_adbdcf655524574dc3c1a4d3f9adfd259}{}\label{classLocalizedObject_adbdcf655524574dc3c1a4d3f9adfd259}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+\end{DoxyParams}
+\index{Localized\+Object@{Localized\+Object}!set\+Theta@{set\+Theta}}
+\index{set\+Theta@{set\+Theta}!Localized\+Object@{Localized\+Object}}
+\subsubsection[{\texorpdfstring{set\+Theta(double theta)}{setTheta(double theta)}}]{\setlength{\rightskip}{0pt plus 5cm}void Localized\+Object\+::set\+Theta (
+\begin{DoxyParamCaption}
+\item[{double}]{theta}
+\end{DoxyParamCaption}
+)}\hypertarget{classLocalizedObject_ac23f5d3d6afebb24e5b52c71197f3551}{}\label{classLocalizedObject_ac23f5d3d6afebb24e5b52c71197f3551}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em theta} & \\
+\hline
+\end{DoxyParams}
+\index{Localized\+Object@{Localized\+Object}!setX@{setX}}
+\index{setX@{setX}!Localized\+Object@{Localized\+Object}}
+\subsubsection[{\texorpdfstring{set\+X(double x)}{setX(double x)}}]{\setlength{\rightskip}{0pt plus 5cm}void Localized\+Object\+::setX (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{classLocalizedObject_a53154ec51dcbf7d200f8f6f09c65f247}{}\label{classLocalizedObject_a53154ec51dcbf7d200f8f6f09c65f247}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+\end{DoxyParams}
+\index{Localized\+Object@{Localized\+Object}!setY@{setY}}
+\index{setY@{setY}!Localized\+Object@{Localized\+Object}}
+\subsubsection[{\texorpdfstring{set\+Y(double y)}{setY(double y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Localized\+Object\+::setY (
+\begin{DoxyParamCaption}
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{classLocalizedObject_a6d9bf8b47e887c48d126fa367d1c084b}{}\label{classLocalizedObject_a6d9bf8b47e887c48d126fa367d1c084b}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/generic\+Type/\hyperlink{LocalizedObject_8h}{Localized\+Object.\+h}\item 
+src/generic\+Type/\hyperlink{LocalizedObject_8cpp}{Localized\+Object.\+cpp}\end{DoxyCompactItemize}

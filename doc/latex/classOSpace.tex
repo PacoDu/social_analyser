@@ -1,0 +1,275 @@
+\hypertarget{classOSpace}{}\section{O\+Space Class Reference}
+\label{classOSpace}\index{O\+Space@{O\+Space}}
+
+
+This class is an implementation of the \hyperlink{classGroupSocialSpace}{Group\+Social\+Space}.  
+
+
+
+
+{\ttfamily \#include $<$O\+Space.\+h$>$}
+
+
+
+Inheritance diagram for O\+Space\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classOSpace__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for O\+Space\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classOSpace__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classOSpace_ae160e76b0b2d3c1367946f8bb965bd1e}{O\+Space} (int \hyperlink{classIdentifiedObject_ad044a317a9b573a3d1bcd025df166eb5}{id}=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classOSpace_acd0c5685bc984af6287108710a1333ff}{O\+Space} (std\+::vector$<$ \hyperlink{classAgent}{Agent} $\ast$ $>$ \&agents, int \hyperlink{classIdentifiedObject_ad044a317a9b573a3d1bcd025df166eb5}{id}=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classOSpace_af8078a93268b4064919701765ad59451}{$\sim$\+O\+Space} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classOSpace_a3d2cba9a025785ee12c0991085b08b21}{computeg\+Center} ()\hypertarget{classOSpace_a3d2cba9a025785ee12c0991085b08b21}{}\label{classOSpace_a3d2cba9a025785ee12c0991085b08b21}
+
+\begin{DoxyCompactList}\small\item\em Compute the gravity center of the \hyperlink{classOSpace}{O\+Space} based on Agents positions. \end{DoxyCompactList}\item 
+void \hyperlink{classOSpace_ad79a227974adf66884379213fbf54068}{sort\+Agents} ()\hypertarget{classOSpace_ad79a227974adf66884379213fbf54068}{}\label{classOSpace_ad79a227974adf66884379213fbf54068}
+
+\begin{DoxyCompactList}\small\item\em Sort \hyperlink{classAgentContainer}{Agent\+Container} of the \hyperlink{classOSpace}{O\+Space} in clockwise order relative to gravity center. \end{DoxyCompactList}\item 
+void \hyperlink{classOSpace_ad6163ea6ef19516251e397caf59fdf4d}{compute\+Centroids} ()\hypertarget{classOSpace_ad6163ea6ef19516251e397caf59fdf4d}{}\label{classOSpace_ad6163ea6ef19516251e397caf59fdf4d}
+
+\begin{DoxyCompactList}\small\item\em Compute the centroids of each pair of \hyperlink{classAgent}{Agent} of the \hyperlink{classOSpace}{O\+Space} based on the field of view of every \hyperlink{classAgent}{Agent}. \end{DoxyCompactList}\item 
+void \hyperlink{classOSpace_a2cc6d61b727df4a7e763a38f10183463}{compute\+Center} ()\hypertarget{classOSpace_a2cc6d61b727df4a7e763a38f10183463}{}\label{classOSpace_a2cc6d61b727df4a7e763a38f10183463}
+
+\begin{DoxyCompactList}\small\item\em Compute the center of the \hyperlink{classFormation}{Formation} based on centroids. \end{DoxyCompactList}\item 
+void \hyperlink{classOSpace_af73e9e5f18635010d63bf1cfcbc05f1c}{compute\+Covar\+Matrix} ()
+\begin{DoxyCompactList}\small\item\em Compute the covariance matrix of the 2D gaussian mixture model. \end{DoxyCompactList}\item 
+void \hyperlink{classOSpace_ac87ea026f6b4b6d00980e7f849e48e9b}{update} ()\hypertarget{classOSpace_ac87ea026f6b4b6d00980e7f849e48e9b}{}\label{classOSpace_ac87ea026f6b4b6d00980e7f849e48e9b}
+
+\begin{DoxyCompactList}\small\item\em Update the \hyperlink{classOSpace}{O\+Space} by computing its gravity center, centroids and deduce the covariance matrix of the 2D gaussian mixture model. \end{DoxyCompactList}\item 
+double \hyperlink{classOSpace_afa5d22b357c9639c7208c1cb5c6525fa}{phi} (Vector3d tested\+Point)
+\begin{DoxyCompactList}\small\item\em Compute the value of the \hyperlink{classOSpace}{O\+Space} at a given point in space. \end{DoxyCompactList}\item 
+bool \hyperlink{classOSpace_a96380f4ad674c9ecb29b345ff87d6b3f}{less} (Vector3d a, Vector3d b)
+\begin{DoxyCompactList}\small\item\em Compare two vector based on the \hyperlink{classOSpace}{O\+Space} gravity center. \end{DoxyCompactList}\item 
+Vector3d \hyperlink{classOSpace_ab9ddbaab88efeab63fb7e0e51de55036}{get\+Center} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classOSpace_aa495172e001ca1c6d5dd169f4cd4900b}{set\+Center} (const Vector3d \&\hyperlink{classOSpace_a7ec22529d88e51876ff7eba9cdcdca05}{center})
+\begin{DoxyCompactList}\small\item\em Simpler setter. \end{DoxyCompactList}\item 
+Vector3d \hyperlink{classOSpace_a45e9ea9c566d2fc13713a5092ce841f6}{getg\+Center} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classOSpace_aa4bbf797dfce6bd4414d33a57b346ea3}{setg\+Center} (const Vector3d \&\hyperlink{classOSpace_a023a293d79b949534f94eedbac932cec}{g\+Center})
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ Vector3d $>$ $>$ \hyperlink{classOSpace_ada0f8c061d4b2623077c7524a540bb4d}{dh\+\_\+seg}\hypertarget{classOSpace_ada0f8c061d4b2623077c7524a540bb4d}{}\label{classOSpace_ada0f8c061d4b2623077c7524a540bb4d}
+
+\begin{DoxyCompactList}\small\item\em List of DH vector representing the interpersonnal distance between the Agents. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ Vector3d $>$ $>$ \hyperlink{classOSpace_a6a5fdc339135907855b6a9bc2f69fca7}{di\+\_\+seg}\hypertarget{classOSpace_a6a5fdc339135907855b6a9bc2f69fca7}{}\label{classOSpace_a6a5fdc339135907855b6a9bc2f69fca7}
+
+\begin{DoxyCompactList}\small\item\em List of DI vector representing the distance between field of view intersection of Agents. \end{DoxyCompactList}\item 
+Vector3d \hyperlink{classOSpace_a7ec22529d88e51876ff7eba9cdcdca05}{center}\hypertarget{classOSpace_a7ec22529d88e51876ff7eba9cdcdca05}{}\label{classOSpace_a7ec22529d88e51876ff7eba9cdcdca05}
+
+\begin{DoxyCompactList}\small\item\em The center of the \hyperlink{classOSpace}{O\+Space}. \end{DoxyCompactList}\item 
+Vector3d \hyperlink{classOSpace_a023a293d79b949534f94eedbac932cec}{g\+Center}\hypertarget{classOSpace_a023a293d79b949534f94eedbac932cec}{}\label{classOSpace_a023a293d79b949534f94eedbac932cec}
+
+\begin{DoxyCompactList}\small\item\em The gravity center based on the Agents position. \end{DoxyCompactList}\item 
+double \hyperlink{classOSpace_a0c7df223dae1d6cf274ce9271dfafe8c}{rotation} = 0.\+0f\hypertarget{classOSpace_a0c7df223dae1d6cf274ce9271dfafe8c}{}\label{classOSpace_a0c7df223dae1d6cf274ce9271dfafe8c}
+
+\begin{DoxyCompactList}\small\item\em The rotation applied to the 2D gaussian mixture model. \end{DoxyCompactList}\item 
+std\+::vector$<$ Vector3d $>$ \hyperlink{classOSpace_acc818308e36fff24106eaa8f00388038}{intersection\+Points}\hypertarget{classOSpace_acc818308e36fff24106eaa8f00388038}{}\label{classOSpace_acc818308e36fff24106eaa8f00388038}
+
+\begin{DoxyCompactList}\small\item\em List of field of view intersection point between Agents. \end{DoxyCompactList}\item 
+std\+::vector$<$ Vector3d $>$ \hyperlink{classOSpace_aaa01a3a29082df6be390aa1869946af7}{centroids}\hypertarget{classOSpace_aaa01a3a29082df6be390aa1869946af7}{}\label{classOSpace_aaa01a3a29082df6be390aa1869946af7}
+
+\begin{DoxyCompactList}\small\item\em List of the centroid points based on intersection points and Agents position. \end{DoxyCompactList}\item 
+Matrix$<$ double, 2, 2 $>$ \hyperlink{classOSpace_af7b7e14739162e0b40da89484c351dd7}{covar\+Matrix}\hypertarget{classOSpace_af7b7e14739162e0b40da89484c351dd7}{}\label{classOSpace_af7b7e14739162e0b40da89484c351dd7}
+
+\begin{DoxyCompactList}\small\item\em The covariance matrix of the 2D gaussian mixture model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is an implementation of the \hyperlink{classGroupSocialSpace}{Group\+Social\+Space}. 
+
+This class is an implementation of the \hyperlink{classGroupSocialSpace}{Group\+Social\+Space} represented by a 2D gaussian mixture model based on interpersonal distances and a algorithm to find the center of the related \hyperlink{classFormation}{Formation}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{O\+Space@{O\+Space}!O\+Space@{O\+Space}}
+\index{O\+Space@{O\+Space}!O\+Space@{O\+Space}}
+\subsubsection[{\texorpdfstring{O\+Space(int id=0)}{OSpace(int id=0)}}]{\setlength{\rightskip}{0pt plus 5cm}O\+Space\+::\+O\+Space (
+\begin{DoxyParamCaption}
+\item[{int}]{id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classOSpace_ae160e76b0b2d3c1367946f8bb965bd1e}{}\label{classOSpace_ae160e76b0b2d3c1367946f8bb965bd1e}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classOSpace}{O\+Space} class, with no \hyperlink{classAgent}{Agent}
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \+: The unique identifier of the \hyperlink{classOSpace}{O\+Space} \\
+\hline
+\end{DoxyParams}
+\index{O\+Space@{O\+Space}!O\+Space@{O\+Space}}
+\index{O\+Space@{O\+Space}!O\+Space@{O\+Space}}
+\subsubsection[{\texorpdfstring{O\+Space(std\+::vector$<$ Agent $\ast$ $>$ \&agents, int id=0)}{OSpace(std::vector< Agent * > &agents, int id=0)}}]{\setlength{\rightskip}{0pt plus 5cm}O\+Space\+::\+O\+Space (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Agent} $\ast$ $>$ \&}]{agents, }
+\item[{int}]{id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classOSpace_acd0c5685bc984af6287108710a1333ff}{}\label{classOSpace_acd0c5685bc984af6287108710a1333ff}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classOSpace}{O\+Space} class, for the Agents in parameter
+
+
+\begin{DoxyParams}{Parameters}
+{\em agents} & \+: The Agents related to the \hyperlink{classGroupSocialSpace}{Group\+Social\+Space} \\
+\hline
+{\em id} & \+: The unique identifier of the \hyperlink{classGroupSocialSpace}{Group\+Social\+Space} \\
+\hline
+\end{DoxyParams}
+\index{O\+Space@{O\+Space}!````~O\+Space@{$\sim$\+O\+Space}}
+\index{````~O\+Space@{$\sim$\+O\+Space}!O\+Space@{O\+Space}}
+\subsubsection[{\texorpdfstring{$\sim$\+O\+Space()}{~OSpace()}}]{\setlength{\rightskip}{0pt plus 5cm}O\+Space\+::$\sim$\+O\+Space (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classOSpace_af8078a93268b4064919701765ad59451}{}\label{classOSpace_af8078a93268b4064919701765ad59451}
+
+
+Destructor. 
+
+Destructor of the \hyperlink{classOSpace}{O\+Space} class 
+
+\subsection{Member Function Documentation}
+\index{O\+Space@{O\+Space}!compute\+Covar\+Matrix@{compute\+Covar\+Matrix}}
+\index{compute\+Covar\+Matrix@{compute\+Covar\+Matrix}!O\+Space@{O\+Space}}
+\subsubsection[{\texorpdfstring{compute\+Covar\+Matrix()}{computeCovarMatrix()}}]{\setlength{\rightskip}{0pt plus 5cm}void O\+Space\+::compute\+Covar\+Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classOSpace_af73e9e5f18635010d63bf1cfcbc05f1c}{}\label{classOSpace_af73e9e5f18635010d63bf1cfcbc05f1c}
+
+
+Compute the covariance matrix of the 2D gaussian mixture model. 
+
+Compute the covariance matrix of the 2D gaussian mixture model based on interpersonnal distance between Agents \index{O\+Space@{O\+Space}!get\+Center@{get\+Center}}
+\index{get\+Center@{get\+Center}!O\+Space@{O\+Space}}
+\subsubsection[{\texorpdfstring{get\+Center() const }{getCenter() const }}]{\setlength{\rightskip}{0pt plus 5cm}Vector3d O\+Space\+::get\+Center (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classOSpace_ab9ddbaab88efeab63fb7e0e51de55036}{}\label{classOSpace_ab9ddbaab88efeab63fb7e0e51de55036}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+center 
+\end{DoxyReturn}
+\index{O\+Space@{O\+Space}!getg\+Center@{getg\+Center}}
+\index{getg\+Center@{getg\+Center}!O\+Space@{O\+Space}}
+\subsubsection[{\texorpdfstring{getg\+Center() const }{getgCenter() const }}]{\setlength{\rightskip}{0pt plus 5cm}Vector3d O\+Space\+::getg\+Center (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classOSpace_a45e9ea9c566d2fc13713a5092ce841f6}{}\label{classOSpace_a45e9ea9c566d2fc13713a5092ce841f6}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+g\+Center 
+\end{DoxyReturn}
+\index{O\+Space@{O\+Space}!less@{less}}
+\index{less@{less}!O\+Space@{O\+Space}}
+\subsubsection[{\texorpdfstring{less(\+Vector3d a, Vector3d b)}{less(Vector3d a, Vector3d b)}}]{\setlength{\rightskip}{0pt plus 5cm}bool O\+Space\+::less (
+\begin{DoxyParamCaption}
+\item[{Vector3d}]{a, }
+\item[{Vector3d}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{classOSpace_a96380f4ad674c9ecb29b345ff87d6b3f}{}\label{classOSpace_a96380f4ad674c9ecb29b345ff87d6b3f}
+
+
+Compare two vector based on the \hyperlink{classOSpace}{O\+Space} gravity center. 
+
+Compare two vector based on the \hyperlink{classOSpace}{O\+Space} gravity center to order them clockwise
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \+: The first \hyperlink{classAgent}{Agent} position \\
+\hline
+{\em b} & \+: The second \hyperlink{classAgent}{Agent} position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if a \hyperlink{classAgent}{Agent} is before b \hyperlink{classAgent}{Agent} in clockwise order relative to g\+Center, 0 otherwise 
+\end{DoxyReturn}
+\index{O\+Space@{O\+Space}!phi@{phi}}
+\index{phi@{phi}!O\+Space@{O\+Space}}
+\subsubsection[{\texorpdfstring{phi(\+Vector3d tested\+Point)}{phi(Vector3d testedPoint)}}]{\setlength{\rightskip}{0pt plus 5cm}double O\+Space\+::phi (
+\begin{DoxyParamCaption}
+\item[{Vector3d}]{tested\+Point}
+\end{DoxyParamCaption}
+)}\hypertarget{classOSpace_afa5d22b357c9639c7208c1cb5c6525fa}{}\label{classOSpace_afa5d22b357c9639c7208c1cb5c6525fa}
+
+
+Compute the value of the \hyperlink{classOSpace}{O\+Space} at a given point in space. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tested\+Point} & \+: The coordinates of the point in the real frame coordinates \hyperlink{classWorld}{World}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the \hyperlink{classOSpace}{O\+Space} at the given point 
+\end{DoxyReturn}
+\index{O\+Space@{O\+Space}!set\+Center@{set\+Center}}
+\index{set\+Center@{set\+Center}!O\+Space@{O\+Space}}
+\subsubsection[{\texorpdfstring{set\+Center(const Vector3d \&center)}{setCenter(const Vector3d &center)}}]{\setlength{\rightskip}{0pt plus 5cm}void O\+Space\+::set\+Center (
+\begin{DoxyParamCaption}
+\item[{const Vector3d \&}]{center}
+\end{DoxyParamCaption}
+)}\hypertarget{classOSpace_aa495172e001ca1c6d5dd169f4cd4900b}{}\label{classOSpace_aa495172e001ca1c6d5dd169f4cd4900b}
+
+
+Simpler setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & \\
+\hline
+\end{DoxyParams}
+\index{O\+Space@{O\+Space}!setg\+Center@{setg\+Center}}
+\index{setg\+Center@{setg\+Center}!O\+Space@{O\+Space}}
+\subsubsection[{\texorpdfstring{setg\+Center(const Vector3d \&g\+Center)}{setgCenter(const Vector3d &gCenter)}}]{\setlength{\rightskip}{0pt plus 5cm}void O\+Space\+::setg\+Center (
+\begin{DoxyParamCaption}
+\item[{const Vector3d \&}]{g\+Center}
+\end{DoxyParamCaption}
+)}\hypertarget{classOSpace_aa4bbf797dfce6bd4414d33a57b346ea3}{}\label{classOSpace_aa4bbf797dfce6bd4414d33a57b346ea3}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g\+Center} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/social\+Space/\hyperlink{OSpace_8h}{O\+Space.\+h}\item 
+src/social\+Space/\hyperlink{OSpace_8cpp}{O\+Space.\+cpp}\end{DoxyCompactItemize}

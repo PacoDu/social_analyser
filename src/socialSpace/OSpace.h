@@ -81,9 +81,15 @@ public:
 	void computeCentroids();
 
 	/**
+	 * @brief Compute the center of the Formation based on centroids
+	 */
+	void computeCenter();
+
+	/**
 	 * @brief Compute the covariance matrix of the 2D gaussian mixture model
 	 *
 	 * Compute the covariance matrix of the 2D gaussian mixture model based on interpersonnal distance between Agents
+	 *
 	 */
 	void computeCovarMatrix();
 

@@ -179,8 +179,8 @@ double heuristicDiagonalCostEstimate(GridCell* start, GridCell* end){
 
 // A* algorithm
 std::vector<GridCell*> GridMap::findPath(GridCell* startCell, GridCell* endCell){
-	ofLogNotice("GridMap::findPath") << "Computing path for Cell#" << startCell->getId() << " to Cell#" << endCell->getId();
-	ofLogNotice("DEBUG") << "__________________________________________________________________________";
+//	ofLogNotice("GridMap::findPath") << "Computing path for Cell#" << startCell->getId() << " to Cell#" << endCell->getId();
+//	ofLogNotice("DEBUG") << "__________________________________________________________________________";
 
 	this->resetCellColor();
 	startCell->setStart();

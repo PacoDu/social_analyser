@@ -1,0 +1,462 @@
+\hypertarget{classGridCell}{}\section{Grid\+Cell Class Reference}
+\label{classGridCell}\index{Grid\+Cell@{Grid\+Cell}}
+
+
+This class represent a cell in the \hyperlink{classGridMap}{Grid\+Map}.  
+
+
+
+
+{\ttfamily \#include $<$Grid\+Cell.\+h$>$}
+
+
+
+Inheritance diagram for Grid\+Cell\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{classGridCell__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Grid\+Cell\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{classGridCell__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGridCell_aefc88a474d5b3e60c3c5ae919c7e1bf9}{Grid\+Cell} (double size, double value=0, Vector3d \hyperlink{classLocalizedObject_a340834deefc9e5c39da1f26c4ebf4f8c}{position}=Vector3d(), int \hyperlink{classIdentifiedObject_ad044a317a9b573a3d1bcd025df166eb5}{id}=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classGridCell_a8952d31ed1dd16eb5fb32fff9be95c7c}{$\sim$\+Grid\+Cell} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+double \hyperlink{classGridCell_a04f6b968f8a878747f196c582288f2e9}{get\+Value} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classGridCell_a450cb7b243e81d70583f24ae0902568d}{set\+Value} (double value)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+double \hyperlink{classGridCell_a4d2ec9a305c1e5a3508420f2b75e0721}{get\+Size} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classGridCell_a10b03ef94c1fbc4145692c846c14809c}{set\+Size} (double size)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_acc9dad8cc0fbf272a4df442329cfff89}{is\+Border\+Enabled} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classGridCell_a11419a8819e3352575dccb4a860626e0}{set\+Border\+Enabled} (bool \hyperlink{classGridCell_aa153cae8dd39f3435f0d94af62fc506c}{border\+Enabled}=true)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+double \hyperlink{classGridCell_a5ca76c4f5366e038bb04d69ebba1bfaa}{get\+A\+Star\+Score} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classGridCell_aba04e37a148ccdf854fa3d1212ae53e8}{set\+A\+Star\+Score} (int star\+Score)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_abb1ed437dca40c20cf9d7ea8a46841bd}{is\+Cell\+Selected} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classGridCell_ae122cd7653166197f3956b26416f2e0a}{set\+Cell\+Selected} (bool \hyperlink{classGridCell_ace80d646d21ff2134df71a64a4b4222d}{cell\+Selected}=true)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_af0d7942180a406779e395179a7882c6d}{is\+Frontier} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classGridCell_a59db9ea256eeb5f9a2ec6130794c7dcc}{set\+Frontier} (bool \hyperlink{classGridCell_ab8c610dccff54254896b67d34cb36b35}{frontier}=true)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_a071e0d4c217d7992ed31cdcba1c1c10d}{is\+Processed} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classGridCell_a72581a1a587bebaba02fb36d419d3768}{set\+Processed} (bool \hyperlink{classGridCell_acd279e15b141714d74586ba0a05e9d7b}{processed}=true)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_a556d638eef4f4135158dcdcff87f761a}{is\+Goal} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classGridCell_aa9092a59955a34313dea633eab05d4c8}{set\+Goal} (bool \hyperlink{classGridCell_afe1b6d3afa06397f1732c07cfd9111ed}{goal}=true)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_a233cabce55d024827a351a91292f3b19}{is\+Start} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classGridCell_ad104aba9157bb24a30a6e802950ffd37}{set\+Start} (bool \hyperlink{classGridCell_ac9fb7e6a84df215d9a3888428fe63425}{start}=true)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_a1adf0636dabff7aca3d815ac7f888607}{is\+Info\+Enabled} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classGridCell_ab6312c017289556a74736f4dcf3d0062}{set\+Info\+Enabled} (bool \hyperlink{classGridCell_a2dbb35023dd7a201c1c02569204cfd2e}{info\+Enabled}=true)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classGridCell_a6da426a6abc1a134c69f1b81647d9cfa}{\+\_\+size}\hypertarget{classGridCell_a6da426a6abc1a134c69f1b81647d9cfa}{}\label{classGridCell_a6da426a6abc1a134c69f1b81647d9cfa}
+
+\begin{DoxyCompactList}\small\item\em The size of the \hyperlink{classGridCell}{Grid\+Cell}. \end{DoxyCompactList}\item 
+double \hyperlink{classGridCell_a933654fb91fed011c81b0a70af3e1f5a}{\+\_\+value}\hypertarget{classGridCell_a933654fb91fed011c81b0a70af3e1f5a}{}\label{classGridCell_a933654fb91fed011c81b0a70af3e1f5a}
+
+\begin{DoxyCompactList}\small\item\em The value of the \hyperlink{classGridCell}{Grid\+Cell}. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_aa153cae8dd39f3435f0d94af62fc506c}{border\+Enabled} = false\hypertarget{classGridCell_aa153cae8dd39f3435f0d94af62fc506c}{}\label{classGridCell_aa153cae8dd39f3435f0d94af62fc506c}
+
+\begin{DoxyCompactList}\small\item\em Enable of disable \hyperlink{classGridCell}{Grid\+Cell} border drawing. \end{DoxyCompactList}\item 
+double \hyperlink{classGridCell_a2c12f31b0b0f64b0c90624ab596cd0e6}{\+\_\+a\+Star\+Score} = -\/1\hypertarget{classGridCell_a2c12f31b0b0f64b0c90624ab596cd0e6}{}\label{classGridCell_a2c12f31b0b0f64b0c90624ab596cd0e6}
+
+\begin{DoxyCompactList}\small\item\em The A$\ast$ score of the \hyperlink{classGridCell}{Grid\+Cell}. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_ace80d646d21ff2134df71a64a4b4222d}{cell\+Selected} = false\hypertarget{classGridCell_ace80d646d21ff2134df71a64a4b4222d}{}\label{classGridCell_ace80d646d21ff2134df71a64a4b4222d}
+
+\begin{DoxyCompactList}\small\item\em Select of deselect \hyperlink{classGridCell}{Grid\+Cell} (change drawing color) \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_ab8c610dccff54254896b67d34cb36b35}{frontier} = false\hypertarget{classGridCell_ab8c610dccff54254896b67d34cb36b35}{}\label{classGridCell_ab8c610dccff54254896b67d34cb36b35}
+
+\begin{DoxyCompactList}\small\item\em If the \hyperlink{classGridCell}{Grid\+Cell} is a frontier (change drawing color) \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_acd279e15b141714d74586ba0a05e9d7b}{processed} = false\hypertarget{classGridCell_acd279e15b141714d74586ba0a05e9d7b}{}\label{classGridCell_acd279e15b141714d74586ba0a05e9d7b}
+
+\begin{DoxyCompactList}\small\item\em If the \hyperlink{classGridCell}{Grid\+Cell} has been processed (change drawing color) \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_afe1b6d3afa06397f1732c07cfd9111ed}{goal} = false\hypertarget{classGridCell_afe1b6d3afa06397f1732c07cfd9111ed}{}\label{classGridCell_afe1b6d3afa06397f1732c07cfd9111ed}
+
+\begin{DoxyCompactList}\small\item\em If the \hyperlink{classGridCell}{Grid\+Cell} is the goal to reach (change drawing color) \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_ac9fb7e6a84df215d9a3888428fe63425}{start} = false\hypertarget{classGridCell_ac9fb7e6a84df215d9a3888428fe63425}{}\label{classGridCell_ac9fb7e6a84df215d9a3888428fe63425}
+
+\begin{DoxyCompactList}\small\item\em If the \hyperlink{classGridCell}{Grid\+Cell} is the starting point (change drawing color) \end{DoxyCompactList}\item 
+bool \hyperlink{classGridCell_a2dbb35023dd7a201c1c02569204cfd2e}{info\+Enabled} = false\hypertarget{classGridCell_a2dbb35023dd7a201c1c02569204cfd2e}{}\label{classGridCell_a2dbb35023dd7a201c1c02569204cfd2e}
+
+\begin{DoxyCompactList}\small\item\em Enable of disable \hyperlink{classGridCell}{Grid\+Cell} informations drawing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represent a cell in the \hyperlink{classGridMap}{Grid\+Map}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Grid\+Cell@{Grid\+Cell}!Grid\+Cell@{Grid\+Cell}}
+\index{Grid\+Cell@{Grid\+Cell}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{Grid\+Cell(double size, double value=0, Vector3d position=\+Vector3d(), int id=0)}{GridCell(double size, double value=0, Vector3d position=Vector3d(), int id=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Grid\+Cell\+::\+Grid\+Cell (
+\begin{DoxyParamCaption}
+\item[{double}]{size, }
+\item[{double}]{value = {\ttfamily 0}, }
+\item[{Vector3d}]{position = {\ttfamily Vector3d()}, }
+\item[{int}]{id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridCell_aefc88a474d5b3e60c3c5ae919c7e1bf9}{}\label{classGridCell_aefc88a474d5b3e60c3c5ae919c7e1bf9}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classGridCell}{Grid\+Cell} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & \+: The size of the \hyperlink{classGridCell}{Grid\+Cell} \\
+\hline
+{\em value} & \+: The initial value of the \hyperlink{classGridCell}{Grid\+Cell} \\
+\hline
+{\em position} & \+: The position of the \hyperlink{classGridCell}{Grid\+Cell} in real coordinate \\
+\hline
+{\em id} & \+: The unique identifier of the \hyperlink{classGridCell}{Grid\+Cell} \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Cell@{Grid\+Cell}!````~Grid\+Cell@{$\sim$\+Grid\+Cell}}
+\index{````~Grid\+Cell@{$\sim$\+Grid\+Cell}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{$\sim$\+Grid\+Cell()}{~GridCell()}}]{\setlength{\rightskip}{0pt plus 5cm}Grid\+Cell\+::$\sim$\+Grid\+Cell (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classGridCell_a8952d31ed1dd16eb5fb32fff9be95c7c}{}\label{classGridCell_a8952d31ed1dd16eb5fb32fff9be95c7c}
+
+
+Destructor. 
+
+Destructor of the \hyperlink{classGridCell}{Grid\+Cell} class 
+
+\subsection{Member Function Documentation}
+\index{Grid\+Cell@{Grid\+Cell}!get\+A\+Star\+Score@{get\+A\+Star\+Score}}
+\index{get\+A\+Star\+Score@{get\+A\+Star\+Score}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{get\+A\+Star\+Score() const }{getAStarScore() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Grid\+Cell\+::get\+A\+Star\+Score (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGridCell_a5ca76c4f5366e038bb04d69ebba1bfaa}{}\label{classGridCell_a5ca76c4f5366e038bb04d69ebba1bfaa}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+a\+Star\+Score 
+\end{DoxyReturn}
+\index{Grid\+Cell@{Grid\+Cell}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{get\+Size() const }{getSize() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Grid\+Cell\+::get\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGridCell_a4d2ec9a305c1e5a3508420f2b75e0721}{}\label{classGridCell_a4d2ec9a305c1e5a3508420f2b75e0721}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+size 
+\end{DoxyReturn}
+\index{Grid\+Cell@{Grid\+Cell}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{get\+Value() const }{getValue() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Grid\+Cell\+::get\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGridCell_a04f6b968f8a878747f196c582288f2e9}{}\label{classGridCell_a04f6b968f8a878747f196c582288f2e9}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+value 
+\end{DoxyReturn}
+\index{Grid\+Cell@{Grid\+Cell}!is\+Border\+Enabled@{is\+Border\+Enabled}}
+\index{is\+Border\+Enabled@{is\+Border\+Enabled}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{is\+Border\+Enabled() const }{isBorderEnabled() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Grid\+Cell\+::is\+Border\+Enabled (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGridCell_acc9dad8cc0fbf272a4df442329cfff89}{}\label{classGridCell_acc9dad8cc0fbf272a4df442329cfff89}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+border\+Enabled 
+\end{DoxyReturn}
+\index{Grid\+Cell@{Grid\+Cell}!is\+Cell\+Selected@{is\+Cell\+Selected}}
+\index{is\+Cell\+Selected@{is\+Cell\+Selected}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{is\+Cell\+Selected() const }{isCellSelected() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Grid\+Cell\+::is\+Cell\+Selected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGridCell_abb1ed437dca40c20cf9d7ea8a46841bd}{}\label{classGridCell_abb1ed437dca40c20cf9d7ea8a46841bd}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+cell\+Selected 
+\end{DoxyReturn}
+\index{Grid\+Cell@{Grid\+Cell}!is\+Frontier@{is\+Frontier}}
+\index{is\+Frontier@{is\+Frontier}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{is\+Frontier() const }{isFrontier() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Grid\+Cell\+::is\+Frontier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGridCell_af0d7942180a406779e395179a7882c6d}{}\label{classGridCell_af0d7942180a406779e395179a7882c6d}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+frontier 
+\end{DoxyReturn}
+\index{Grid\+Cell@{Grid\+Cell}!is\+Goal@{is\+Goal}}
+\index{is\+Goal@{is\+Goal}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{is\+Goal() const }{isGoal() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Grid\+Cell\+::is\+Goal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGridCell_a556d638eef4f4135158dcdcff87f761a}{}\label{classGridCell_a556d638eef4f4135158dcdcff87f761a}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+goal 
+\end{DoxyReturn}
+\index{Grid\+Cell@{Grid\+Cell}!is\+Info\+Enabled@{is\+Info\+Enabled}}
+\index{is\+Info\+Enabled@{is\+Info\+Enabled}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{is\+Info\+Enabled() const }{isInfoEnabled() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Grid\+Cell\+::is\+Info\+Enabled (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGridCell_a1adf0636dabff7aca3d815ac7f888607}{}\label{classGridCell_a1adf0636dabff7aca3d815ac7f888607}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+info\+Enabled 
+\end{DoxyReturn}
+\index{Grid\+Cell@{Grid\+Cell}!is\+Processed@{is\+Processed}}
+\index{is\+Processed@{is\+Processed}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{is\+Processed() const }{isProcessed() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Grid\+Cell\+::is\+Processed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGridCell_a071e0d4c217d7992ed31cdcba1c1c10d}{}\label{classGridCell_a071e0d4c217d7992ed31cdcba1c1c10d}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+processed 
+\end{DoxyReturn}
+\index{Grid\+Cell@{Grid\+Cell}!is\+Start@{is\+Start}}
+\index{is\+Start@{is\+Start}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{is\+Start() const }{isStart() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Grid\+Cell\+::is\+Start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGridCell_a233cabce55d024827a351a91292f3b19}{}\label{classGridCell_a233cabce55d024827a351a91292f3b19}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+start 
+\end{DoxyReturn}
+\index{Grid\+Cell@{Grid\+Cell}!set\+A\+Star\+Score@{set\+A\+Star\+Score}}
+\index{set\+A\+Star\+Score@{set\+A\+Star\+Score}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{set\+A\+Star\+Score(int star\+Score)}{setAStarScore(int starScore)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Cell\+::set\+A\+Star\+Score (
+\begin{DoxyParamCaption}
+\item[{int}]{star\+Score}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridCell_aba04e37a148ccdf854fa3d1212ae53e8}{}\label{classGridCell_aba04e37a148ccdf854fa3d1212ae53e8}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em star\+Score} & \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Cell@{Grid\+Cell}!set\+Border\+Enabled@{set\+Border\+Enabled}}
+\index{set\+Border\+Enabled@{set\+Border\+Enabled}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{set\+Border\+Enabled(bool border\+Enabled=true)}{setBorderEnabled(bool borderEnabled=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Cell\+::set\+Border\+Enabled (
+\begin{DoxyParamCaption}
+\item[{bool}]{border\+Enabled = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridCell_a11419a8819e3352575dccb4a860626e0}{}\label{classGridCell_a11419a8819e3352575dccb4a860626e0}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em border\+Enabled} & \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Cell@{Grid\+Cell}!set\+Cell\+Selected@{set\+Cell\+Selected}}
+\index{set\+Cell\+Selected@{set\+Cell\+Selected}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{set\+Cell\+Selected(bool cell\+Selected=true)}{setCellSelected(bool cellSelected=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Cell\+::set\+Cell\+Selected (
+\begin{DoxyParamCaption}
+\item[{bool}]{cell\+Selected = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridCell_ae122cd7653166197f3956b26416f2e0a}{}\label{classGridCell_ae122cd7653166197f3956b26416f2e0a}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell\+Selected} & \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Cell@{Grid\+Cell}!set\+Frontier@{set\+Frontier}}
+\index{set\+Frontier@{set\+Frontier}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{set\+Frontier(bool frontier=true)}{setFrontier(bool frontier=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Cell\+::set\+Frontier (
+\begin{DoxyParamCaption}
+\item[{bool}]{frontier = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridCell_a59db9ea256eeb5f9a2ec6130794c7dcc}{}\label{classGridCell_a59db9ea256eeb5f9a2ec6130794c7dcc}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frontier} & \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Cell@{Grid\+Cell}!set\+Goal@{set\+Goal}}
+\index{set\+Goal@{set\+Goal}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{set\+Goal(bool goal=true)}{setGoal(bool goal=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Cell\+::set\+Goal (
+\begin{DoxyParamCaption}
+\item[{bool}]{goal = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridCell_aa9092a59955a34313dea633eab05d4c8}{}\label{classGridCell_aa9092a59955a34313dea633eab05d4c8}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal} & \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Cell@{Grid\+Cell}!set\+Info\+Enabled@{set\+Info\+Enabled}}
+\index{set\+Info\+Enabled@{set\+Info\+Enabled}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{set\+Info\+Enabled(bool info\+Enabled=true)}{setInfoEnabled(bool infoEnabled=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Cell\+::set\+Info\+Enabled (
+\begin{DoxyParamCaption}
+\item[{bool}]{info\+Enabled = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridCell_ab6312c017289556a74736f4dcf3d0062}{}\label{classGridCell_ab6312c017289556a74736f4dcf3d0062}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info\+Enabled} & \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Cell@{Grid\+Cell}!set\+Processed@{set\+Processed}}
+\index{set\+Processed@{set\+Processed}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{set\+Processed(bool processed=true)}{setProcessed(bool processed=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Cell\+::set\+Processed (
+\begin{DoxyParamCaption}
+\item[{bool}]{processed = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridCell_a72581a1a587bebaba02fb36d419d3768}{}\label{classGridCell_a72581a1a587bebaba02fb36d419d3768}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em processed} & \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Cell@{Grid\+Cell}!set\+Size@{set\+Size}}
+\index{set\+Size@{set\+Size}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{set\+Size(double size)}{setSize(double size)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Cell\+::set\+Size (
+\begin{DoxyParamCaption}
+\item[{double}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridCell_a10b03ef94c1fbc4145692c846c14809c}{}\label{classGridCell_a10b03ef94c1fbc4145692c846c14809c}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Cell@{Grid\+Cell}!set\+Start@{set\+Start}}
+\index{set\+Start@{set\+Start}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{set\+Start(bool start=true)}{setStart(bool start=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Cell\+::set\+Start (
+\begin{DoxyParamCaption}
+\item[{bool}]{start = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridCell_ad104aba9157bb24a30a6e802950ffd37}{}\label{classGridCell_ad104aba9157bb24a30a6e802950ffd37}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Cell@{Grid\+Cell}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Grid\+Cell@{Grid\+Cell}}
+\subsubsection[{\texorpdfstring{set\+Value(double value)}{setValue(double value)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Cell\+::set\+Value (
+\begin{DoxyParamCaption}
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridCell_a450cb7b243e81d70583f24ae0902568d}{}\label{classGridCell_a450cb7b243e81d70583f24ae0902568d}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/world\+Representation/\hyperlink{GridCell_8h}{Grid\+Cell.\+h}\item 
+src/world\+Representation/\hyperlink{GridCell_8cpp}{Grid\+Cell.\+cpp}\end{DoxyCompactItemize}

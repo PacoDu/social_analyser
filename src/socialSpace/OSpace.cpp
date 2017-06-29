@@ -24,14 +24,15 @@ OSpace::~OSpace() {
 
 // --- METHOD
 void OSpace::update() {
-	this->intersectionPoints.resize(this->_agents.size());
-	this->centroids.resize(this->_agents.size());
-	this->intersectionPoints.clear();
-	this->centroids.clear();
+//	this->intersectionPoints.resize(this->_agents.size());
+//	this->centroids.resize(this->_agents.size());
+//	this->intersectionPoints.clear();
+//	this->centroids.clear();
 
 	this->computegCenter();
 	this->sortAgents();
 	this->computeCentroids();
+	this->computeCenter();
 	this->computeCovarMatrix();
 }
 
@@ -94,9 +95,9 @@ void OSpace::draw(World* world) {
 }
 #endif
 
-// Getter & Setter
 void OSpace::computegCenter() {
 	this->gCenter << 0,0,0 ;
+
 	for(auto * a: this->_agents){
 		this->gCenter += a->getPosition();
 	}
@@ -178,29 +179,32 @@ double OSpace::phi(Vector3d testedRealPoint) {
 			(this->_agents[0]->getX() + this->_agents[this->_agents.size()-1]->getX())/2,
 			(this->_agents[0]->getY() + this->_agents[this->_agents.size()-1]->getY())/2;
 
-	Vector2d u1;
-	u1 <<
-			this->center.x() - H1n.x(),
-			this->center.y() - H1n.y();
-
-	Vector2d u2;
-	u2 <<
-			this->_agents[0]->getX() - H1n.x(),
-			this->_agents[0]->getY() - H1n.y();
-
-	u1.normalize();
-	u2.normalize();
+//	Vector2d u1;
+//	u1 <<
+//			this->center.x() - H1n.x(),
+//			this->center.y() - H1n.y();
+//
+//	Vector2d u2;
+//	u2 <<
+//			this->_agents[0]->getX() - H1n.x(),
+//			this->_agents[0]->getY() - H1n.y();
+//
+//	u1.normalize();
+//	u2.normalize();
 
 //	Matrix<double, 2, 2> P;
 //	P <<
 //			u1.x(), u2.x(),
 //			u1.y(), u2.y();
 
-	double rAngle = this->rotation;
+	double rAngle = signed_angle(di_seg[0][1] - di_seg[0][0], Vector3d(1,0,0));
 	Matrix<double, 2, 2> P;
 		P <<
 			cos(rAngle-M_PI/2), sin(rAngle-M_PI/2),
 			-sin(rAngle-M_PI/2), cos(rAngle-M_PI/2);
+
+//		ofLogNotice("DEBUG1111") << "P=" << P;
+//		ofLogNotice("DEBUG") << "rotation=" << this->rotation;
 
 
 	v = P.inverse() * v;
@@ -209,7 +213,9 @@ double OSpace::phi(Vector3d testedRealPoint) {
 
 	double j =i*v;
 
-	return exp(-0.5*j);
+	double result = exp(-0.5*j);
+
+	return result;
 }
 
 // math from Gomez paper
@@ -244,7 +250,9 @@ if(_agents[_agents.size()-1]->getFOVIntersection(_agents[0])){
 	std::vector<Vector3d> tmp3;
 		tmp3.push_back(*_agents[_agents.size()-1]->getFOVIntersection(_agents[0]));
 		tmp3.push_back((_agents[_agents.size()-1]->getPosition()+_agents[0]->getPosition())/2);
-		this->rotation = acos((*_agents[_agents.size()-1]->getFOVIntersection(_agents[0])-(_agents[_agents.size()-1]->getPosition()+_agents[0]->getPosition())/2).dot(Vector3d(1,0,0)));
+//		this->rotation = acos((*_agents[_agents.size()-1]->getFOVIntersection(_agents[0])-(_agents[_agents.size()-1]->getPosition()+_agents[0]->getPosition())/2).dot(Vector3d(1,0,0)));
+//		this->rotation = signed_angle(_agents[_agents.size()-1]->getDirection(), _agents[0]->getDirection());
+//		this->rotation = 0;
 
 		//ofLogNotice("DEBUG") << "Angle = " << this->rotation;
 	di += distance(*_agents[_agents.size()-1]->getFOVIntersection(_agents[0]), (_agents[_agents.size()-1]->getPosition()+_agents[0]->getPosition())/2);
@@ -311,11 +319,13 @@ if(_agents[_agents.size()-1]->getFOVIntersection(_agents[0])){
 //}
 
 void OSpace::computeCentroids() {
-	intersectionPoints.resize(_agents.size());
-	centroids.resize(_agents.size());
+//	intersectionPoints.resize(_agents.size());
+//	centroids.resize(_agents.size());
+	intersectionPoints.clear();
+	centroids.clear();
 
-	Vector3d realCenter;
-	int n = 0;
+//	Vector3d realCenter;
+//	int n = 0;
 
 	for(unsigned int i=0; i < this->_agents.size(); i++){
 
@@ -323,25 +333,26 @@ void OSpace::computeCentroids() {
 		if(neighborIndex >= this->_agents.size()) neighborIndex = 0;
 
 		Vector3d * intersec = _agents[i]->getFOVIntersection(_agents[neighborIndex]);
-		if(intersec){
+		if(intersec != nullptr){
 //			ofLogNotice("OSpace::computeCentroids") << "Agent#" << _agents[i]->getId() << " FOV intersection with Agent#" << _agents[neighborIndex]->getId();
-			n++; // dirty use push back and vector size (clash with resize if there is no intersect)
-			intersectionPoints[i] = *intersec;
+//			n++; // dirty use push back and vector size (clash with resize if there is no intersect)
 			// compute centroïds
 			Vector3d centro;
-			centro.x() = (intersectionPoints[i].x() + ((_agents[neighborIndex]->getX() + _agents[i]->getX())/2))/2;
-			centro.y() = (intersectionPoints[i].y() + ((_agents[neighborIndex]->getY() + _agents[i]->getY())/2))/2;
-			centroids[i] = centro;
-			realCenter += centro;
+			centro.x() = (intersec->x() + ((_agents[neighborIndex]->getX() + _agents[i]->getX())/2))/2;
+			centro.y() = (intersec->y() + ((_agents[neighborIndex]->getY() + _agents[i]->getY())/2))/2;
+
+			intersectionPoints.push_back(*intersec);
+			centroids.push_back(centro);
+//			realCenter += centro;
 		}
 	}
 
 
-	ofLogNotice("Debug") << n;
-	if(n!=0)
-		realCenter /=  n;
+//	ofLogNotice("Debug") << n;
+//	if(n!=0)
+//		realCenter /=  n;
 
-	center << realCenter.x(), realCenter.y(), realCenter.z();
+//	center << realCenter.x(), realCenter.y(), realCenter.z();
 //	ofLogNotice("DEBUG") << center;
 }
 
@@ -355,6 +366,16 @@ void OSpace::setCenter(const Vector3d& center) {
 
 Vector3d OSpace::getgCenter() const {
 	return gCenter;
+}
+
+void OSpace::computeCenter() {
+	this->center << 0,0,0;
+
+	for(auto centro: this->centroids){
+		this->center += centro;
+	}
+
+	this->center /= this->centroids.size();
 }
 
 void OSpace::setgCenter(const Vector3d& gCenter) {

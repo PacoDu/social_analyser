@@ -1,0 +1,107 @@
+\hypertarget{classGaussianSpace}{}\section{Gaussian\+Space Class Reference}
+\label{classGaussianSpace}\index{Gaussian\+Space@{Gaussian\+Space}}
+
+
+This class is an implementation of the \hyperlink{classPersonnalSocialSpace}{Personnal\+Social\+Space}.  
+
+
+
+
+{\ttfamily \#include $<$Gaussian\+Space.\+h$>$}
+
+
+
+Inheritance diagram for Gaussian\+Space\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{classGaussianSpace__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Gaussian\+Space\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGaussianSpace__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGaussianSpace_a04f0be340911fe421b6d226e7be936e1}{Gaussian\+Space} (\hyperlink{classAgent}{Agent} $\ast$agent, int \hyperlink{classIdentifiedObject_ad044a317a9b573a3d1bcd025df166eb5}{id}=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classGaussianSpace_aff1535add265d12148ba8eca0766e268}{$\sim$\+Gaussian\+Space} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+double \hyperlink{classGaussianSpace_a8b1dec9d243861c80d63d3323a36f182}{phi} (Vector3d tested\+Real\+Point)
+\begin{DoxyCompactList}\small\item\em Compute the value of the \hyperlink{classGaussianSpace}{Gaussian\+Space} at a given point in space. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class is an implementation of the \hyperlink{classPersonnalSocialSpace}{Personnal\+Social\+Space}. 
+
+This class is an implementation of the \hyperlink{classPersonnalSocialSpace}{Personnal\+Social\+Space} represented by a 2D gaussian mixture model model based on interpersonal distances. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Gaussian\+Space@{Gaussian\+Space}!Gaussian\+Space@{Gaussian\+Space}}
+\index{Gaussian\+Space@{Gaussian\+Space}!Gaussian\+Space@{Gaussian\+Space}}
+\subsubsection[{\texorpdfstring{Gaussian\+Space(\+Agent $\ast$agent, int id=0)}{GaussianSpace(Agent *agent, int id=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Gaussian\+Space\+::\+Gaussian\+Space (
+\begin{DoxyParamCaption}
+\item[{{\bf Agent} $\ast$}]{agent, }
+\item[{int}]{id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGaussianSpace_a04f0be340911fe421b6d226e7be936e1}{}\label{classGaussianSpace_a04f0be340911fe421b6d226e7be936e1}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classGaussianSpace}{Gaussian\+Space} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent} & \+: The \hyperlink{classAgent}{Agent} related to the \hyperlink{classGaussianSpace}{Gaussian\+Space} \\
+\hline
+{\em id} & \+: The unique identifier of the \hyperlink{classGaussianSpace}{Gaussian\+Space} \\
+\hline
+\end{DoxyParams}
+\index{Gaussian\+Space@{Gaussian\+Space}!````~Gaussian\+Space@{$\sim$\+Gaussian\+Space}}
+\index{````~Gaussian\+Space@{$\sim$\+Gaussian\+Space}!Gaussian\+Space@{Gaussian\+Space}}
+\subsubsection[{\texorpdfstring{$\sim$\+Gaussian\+Space()}{~GaussianSpace()}}]{\setlength{\rightskip}{0pt plus 5cm}Gaussian\+Space\+::$\sim$\+Gaussian\+Space (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classGaussianSpace_aff1535add265d12148ba8eca0766e268}{}\label{classGaussianSpace_aff1535add265d12148ba8eca0766e268}
+
+
+Destructor. 
+
+Destructor of the \hyperlink{classGaussianSpace}{Gaussian\+Space} class 
+
+\subsection{Member Function Documentation}
+\index{Gaussian\+Space@{Gaussian\+Space}!phi@{phi}}
+\index{phi@{phi}!Gaussian\+Space@{Gaussian\+Space}}
+\subsubsection[{\texorpdfstring{phi(\+Vector3d tested\+Real\+Point)}{phi(Vector3d testedRealPoint)}}]{\setlength{\rightskip}{0pt plus 5cm}double Gaussian\+Space\+::phi (
+\begin{DoxyParamCaption}
+\item[{Vector3d}]{tested\+Real\+Point}
+\end{DoxyParamCaption}
+)}\hypertarget{classGaussianSpace_a8b1dec9d243861c80d63d3323a36f182}{}\label{classGaussianSpace_a8b1dec9d243861c80d63d3323a36f182}
+
+
+Compute the value of the \hyperlink{classGaussianSpace}{Gaussian\+Space} at a given point in space. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tested\+Real\+Point} & \+: The coordinates of the point in the real frame coordinates \hyperlink{classWorld}{World}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the \hyperlink{classGaussianSpace}{Gaussian\+Space} at the given point 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/social\+Space/\hyperlink{GaussianSpace_8h}{Gaussian\+Space.\+h}\item 
+src/social\+Space/\hyperlink{GaussianSpace_8cpp}{Gaussian\+Space.\+cpp}\end{DoxyCompactItemize}

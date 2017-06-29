@@ -1,0 +1,179 @@
+\hypertarget{classPopulationManager}{}\section{Population\+Manager Class Reference}
+\label{classPopulationManager}\index{Population\+Manager@{Population\+Manager}}
+
+
+Inheritance diagram for Population\+Manager\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classPopulationManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Population\+Manager\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classPopulationManager__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Population\+Manager} (\hyperlink{classWorld}{World} $\ast$world)\hypertarget{classPopulationManager_a358c64c798fb4f77958cb45f9da768b1}{}\label{classPopulationManager_a358c64c798fb4f77958cb45f9da768b1}
+
+\item 
+{\bfseries Population\+Manager} (\hyperlink{classWorld}{World} $\ast$world, std\+::string feature\+\_\+file, Vector3d p=Vector3d())\hypertarget{classPopulationManager_af6ec5e12d10cda4641e251e5ed873370}{}\label{classPopulationManager_af6ec5e12d10cda4641e251e5ed873370}
+
+\item 
+{\bfseries Population\+Manager} (std\+::string feature\+\_\+file, std\+::string gt\+\_\+file, Vector3d p=Vector3d())\hypertarget{classPopulationManager_aa083bdb9f3f534efa38eaa77455af812}{}\label{classPopulationManager_aa083bdb9f3f534efa38eaa77455af812}
+
+\item 
+int {\bfseries load\+Frame} (unsigned int f\+Index)\hypertarget{classPopulationManager_a2c893024ba17d5b106490ce9487ba86f}{}\label{classPopulationManager_a2c893024ba17d5b106490ce9487ba86f}
+
+\item 
+int {\bfseries load\+Json} ()\hypertarget{classPopulationManager_a08dc1edfd34f15596558e7c8e348e04a}{}\label{classPopulationManager_a08dc1edfd34f15596558e7c8e348e04a}
+
+\item 
+int {\bfseries load\+Feature\+Json} ()\hypertarget{classPopulationManager_a01822daf4197ca03f2139e52bbc18da9}{}\label{classPopulationManager_a01822daf4197ca03f2139e52bbc18da9}
+
+\item 
+int {\bfseries load\+Ground\+Truth\+Json} ()\hypertarget{classPopulationManager_af3cd5b0b6f3d60def4ed1155cd7b63b6}{}\label{classPopulationManager_af3cd5b0b6f3d60def4ed1155cd7b63b6}
+
+\item 
+void {\bfseries find\+Data\+Bounds} ()\hypertarget{classPopulationManager_aea9e6453830edea5dfeb25c591995274}{}\label{classPopulationManager_aea9e6453830edea5dfeb25c591995274}
+
+\item 
+\hyperlink{classFormation}{Formation} $\ast$ {\bfseries get\+Highest\+Formation\+Interaction\+Potential} ()\hypertarget{classPopulationManager_ab856989f3b690ed28ec62346f89084a1}{}\label{classPopulationManager_ab856989f3b690ed28ec62346f89084a1}
+
+\item 
+void {\bfseries run\+Test} ()\hypertarget{classPopulationManager_af59d2f1328ae10dd0f39bed9f7fd1446}{}\label{classPopulationManager_af59d2f1328ae10dd0f39bed9f7fd1446}
+
+\item 
+int {\bfseries next\+Frame} ()\hypertarget{classPopulationManager_adefe1cf12c8235dcbb1b71c4abaf9285}{}\label{classPopulationManager_adefe1cf12c8235dcbb1b71c4abaf9285}
+
+\item 
+int {\bfseries previous\+Frame} ()\hypertarget{classPopulationManager_a3cff6a6092f49e9dc1c1ceab1d8ebd02}{}\label{classPopulationManager_a3cff6a6092f49e9dc1c1ceab1d8ebd02}
+
+\item 
+void {\bfseries find\+Interaction} ()\hypertarget{classPopulationManager_a11ccb01d3f63cb74fee26876d6fd353a}{}\label{classPopulationManager_a11ccb01d3f63cb74fee26876d6fd353a}
+
+\item 
+void {\bfseries draw} (\hyperlink{classWorld}{World} $\ast$world)\hypertarget{classPopulationManager_a7b61ef70b107a5c6ffa7ae811cb2e9f7}{}\label{classPopulationManager_a7b61ef70b107a5c6ffa7ae811cb2e9f7}
+
+\item 
+void {\bfseries update} ()\hypertarget{classPopulationManager_aa6911ed18539c497498a824d94c518fa}{}\label{classPopulationManager_aa6911ed18539c497498a824d94c518fa}
+
+\item 
+\hyperlink{classPopulation}{Population} $\ast$ {\bfseries get\+Population} () const \hypertarget{classPopulationManager_a004d5657414384945ccd9ce19e052b6b}{}\label{classPopulationManager_a004d5657414384945ccd9ce19e052b6b}
+
+\item 
+void {\bfseries set\+Population} (\hyperlink{classPopulation}{Population} $\ast$population)\hypertarget{classPopulationManager_a8a049f79ebad2ca3b95ca830a2cb4ce4}{}\label{classPopulationManager_a8a049f79ebad2ca3b95ca830a2cb4ce4}
+
+\item 
+const std\+::string \& {\bfseries get\+Feature\+File} () const \hypertarget{classPopulationManager_a27684ca0d24e28d03e8101d22665cfc7}{}\label{classPopulationManager_a27684ca0d24e28d03e8101d22665cfc7}
+
+\item 
+void {\bfseries set\+Feature\+File} (const std\+::string \&feature\+File)\hypertarget{classPopulationManager_a943ed6b0d245b7a067bae3e3bf8b8a76}{}\label{classPopulationManager_a943ed6b0d245b7a067bae3e3bf8b8a76}
+
+\item 
+const ofx\+J\+S\+O\+N\+Element \& {\bfseries get\+Features} () const \hypertarget{classPopulationManager_a35e0b3c1dbf718c23ac2132969d270aa}{}\label{classPopulationManager_a35e0b3c1dbf718c23ac2132969d270aa}
+
+\item 
+void {\bfseries set\+Features} (const ofx\+J\+S\+O\+N\+Element \&features)\hypertarget{classPopulationManager_ad0f56a78149c12e9327456f8f0264dcb}{}\label{classPopulationManager_ad0f56a78149c12e9327456f8f0264dcb}
+
+\item 
+unsigned int {\bfseries get\+Frame\+Index} () const \hypertarget{classPopulationManager_a29ac81f9b477aaeba57ccff9cbe35b48}{}\label{classPopulationManager_a29ac81f9b477aaeba57ccff9cbe35b48}
+
+\item 
+void {\bfseries set\+Frame\+Index} (unsigned int frame\+Index)\hypertarget{classPopulationManager_ab442ff6670f1d9ae312949c80c1d2024}{}\label{classPopulationManager_ab442ff6670f1d9ae312949c80c1d2024}
+
+\item 
+const ofx\+J\+S\+O\+N\+Element \& {\bfseries get\+Ground\+Truth} () const \hypertarget{classPopulationManager_a50ffc188c034c544f30f8dc47c7f0ed9}{}\label{classPopulationManager_a50ffc188c034c544f30f8dc47c7f0ed9}
+
+\item 
+void {\bfseries set\+Ground\+Truth} (const ofx\+J\+S\+O\+N\+Element \&ground\+Truth)\hypertarget{classPopulationManager_a082873088273ed995bdb939dbb1b6af2}{}\label{classPopulationManager_a082873088273ed995bdb939dbb1b6af2}
+
+\item 
+bool {\bfseries is\+Gt\+Enabled} () const \hypertarget{classPopulationManager_a7a65e0c78ae942f827d83fe4479ddc78}{}\label{classPopulationManager_a7a65e0c78ae942f827d83fe4479ddc78}
+
+\item 
+void {\bfseries set\+Gt\+Enabled} (bool gt\+Enabled)\hypertarget{classPopulationManager_a8ff05f80d5610a5bc4a48e9bafbcb6e0}{}\label{classPopulationManager_a8ff05f80d5610a5bc4a48e9bafbcb6e0}
+
+\item 
+const std\+::string \& {\bfseries get\+Gt\+File} () const \hypertarget{classPopulationManager_af92a989024c47451ad1a4af4d6fc3543}{}\label{classPopulationManager_af92a989024c47451ad1a4af4d6fc3543}
+
+\item 
+void {\bfseries set\+Gt\+File} (const std\+::string \&gt\+File)\hypertarget{classPopulationManager_a1bc7287c2b14b7895e93b0bcce66637e}{}\label{classPopulationManager_a1bc7287c2b14b7895e93b0bcce66637e}
+
+\item 
+bool {\bfseries is\+Loaded} () const \hypertarget{classPopulationManager_a4b241f6ac08df413d02765231f535d18}{}\label{classPopulationManager_a4b241f6ac08df413d02765231f535d18}
+
+\item 
+void {\bfseries set\+Loaded} (bool loaded)\hypertarget{classPopulationManager_a8df267c991b192cd7904edfbe483af11}{}\label{classPopulationManager_a8df267c991b192cd7904edfbe483af11}
+
+\item 
+\hyperlink{classWorld}{World} $\ast$ {\bfseries get\+World} () const \hypertarget{classPopulationManager_a192c3235326ff9d3dc90809cc89accdd}{}\label{classPopulationManager_a192c3235326ff9d3dc90809cc89accdd}
+
+\item 
+\hyperlink{classGridMap}{Grid\+Map} $\ast$ {\bfseries get\+Map} () const \hypertarget{classPopulationManager_a717a85f4fd9702ed4564c7908c694cf1}{}\label{classPopulationManager_a717a85f4fd9702ed4564c7908c694cf1}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPopulation}{Population} $\ast$ {\bfseries \+\_\+population}\hypertarget{classPopulationManager_a5aeed2477f0858237d62536a79935689}{}\label{classPopulationManager_a5aeed2477f0858237d62536a79935689}
+
+\item 
+std\+::vector$<$ \hyperlink{classFormation}{Formation} $\ast$ $>$ {\bfseries \+\_\+\+GT}\hypertarget{classPopulationManager_a71632942b59ad26b92c413545aa50b63}{}\label{classPopulationManager_a71632942b59ad26b92c413545aa50b63}
+
+\item 
+ofx\+J\+S\+O\+N\+Element {\bfseries features}\hypertarget{classPopulationManager_ae861d42176c716788ee231a31ca5b64c}{}\label{classPopulationManager_ae861d42176c716788ee231a31ca5b64c}
+
+\item 
+ofx\+J\+S\+O\+N\+Element {\bfseries ground\+Truth}\hypertarget{classPopulationManager_af87acc21d7326f4bb3a2d10df99882ad}{}\label{classPopulationManager_af87acc21d7326f4bb3a2d10df99882ad}
+
+\item 
+std\+::string {\bfseries feature\+\_\+file}\hypertarget{classPopulationManager_a5944f296dd14faa9d05ffc12fd93edd4}{}\label{classPopulationManager_a5944f296dd14faa9d05ffc12fd93edd4}
+
+\item 
+std\+::string {\bfseries gt\+\_\+file}\hypertarget{classPopulationManager_a09c1311b04326acb98e5f4f735ef01c2}{}\label{classPopulationManager_a09c1311b04326acb98e5f4f735ef01c2}
+
+\item 
+\hyperlink{classWorld}{World} $\ast$ {\bfseries world}\hypertarget{classPopulationManager_a30865f8987c485caff39f54bbfb6a705}{}\label{classPopulationManager_a30865f8987c485caff39f54bbfb6a705}
+
+\item 
+\hyperlink{classGridMap}{Grid\+Map} $\ast$ {\bfseries map}\hypertarget{classPopulationManager_a2388eb51b85c7a74c1bff6e8f61f0a0e}{}\label{classPopulationManager_a2388eb51b85c7a74c1bff6e8f61f0a0e}
+
+\item 
+\hyperlink{classGroupDetector}{Group\+Detector} $\ast$ {\bfseries gd}\hypertarget{classPopulationManager_a130877f2f208878998de72f9ee6a6b84}{}\label{classPopulationManager_a130877f2f208878998de72f9ee6a6b84}
+
+\item 
+double {\bfseries min\+\_\+x}\hypertarget{classPopulationManager_a7d1b15dc7382fb2c983016a97e5929c2}{}\label{classPopulationManager_a7d1b15dc7382fb2c983016a97e5929c2}
+
+\item 
+double {\bfseries min\+\_\+y}\hypertarget{classPopulationManager_a00fa3879b5ab8777413c53c637f90eb0}{}\label{classPopulationManager_a00fa3879b5ab8777413c53c637f90eb0}
+
+\item 
+double {\bfseries max\+\_\+x}\hypertarget{classPopulationManager_a4ab5137b2cc1a7b2524bf0762c8e3d0e}{}\label{classPopulationManager_a4ab5137b2cc1a7b2524bf0762c8e3d0e}
+
+\item 
+double {\bfseries max\+\_\+y}\hypertarget{classPopulationManager_ab7326fb1c1004354ad4918db911052eb}{}\label{classPopulationManager_ab7326fb1c1004354ad4918db911052eb}
+
+\item 
+bool {\bfseries loaded} = 0\hypertarget{classPopulationManager_acf20d29d3095007ef674415702b836f5}{}\label{classPopulationManager_acf20d29d3095007ef674415702b836f5}
+
+\item 
+bool {\bfseries gt\+\_\+enabled} = 1\hypertarget{classPopulationManager_a5c34a8449db919ec03bb784d3dd9dc52}{}\label{classPopulationManager_a5c34a8449db919ec03bb784d3dd9dc52}
+
+\item 
+unsigned int {\bfseries frame\+Index} = 0\hypertarget{classPopulationManager_ac25b65c23880b06dcafc91de1e3a78a4}{}\label{classPopulationManager_ac25b65c23880b06dcafc91de1e3a78a4}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/agent\+Management/Population\+Manager.\+h\item 
+src/agent\+Management/Population\+Manager.\+cpp\end{DoxyCompactItemize}

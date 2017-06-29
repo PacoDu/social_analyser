@@ -1,0 +1,222 @@
+\hypertarget{classSocialPlanner}{}\section{Social\+Planner Class Reference}
+\label{classSocialPlanner}\index{Social\+Planner@{Social\+Planner}}
+
+
+This class is a state machine controlling the \hyperlink{classRobot}{Robot} behavior.  
+
+
+
+
+{\ttfamily \#include $<$Social\+Planner.\+h$>$}
+
+
+
+Collaboration diagram for Social\+Planner\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSocialPlanner__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classSocialPlanner_acb2c5c7ab803cafef828f504b1df5f6d}{Social\+State} \{ {\bfseries S\+E\+E\+K\+\_\+\+I\+N\+T\+E\+R\+A\+C\+T\+I\+ON}, 
+{\bfseries E\+N\+G\+A\+G\+E\+M\+E\+NT}, 
+{\bfseries I\+N\+T\+E\+R\+A\+C\+T\+I\+ON}, 
+{\bfseries D\+I\+S\+E\+N\+G\+A\+GE}
+ \}\hypertarget{classSocialPlanner_acb2c5c7ab803cafef828f504b1df5f6d}{}\label{classSocialPlanner_acb2c5c7ab803cafef828f504b1df5f6d}
+\begin{DoxyCompactList}\small\item\em The states available for the state machine. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSocialPlanner_ac2225f2890a3b8714d1a00d7c9a7a6c5}{Social\+Planner} (\hyperlink{classPopulationManager}{Population\+Manager} $\ast$pop\+Manager, \hyperlink{classRobot}{Robot} $\ast$\hyperlink{classSocialPlanner_a5f858fb49f0ce512d6a1d524af25d1ff}{robot})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classSocialPlanner_a5a6945c1e568005863a533467c2e6ae7}{$\sim$\+Social\+Planner} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classSocialPlanner_af5691bba77fe5d5070b2e0853fb79b5b}{update} ()
+\begin{DoxyCompactList}\small\item\em Update the state of the robot behavior,. \end{DoxyCompactList}\item 
+void \hyperlink{classSocialPlanner_a687dfc247b8d45945a85d0a91b576bbf}{seek\+\_\+interaction} ()
+\begin{DoxyCompactList}\small\item\em Seek interaction state. \end{DoxyCompactList}\item 
+void \hyperlink{classSocialPlanner_a5dc204e21fd2f4ed915e747f0132d2b4}{engage} ()
+\begin{DoxyCompactList}\small\item\em Engage state. \end{DoxyCompactList}\item 
+void \hyperlink{classSocialPlanner_a933dd6fd8dbc7f0734b041ab9523d49e}{interact} ()
+\begin{DoxyCompactList}\small\item\em Interaction state. \end{DoxyCompactList}\item 
+void \hyperlink{classSocialPlanner_abe00dd899b52d575bbd37663e6154967}{disengage} ()
+\begin{DoxyCompactList}\small\item\em Disengage state. \end{DoxyCompactList}\item 
+\hyperlink{classPopulationManager}{Population\+Manager} $\ast$ \hyperlink{classSocialPlanner_a0b0604374eaf862ddaedcf52a9ab163d}{get\+Manager} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+\hyperlink{classRobot}{Robot} $\ast$ \hyperlink{classSocialPlanner_a552ff2abf5af651b3adf02b58c144806}{get\+Robot} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classSocialPlanner_a13bcec9af0fe2827d8cb1054ea20b591}{interaction\+Started} = 0\hypertarget{classSocialPlanner_a13bcec9af0fe2827d8cb1054ea20b591}{}\label{classSocialPlanner_a13bcec9af0fe2827d8cb1054ea20b591}
+
+\begin{DoxyCompactList}\small\item\em Interaction state started. \end{DoxyCompactList}\item 
+bool \hyperlink{classSocialPlanner_abb314ece6c333d6afc821f9a040b38ae}{seek\+Started} = 0\hypertarget{classSocialPlanner_abb314ece6c333d6afc821f9a040b38ae}{}\label{classSocialPlanner_abb314ece6c333d6afc821f9a040b38ae}
+
+\begin{DoxyCompactList}\small\item\em Seek interaction state started. \end{DoxyCompactList}\item 
+std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \hyperlink{classSocialPlanner_ab22aaaf906f821e511c7703a4b663442}{start\+Interaction\+Time}\hypertarget{classSocialPlanner_ab22aaaf906f821e511c7703a4b663442}{}\label{classSocialPlanner_ab22aaaf906f821e511c7703a4b663442}
+
+\begin{DoxyCompactList}\small\item\em Time when interaction state started. \end{DoxyCompactList}\item 
+std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \hyperlink{classSocialPlanner_a80652fac5bcf138d82f9b80674a9e922}{start\+Seek\+Time}\hypertarget{classSocialPlanner_a80652fac5bcf138d82f9b80674a9e922}{}\label{classSocialPlanner_a80652fac5bcf138d82f9b80674a9e922}
+
+\begin{DoxyCompactList}\small\item\em Time when seek interaction state started. \end{DoxyCompactList}\item 
+std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::system\+\_\+clock $>$ \hyperlink{classSocialPlanner_ae727d2e77b91cb5bf494249611dd86d0}{start\+Mutual\+Facial\+Gaze}\hypertarget{classSocialPlanner_ae727d2e77b91cb5bf494249611dd86d0}{}\label{classSocialPlanner_ae727d2e77b91cb5bf494249611dd86d0}
+
+\begin{DoxyCompactList}\small\item\em Time when mutual facial gaze started. \end{DoxyCompactList}\item 
+\hyperlink{classSocialPlanner_acb2c5c7ab803cafef828f504b1df5f6d}{Social\+State} \hyperlink{classSocialPlanner_aeadee6941dc26e6ffcbfa5ed13b96cd0}{state} = S\+E\+E\+K\+\_\+\+I\+N\+T\+E\+R\+A\+C\+T\+I\+ON\hypertarget{classSocialPlanner_aeadee6941dc26e6ffcbfa5ed13b96cd0}{}\label{classSocialPlanner_aeadee6941dc26e6ffcbfa5ed13b96cd0}
+
+\begin{DoxyCompactList}\small\item\em Actual state, default is S\+E\+E\+K\+\_\+\+I\+N\+T\+E\+R\+A\+C\+T\+I\+ON. \end{DoxyCompactList}\item 
+\hyperlink{classPopulationManager}{Population\+Manager} $\ast$ \hyperlink{classSocialPlanner_aaed8a44f9e82ca53141f6a556365754a}{manager}\hypertarget{classSocialPlanner_aaed8a44f9e82ca53141f6a556365754a}{}\label{classSocialPlanner_aaed8a44f9e82ca53141f6a556365754a}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classPopulationManager}{Population\+Manager} used by the \hyperlink{classSocialPlanner}{Social\+Planner}. \end{DoxyCompactList}\item 
+\hyperlink{classRobot}{Robot} $\ast$ \hyperlink{classSocialPlanner_a5f858fb49f0ce512d6a1d524af25d1ff}{robot}\hypertarget{classSocialPlanner_a5f858fb49f0ce512d6a1d524af25d1ff}{}\label{classSocialPlanner_a5f858fb49f0ce512d6a1d524af25d1ff}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classRobot}{Robot} controlled by the \hyperlink{classSocialPlanner}{Social\+Planner}. \end{DoxyCompactList}\item 
+Vector3d \hyperlink{classSocialPlanner_ab105a0b94b629c396eaa4837c7234d27}{saved\+Position}\hypertarget{classSocialPlanner_ab105a0b94b629c396eaa4837c7234d27}{}\label{classSocialPlanner_ab105a0b94b629c396eaa4837c7234d27}
+
+\begin{DoxyCompactList}\small\item\em Interaction position saved, dirty. \end{DoxyCompactList}\item 
+int \hyperlink{classSocialPlanner_a82d7052c76abb4c2f233484ba60f3398}{gaze\+Target\+Index} = 0\hypertarget{classSocialPlanner_a82d7052c76abb4c2f233484ba60f3398}{}\label{classSocialPlanner_a82d7052c76abb4c2f233484ba60f3398}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classAgent}{Agent} index for the gaze target. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is a state machine controlling the \hyperlink{classRobot}{Robot} behavior. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]This class should be an interface to implement different behavior for the robot \end{DoxyRefDesc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Social\+Planner@{Social\+Planner}!Social\+Planner@{Social\+Planner}}
+\index{Social\+Planner@{Social\+Planner}!Social\+Planner@{Social\+Planner}}
+\subsubsection[{\texorpdfstring{Social\+Planner(\+Population\+Manager $\ast$pop\+Manager, Robot $\ast$robot)}{SocialPlanner(PopulationManager *popManager, Robot *robot)}}]{\setlength{\rightskip}{0pt plus 5cm}Social\+Planner\+::\+Social\+Planner (
+\begin{DoxyParamCaption}
+\item[{{\bf Population\+Manager} $\ast$}]{pop\+Manager, }
+\item[{{\bf Robot} $\ast$}]{robot}
+\end{DoxyParamCaption}
+)}\hypertarget{classSocialPlanner_ac2225f2890a3b8714d1a00d7c9a7a6c5}{}\label{classSocialPlanner_ac2225f2890a3b8714d1a00d7c9a7a6c5}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classSocialPlanner}{Social\+Planner} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em pop\+Manager} & \+: The \hyperlink{classPopulation}{Population} where the robot evolves \\
+\hline
+{\em robot} & \+: The \hyperlink{classRobot}{Robot} controlled by this behavior \\
+\hline
+\end{DoxyParams}
+\index{Social\+Planner@{Social\+Planner}!````~Social\+Planner@{$\sim$\+Social\+Planner}}
+\index{````~Social\+Planner@{$\sim$\+Social\+Planner}!Social\+Planner@{Social\+Planner}}
+\subsubsection[{\texorpdfstring{$\sim$\+Social\+Planner()}{~SocialPlanner()}}]{\setlength{\rightskip}{0pt plus 5cm}Social\+Planner\+::$\sim$\+Social\+Planner (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classSocialPlanner_a5a6945c1e568005863a533467c2e6ae7}{}\label{classSocialPlanner_a5a6945c1e568005863a533467c2e6ae7}
+
+
+Destructor. 
+
+Destructor of the \hyperlink{classSocialPlanner}{Social\+Planner} class 
+
+\subsection{Member Function Documentation}
+\index{Social\+Planner@{Social\+Planner}!disengage@{disengage}}
+\index{disengage@{disengage}!Social\+Planner@{Social\+Planner}}
+\subsubsection[{\texorpdfstring{disengage()}{disengage()}}]{\setlength{\rightskip}{0pt plus 5cm}void Social\+Planner\+::disengage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classSocialPlanner_abe00dd899b52d575bbd37663e6154967}{}\label{classSocialPlanner_abe00dd899b52d575bbd37663e6154967}
+
+
+Disengage state. 
+
+The robot ends the interaction by going back to the seek interaction state
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000004}{Todo}]Execute some social signals for disengagement \end{DoxyRefDesc}
+\index{Social\+Planner@{Social\+Planner}!engage@{engage}}
+\index{engage@{engage}!Social\+Planner@{Social\+Planner}}
+\subsubsection[{\texorpdfstring{engage()}{engage()}}]{\setlength{\rightskip}{0pt plus 5cm}void Social\+Planner\+::engage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classSocialPlanner_a5dc204e21fd2f4ed915e747f0132d2b4}{}\label{classSocialPlanner_a5dc204e21fd2f4ed915e747f0132d2b4}
+
+
+Engage state. 
+
+The robot move to the interaction position related to the \hyperlink{classFormation}{Formation} and process some social signal like mutual facial gaze to communicate its intentions. And switch to the interaction state when the goal is reached \index{Social\+Planner@{Social\+Planner}!get\+Manager@{get\+Manager}}
+\index{get\+Manager@{get\+Manager}!Social\+Planner@{Social\+Planner}}
+\subsubsection[{\texorpdfstring{get\+Manager() const }{getManager() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Population\+Manager} $\ast$ Social\+Planner\+::get\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classSocialPlanner_a0b0604374eaf862ddaedcf52a9ab163d}{}\label{classSocialPlanner_a0b0604374eaf862ddaedcf52a9ab163d}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classPopulationManager}{Population\+Manager} 
+\end{DoxyReturn}
+\index{Social\+Planner@{Social\+Planner}!get\+Robot@{get\+Robot}}
+\index{get\+Robot@{get\+Robot}!Social\+Planner@{Social\+Planner}}
+\subsubsection[{\texorpdfstring{get\+Robot() const }{getRobot() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Robot} $\ast$ Social\+Planner\+::get\+Robot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classSocialPlanner_a552ff2abf5af651b3adf02b58c144806}{}\label{classSocialPlanner_a552ff2abf5af651b3adf02b58c144806}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classRobot}{Robot} 
+\end{DoxyReturn}
+\index{Social\+Planner@{Social\+Planner}!interact@{interact}}
+\index{interact@{interact}!Social\+Planner@{Social\+Planner}}
+\subsubsection[{\texorpdfstring{interact()}{interact()}}]{\setlength{\rightskip}{0pt plus 5cm}void Social\+Planner\+::interact (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classSocialPlanner_a933dd6fd8dbc7f0734b041ab9523d49e}{}\label{classSocialPlanner_a933dd6fd8dbc7f0734b041ab9523d49e}
+
+
+Interaction state. 
+
+The robot simulate an interaction with the \hyperlink{classFormation}{Formation} for I\+N\+T\+E\+R\+A\+C\+T\+I\+O\+N\+\_\+\+M\+A\+X\+\_\+\+T\+I\+ME, then switch to the disengage state. \index{Social\+Planner@{Social\+Planner}!seek\+\_\+interaction@{seek\+\_\+interaction}}
+\index{seek\+\_\+interaction@{seek\+\_\+interaction}!Social\+Planner@{Social\+Planner}}
+\subsubsection[{\texorpdfstring{seek\+\_\+interaction()}{seek_interaction()}}]{\setlength{\rightskip}{0pt plus 5cm}void Social\+Planner\+::seek\+\_\+interaction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classSocialPlanner_a687dfc247b8d45945a85d0a91b576bbf}{}\label{classSocialPlanner_a687dfc247b8d45945a85d0a91b576bbf}
+
+
+Seek interaction state. 
+
+The robot is looking for interaction, it goes randomly around the \hyperlink{classGridMap}{Grid\+Map} and after S\+E\+E\+K\+\_\+\+I\+N\+T\+E\+R\+A\+C\+T\+I\+O\+N\+\_\+\+M\+I\+N\+\_\+\+T\+I\+ME it looks for the highest interaction potential available in the formations superior to I\+N\+T\+E\+R\+A\+C\+T\+I\+O\+N\+\_\+\+P\+O\+T\+E\+N\+T\+I\+A\+L\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD then switch to the engage state \index{Social\+Planner@{Social\+Planner}!update@{update}}
+\index{update@{update}!Social\+Planner@{Social\+Planner}}
+\subsubsection[{\texorpdfstring{update()}{update()}}]{\setlength{\rightskip}{0pt plus 5cm}void Social\+Planner\+::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classSocialPlanner_af5691bba77fe5d5070b2e0853fb79b5b}{}\label{classSocialPlanner_af5691bba77fe5d5070b2e0853fb79b5b}
+
+
+Update the state of the robot behavior,. 
+
+Update the state of the robot behavior, by executing the function related to its actual state 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/social\+Processing/\hyperlink{SocialPlanner_8h}{Social\+Planner.\+h}\item 
+src/social\+Processing/\hyperlink{SocialPlanner_8cpp}{Social\+Planner.\+cpp}\end{DoxyCompactItemize}

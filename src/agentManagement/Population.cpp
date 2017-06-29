@@ -41,7 +41,7 @@ void Population::draw(World* world) {
 
 		ss << " interactionPotential=" << f->getInteractionPotential()	<< std::endl;
 
-		f->draw(world);
+//		f->draw(world);
 	}
 
 	for(auto * a: this->_agents){

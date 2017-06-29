@@ -108,6 +108,9 @@ public:
 	PopulationManager * manager; //!< The PopulationManager used by the SocialPlanner
 	Robot * robot; //!< The Robot controlled by the SocialPlanner
 	Vector3d savedPosition; //!< Interaction position saved, dirty
+	int gazeTargetIndex = 0; //!< Agent index for the gaze target
+
+//	GridCell * currentGoal; //!< The current goal of the Robot
 };
 
 #endif /* SRC_SOCIALPLANNER_H_ */

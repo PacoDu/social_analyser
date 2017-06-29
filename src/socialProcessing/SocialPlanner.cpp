@@ -37,7 +37,7 @@ void SocialPlanner::update() {
 }
 
 void SocialPlanner::seek_interaction() {
-	ofLogNotice("SocialPlanner") << "Seek interaction state";
+//	ofLogNotice("SocialPlanner") << "Seek interaction state";
 
 	if(!seekStarted){
 		seekStarted = 1;
@@ -60,14 +60,16 @@ void SocialPlanner::seek_interaction() {
 	GridMap * map = manager->getMap();
 	GridCell * robotCell = map->getCell(robot->getX(), robot->getY());
 
-	if(!robot->getGoal()){
-		ofLogNotice("SocialPlanner") << "Finding random goal for robot";
+	if(robot->getGoal() == nullptr){
+//		ofLogNotice("SocialPlanner") << "Finding random goal for robot";
 		robot->resetPathFinding();
 
-		GridCell * goal = map->getCell(rand()%10,rand()%10);
+		GridCell * goal = map->getCell(rand()%(int)manager->getWorld()->getWidth(),rand()%(int)manager->getWorld()->getHeight());
 		while(goal->getValue() > 0.1){
-			goal = map->getCell(rand()%10,rand()%10);
+			goal = map->getCell(rand()%(int)manager->getWorld()->getWidth(),rand()%(int)manager->getWorld()->getHeight());
 		}
+
+//		currentGoal = goal;
 
 		robot->setGoal(goal);
 		robot->path = map->findPath(map->getCell(robot->getX(), robot->getY()), goal);
@@ -76,11 +78,18 @@ void SocialPlanner::seek_interaction() {
 	{
 		robot->resetPathFinding();
 	}
+//	else{
+//		GridCell * robotGoal = robot->getGoal();
+//		std::vector<GridCell*> newPath = map->findPath(map->getCell(robot->getX(), robot->getY()), robot->getGoal());
+//		robot->resetPathFinding();
+//		robot->path = newPath;
+//		robot->setGoal(robotGoal);
+//	}
 
 }
 
 void SocialPlanner::engage() {
-	ofLogNotice("SocialPlanner") << "Engage state";
+//	ofLogNotice("SocialPlanner") << "Engage state";
 	Formation * target = manager->getHighestFormationInteractionPotential();
 	if(target){
 		GridCell * goal = manager->getMap()->getCell(
@@ -96,7 +105,7 @@ void SocialPlanner::engage() {
 //			robot->resetPathFinding();
 			return;
 		}
-		ofLogNotice("DEBUG") << "ROBOT position (" << robot->getX() << "," << robot->getY() << ")";
+//		ofLogNotice("DEBUG") << "ROBOT position (" << robot->getX() << "," << robot->getY() << ")";
 
 		if(robot->getGoal() == nullptr || (goal->getPosition() - robot->getGoal()->getPosition()).norm() > 0.25){
 			robot->resetPathFinding();
@@ -149,8 +158,10 @@ void SocialPlanner::engage() {
 
 }
 
+int min_2(int a, int b){ return a>b?b:a; };
+
 void SocialPlanner::interact() {
-	ofLogNotice("SocialPlanner") << "Interact state";
+//	ofLogNotice("SocialPlanner") << "Interact state";
 	if(!interactionStarted){
 		interactionStarted = 1;
 		startInteractionTime = std::chrono::system_clock::now();
@@ -159,33 +170,41 @@ void SocialPlanner::interact() {
 
 	std::chrono::duration<double> deltaT = std::chrono::system_clock::now() - startInteractionTime;
 
+	Agent * agentRobot = new Agent(robot->getPosition(), robot->getTheta());
+
 	if(robot->gazeTarget){
 		std::chrono::duration<double> deltaT2 = std::chrono::system_clock::now() - startMutualFacialGaze;
 		if(deltaT2.count() > 5){
-			robot->gazeTarget = nullptr;
-			Agent * agentRobot = new Agent(robot->getPosition(), robot->getTheta());
-			std::vector<Agent *> agents = target->getAgents();
-			std::random_shuffle(agents.begin(), agents.end());
+			//		std::vector<Agent *> agents = target->getAgents();
+			//		std::random_shuffle(agents.begin(), agents.end());
 
-			for(auto * a: target->getAgents()){
-				if(a->getFOVIntersection(agentRobot)){
-					robot->gazeTarget = a;
-					startMutualFacialGaze = std::chrono::system_clock::now();
-				}
-			}
+					Agent * targetA = target->getAgents()[min_2(gazeTargetIndex, target->getAgents().size())];
+
+			//		for(auto * a: target->getAgents()){
+//					do{
+						robot->gazeTarget = targetA;
+						startMutualFacialGaze = std::chrono::system_clock::now();
+						gazeTargetIndex++;
+						if(gazeTargetIndex >= target->getAgents().size()){
+							gazeTargetIndex = 0;
+						}
+//					}
+//					while(targetA->getFOVIntersection(agentRobot));
 		}
 	}
 	else{
-		Agent * agentRobot = new Agent(robot->getPosition(), robot->getTheta());
-		std::vector<Agent *> agents = target->getAgents();
-		std::random_shuffle(agents.begin(), agents.end());
+					Agent * targetA = target->getAgents()[min_2(gazeTargetIndex, target->getAgents().size())];
 
-		for(auto * a: target->getAgents()){
-			if(a->getFOVIntersection(agentRobot)){
-				robot->gazeTarget = a;
-				startMutualFacialGaze = std::chrono::system_clock::now();
-			}
-		}
+			//		for(auto * a: target->getAgents()){
+//					do{
+						robot->gazeTarget = targetA;
+						startMutualFacialGaze = std::chrono::system_clock::now();
+						gazeTargetIndex++;
+						if(gazeTargetIndex > target->getAgents().size()){
+							gazeTargetIndex = 0;
+						}
+//					}
+//					while(targetA->getFOVIntersection(agentRobot));
 	}
 
 	if(!target || deltaT.count() > INTERACTION_MAX_TIME){
@@ -197,7 +216,7 @@ void SocialPlanner::interact() {
 }
 
 void SocialPlanner::disengage() {
-	ofLogNotice("SocialPlanner") << "Disengage state";
+//	ofLogNotice("SocialPlanner") << "Disengage state";
 	if(1){
 		this->state = SEEK_INTERACTION;
 	}

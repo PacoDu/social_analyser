@@ -1,5 +1,6 @@
 #include "ofApp.h"
 #include "config.h"
+#include "utils.h"
 
 #undef Success // Eigen import clash with X11, dirty fix
 #include "ofxMatrixEigen.h"
@@ -123,11 +124,11 @@ void ofApp::setup(){
 
 	manager = new PopulationManager(world);
 	a0 = new Agent(Vector3d(1.5, 2.5, 0), 5.37, 0);
-//	a1 = new Agent(Vector3d(3, 4, 0), 3.68, 1);
+	a1 = new Agent(Vector3d(3, 4, 0), 3.68, 1);
 //	a2 = new Agent(Vector3d(4.5, 3, 0), 0.27, 2);
 
 	manager->getPopulation()->pushAgent(a0);
-//	manager->getPopulation()->pushAgent(a1);
+	manager->getPopulation()->pushAgent(a1);
 //	manager->getPopulation()->pushAgent(a2);
 
 	manager->update();
@@ -148,6 +149,8 @@ void ofApp::update(){
 	robot->update();
 	manager->update();
 	udpServ->update();
+
+//	ofLogNotice("ANGLE") << "angle(a0,a1)=" << signed_angle(a0->getDirection(), a1->getDirection());
 }
 
 //--------------------------------------------------------------

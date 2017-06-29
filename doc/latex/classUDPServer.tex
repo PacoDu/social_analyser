@@ -1,0 +1,295 @@
+\hypertarget{classUDPServer}{}\section{U\+D\+P\+Server Class Reference}
+\label{classUDPServer}\index{U\+D\+P\+Server@{U\+D\+P\+Server}}
+
+
+This class manage the U\+DP Server sending computed data to a visualization software and receiving \hyperlink{classAgent}{Agent} data from other sensor sources.  
+
+
+
+
+{\ttfamily \#include $<$U\+D\+P\+Server.\+h$>$}
+
+
+
+Collaboration diagram for U\+D\+P\+Server\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classUDPServer__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classUDPServer_a50889d5ad89f209c9894084a34f82e3b}{U\+D\+P\+Server} (int port, \hyperlink{classSocialPlanner}{Social\+Planner} $\ast$s\+Planner)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classUDPServer_a09b1a38f1a03d3832f85fe05e6370a11}{$\sim$\+U\+D\+P\+Server} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+std\+::thread \hyperlink{classUDPServer_a854b519058c67d57546486bcc9c50de9}{spawn} ()
+\begin{DoxyCompactList}\small\item\em Launch the \hyperlink{classUDPServer}{U\+D\+P\+Server} receive function in a new thread. \end{DoxyCompactList}\item 
+int \hyperlink{classUDPServer_ae819b033ef968a8231ed1413da3c46d5}{parse} ()
+\begin{DoxyCompactList}\small\item\em Parse the data received by the receive thread. \end{DoxyCompactList}\item 
+int \hyperlink{classUDPServer_a215a250437888719487938c72ce3225c}{parse\+\_\+frame0} ()
+\begin{DoxyCompactList}\small\item\em Parse frame0 containing \hyperlink{classAgent}{Agent} data. \end{DoxyCompactList}\item 
+int \hyperlink{classUDPServer_a5303b2aeaec59beafd748d2938b807a2}{send\+\_\+frame0} ()
+\begin{DoxyCompactList}\small\item\em Create frame0 containing all \hyperlink{classAgent}{Agent} data from the \hyperlink{classPopulation}{Population}. \end{DoxyCompactList}\item 
+int \hyperlink{classUDPServer_adcbe3797150866d0c82e00941555da38}{send\+\_\+frame1} ()
+\begin{DoxyCompactList}\small\item\em Create frame1 containing the \hyperlink{classRobot}{Robot} data. \end{DoxyCompactList}\item 
+int \hyperlink{classUDPServer_a79979deab54cb01a0b50ada969671d56}{send\+\_\+frame2} ()
+\begin{DoxyCompactList}\small\item\em Create frame2 containing \hyperlink{classRobot}{Robot} path. \end{DoxyCompactList}\item 
+int \hyperlink{classUDPServer_a6b774afaed3846e2f76a9c91f674606f}{send\+\_\+frame3} ()
+\begin{DoxyCompactList}\small\item\em Create frame3 containing \hyperlink{classFormation}{Formation} data. \end{DoxyCompactList}\item 
+int \hyperlink{classUDPServer_a6a6bdedbe6263fd3d47a4c546d7b18a3}{do\+\_\+read} ()
+\begin{DoxyCompactList}\small\item\em Read input data on the receive socket. \end{DoxyCompactList}\item 
+int \hyperlink{classUDPServer_ad6b0c9536c775b43becc75ccd957ef2d}{do\+\_\+send} (uint8\+\_\+t $\ast$send\+Buffer, int send\+Buffer\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Send output data on the send socket. \end{DoxyCompactList}\item 
+void \hyperlink{classUDPServer_a466fc85beccb1b6c49566a326558181f}{update} ()\hypertarget{classUDPServer_a466fc85beccb1b6c49566a326558181f}{}\label{classUDPServer_a466fc85beccb1b6c49566a326558181f}
+
+\begin{DoxyCompactList}\small\item\em Parse the received data and send every frame. \end{DoxyCompactList}\item 
+void \hyperlink{classUDPServer_ab30d892e78733f051ade74aa7dc0cab8}{run} ()\hypertarget{classUDPServer_ab30d892e78733f051ade74aa7dc0cab8}{}\label{classUDPServer_ab30d892e78733f051ade74aa7dc0cab8}
+
+\begin{DoxyCompactList}\small\item\em The threaded read socket. \end{DoxyCompactList}\item 
+void \hyperlink{classUDPServer_a43c0540544b344eb4826d9d80e94ce2b}{send\+All} ()\hypertarget{classUDPServer_a43c0540544b344eb4826d9d80e94ce2b}{}\label{classUDPServer_a43c0540544b344eb4826d9d80e94ce2b}
+
+\begin{DoxyCompactList}\small\item\em Send all the frame. \end{DoxyCompactList}\item 
+void \hyperlink{classUDPServer_ab1dd8ed3154b5b7b631f9ca8e4f55473}{update\+Or\+Push\+Agent} (int id, float x, float y, float z, float theta)
+\begin{DoxyCompactList}\small\item\em Update or add \hyperlink{classAgent}{Agent} to the \hyperlink{classPopulation}{Population}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classUDPServer_a34c019dd10cdc8643f2fe6dfd3a15d43}{port\+Number}\hypertarget{classUDPServer_a34c019dd10cdc8643f2fe6dfd3a15d43}{}\label{classUDPServer_a34c019dd10cdc8643f2fe6dfd3a15d43}
+
+\begin{DoxyCompactList}\small\item\em The port used by the U\+DP Server. \end{DoxyCompactList}\item 
+struct sockaddr\+\_\+in \hyperlink{classUDPServer_a5c3df3c08b3534a1af6ee5ecd342c2df}{my\+Addr}\hypertarget{classUDPServer_a5c3df3c08b3534a1af6ee5ecd342c2df}{}\label{classUDPServer_a5c3df3c08b3534a1af6ee5ecd342c2df}
+
+\begin{DoxyCompactList}\small\item\em The network information of the server. \end{DoxyCompactList}\item 
+struct sockaddr\+\_\+in \hyperlink{classUDPServer_a98ea45f01a27c04ebb9f2a559b5e76f3}{from\+Addr}\hypertarget{classUDPServer_a98ea45f01a27c04ebb9f2a559b5e76f3}{}\label{classUDPServer_a98ea45f01a27c04ebb9f2a559b5e76f3}
+
+\begin{DoxyCompactList}\small\item\em The network information of the client. \end{DoxyCompactList}\item 
+int \hyperlink{classUDPServer_aced8b309e82ca4857b2de79021df0ddc}{udp\+Receive\+Socket}\hypertarget{classUDPServer_aced8b309e82ca4857b2de79021df0ddc}{}\label{classUDPServer_aced8b309e82ca4857b2de79021df0ddc}
+
+\begin{DoxyCompactList}\small\item\em Receive socket file descriptor. \end{DoxyCompactList}\item 
+int \hyperlink{classUDPServer_ac282adf9b0b5769f2c82d766987b7095}{udp\+Send\+Socket}\hypertarget{classUDPServer_ac282adf9b0b5769f2c82d766987b7095}{}\label{classUDPServer_ac282adf9b0b5769f2c82d766987b7095}
+
+\begin{DoxyCompactList}\small\item\em Send socket file descriptor. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{classUDPServer_aa9daec2c3b9615ab5057f31c02f83d7f}{recv\+Buffer} \mbox{[}\hyperlink{classUDPServer_a725d95367e21b9579e37e41276e27f47}{recv\+Buffer\+\_\+size}\mbox{]}\hypertarget{classUDPServer_aa9daec2c3b9615ab5057f31c02f83d7f}{}\label{classUDPServer_aa9daec2c3b9615ab5057f31c02f83d7f}
+
+\begin{DoxyCompactList}\small\item\em Receive buffer. \end{DoxyCompactList}\item 
+\hyperlink{classSocialPlanner}{Social\+Planner} $\ast$ \hyperlink{classUDPServer_ac608d4c0ce01b31a57a6c616fb3fb092}{planner}\hypertarget{classUDPServer_ac608d4c0ce01b31a57a6c616fb3fb092}{}\label{classUDPServer_ac608d4c0ce01b31a57a6c616fb3fb092}
+
+\begin{DoxyCompactList}\small\item\em The related \hyperlink{classSocialPlanner}{Social\+Planner}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{classUDPServer_a725d95367e21b9579e37e41276e27f47}{recv\+Buffer\+\_\+size} = 122\hypertarget{classUDPServer_a725d95367e21b9579e37e41276e27f47}{}\label{classUDPServer_a725d95367e21b9579e37e41276e27f47}
+
+\begin{DoxyCompactList}\small\item\em Receive buffer size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class manage the U\+DP Server sending computed data to a visualization software and receiving \hyperlink{classAgent}{Agent} data from other sensor sources. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{U\+D\+P\+Server@{U\+D\+P\+Server}!U\+D\+P\+Server@{U\+D\+P\+Server}}
+\index{U\+D\+P\+Server@{U\+D\+P\+Server}!U\+D\+P\+Server@{U\+D\+P\+Server}}
+\subsubsection[{\texorpdfstring{U\+D\+P\+Server(int port, Social\+Planner $\ast$s\+Planner)}{UDPServer(int port, SocialPlanner *sPlanner)}}]{\setlength{\rightskip}{0pt plus 5cm}U\+D\+P\+Server\+::\+U\+D\+P\+Server (
+\begin{DoxyParamCaption}
+\item[{int}]{port, }
+\item[{{\bf Social\+Planner} $\ast$}]{s\+Planner}
+\end{DoxyParamCaption}
+)}\hypertarget{classUDPServer_a50889d5ad89f209c9894084a34f82e3b}{}\label{classUDPServer_a50889d5ad89f209c9894084a34f82e3b}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classUDPServer}{U\+D\+P\+Server} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & \+: The server port \\
+\hline
+{\em s\+Planner} & \+: The \hyperlink{classSocialPlanner}{Social\+Planner} connected to this server \\
+\hline
+\end{DoxyParams}
+\index{U\+D\+P\+Server@{U\+D\+P\+Server}!````~U\+D\+P\+Server@{$\sim$\+U\+D\+P\+Server}}
+\index{````~U\+D\+P\+Server@{$\sim$\+U\+D\+P\+Server}!U\+D\+P\+Server@{U\+D\+P\+Server}}
+\subsubsection[{\texorpdfstring{$\sim$\+U\+D\+P\+Server()}{~UDPServer()}}]{\setlength{\rightskip}{0pt plus 5cm}U\+D\+P\+Server\+::$\sim$\+U\+D\+P\+Server (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classUDPServer_a09b1a38f1a03d3832f85fe05e6370a11}{}\label{classUDPServer_a09b1a38f1a03d3832f85fe05e6370a11}
+
+
+Destructor. 
+
+Destructor of the \hyperlink{classUDPServer}{U\+D\+P\+Server} class 
+
+\subsection{Member Function Documentation}
+\index{U\+D\+P\+Server@{U\+D\+P\+Server}!do\+\_\+read@{do\+\_\+read}}
+\index{do\+\_\+read@{do\+\_\+read}!U\+D\+P\+Server@{U\+D\+P\+Server}}
+\subsubsection[{\texorpdfstring{do\+\_\+read()}{do_read()}}]{\setlength{\rightskip}{0pt plus 5cm}int U\+D\+P\+Server\+::do\+\_\+read (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classUDPServer_a6a6bdedbe6263fd3d47a4c546d7b18a3}{}\label{classUDPServer_a6a6bdedbe6263fd3d47a4c546d7b18a3}
+
+
+Read input data on the receive socket. 
+
+\begin{DoxyReturn}{Returns}
+number of Bytes read, 0 or negative value in case of I/O error 
+\end{DoxyReturn}
+\index{U\+D\+P\+Server@{U\+D\+P\+Server}!do\+\_\+send@{do\+\_\+send}}
+\index{do\+\_\+send@{do\+\_\+send}!U\+D\+P\+Server@{U\+D\+P\+Server}}
+\subsubsection[{\texorpdfstring{do\+\_\+send(uint8\+\_\+t $\ast$send\+Buffer, int send\+Buffer\+\_\+size)}{do_send(uint8_t *sendBuffer, int sendBuffer_size)}}]{\setlength{\rightskip}{0pt plus 5cm}int U\+D\+P\+Server\+::do\+\_\+send (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{send\+Buffer, }
+\item[{int}]{send\+Buffer\+\_\+size}
+\end{DoxyParamCaption}
+)}\hypertarget{classUDPServer_ad6b0c9536c775b43becc75ccd957ef2d}{}\label{classUDPServer_ad6b0c9536c775b43becc75ccd957ef2d}
+
+
+Send output data on the send socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em send\+Buffer} & \+: The data buffer \\
+\hline
+{\em send\+Buffer\+\_\+size} & \+: The size of the data buffer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes send, 0 or negative value in case of I/O error 
+\end{DoxyReturn}
+\index{U\+D\+P\+Server@{U\+D\+P\+Server}!parse@{parse}}
+\index{parse@{parse}!U\+D\+P\+Server@{U\+D\+P\+Server}}
+\subsubsection[{\texorpdfstring{parse()}{parse()}}]{\setlength{\rightskip}{0pt plus 5cm}int U\+D\+P\+Server\+::parse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classUDPServer_ae819b033ef968a8231ed1413da3c46d5}{}\label{classUDPServer_ae819b033ef968a8231ed1413da3c46d5}
+
+
+Parse the data received by the receive thread. 
+
+\begin{DoxyReturn}{Returns}
+A positive number if parse was successful, 0 otherwise 
+\end{DoxyReturn}
+\index{U\+D\+P\+Server@{U\+D\+P\+Server}!parse\+\_\+frame0@{parse\+\_\+frame0}}
+\index{parse\+\_\+frame0@{parse\+\_\+frame0}!U\+D\+P\+Server@{U\+D\+P\+Server}}
+\subsubsection[{\texorpdfstring{parse\+\_\+frame0()}{parse_frame0()}}]{\setlength{\rightskip}{0pt plus 5cm}int U\+D\+P\+Server\+::parse\+\_\+frame0 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classUDPServer_a215a250437888719487938c72ce3225c}{}\label{classUDPServer_a215a250437888719487938c72ce3225c}
+
+
+Parse frame0 containing \hyperlink{classAgent}{Agent} data. 
+
+\begin{DoxyReturn}{Returns}
+The number of \hyperlink{classAgent}{Agent} parsed 
+\end{DoxyReturn}
+\index{U\+D\+P\+Server@{U\+D\+P\+Server}!send\+\_\+frame0@{send\+\_\+frame0}}
+\index{send\+\_\+frame0@{send\+\_\+frame0}!U\+D\+P\+Server@{U\+D\+P\+Server}}
+\subsubsection[{\texorpdfstring{send\+\_\+frame0()}{send_frame0()}}]{\setlength{\rightskip}{0pt plus 5cm}int U\+D\+P\+Server\+::send\+\_\+frame0 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classUDPServer_a5303b2aeaec59beafd748d2938b807a2}{}\label{classUDPServer_a5303b2aeaec59beafd748d2938b807a2}
+
+
+Create frame0 containing all \hyperlink{classAgent}{Agent} data from the \hyperlink{classPopulation}{Population}. 
+
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\index{U\+D\+P\+Server@{U\+D\+P\+Server}!send\+\_\+frame1@{send\+\_\+frame1}}
+\index{send\+\_\+frame1@{send\+\_\+frame1}!U\+D\+P\+Server@{U\+D\+P\+Server}}
+\subsubsection[{\texorpdfstring{send\+\_\+frame1()}{send_frame1()}}]{\setlength{\rightskip}{0pt plus 5cm}int U\+D\+P\+Server\+::send\+\_\+frame1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classUDPServer_adcbe3797150866d0c82e00941555da38}{}\label{classUDPServer_adcbe3797150866d0c82e00941555da38}
+
+
+Create frame1 containing the \hyperlink{classRobot}{Robot} data. 
+
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\index{U\+D\+P\+Server@{U\+D\+P\+Server}!send\+\_\+frame2@{send\+\_\+frame2}}
+\index{send\+\_\+frame2@{send\+\_\+frame2}!U\+D\+P\+Server@{U\+D\+P\+Server}}
+\subsubsection[{\texorpdfstring{send\+\_\+frame2()}{send_frame2()}}]{\setlength{\rightskip}{0pt plus 5cm}int U\+D\+P\+Server\+::send\+\_\+frame2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classUDPServer_a79979deab54cb01a0b50ada969671d56}{}\label{classUDPServer_a79979deab54cb01a0b50ada969671d56}
+
+
+Create frame2 containing \hyperlink{classRobot}{Robot} path. 
+
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\index{U\+D\+P\+Server@{U\+D\+P\+Server}!send\+\_\+frame3@{send\+\_\+frame3}}
+\index{send\+\_\+frame3@{send\+\_\+frame3}!U\+D\+P\+Server@{U\+D\+P\+Server}}
+\subsubsection[{\texorpdfstring{send\+\_\+frame3()}{send_frame3()}}]{\setlength{\rightskip}{0pt plus 5cm}int U\+D\+P\+Server\+::send\+\_\+frame3 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classUDPServer_a6b774afaed3846e2f76a9c91f674606f}{}\label{classUDPServer_a6b774afaed3846e2f76a9c91f674606f}
+
+
+Create frame3 containing \hyperlink{classFormation}{Formation} data. 
+
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\index{U\+D\+P\+Server@{U\+D\+P\+Server}!spawn@{spawn}}
+\index{spawn@{spawn}!U\+D\+P\+Server@{U\+D\+P\+Server}}
+\subsubsection[{\texorpdfstring{spawn()}{spawn()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::thread U\+D\+P\+Server\+::spawn (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classUDPServer_a854b519058c67d57546486bcc9c50de9}{}\label{classUDPServer_a854b519058c67d57546486bcc9c50de9}
+
+
+Launch the \hyperlink{classUDPServer}{U\+D\+P\+Server} receive function in a new thread. 
+
+\begin{DoxyReturn}{Returns}
+The thread created 
+\end{DoxyReturn}
+\index{U\+D\+P\+Server@{U\+D\+P\+Server}!update\+Or\+Push\+Agent@{update\+Or\+Push\+Agent}}
+\index{update\+Or\+Push\+Agent@{update\+Or\+Push\+Agent}!U\+D\+P\+Server@{U\+D\+P\+Server}}
+\subsubsection[{\texorpdfstring{update\+Or\+Push\+Agent(int id, float x, float y, float z, float theta)}{updateOrPushAgent(int id, float x, float y, float z, float theta)}}]{\setlength{\rightskip}{0pt plus 5cm}void U\+D\+P\+Server\+::update\+Or\+Push\+Agent (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z, }
+\item[{float}]{theta}
+\end{DoxyParamCaption}
+)}\hypertarget{classUDPServer_ab1dd8ed3154b5b7b631f9ca8e4f55473}{}\label{classUDPServer_ab1dd8ed3154b5b7b631f9ca8e4f55473}
+
+
+Update or add \hyperlink{classAgent}{Agent} to the \hyperlink{classPopulation}{Population}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \+: The unique identifier of the \hyperlink{classAgent}{Agent} \\
+\hline
+{\em x} & \+: The x coordinate of the \hyperlink{classAgent}{Agent} \\
+\hline
+{\em y} & \+: The y coordinate of the \hyperlink{classAgent}{Agent} \\
+\hline
+{\em z} & \+: The z coordinate of the \hyperlink{classAgent}{Agent} \\
+\hline
+{\em theta} & \+: The angle of the \hyperlink{classAgent}{Agent} \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{UDPServer_8h}{U\+D\+P\+Server.\+h}\item 
+src/U\+D\+P\+Server.\+cpp\end{DoxyCompactItemize}

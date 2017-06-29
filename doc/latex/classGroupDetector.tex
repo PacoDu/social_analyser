@@ -1,0 +1,87 @@
+\hypertarget{classGroupDetector}{}\section{Group\+Detector Class Reference}
+\label{classGroupDetector}\index{Group\+Detector@{Group\+Detector}}
+
+
+This class is dedicated to process every Agents in the \hyperlink{classPopulation}{Population} and create every \hyperlink{classFormation}{Formation}.  
+
+
+
+
+{\ttfamily \#include $<$Group\+Detector.\+h$>$}
+
+
+
+Collaboration diagram for Group\+Detector\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGroupDetector__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGroupDetector_a85c950492809247f6ff0649c5101ce81}{Group\+Detector} (\hyperlink{classPopulation}{Population} $\ast$pop)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classGroupDetector_a5b44e047c1f6864e665d917ba7da8a51}{$\sim$\+Group\+Detector} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classGroupDetector_a4f97c96bbd5c874e788371dffa074001}{detect} ()\hypertarget{classGroupDetector_a4f97c96bbd5c874e788371dffa074001}{}\label{classGroupDetector_a4f97c96bbd5c874e788371dffa074001}
+
+\begin{DoxyCompactList}\small\item\em Find and create every Formations in the \hyperlink{classPopulation}{Population}. \end{DoxyCompactList}\item 
+void \hyperlink{classGroupDetector_a8bee5ba0c6e18594eb810e21ee75bac4}{check\+Existing\+Formation} ()\hypertarget{classGroupDetector_a8bee5ba0c6e18594eb810e21ee75bac4}{}\label{classGroupDetector_a8bee5ba0c6e18594eb810e21ee75bac4}
+
+\begin{DoxyCompactList}\small\item\em Check if existing Formations are empty or if \hyperlink{classAgent}{Agent} is alone in a \hyperlink{classFormation}{Formation} and remove them. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPopulation}{Population} $\ast$ \hyperlink{classGroupDetector_a773ce547e63eac75d32d964d70180cd9}{\+\_\+population}\hypertarget{classGroupDetector_a773ce547e63eac75d32d964d70180cd9}{}\label{classGroupDetector_a773ce547e63eac75d32d964d70180cd9}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classPopulation}{Population} processed by the \hyperlink{classGroupDetector}{Group\+Detector}. \end{DoxyCompactList}\item 
+int \hyperlink{classGroupDetector_a2cb0f3a229ac96d133f657e306d5d685}{formation\+Id} = 0\hypertarget{classGroupDetector_a2cb0f3a229ac96d133f657e306d5d685}{}\label{classGroupDetector_a2cb0f3a229ac96d133f657e306d5d685}
+
+\begin{DoxyCompactList}\small\item\em The actual increment for unique identifier of the Formations created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is dedicated to process every Agents in the \hyperlink{classPopulation}{Population} and create every \hyperlink{classFormation}{Formation}. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000002}{Todo}]This class should be an interface and actual logic should be implemented has Basic\+Group\+Detector \end{DoxyRefDesc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Group\+Detector@{Group\+Detector}!Group\+Detector@{Group\+Detector}}
+\index{Group\+Detector@{Group\+Detector}!Group\+Detector@{Group\+Detector}}
+\subsubsection[{\texorpdfstring{Group\+Detector(\+Population $\ast$pop)}{GroupDetector(Population *pop)}}]{\setlength{\rightskip}{0pt plus 5cm}Group\+Detector\+::\+Group\+Detector (
+\begin{DoxyParamCaption}
+\item[{{\bf Population} $\ast$}]{pop}
+\end{DoxyParamCaption}
+)}\hypertarget{classGroupDetector_a85c950492809247f6ff0649c5101ce81}{}\label{classGroupDetector_a85c950492809247f6ff0649c5101ce81}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classGroupDetector}{Group\+Detector} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em pop} & \+: The \hyperlink{classPopulation}{Population} that the detector will process \\
+\hline
+\end{DoxyParams}
+\index{Group\+Detector@{Group\+Detector}!````~Group\+Detector@{$\sim$\+Group\+Detector}}
+\index{````~Group\+Detector@{$\sim$\+Group\+Detector}!Group\+Detector@{Group\+Detector}}
+\subsubsection[{\texorpdfstring{$\sim$\+Group\+Detector()}{~GroupDetector()}}]{\setlength{\rightskip}{0pt plus 5cm}Group\+Detector\+::$\sim$\+Group\+Detector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classGroupDetector_a5b44e047c1f6864e665d917ba7da8a51}{}\label{classGroupDetector_a5b44e047c1f6864e665d917ba7da8a51}
+
+
+Destructor. 
+
+Destructor of the \hyperlink{classGroupDetector}{Group\+Detector} class, it does not call the related \hyperlink{classPopulation}{Population} destructor 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/social\+Processing/\hyperlink{GroupDetector_8h}{Group\+Detector.\+h}\item 
+src/social\+Processing/\hyperlink{GroupDetector_8cpp}{Group\+Detector.\+cpp}\end{DoxyCompactItemize}

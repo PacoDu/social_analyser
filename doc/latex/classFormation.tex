@@ -1,0 +1,390 @@
+\hypertarget{classFormation}{}\section{Formation Class Reference}
+\label{classFormation}\index{Formation@{Formation}}
+
+
+This class represent the social \hyperlink{classFormation}{Formation}.  
+
+
+
+
+{\ttfamily \#include $<$Formation.\+h$>$}
+
+
+
+Inheritance diagram for Formation\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classFormation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Formation\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classFormation__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFormation_a5ec34c4941defd2b033f1f03bb42671f}{Formation} (std\+::vector$<$ \hyperlink{classAgent}{Agent} $\ast$ $>$ agents, int \hyperlink{classIdentifiedObject_ad044a317a9b573a3d1bcd025df166eb5}{id}=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classFormation_a9c1013f55ac92dc20a81abc47c7849f2}{Formation} (\hyperlink{classAgent}{Agent} $\ast$agent, int \hyperlink{classIdentifiedObject_ad044a317a9b573a3d1bcd025df166eb5}{id}=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classFormation_a7e1681f1a7b0e540f3c011179d5e8f12}{Formation} (int \hyperlink{classIdentifiedObject_ad044a317a9b573a3d1bcd025df166eb5}{id}=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classFormation_a5b4ffd37549ec211d85e52c916f35eb6}{$\sim$\+Formation} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classFormation_aaa8469c44391f3255feca75d8d5d4ccc}{compute\+Interaction\+Potential} ()\hypertarget{classFormation_aaa8469c44391f3255feca75d8d5d4ccc}{}\label{classFormation_aaa8469c44391f3255feca75d8d5d4ccc}
+
+\begin{DoxyCompactList}\small\item\em Compute the interaction potential of the formation based on the mean interpersonal distance and distance from the \hyperlink{classFormation}{Formation} center. \end{DoxyCompactList}\item 
+void \hyperlink{classFormation_a5fd3207fbc27069771949e48c6fed283}{find\+Interaction\+Position} ()\hypertarget{classFormation_a5fd3207fbc27069771949e48c6fed283}{}\label{classFormation_a5fd3207fbc27069771949e48c6fed283}
+
+\begin{DoxyCompactList}\small\item\em Compute the interaction position from the robot to adopt in order to take part in the \hyperlink{classFormation}{Formation}. \end{DoxyCompactList}\item 
+void \hyperlink{classFormation_a0d340a1151f9bbcf85082da48adddd58}{update} ()\hypertarget{classFormation_a0d340a1151f9bbcf85082da48adddd58}{}\label{classFormation_a0d340a1151f9bbcf85082da48adddd58}
+
+\begin{DoxyCompactList}\small\item\em Update \hyperlink{classFormation}{Formation} related data by calling \hyperlink{classGroupSocialSpace}{Group\+Social\+Space} update function, compute\+Interaction\+Potential and find\+Interaction\+Position. \end{DoxyCompactList}\item 
+void \hyperlink{classFormation_a76796be1ec2e264b90011139bfb0347b}{push\+Agent} (\hyperlink{classAgent}{Agent} $\ast$agent)
+\begin{DoxyCompactList}\small\item\em Add an \hyperlink{classAgent}{Agent} to the \hyperlink{classFormation}{Formation} and update/create the corresponding \hyperlink{classGroupSocialSpace}{Group\+Social\+Space}. \end{DoxyCompactList}\item 
+void \hyperlink{classFormation_acabd4b08ca629208eca4db572360a0ab}{remove\+Agent} (unsigned int agent\+Id)
+\begin{DoxyCompactList}\small\item\em Remove an \hyperlink{classAgent}{Agent} by id from the \hyperlink{classFormation}{Formation} and the corresponding \hyperlink{classGroupSocialSpace}{Group\+Social\+Space}. \end{DoxyCompactList}\item 
+int \hyperlink{classFormation_a20c4f00445b98ddf0f70ffeca020dba4}{is\+In\+Formation} (\hyperlink{classAgent}{Agent} $\ast$agent)
+\begin{DoxyCompactList}\small\item\em Check if the \hyperlink{classAgent}{Agent} passed in parameter is taking part in the \hyperlink{classFormation}{Formation} Alias to is\+In\+Formation function by \hyperlink{classAgent}{Agent} id. \end{DoxyCompactList}\item 
+int \hyperlink{classFormation_ae8b0264d952409f51306a85463cfc2e2}{is\+In\+Formation} (unsigned int agent\+Id)
+\begin{DoxyCompactList}\small\item\em Check if the \hyperlink{classAgent}{Agent} passed in parameter is taking part in the \hyperlink{classFormation}{Formation}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classAgent}{Agent} $\ast$ $>$ \hyperlink{classFormation_aaa0230f1b5c293a654da7bea95f0f840}{init\+Agent} (\hyperlink{classAgent}{Agent} $\ast$agent)
+\begin{DoxyCompactList}\small\item\em Initialization function for \hyperlink{classFormation}{Formation} Constructor with only one \hyperlink{classAgent}{Agent}. \end{DoxyCompactList}\item 
+\hyperlink{classOSpace}{O\+Space} $\ast$ \hyperlink{classFormation_a51d07ac063aa2897f2c756dfea14ff5e}{get\+Social\+Space} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classFormation_a4bb19bf1b792b5a909735160408216bf}{set\+Social\+Space} (\hyperlink{classOSpace}{O\+Space} $\ast$social\+Space)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+double \hyperlink{classFormation_a1e7f7add3878012188316df803ce5677}{get\+Interaction\+Potential} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classFormation_aeae0835beea6e8544837438d58bb6582}{set\+Interaction\+Potential} (double \hyperlink{classFormation_afac1af6d51a6b8a910df4574cb7a6931}{interaction\+Potential}=0)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+const Vector3d \& \hyperlink{classFormation_af6cf9389675ea316079ef643f55ffaae}{get\+Interaction\+Position} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classFormation_a36cb4fa3ae4e3e6f761a2d1f8bb54ccb}{set\+Interaction\+Position} (const Vector3d \&\hyperlink{classFormation_a5e33d98c2b9ec916e601ae27d6c7f2ef}{interaction\+Position})
+\begin{DoxyCompactList}\small\item\em Simpler setter. \end{DoxyCompactList}\item 
+const Vector3d \& \hyperlink{classFormation_aa7b5cef840f4d1faefa49ef27e72c8f9}{get\+Interaction\+Direction} () const 
+\begin{DoxyCompactList}\small\item\em Simpler getter. \end{DoxyCompactList}\item 
+void \hyperlink{classFormation_a96fd57ec8928cc70628e0732500dd833}{set\+Interaction\+Direction} (const Vector3d \&\hyperlink{classFormation_aa68570fc8c85c172fadaf93d30367371}{interaction\+Direction})
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classOSpace}{O\+Space} $\ast$ \hyperlink{classFormation_a8d69dd518359bf8d1d1b30a5c07db561}{\+\_\+social\+Space}\hypertarget{classFormation_a8d69dd518359bf8d1d1b30a5c07db561}{}\label{classFormation_a8d69dd518359bf8d1d1b30a5c07db561}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classGroupSocialSpace}{Group\+Social\+Space} related to the \hyperlink{classFormation}{Formation}. \end{DoxyCompactList}\item 
+double \hyperlink{classFormation_afac1af6d51a6b8a910df4574cb7a6931}{interaction\+Potential} = 0\hypertarget{classFormation_afac1af6d51a6b8a910df4574cb7a6931}{}\label{classFormation_afac1af6d51a6b8a910df4574cb7a6931}
+
+\begin{DoxyCompactList}\small\item\em Estimated interaction potential of the \hyperlink{classFormation}{Formation}. \end{DoxyCompactList}\item 
+Vector3d \hyperlink{classFormation_a5e33d98c2b9ec916e601ae27d6c7f2ef}{interaction\+Position}\hypertarget{classFormation_a5e33d98c2b9ec916e601ae27d6c7f2ef}{}\label{classFormation_a5e33d98c2b9ec916e601ae27d6c7f2ef}
+
+\begin{DoxyCompactList}\small\item\em Estimated interaction position for the \hyperlink{classRobot}{Robot} to take part in the \hyperlink{classFormation}{Formation}. \end{DoxyCompactList}\item 
+Vector3d \hyperlink{classFormation_aa68570fc8c85c172fadaf93d30367371}{interaction\+Direction}\hypertarget{classFormation_aa68570fc8c85c172fadaf93d30367371}{}\label{classFormation_aa68570fc8c85c172fadaf93d30367371}
+
+\begin{DoxyCompactList}\small\item\em Estimated interaction direction for the \hyperlink{classRobot}{Robot} to take part in the \hyperlink{classFormation}{Formation}. \end{DoxyCompactList}\item 
+std\+::vector$<$ Vector3d $>$ \hyperlink{classFormation_a666d230b80d3d019b60beb287770be26}{agent\+Dir\+\_\+ospace}\hypertarget{classFormation_a666d230b80d3d019b60beb287770be26}{}\label{classFormation_a666d230b80d3d019b60beb287770be26}
+
+\begin{DoxyCompactList}\small\item\em Vector3d of Agents direction to the \hyperlink{classFormation}{Formation} center. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class represent the social \hyperlink{classFormation}{Formation}. 
+
+This class manage the social Formations created by the Agents 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Formation@{Formation}!Formation@{Formation}}
+\index{Formation@{Formation}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{Formation(std\+::vector$<$ Agent $\ast$ $>$ agents, int id=0)}{Formation(std::vector< Agent * > agents, int id=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Formation\+::\+Formation (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Agent} $\ast$ $>$}]{agents, }
+\item[{int}]{id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classFormation_a5ec34c4941defd2b033f1f03bb42671f}{}\label{classFormation_a5ec34c4941defd2b033f1f03bb42671f}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classFormation}{Formation} class, initialize a \hyperlink{classGroupSocialSpace}{Group\+Social\+Space}
+
+
+\begin{DoxyParams}{Parameters}
+{\em agents} & \+: Agents that are part of the \hyperlink{classFormation}{Formation} \\
+\hline
+{\em id} & \+: Unique identifier of the \hyperlink{classFormation}{Formation} \\
+\hline
+\end{DoxyParams}
+\index{Formation@{Formation}!Formation@{Formation}}
+\index{Formation@{Formation}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{Formation(\+Agent $\ast$agent, int id=0)}{Formation(Agent *agent, int id=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Formation\+::\+Formation (
+\begin{DoxyParamCaption}
+\item[{{\bf Agent} $\ast$}]{agent, }
+\item[{int}]{id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classFormation_a9c1013f55ac92dc20a81abc47c7849f2}{}\label{classFormation_a9c1013f55ac92dc20a81abc47c7849f2}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classFormation}{Formation} class, this constructor doesn\textquotesingle{}t initialize any \hyperlink{classGroupSocialSpace}{Group\+Social\+Space}
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent} & \+: \hyperlink{classAgent}{Agent} that is part of the \hyperlink{classFormation}{Formation} \\
+\hline
+{\em id} & \+: Unique identifier of the \hyperlink{classFormation}{Formation} \\
+\hline
+\end{DoxyParams}
+\index{Formation@{Formation}!Formation@{Formation}}
+\index{Formation@{Formation}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{Formation(int id=0)}{Formation(int id=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Formation\+::\+Formation (
+\begin{DoxyParamCaption}
+\item[{int}]{id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classFormation_a7e1681f1a7b0e540f3c011179d5e8f12}{}\label{classFormation_a7e1681f1a7b0e540f3c011179d5e8f12}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classFormation}{Formation} class, creates an empty formation. This constructor doesn\textquotesingle{}t initialize any \hyperlink{classGroupSocialSpace}{Group\+Social\+Space}
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \+: Unique identifier of the \hyperlink{classFormation}{Formation} \\
+\hline
+\end{DoxyParams}
+\index{Formation@{Formation}!````~Formation@{$\sim$\+Formation}}
+\index{````~Formation@{$\sim$\+Formation}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{$\sim$\+Formation()}{~Formation()}}]{\setlength{\rightskip}{0pt plus 5cm}Formation\+::$\sim$\+Formation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classFormation_a5b4ffd37549ec211d85e52c916f35eb6}{}\label{classFormation_a5b4ffd37549ec211d85e52c916f35eb6}
+
+
+Destructor. 
+
+Destructor of the \hyperlink{classFormation}{Formation} class, destroy the related \hyperlink{classGroupSocialSpace}{Group\+Social\+Space} if defined 
+
+\subsection{Member Function Documentation}
+\index{Formation@{Formation}!get\+Interaction\+Direction@{get\+Interaction\+Direction}}
+\index{get\+Interaction\+Direction@{get\+Interaction\+Direction}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{get\+Interaction\+Direction() const }{getInteractionDirection() const }}]{\setlength{\rightskip}{0pt plus 5cm}const Vector3d \& Formation\+::get\+Interaction\+Direction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classFormation_aa7b5cef840f4d1faefa49ef27e72c8f9}{}\label{classFormation_aa7b5cef840f4d1faefa49ef27e72c8f9}
+
+
+Simpler getter. 
+
+\begin{DoxyReturn}{Returns}
+Interaction\+Direction 
+\end{DoxyReturn}
+\index{Formation@{Formation}!get\+Interaction\+Position@{get\+Interaction\+Position}}
+\index{get\+Interaction\+Position@{get\+Interaction\+Position}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{get\+Interaction\+Position() const }{getInteractionPosition() const }}]{\setlength{\rightskip}{0pt plus 5cm}const Vector3d \& Formation\+::get\+Interaction\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classFormation_af6cf9389675ea316079ef643f55ffaae}{}\label{classFormation_af6cf9389675ea316079ef643f55ffaae}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+Interaction\+Position 
+\end{DoxyReturn}
+\index{Formation@{Formation}!get\+Interaction\+Potential@{get\+Interaction\+Potential}}
+\index{get\+Interaction\+Potential@{get\+Interaction\+Potential}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{get\+Interaction\+Potential() const }{getInteractionPotential() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Formation\+::get\+Interaction\+Potential (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classFormation_a1e7f7add3878012188316df803ce5677}{}\label{classFormation_a1e7f7add3878012188316df803ce5677}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+Interaction\+Potential 
+\end{DoxyReturn}
+\index{Formation@{Formation}!get\+Social\+Space@{get\+Social\+Space}}
+\index{get\+Social\+Space@{get\+Social\+Space}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{get\+Social\+Space() const }{getSocialSpace() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf O\+Space} $\ast$ Formation\+::get\+Social\+Space (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classFormation_a51d07ac063aa2897f2c756dfea14ff5e}{}\label{classFormation_a51d07ac063aa2897f2c756dfea14ff5e}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classGroupSocialSpace}{Group\+Social\+Space} 
+\end{DoxyReturn}
+\index{Formation@{Formation}!init\+Agent@{init\+Agent}}
+\index{init\+Agent@{init\+Agent}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{init\+Agent(\+Agent $\ast$agent)}{initAgent(Agent *agent)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Agent} $\ast$ $>$ Formation\+::init\+Agent (
+\begin{DoxyParamCaption}
+\item[{{\bf Agent} $\ast$}]{agent}
+\end{DoxyParamCaption}
+)}\hypertarget{classFormation_aaa0230f1b5c293a654da7bea95f0f840}{}\label{classFormation_aaa0230f1b5c293a654da7bea95f0f840}
+
+
+Initialization function for \hyperlink{classFormation}{Formation} Constructor with only one \hyperlink{classAgent}{Agent}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent} & \+: \hyperlink{classAgent}{Agent} initialized for the \hyperlink{classFormation}{Formation}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector containing the \hyperlink{classAgent}{Agent} passed in parameter. 
+\end{DoxyReturn}
+\index{Formation@{Formation}!is\+In\+Formation@{is\+In\+Formation}}
+\index{is\+In\+Formation@{is\+In\+Formation}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{is\+In\+Formation(\+Agent $\ast$agent)}{isInFormation(Agent *agent)}}]{\setlength{\rightskip}{0pt plus 5cm}int Formation\+::is\+In\+Formation (
+\begin{DoxyParamCaption}
+\item[{{\bf Agent} $\ast$}]{agent}
+\end{DoxyParamCaption}
+)}\hypertarget{classFormation_a20c4f00445b98ddf0f70ffeca020dba4}{}\label{classFormation_a20c4f00445b98ddf0f70ffeca020dba4}
+
+
+Check if the \hyperlink{classAgent}{Agent} passed in parameter is taking part in the \hyperlink{classFormation}{Formation} Alias to is\+In\+Formation function by \hyperlink{classAgent}{Agent} id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent} & \+: \hyperlink{classAgent}{Agent} pointer to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the \hyperlink{classAgent}{Agent} is taking part in the \hyperlink{classFormation}{Formation}, 0 otherwise 
+\end{DoxyReturn}
+\index{Formation@{Formation}!is\+In\+Formation@{is\+In\+Formation}}
+\index{is\+In\+Formation@{is\+In\+Formation}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{is\+In\+Formation(unsigned int agent\+Id)}{isInFormation(unsigned int agentId)}}]{\setlength{\rightskip}{0pt plus 5cm}int Formation\+::is\+In\+Formation (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{agent\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{classFormation_ae8b0264d952409f51306a85463cfc2e2}{}\label{classFormation_ae8b0264d952409f51306a85463cfc2e2}
+
+
+Check if the \hyperlink{classAgent}{Agent} passed in parameter is taking part in the \hyperlink{classFormation}{Formation}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent\+Id} & \+: \hyperlink{classAgent}{Agent} id to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the \hyperlink{classAgent}{Agent} is taking part in the \hyperlink{classFormation}{Formation}, 0 otherwise 
+\end{DoxyReturn}
+\index{Formation@{Formation}!push\+Agent@{push\+Agent}}
+\index{push\+Agent@{push\+Agent}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{push\+Agent(\+Agent $\ast$agent)}{pushAgent(Agent *agent)}}]{\setlength{\rightskip}{0pt plus 5cm}void Formation\+::push\+Agent (
+\begin{DoxyParamCaption}
+\item[{{\bf Agent} $\ast$}]{agent}
+\end{DoxyParamCaption}
+)}\hypertarget{classFormation_a76796be1ec2e264b90011139bfb0347b}{}\label{classFormation_a76796be1ec2e264b90011139bfb0347b}
+
+
+Add an \hyperlink{classAgent}{Agent} to the \hyperlink{classFormation}{Formation} and update/create the corresponding \hyperlink{classGroupSocialSpace}{Group\+Social\+Space}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent} & \+: \hyperlink{classAgent}{Agent} pointer to add to the formation \\
+\hline
+\end{DoxyParams}
+\index{Formation@{Formation}!remove\+Agent@{remove\+Agent}}
+\index{remove\+Agent@{remove\+Agent}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{remove\+Agent(unsigned int agent\+Id)}{removeAgent(unsigned int agentId)}}]{\setlength{\rightskip}{0pt plus 5cm}void Formation\+::remove\+Agent (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{agent\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{classFormation_acabd4b08ca629208eca4db572360a0ab}{}\label{classFormation_acabd4b08ca629208eca4db572360a0ab}
+
+
+Remove an \hyperlink{classAgent}{Agent} by id from the \hyperlink{classFormation}{Formation} and the corresponding \hyperlink{classGroupSocialSpace}{Group\+Social\+Space}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent\+Id} & \+: \hyperlink{classAgent}{Agent} id to remove from the \hyperlink{classFormation}{Formation} \\
+\hline
+\end{DoxyParams}
+\index{Formation@{Formation}!set\+Interaction\+Direction@{set\+Interaction\+Direction}}
+\index{set\+Interaction\+Direction@{set\+Interaction\+Direction}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{set\+Interaction\+Direction(const Vector3d \&interaction\+Direction)}{setInteractionDirection(const Vector3d &interactionDirection)}}]{\setlength{\rightskip}{0pt plus 5cm}void Formation\+::set\+Interaction\+Direction (
+\begin{DoxyParamCaption}
+\item[{const Vector3d \&}]{interaction\+Direction}
+\end{DoxyParamCaption}
+)}\hypertarget{classFormation_a96fd57ec8928cc70628e0732500dd833}{}\label{classFormation_a96fd57ec8928cc70628e0732500dd833}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interaction\+Direction} & \\
+\hline
+\end{DoxyParams}
+\index{Formation@{Formation}!set\+Interaction\+Position@{set\+Interaction\+Position}}
+\index{set\+Interaction\+Position@{set\+Interaction\+Position}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{set\+Interaction\+Position(const Vector3d \&interaction\+Position)}{setInteractionPosition(const Vector3d &interactionPosition)}}]{\setlength{\rightskip}{0pt plus 5cm}void Formation\+::set\+Interaction\+Position (
+\begin{DoxyParamCaption}
+\item[{const Vector3d \&}]{interaction\+Position}
+\end{DoxyParamCaption}
+)}\hypertarget{classFormation_a36cb4fa3ae4e3e6f761a2d1f8bb54ccb}{}\label{classFormation_a36cb4fa3ae4e3e6f761a2d1f8bb54ccb}
+
+
+Simpler setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interaction\+Position} & \\
+\hline
+\end{DoxyParams}
+\index{Formation@{Formation}!set\+Interaction\+Potential@{set\+Interaction\+Potential}}
+\index{set\+Interaction\+Potential@{set\+Interaction\+Potential}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{set\+Interaction\+Potential(double interaction\+Potential=0)}{setInteractionPotential(double interactionPotential=0)}}]{\setlength{\rightskip}{0pt plus 5cm}void Formation\+::set\+Interaction\+Potential (
+\begin{DoxyParamCaption}
+\item[{double}]{interaction\+Potential = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classFormation_aeae0835beea6e8544837438d58bb6582}{}\label{classFormation_aeae0835beea6e8544837438d58bb6582}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interaction\+Potential} & \\
+\hline
+\end{DoxyParams}
+\index{Formation@{Formation}!set\+Social\+Space@{set\+Social\+Space}}
+\index{set\+Social\+Space@{set\+Social\+Space}!Formation@{Formation}}
+\subsubsection[{\texorpdfstring{set\+Social\+Space(\+O\+Space $\ast$social\+Space)}{setSocialSpace(OSpace *socialSpace)}}]{\setlength{\rightskip}{0pt plus 5cm}void Formation\+::set\+Social\+Space (
+\begin{DoxyParamCaption}
+\item[{{\bf O\+Space} $\ast$}]{social\+Space}
+\end{DoxyParamCaption}
+)}\hypertarget{classFormation_a4bb19bf1b792b5a909735160408216bf}{}\label{classFormation_a4bb19bf1b792b5a909735160408216bf}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em social\+Space} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/agent\+Management/\hyperlink{Formation_8h}{Formation.\+h}\item 
+src/agent\+Management/\hyperlink{Formation_8cpp}{Formation.\+cpp}\end{DoxyCompactItemize}

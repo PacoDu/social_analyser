@@ -28,7 +28,7 @@ Agent::~Agent() {
 }
 
 // --- METHOD
-#ifdef USE_OFX
+#if USE_OFX
 void Agent::draw(World * world) {
 	// Coordinates projection
 	Vector3d pView = real_to_pixel(world, this->getPosition());
@@ -42,7 +42,7 @@ void Agent::draw(World * world) {
 		ofRotateZ(ofRadToDeg(this->getTheta()));
 
 		ofSetHexColor(0xFF0000);
-		ofDrawBitmapString("#"+ofToString(this->getId()), -shoulderLength/2, -shoulderLength/2);
+		ofDrawBitmapString("#"+ofToString(this->getId()), -headRadius*5, 0);
 
 		ofSetHexColor(0x6497b1);
 		ofDrawTriangle(0, shoulderLength/2, shoulderLength, 0, 0, -shoulderLength/2);

@@ -37,13 +37,14 @@ UDPServer::~UDPServer() {
 
 int UDPServer::do_read() {
 	socklen_t len = sizeof(fromAddr);
+//	printf("READING SOCKET");
 
 	// Read 122 bytes
 	int ret = recvfrom(udpReceiveSocket, &recvBuffer, recvBuffer_size, 0, (struct sockaddr *)&fromAddr, &len);
 
 	if(ret > 0){
-		printf("Received frame type#%u from %s:%d\n",
-				recvBuffer[0], inet_ntoa(fromAddr.sin_addr), ntohs(fromAddr.sin_port));
+//		printf("Received frame type#%u from %s:%d\n",
+//				recvBuffer[0], inet_ntoa(fromAddr.sin_addr), ntohs(fromAddr.sin_port));
 	}else{
 		printf("Socket shutdown or error while reading socket");
 	}
@@ -66,6 +67,15 @@ int UDPServer::do_send(uint8_t * sendBuffer, int sendBuffer_size) {
 	toAddr2.sin_addr.s_addr = inet_addr(IP_UDP_CLIENT2);//fromAddr.sin_addr;
 
 	sendto(udpSendSocket, sendBuffer, sendBuffer_size, 0, (struct sockaddr *)&toAddr2, sizeof(toAddr2));
+#endif
+
+#ifdef ENABLE_CLIENT3
+	struct sockaddr_in toAddr3;
+	toAddr3.sin_family = AF_INET;
+	toAddr3.sin_port = htons(portNumber);
+	toAddr3.sin_addr.s_addr = inet_addr(IP_UDP_CLIENT3);//fromAddr.sin_addr;
+
+	sendto(udpSendSocket, sendBuffer, sendBuffer_size, 0, (struct sockaddr *)&toAddr3, sizeof(toAddr3));
 #endif
 
 //	printf("Send to client: %s:%d\n", inet_ntoa(toAddr.sin_addr), toAddr.sin_port);
@@ -107,7 +117,7 @@ int UDPServer::parse_frame0() {
 		memcpy(&theta, &ttheta, sizeof(theta));
 
 		id = ntohl(id);
-		printf("Parsed Agent#%d (%.2f,%.2f,%.2f) theta=%.2f\n", id, x, y, z, theta);
+//		printf("Parsed Agent#%d (%.2f,%.2f,%.2f) theta=%.2f\n", id, x, y, z, theta);
 
 
 		updateOrPushAgent(id, x, y, z, theta);

@@ -1,0 +1,132 @@
+\hypertarget{classDrawnObject}{}\section{Drawn\+Object Class Reference}
+\label{classDrawnObject}\index{Drawn\+Object@{Drawn\+Object}}
+
+
+This class is an interface for class that are drawn on O\+FX gui.  
+
+
+
+
+{\ttfamily \#include $<$Drawn\+Object.\+h$>$}
+
+
+
+Inheritance diagram for Drawn\+Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDrawnObject__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Drawn\+Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classDrawnObject__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDrawnObject_a89783864e25e1ff83cb0fc0cbf0b8ce0}{Drawn\+Object} (Vector3d \hyperlink{classLocalizedObject_a340834deefc9e5c39da1f26c4ebf4f8c}{position}=Vector3d(), double \hyperlink{classLocalizedObject_aa5f7b070b6dc97a64a90797a0bca56e2}{theta}=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classDrawnObject_ac59f1d7ad3e4d554957ff85a1f133988}{$\sim$\+Drawn\+Object} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+Vector3d \hyperlink{classDrawnObject_a6206da4777e99b07585dcf6426ce8da6}{real\+\_\+to\+\_\+pixel} (\hyperlink{classWorld}{World} $\ast$world, Vector3d p)
+\begin{DoxyCompactList}\small\item\em The projection function from real to pixel coordinates. \end{DoxyCompactList}\item 
+Vector3d \hyperlink{classDrawnObject_a06f179d7fec55a350f9a78af334fa592}{pixel\+\_\+to\+\_\+real} (\hyperlink{classWorld}{World} $\ast$world, Vector3d p)
+\begin{DoxyCompactList}\small\item\em The projection function from pixel to real coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class is an interface for class that are drawn on O\+FX gui. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Drawn\+Object@{Drawn\+Object}!Drawn\+Object@{Drawn\+Object}}
+\index{Drawn\+Object@{Drawn\+Object}!Drawn\+Object@{Drawn\+Object}}
+\subsubsection[{\texorpdfstring{Drawn\+Object(\+Vector3d position=\+Vector3d(), double theta=0)}{DrawnObject(Vector3d position=Vector3d(), double theta=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Drawn\+Object\+::\+Drawn\+Object (
+\begin{DoxyParamCaption}
+\item[{Vector3d}]{position = {\ttfamily Vector3d()}, }
+\item[{double}]{theta = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{classDrawnObject_a89783864e25e1ff83cb0fc0cbf0b8ce0}{}\label{classDrawnObject_a89783864e25e1ff83cb0fc0cbf0b8ce0}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classDrawnObject}{Drawn\+Object} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \+: The initial position of the object \\
+\hline
+{\em theta} & \+: The initial rotation of the object \\
+\hline
+\end{DoxyParams}
+\index{Drawn\+Object@{Drawn\+Object}!````~Drawn\+Object@{$\sim$\+Drawn\+Object}}
+\index{````~Drawn\+Object@{$\sim$\+Drawn\+Object}!Drawn\+Object@{Drawn\+Object}}
+\subsubsection[{\texorpdfstring{$\sim$\+Drawn\+Object()}{~DrawnObject()}}]{\setlength{\rightskip}{0pt plus 5cm}Drawn\+Object\+::$\sim$\+Drawn\+Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classDrawnObject_ac59f1d7ad3e4d554957ff85a1f133988}{}\label{classDrawnObject_ac59f1d7ad3e4d554957ff85a1f133988}
+
+
+Destructor. 
+
+Destructor of the \hyperlink{classDrawnObject}{Drawn\+Object} class 
+
+\subsection{Member Function Documentation}
+\index{Drawn\+Object@{Drawn\+Object}!pixel\+\_\+to\+\_\+real@{pixel\+\_\+to\+\_\+real}}
+\index{pixel\+\_\+to\+\_\+real@{pixel\+\_\+to\+\_\+real}!Drawn\+Object@{Drawn\+Object}}
+\subsubsection[{\texorpdfstring{pixel\+\_\+to\+\_\+real(\+World $\ast$world, Vector3d p)}{pixel_to_real(World *world, Vector3d p)}}]{\setlength{\rightskip}{0pt plus 5cm}Vector3d Drawn\+Object\+::pixel\+\_\+to\+\_\+real (
+\begin{DoxyParamCaption}
+\item[{{\bf World} $\ast$}]{world, }
+\item[{Vector3d}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{classDrawnObject_a06f179d7fec55a350f9a78af334fa592}{}\label{classDrawnObject_a06f179d7fec55a350f9a78af334fa592}
+
+
+The projection function from pixel to real coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & \+: The \hyperlink{classWorld}{World} main coordinates frame \\
+\hline
+{\em p} & \+: The vector that will be projected\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The projected vector in real coordinates 
+\end{DoxyReturn}
+\index{Drawn\+Object@{Drawn\+Object}!real\+\_\+to\+\_\+pixel@{real\+\_\+to\+\_\+pixel}}
+\index{real\+\_\+to\+\_\+pixel@{real\+\_\+to\+\_\+pixel}!Drawn\+Object@{Drawn\+Object}}
+\subsubsection[{\texorpdfstring{real\+\_\+to\+\_\+pixel(\+World $\ast$world, Vector3d p)}{real_to_pixel(World *world, Vector3d p)}}]{\setlength{\rightskip}{0pt plus 5cm}Vector3d Drawn\+Object\+::real\+\_\+to\+\_\+pixel (
+\begin{DoxyParamCaption}
+\item[{{\bf World} $\ast$}]{world, }
+\item[{Vector3d}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{classDrawnObject_a6206da4777e99b07585dcf6426ce8da6}{}\label{classDrawnObject_a6206da4777e99b07585dcf6426ce8da6}
+
+
+The projection function from real to pixel coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & \+: The \hyperlink{classWorld}{World} main coordinates frame \\
+\hline
+{\em p} & \+: The vector that will be projected\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The projected vector in pixel coordinates 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/generic\+Type/\hyperlink{DrawnObject_8h}{Drawn\+Object.\+h}\item 
+src/generic\+Type/\hyperlink{DrawnObject_8cpp}{Drawn\+Object.\+cpp}\end{DoxyCompactItemize}

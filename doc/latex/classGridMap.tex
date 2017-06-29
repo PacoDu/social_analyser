@@ -1,0 +1,405 @@
+\hypertarget{classGridMap}{}\section{Grid\+Map Class Reference}
+\label{classGridMap}\index{Grid\+Map@{Grid\+Map}}
+
+
+This class manage the 2D \hyperlink{classGridMap}{Grid\+Map} computed from the Agents \hyperlink{classSocialSpace}{Social\+Space}.  
+
+
+
+
+{\ttfamily \#include $<$Grid\+Map.\+h$>$}
+
+
+
+Inheritance diagram for Grid\+Map\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{classGridMap__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Grid\+Map\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGridMap__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structGridMap_1_1CompaireVCell}{Compaire\+V\+Cell}
+\begin{DoxyCompactList}\small\item\em Define an operator for \hyperlink{classGridCell}{Grid\+Cell} and associated g\+Score comparison for A$\ast$ algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGridMap_aa5a60e82b2bf8b2005ef7c71e7080904}{Grid\+Map} (\hyperlink{classWorld}{World} $\ast$world, \hyperlink{classPopulation}{Population} $\ast$pop, double \hyperlink{classGridMap_a8481536f663251381674b71090754e1d}{resolution}=0.\+1)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classGridMap_a53cc0906130bae883f5d544480039118}{$\sim$\+Grid\+Map} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classGridMap_ac13f92dd7cdcfed701cf900eb592126b}{compute} ()\hypertarget{classGridMap_ac13f92dd7cdcfed701cf900eb592126b}{}\label{classGridMap_ac13f92dd7cdcfed701cf900eb592126b}
+
+\begin{DoxyCompactList}\small\item\em Compute the value of each \hyperlink{classGridCell}{Grid\+Cell} in the \hyperlink{classGridMap}{Grid\+Map} based on Agents \hyperlink{classSocialSpace}{Social\+Space}. \end{DoxyCompactList}\item 
+void \hyperlink{classGridMap_a5321e644c2398b2d0e50091b410f6ec3}{normalize} ()\hypertarget{classGridMap_a5321e644c2398b2d0e50091b410f6ec3}{}\label{classGridMap_a5321e644c2398b2d0e50091b410f6ec3}
+
+\begin{DoxyCompactList}\small\item\em Normalize the Grid\+Cells value between 0 and 1. \end{DoxyCompactList}\item 
+void \hyperlink{classGridMap_a5dcf97b44802b1ecf294f4e1fc79b94b}{update} ()\hypertarget{classGridMap_a5dcf97b44802b1ecf294f4e1fc79b94b}{}\label{classGridMap_a5dcf97b44802b1ecf294f4e1fc79b94b}
+
+\begin{DoxyCompactList}\small\item\em Update the \hyperlink{classGridMap}{Grid\+Map} by calling compute and normalize function. \end{DoxyCompactList}\item 
+void \hyperlink{classGridMap_a43a70209f5c8c5cf833500ce1d95880c}{deselect\+Cells} ()\hypertarget{classGridMap_a43a70209f5c8c5cf833500ce1d95880c}{}\label{classGridMap_a43a70209f5c8c5cf833500ce1d95880c}
+
+\begin{DoxyCompactList}\small\item\em Set all \hyperlink{classGridCell}{Grid\+Cell} to selected False. \end{DoxyCompactList}\item 
+int \hyperlink{classGridMap_a095c92e0c8abe909144cd9bf03fb2675}{path\+Finder\+Next\+Step} ()
+\begin{DoxyCompactList}\small\item\em Compute one step of the A$\ast$ algorithm. \end{DoxyCompactList}\item 
+void \hyperlink{classGridMap_ae2eb9ca9d4f2f1552f200ce4b9582d01}{reset\+Cell\+Color} ()\hypertarget{classGridMap_ae2eb9ca9d4f2f1552f200ce4b9582d01}{}\label{classGridMap_ae2eb9ca9d4f2f1552f200ce4b9582d01}
+
+\begin{DoxyCompactList}\small\item\em Reset the color of all \hyperlink{classGridCell}{Grid\+Cell}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classGridCell}{Grid\+Cell} $\ast$ $>$ \hyperlink{classGridMap_a9471e8e29679bb4e38f2a3011a394c4d}{construct\+Path} ()
+\begin{DoxyCompactList}\small\item\em Build the path from A$\ast$ algorithm result. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classGridCell}{Grid\+Cell} $\ast$ $>$ \hyperlink{classGridMap_aecc6cb12f384e8049a4f029a68b11f73}{neighbors} (\hyperlink{classGridCell}{Grid\+Cell} $\ast$cell, bool allow\+Diagonal\+Move=true)
+\begin{DoxyCompactList}\small\item\em Find the neighbors of a \hyperlink{classGridCell}{Grid\+Cell} in the \hyperlink{classGridMap}{Grid\+Map}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classGridCell}{Grid\+Cell} $\ast$ $>$ \hyperlink{classGridMap_a976f63082aba927b21bc0d5a83c2261d}{find\+Path} (\hyperlink{classGridCell}{Grid\+Cell} $\ast$\hyperlink{classGridMap_a5c3e52ee3c6cc6183ac94d3cb31d6a93}{start\+Cell}, \hyperlink{classGridCell}{Grid\+Cell} $\ast$\hyperlink{classGridMap_a0ad10e901c423350fd0e578b256bb2f8}{end\+Cell})
+\begin{DoxyCompactList}\small\item\em Find path between two given \hyperlink{classGridCell}{Grid\+Cell} in parameters. \end{DoxyCompactList}\item 
+\hyperlink{classGridCell}{Grid\+Cell} $\ast$ \hyperlink{classGridMap_a2041007472f0be8fffe93cb1c25d8e9f}{get\+Cell} (unsigned int cell\+Id)
+\begin{DoxyCompactList}\small\item\em Get a \hyperlink{classGridCell}{Grid\+Cell} in the \hyperlink{classGridMap}{Grid\+Map} by id. \end{DoxyCompactList}\item 
+\hyperlink{classGridCell}{Grid\+Cell} $\ast$ \hyperlink{classGridMap_a5dd1d791747a4580e6c9d73a12b5953f}{get\+Cell} (double x, double y)
+\begin{DoxyCompactList}\small\item\em find a \hyperlink{classGridCell}{Grid\+Cell} in the \hyperlink{classGridMap}{Grid\+Map} from its real coordinates \end{DoxyCompactList}\item 
+void \hyperlink{classGridMap_a2c15016c5c2e1d2befdff013df12fe39}{set\+Info\+Enabled} (bool \hyperlink{classGridMap_ab106fa68828f14f788e697728b94992b}{info\+Enabled}=false)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridMap_a08ebd0d61670045ed7cbbdf33626d1af}{is\+Group\+Space\+Enabled} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classGridMap_a0923c16f8e6d2a08f02d8b32d0a5ef40}{set\+Group\+Space\+Enabled} (bool \hyperlink{classGridMap_ace7258ad25fea48c37b88e7de9c0b1b4}{group\+Space\+Enabled}=true)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridMap_ad37f0bb29e70f2cba3988fd1743d07d9}{is\+Personal\+Space\+Enabled} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classGridMap_ac5ed7378de3de7f4a4edddfb53a43af0}{set\+Personal\+Space\+Enabled} (bool \hyperlink{classGridMap_ab61a1f66414c31e4ffdd15cbd8c2f373}{personal\+Space\+Enabled}=true)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridMap_ab56b76831425dc0e3bf1c84d2a42bde1}{is\+Border\+Enabled} () const 
+\begin{DoxyCompactList}\small\item\em Simple getter. \end{DoxyCompactList}\item 
+void \hyperlink{classGridMap_a3ca0ec500c27b1c47ab0a73bceca44ea}{set\+Border\+Enabled} (bool \hyperlink{classGridMap_aad72652fe3a6ab78b47bce0c0daaaab5}{border\+Enabled}=true)
+\begin{DoxyCompactList}\small\item\em Simple setter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::pair$<$ double, \hyperlink{classGridCell}{Grid\+Cell} $\ast$ $>$ \hyperlink{classGridMap_a3589e78d066f9c12b000f85f870afbc4}{V\+Cell}\hypertarget{classGridMap_a3589e78d066f9c12b000f85f870afbc4}{}\label{classGridMap_a3589e78d066f9c12b000f85f870afbc4}
+
+\begin{DoxyCompactList}\small\item\em Define an operator for \hyperlink{classGridCell}{Grid\+Cell} and associated g\+Score comparison for A$\ast$ algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPopulation}{Population} $\ast$ \hyperlink{classGridMap_ac43b2a50b73da8fe3c04635a6924dfc6}{\+\_\+population}\hypertarget{classGridMap_ac43b2a50b73da8fe3c04635a6924dfc6}{}\label{classGridMap_ac43b2a50b73da8fe3c04635a6924dfc6}
+
+\begin{DoxyCompactList}\small\item\em The \hyperlink{classPopulation}{Population} related to the \hyperlink{classGridMap}{Grid\+Map}. \end{DoxyCompactList}\item 
+double \hyperlink{classGridMap_a919ed90a283eb5ae30704e50e589a48f}{width}\hypertarget{classGridMap_a919ed90a283eb5ae30704e50e589a48f}{}\label{classGridMap_a919ed90a283eb5ae30704e50e589a48f}
+
+\begin{DoxyCompactList}\small\item\em The real width of the \hyperlink{classGridMap}{Grid\+Map} in meter. \end{DoxyCompactList}\item 
+double \hyperlink{classGridMap_a19dc2d36c3064698b34ef59433378b1a}{height}\hypertarget{classGridMap_a19dc2d36c3064698b34ef59433378b1a}{}\label{classGridMap_a19dc2d36c3064698b34ef59433378b1a}
+
+\begin{DoxyCompactList}\small\item\em The real height of the \hyperlink{classGridMap}{Grid\+Map} in meter. \end{DoxyCompactList}\item 
+double \hyperlink{classGridMap_a8481536f663251381674b71090754e1d}{resolution}\hypertarget{classGridMap_a8481536f663251381674b71090754e1d}{}\label{classGridMap_a8481536f663251381674b71090754e1d}
+
+\begin{DoxyCompactList}\small\item\em The resolution of the \hyperlink{classGridMap}{Grid\+Map}. \end{DoxyCompactList}\item 
+double \hyperlink{classGridMap_a448b6975949273a3890b9911b635ca98}{min\+Value}\hypertarget{classGridMap_a448b6975949273a3890b9911b635ca98}{}\label{classGridMap_a448b6975949273a3890b9911b635ca98}
+
+\begin{DoxyCompactList}\small\item\em The minimum value of a \hyperlink{classGridCell}{Grid\+Cell} in the \hyperlink{classGridMap}{Grid\+Map}. \end{DoxyCompactList}\item 
+double \hyperlink{classGridMap_a275bf52aba3335c8fa35d9c57e177dd9}{max\+Value}\hypertarget{classGridMap_a275bf52aba3335c8fa35d9c57e177dd9}{}\label{classGridMap_a275bf52aba3335c8fa35d9c57e177dd9}
+
+\begin{DoxyCompactList}\small\item\em The maximum value of a \hyperlink{classGridCell}{Grid\+Cell} in the \hyperlink{classGridMap}{Grid\+Map}. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridMap_ab61a1f66414c31e4ffdd15cbd8c2f373}{personal\+Space\+Enabled} = true\hypertarget{classGridMap_ab61a1f66414c31e4ffdd15cbd8c2f373}{}\label{classGridMap_ab61a1f66414c31e4ffdd15cbd8c2f373}
+
+\begin{DoxyCompactList}\small\item\em Enable or disable the computing of the Personal\+Social\+Space in the \hyperlink{classGridMap}{Grid\+Map}. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridMap_ace7258ad25fea48c37b88e7de9c0b1b4}{group\+Space\+Enabled} = true\hypertarget{classGridMap_ace7258ad25fea48c37b88e7de9c0b1b4}{}\label{classGridMap_ace7258ad25fea48c37b88e7de9c0b1b4}
+
+\begin{DoxyCompactList}\small\item\em Enable or disable the computing of the \hyperlink{classGroupSocialSpace}{Group\+Social\+Space} in the \hyperlink{classGridMap}{Grid\+Map}. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridMap_aad72652fe3a6ab78b47bce0c0daaaab5}{border\+Enabled} = false\hypertarget{classGridMap_aad72652fe3a6ab78b47bce0c0daaaab5}{}\label{classGridMap_aad72652fe3a6ab78b47bce0c0daaaab5}
+
+\begin{DoxyCompactList}\small\item\em Enable or disable the drawing of the \hyperlink{classGridCell}{Grid\+Cell} border. \end{DoxyCompactList}\item 
+bool \hyperlink{classGridMap_ab106fa68828f14f788e697728b94992b}{info\+Enabled} = false\hypertarget{classGridMap_ab106fa68828f14f788e697728b94992b}{}\label{classGridMap_ab106fa68828f14f788e697728b94992b}
+
+\begin{DoxyCompactList}\small\item\em Enable or disable the drawing of the \hyperlink{classGridCell}{Grid\+Cell} information. \end{DoxyCompactList}\item 
+std\+::priority\+\_\+queue$<$ \hyperlink{classGridMap_a3589e78d066f9c12b000f85f870afbc4}{V\+Cell}, std\+::vector$<$ \hyperlink{classGridMap_a3589e78d066f9c12b000f85f870afbc4}{V\+Cell} $>$, \hyperlink{structGridMap_1_1CompaireVCell}{Compaire\+V\+Cell} $>$ \hyperlink{classGridMap_a85c0c815d6667c3a0c0f966512df6c4d}{open\+Nodes\+PQ}\hypertarget{classGridMap_a85c0c815d6667c3a0c0f966512df6c4d}{}\label{classGridMap_a85c0c815d6667c3a0c0f966512df6c4d}
+
+\begin{DoxyCompactList}\small\item\em Priority queue for open nodes processing in A$\ast$ algorithm. \end{DoxyCompactList}\item 
+std\+::map$<$ \hyperlink{classGridCell}{Grid\+Cell} $\ast$, \hyperlink{classGridCell}{Grid\+Cell} $\ast$ $>$ \hyperlink{classGridMap_ad90ffedc0a4704793d2ad9ac05d1707a}{came\+From}\hypertarget{classGridMap_ad90ffedc0a4704793d2ad9ac05d1707a}{}\label{classGridMap_ad90ffedc0a4704793d2ad9ac05d1707a}
+
+\begin{DoxyCompactList}\small\item\em Path relation between \hyperlink{classGridCell}{Grid\+Cell} for A$\ast$ algorithm. \end{DoxyCompactList}\item 
+std\+::map$<$ \hyperlink{classGridCell}{Grid\+Cell} $\ast$, double $>$ \hyperlink{classGridMap_a5c051634746830ef50796760cdd90105}{g\+Score}\hypertarget{classGridMap_a5c051634746830ef50796760cdd90105}{}\label{classGridMap_a5c051634746830ef50796760cdd90105}
+
+\begin{DoxyCompactList}\small\item\em The score obtained in A$\ast$ algorithm associated to its \hyperlink{classGridCell}{Grid\+Cell}. \end{DoxyCompactList}\item 
+\hyperlink{classGridCell}{Grid\+Cell} $\ast$ \hyperlink{classGridMap_a0ad10e901c423350fd0e578b256bb2f8}{end\+Cell}\hypertarget{classGridMap_a0ad10e901c423350fd0e578b256bb2f8}{}\label{classGridMap_a0ad10e901c423350fd0e578b256bb2f8}
+
+\begin{DoxyCompactList}\small\item\em The goal \hyperlink{classGridCell}{Grid\+Cell} for the path. \end{DoxyCompactList}\item 
+\hyperlink{classGridCell}{Grid\+Cell} $\ast$ \hyperlink{classGridMap_a5c3e52ee3c6cc6183ac94d3cb31d6a93}{start\+Cell}\hypertarget{classGridMap_a5c3e52ee3c6cc6183ac94d3cb31d6a93}{}\label{classGridMap_a5c3e52ee3c6cc6183ac94d3cb31d6a93}
+
+\begin{DoxyCompactList}\small\item\em The starting \hyperlink{classGridCell}{Grid\+Cell} for the path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class manage the 2D \hyperlink{classGridMap}{Grid\+Map} computed from the Agents \hyperlink{classSocialSpace}{Social\+Space}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Grid\+Map@{Grid\+Map}!Grid\+Map@{Grid\+Map}}
+\index{Grid\+Map@{Grid\+Map}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{Grid\+Map(\+World $\ast$world, Population $\ast$pop, double resolution=0.\+1)}{GridMap(World *world, Population *pop, double resolution=0.1)}}]{\setlength{\rightskip}{0pt plus 5cm}Grid\+Map\+::\+Grid\+Map (
+\begin{DoxyParamCaption}
+\item[{{\bf World} $\ast$}]{world, }
+\item[{{\bf Population} $\ast$}]{pop, }
+\item[{double}]{resolution = {\ttfamily 0.1}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridMap_aa5a60e82b2bf8b2005ef7c71e7080904}{}\label{classGridMap_aa5a60e82b2bf8b2005ef7c71e7080904}
+
+
+Constructor. 
+
+Constructor of the \hyperlink{classGridMap}{Grid\+Map} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & \+: The main frame coordinates \\
+\hline
+{\em pop} & \+: The population related to this \hyperlink{classGridMap}{Grid\+Map} \\
+\hline
+{\em resolution} & \+: The resolution of the \hyperlink{classGridMap}{Grid\+Map}, must be a fraction of the \hyperlink{classWorld}{World} width and height \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Map@{Grid\+Map}!````~Grid\+Map@{$\sim$\+Grid\+Map}}
+\index{````~Grid\+Map@{$\sim$\+Grid\+Map}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{$\sim$\+Grid\+Map()}{~GridMap()}}]{\setlength{\rightskip}{0pt plus 5cm}Grid\+Map\+::$\sim$\+Grid\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classGridMap_a53cc0906130bae883f5d544480039118}{}\label{classGridMap_a53cc0906130bae883f5d544480039118}
+
+
+Destructor. 
+
+Destructor of the \hyperlink{classGridMap}{Grid\+Map} class 
+
+\subsection{Member Function Documentation}
+\index{Grid\+Map@{Grid\+Map}!construct\+Path@{construct\+Path}}
+\index{construct\+Path@{construct\+Path}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{construct\+Path()}{constructPath()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Grid\+Cell} $\ast$ $>$ Grid\+Map\+::construct\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridMap_a9471e8e29679bb4e38f2a3011a394c4d}{}\label{classGridMap_a9471e8e29679bb4e38f2a3011a394c4d}
+
+
+Build the path from A$\ast$ algorithm result. 
+
+\begin{DoxyReturn}{Returns}
+List of \hyperlink{classGridCell}{Grid\+Cell} representing the path found in the \hyperlink{classGridMap}{Grid\+Map} 
+\end{DoxyReturn}
+\index{Grid\+Map@{Grid\+Map}!find\+Path@{find\+Path}}
+\index{find\+Path@{find\+Path}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{find\+Path(\+Grid\+Cell $\ast$start\+Cell, Grid\+Cell $\ast$end\+Cell)}{findPath(GridCell *startCell, GridCell *endCell)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Grid\+Cell} $\ast$ $>$ Grid\+Map\+::find\+Path (
+\begin{DoxyParamCaption}
+\item[{{\bf Grid\+Cell} $\ast$}]{start\+Cell, }
+\item[{{\bf Grid\+Cell} $\ast$}]{end\+Cell}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridMap_a976f63082aba927b21bc0d5a83c2261d}{}\label{classGridMap_a976f63082aba927b21bc0d5a83c2261d}
+
+
+Find path between two given \hyperlink{classGridCell}{Grid\+Cell} in parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Cell} & \+: The starting \hyperlink{classGridCell}{Grid\+Cell} \\
+\hline
+{\em end\+Cell} & \+: The goal \hyperlink{classGridCell}{Grid\+Cell}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The path found in the \hyperlink{classGridMap}{Grid\+Map} in a list of \hyperlink{classGridCell}{Grid\+Cell} 
+\end{DoxyReturn}
+\index{Grid\+Map@{Grid\+Map}!get\+Cell@{get\+Cell}}
+\index{get\+Cell@{get\+Cell}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{get\+Cell(unsigned int cell\+Id)}{getCell(unsigned int cellId)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Grid\+Cell} $\ast$ Grid\+Map\+::get\+Cell (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{cell\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridMap_a2041007472f0be8fffe93cb1c25d8e9f}{}\label{classGridMap_a2041007472f0be8fffe93cb1c25d8e9f}
+
+
+Get a \hyperlink{classGridCell}{Grid\+Cell} in the \hyperlink{classGridMap}{Grid\+Map} by id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell\+Id} & \+: The unique identifier of the \hyperlink{classGridCell}{Grid\+Cell}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding \hyperlink{classGridCell}{Grid\+Cell}, null if not found 
+\end{DoxyReturn}
+\index{Grid\+Map@{Grid\+Map}!get\+Cell@{get\+Cell}}
+\index{get\+Cell@{get\+Cell}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{get\+Cell(double x, double y)}{getCell(double x, double y)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Grid\+Cell} $\ast$ Grid\+Map\+::get\+Cell (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridMap_a5dd1d791747a4580e6c9d73a12b5953f}{}\label{classGridMap_a5dd1d791747a4580e6c9d73a12b5953f}
+
+
+find a \hyperlink{classGridCell}{Grid\+Cell} in the \hyperlink{classGridMap}{Grid\+Map} from its real coordinates 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \+: The x coordinate of the \hyperlink{classGridCell}{Grid\+Cell} in meter \\
+\hline
+{\em y} & \+: The y coordinate of the \hyperlink{classGridCell}{Grid\+Cell} in meter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding \hyperlink{classGridCell}{Grid\+Cell}, null if not found 
+\end{DoxyReturn}
+\index{Grid\+Map@{Grid\+Map}!is\+Border\+Enabled@{is\+Border\+Enabled}}
+\index{is\+Border\+Enabled@{is\+Border\+Enabled}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{is\+Border\+Enabled() const }{isBorderEnabled() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Grid\+Map\+::is\+Border\+Enabled (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGridMap_ab56b76831425dc0e3bf1c84d2a42bde1}{}\label{classGridMap_ab56b76831425dc0e3bf1c84d2a42bde1}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+border\+Enabled 
+\end{DoxyReturn}
+\index{Grid\+Map@{Grid\+Map}!is\+Group\+Space\+Enabled@{is\+Group\+Space\+Enabled}}
+\index{is\+Group\+Space\+Enabled@{is\+Group\+Space\+Enabled}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{is\+Group\+Space\+Enabled() const }{isGroupSpaceEnabled() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Grid\+Map\+::is\+Group\+Space\+Enabled (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGridMap_a08ebd0d61670045ed7cbbdf33626d1af}{}\label{classGridMap_a08ebd0d61670045ed7cbbdf33626d1af}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+group\+Space\+Enabled 
+\end{DoxyReturn}
+\index{Grid\+Map@{Grid\+Map}!is\+Personal\+Space\+Enabled@{is\+Personal\+Space\+Enabled}}
+\index{is\+Personal\+Space\+Enabled@{is\+Personal\+Space\+Enabled}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{is\+Personal\+Space\+Enabled() const }{isPersonalSpaceEnabled() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Grid\+Map\+::is\+Personal\+Space\+Enabled (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classGridMap_ad37f0bb29e70f2cba3988fd1743d07d9}{}\label{classGridMap_ad37f0bb29e70f2cba3988fd1743d07d9}
+
+
+Simple getter. 
+
+\begin{DoxyReturn}{Returns}
+personal\+Space\+Enabled 
+\end{DoxyReturn}
+\index{Grid\+Map@{Grid\+Map}!neighbors@{neighbors}}
+\index{neighbors@{neighbors}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{neighbors(\+Grid\+Cell $\ast$cell, bool allow\+Diagonal\+Move=true)}{neighbors(GridCell *cell, bool allowDiagonalMove=true)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Grid\+Cell} $\ast$ $>$ Grid\+Map\+::neighbors (
+\begin{DoxyParamCaption}
+\item[{{\bf Grid\+Cell} $\ast$}]{cell, }
+\item[{bool}]{allow\+Diagonal\+Move = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridMap_aecc6cb12f384e8049a4f029a68b11f73}{}\label{classGridMap_aecc6cb12f384e8049a4f029a68b11f73}
+
+
+Find the neighbors of a \hyperlink{classGridCell}{Grid\+Cell} in the \hyperlink{classGridMap}{Grid\+Map}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & \+: Target \hyperlink{classGridCell}{Grid\+Cell} \\
+\hline
+{\em allow\+Diagonal\+Move} & \+: Allow diagonal neighboring\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of neighbors \hyperlink{classGridCell}{Grid\+Cell} 
+\end{DoxyReturn}
+\index{Grid\+Map@{Grid\+Map}!path\+Finder\+Next\+Step@{path\+Finder\+Next\+Step}}
+\index{path\+Finder\+Next\+Step@{path\+Finder\+Next\+Step}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{path\+Finder\+Next\+Step()}{pathFinderNextStep()}}]{\setlength{\rightskip}{0pt plus 5cm}int Grid\+Map\+::path\+Finder\+Next\+Step (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridMap_a095c92e0c8abe909144cd9bf03fb2675}{}\label{classGridMap_a095c92e0c8abe909144cd9bf03fb2675}
+
+
+Compute one step of the A$\ast$ algorithm. 
+
+\begin{DoxyReturn}{Returns}
+1 if path\+Finder reached goal, -\/1 path\+Finder couldn\textquotesingle{}t reach the goal, 0 otherwise 
+\end{DoxyReturn}
+\index{Grid\+Map@{Grid\+Map}!set\+Border\+Enabled@{set\+Border\+Enabled}}
+\index{set\+Border\+Enabled@{set\+Border\+Enabled}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{set\+Border\+Enabled(bool border\+Enabled=true)}{setBorderEnabled(bool borderEnabled=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Map\+::set\+Border\+Enabled (
+\begin{DoxyParamCaption}
+\item[{bool}]{border\+Enabled = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridMap_a3ca0ec500c27b1c47ab0a73bceca44ea}{}\label{classGridMap_a3ca0ec500c27b1c47ab0a73bceca44ea}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em border\+Enabled} & \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Map@{Grid\+Map}!set\+Group\+Space\+Enabled@{set\+Group\+Space\+Enabled}}
+\index{set\+Group\+Space\+Enabled@{set\+Group\+Space\+Enabled}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{set\+Group\+Space\+Enabled(bool group\+Space\+Enabled=true)}{setGroupSpaceEnabled(bool groupSpaceEnabled=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Map\+::set\+Group\+Space\+Enabled (
+\begin{DoxyParamCaption}
+\item[{bool}]{group\+Space\+Enabled = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridMap_a0923c16f8e6d2a08f02d8b32d0a5ef40}{}\label{classGridMap_a0923c16f8e6d2a08f02d8b32d0a5ef40}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em group\+Space\+Enabled} & \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Map@{Grid\+Map}!set\+Info\+Enabled@{set\+Info\+Enabled}}
+\index{set\+Info\+Enabled@{set\+Info\+Enabled}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{set\+Info\+Enabled(bool info\+Enabled=false)}{setInfoEnabled(bool infoEnabled=false)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Map\+::set\+Info\+Enabled (
+\begin{DoxyParamCaption}
+\item[{bool}]{info\+Enabled = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridMap_a2c15016c5c2e1d2befdff013df12fe39}{}\label{classGridMap_a2c15016c5c2e1d2befdff013df12fe39}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info\+Enabled} & \\
+\hline
+\end{DoxyParams}
+\index{Grid\+Map@{Grid\+Map}!set\+Personal\+Space\+Enabled@{set\+Personal\+Space\+Enabled}}
+\index{set\+Personal\+Space\+Enabled@{set\+Personal\+Space\+Enabled}!Grid\+Map@{Grid\+Map}}
+\subsubsection[{\texorpdfstring{set\+Personal\+Space\+Enabled(bool personal\+Space\+Enabled=true)}{setPersonalSpaceEnabled(bool personalSpaceEnabled=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Map\+::set\+Personal\+Space\+Enabled (
+\begin{DoxyParamCaption}
+\item[{bool}]{personal\+Space\+Enabled = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classGridMap_ac5ed7378de3de7f4a4edddfb53a43af0}{}\label{classGridMap_ac5ed7378de3de7f4a4edddfb53a43af0}
+
+
+Simple setter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em personal\+Space\+Enabled} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/world\+Representation/\hyperlink{GridMap_8h}{Grid\+Map.\+h}\item 
+src/world\+Representation/\hyperlink{GridMap_8cpp}{Grid\+Map.\+cpp}\end{DoxyCompactItemize}
